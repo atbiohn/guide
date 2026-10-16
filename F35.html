@@ -10,7 +10,7 @@
 .ode-field .hd .enc b{font-size:16px;margin-left:4px}
 .ode-field .lead{margin:0;padding:8px 14px;background:#f4f6fa;border:1px solid #c8c8c8;border-top:0;border-radius:0 0 6px 6px}
 .ode-field .legend{font-size:12px;color:#555;margin:10px 0 6px}
-.ode-field .legend span.it{margin-right:14px;white-space:nowrap}
+.ode-field .legend span.it{display:inline-block;margin-right:14px;white-space:nowrap}
 .ode-field .lb{display:inline-block;background:#3d4b66;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
 .ode-field .lbug{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
 .ode-field .lx{display:inline-block;background:#a05a00;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
@@ -157,6 +157,8 @@
 @media (max-width:600px){
 .ode-field{font-size:15px;overflow-wrap:anywhere}
 .ode-field .hd .nm{font-size:19px}
+.ode-field .legend span.it{white-space:normal}
+.ode-field .hd .enc{white-space:normal}
 .ode-field .rooms{grid-template-columns:1fr}
 .ode-field .imgs{flex-wrap:wrap}
 .ode-field .ev{gap:8px}
