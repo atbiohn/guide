@@ -1,0 +1,1137 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黄昏のオード 攻略チャート</title>
+<style>
+.ode-chart{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:14px;color:#222;max-width:760px;line-height:1.6}
+.ode-chart *{box-sizing:border-box}
+.ode-chart a{color:#2c5aa0}
+.ode-chart .lead{margin:8px 0 14px}
+.ode-chart .intro{background:#f4f6fa;border:1px solid #c8c8c8;border-left:6px solid #3d4b66;border-radius:4px;padding:8px 14px;margin:0 0 12px}
+.ode-chart .intro p{margin:4px 0}
+.ode-chart .intro b{color:#b0413e}
+.ode-chart .intro .cnote{font-size:12px;color:#6b7280}
+.ode-chart .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:#555;margin:0 0 12px}
+/* 章バナー */
+.ode-chart details.ch{margin:0 0 8px;border-radius:6px;overflow:hidden;border:1px solid #3d4b66}
+.ode-chart details.ch>summary{list-style:none;cursor:pointer;position:relative;display:block;height:84px;overflow:hidden;background:#222}
+.ode-chart details.ch>summary::-webkit-details-marker{display:none}
+.ode-chart .bn{position:absolute;inset:-12px;background-size:cover;background-position:var(--pos,50% 50%);filter:blur(3px) brightness(.62);image-rendering:pixelated}
+.ode-chart .bt{position:absolute;inset:0;display:flex;align-items:center;gap:12px;padding:0 16px;color:#fff;text-shadow:0 1px 4px #000,0 0 2px #000}
+.ode-chart .bt .no{font-size:13px;letter-spacing:2px;border:1px solid rgba(255,255,255,.8);border-radius:3px;padding:0 8px;white-space:nowrap}
+.ode-chart .bt .nm{font-size:22px;font-weight:bold;letter-spacing:1px}
+.ode-chart .bt .ar{margin-left:auto;font-size:18px;transition:transform .2s}
+.ode-chart details.ch[open] .bt .ar{transform:rotate(180deg)}
+.ode-chart .body{padding:8px 8px 12px;background:#fff}
+.ode-chart .soon{color:#888;padding:12px;text-align:center}
+/* エリア見出し */
+.ode-chart .area{display:flex;align-items:center;gap:8px;margin:14px 0 4px;padding:4px 10px;background:#3d4b66;color:#fff;border-radius:4px;font-size:15px}
+.ode-chart .area:first-child{margin-top:0}
+.ode-chart .area a{color:#fff}
+.ode-chart .area .ln{margin-left:auto;font-size:12px;opacity:.85}
+/* チャート行 */
+.ode-chart .hd,.ode-chart .r{display:grid;grid-template-columns:58px 44px 1fr 190px}
+.ode-chart .hd{font-size:12px;color:#fff;background:#6b7a96;margin-top:4px}
+.ode-chart .hd div{padding:1px 6px}
+.ode-chart .r{border:1px solid #d5dbe6;border-top:0;background:#fff}
+.ode-chart .r>div{padding:3px 6px}
+.ode-chart .r .t{display:flex;flex-direction:column;align-items:center;gap:2px;padding-top:5px}
+.ode-chart .r .g{border-left:1px dashed #d5dbe6;font-size:13px}
+.ode-chart .r .g>span{display:block}
+/* 種別 = セル色＋小アイコン */
+.ode-chart .tg{display:inline-block;font-size:10px;line-height:16px;color:#fff;border-radius:3px;padding:0 4px;white-space:nowrap}
+.ode-chart .m .tg{background:#3d4b66}
+.ode-chart .o{background:#fff8e1}.ode-chart .o .tg{background:#d08a00}
+.ode-chart .e{background:#f3f4f6;color:#555}.ode-chart .e .tg{background:#9aa1ad}
+.ode-chart .e .a::before{content:"→ ";color:#9aa1ad}
+.ode-chart .b{background:#fbeaea}.ode-chart .b .tg{background:#b0413e}.ode-chart .b .a{font-weight:bold}
+.ode-chart .n{background:#eef5fb;font-size:12px;color:#444}.ode-chart .n .tg{background:#4f8fc0}
+.ode-chart .n .a{grid-column:2/5}
+/* 2つ目の札（自動＋ボス・必須＋戦闘など） */
+.ode-chart .tg.ta{background:#9aa1ad}.ode-chart .tg.tb{background:#b0413e}
+.ode-chart .tg.tl{background:#6b3fa0;font-size:9px;line-height:11px;padding:1px 2px;text-align:center;white-space:normal}
+/* 入手アイコン */
+.ode-chart .ic{display:inline-block;width:16px;height:16px;line-height:16px;font-size:10px;text-align:center;color:#fff;border-radius:3px;margin-right:4px;vertical-align:-2px}
+.ode-chart .hp{background:#3e6fb0}.ode-chart .sp{background:#1f8fa0}.ode-chart .at{background:#c0392b}
+.ode-chart .ky{background:#8a6d1e}.ode-chart .sg{background:#6a4fa0;border-radius:8px}.ode-chart .eq{background:#3e8f5a}
+.ode-chart .gd{background:#c9a000;border-radius:8px}.ode-chart .pt{background:#7a7a7a}.ode-chart .pa{background:#d0607a;border-radius:8px}
+.ode-chart .r .cn{border-left:1px dashed #d5dbe6;border-right:1px dashed #d5dbe6;text-align:center;font-size:13px;font-weight:bold;color:#3d4b66;font-variant-numeric:tabular-nums}
+.ode-chart .e .cn{color:#7a818c}
+@media (max-width:600px){
+ .ode-chart .bt .nm{font-size:17px}
+ .ode-chart details.ch>summary{height:64px}
+ .ode-chart .hd{display:none}
+ .ode-chart .r{grid-template-columns:48px 40px 1fr}
+ .ode-chart .r .g{grid-column:3;border-left:0;padding-top:0}
+ .ode-chart .r .g:empty{display:none}
+ .ode-chart .n .a{grid-column:2/4}
+}
+</style>
+<div class="ode-chart">
+<h2>攻略チャート</h2>
+<p class="lead">クリアまでの手順を、章ごとに順番にまとめたチャートです。見たい章の帯を押すと開きます。</p>
+
+<div class="intro">
+<p>このチャートは<b>「安全に進むこと」を最優先</b>にした効率重視の手順です。全滅しないための寄り道（装備更新・セーブ・回復アイテム回収）を積極的に入れています。</p>
+<p>また、<b>エンカウントした雑魚戦はすべて戦って進む前提</b>で組んでいます。逃げてばかりいると推奨レベルに届かず、ボス戦でチャートが崩れます。少々退屈なところもありますが、雑魚戦もコンテンツのひとつとして楽しんでください。</p>
+<p><b>RTA向きではありません。</b>最短手順ではないので、タイムを詰めたい方は別途ルートを組んでください。</p>
+<p>各地名・アイテム・歌・キャラ名のリンク先に詳細ページがあります。</p>
+<p class="cnote">※作中で名前が伏せられている人物は、（）内に名前を補っています。</p>
+<p class="cnote">※章タイトルは当サイトが独自に付けたものです。作中に章の表記はなく、章の変わり目は島を移動するところで区切っています。</p>
+</div>
+
+<div class="legend">
+<span><span class="tg" style="background:#3d4b66">必須</span> 進行に必要</span>
+<span><span class="tg" style="background:#d08a00">推奨</span> 任意だがやるべき</span>
+<span><span class="tg" style="background:#9aa1ad">自動</span> 自動で起こる</span>
+<span><span class="tg" style="background:#b0413e">ボス</span> ボス戦</span>
+<span><span class="tg" style="background:#b0413e">戦闘</span> 強制戦闘</span>
+<span><span class="tg tl" style="font-size:10px">取り返し不可</span> 取り返しのつかない要素</span>
+<span><span class="tg" style="background:#4f8fc0">メモ</span> 補足</span>
+</div>
+<div class="legend">
+<span><span class="ic hp">H</span>HP回復</span><span><span class="ic sp">S</span>SP回復</span><span><span class="ic at">攻</span>攻撃アイテム</span><span><span class="ic ky">鍵</span>大事なもの</span><span><span class="ic sg">♪</span>歌</span><span><span class="ic eq">装</span>装備</span><span><span class="ic pt">部</span>リュートパーツ</span><span><span class="ic gd">G</span>お金・財宝</span><span><span class="ic pa">＋</span>仲間</span>
+</div>
+
+<!-- ============ 第1章 ============ -->
+<details class="ch">
+<summary><div class="bn" style="background-image:url(field_maps/FIELD1/100.png);--pos:50% 55%"></div><div class="bt"><span class="no">第1章</span><span class="nm">目覚め</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F1.html">港町アデン</a><span class="ln">F1</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">1</div><div class="a">浜辺からゲーム開始</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">R1またはL1ボタンで現在の地名を表示できる</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">2</div><div class="a">上で横移動している子供と会話 →「ボクらのディックおじさんは、木工細工が得意なんだよ！　小さい飾りとか得意なんだよ」</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">3</div><div class="a">橋の手前の男（ディック）に話しかける →「リュート用のその装飾品、お売りしてもいいですよ…あとでわしの家までおいでください」</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">4</div><div class="a">橋を渡り、右の酒場（グラスの看板）の右側扉から入る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">5</div><div class="a">酒場の奥へ進み喧嘩に巻き込まれる（選択肢はセリフが変わるだけ）</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">6</div><div class="a">投げ飛ばされて漂流、漂着地点で拾う</div><div class="g"><span><span class="ic eq">装</span>オールの破片</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">7</div><div class="a">オールの破片を主人公に装備</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">8</div><div class="a">再び酒場の右側扉へ → 連行されて喧嘩に勝利</div><div class="g"><span><span class="ic hp">H</span>青色の小ビン×3</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">9</div><div class="a">町の左上の音楽院（音符の看板）でカウンターの人と会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">10</div><div class="a">音楽院のすぐ下の家でアンナおばさんと会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">11</div><div class="a">酒場の左側扉から酒倉へ、地下の子供（ペグ）と会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">12</div><div class="a">町の左上、塀沿いの入り江へ行く</div><div class="g"><span><span class="ic ky">鍵</span>錆びた鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">13</div><div class="a">すぐ近くの柵に近づく → ボビン登場</div><div class="g"><span><span class="ic pa">＋</span><a href="chara2.html">ホイヒュー</a></span><span><span class="ic hp">H</span>赤色の小ビン×10</span><span><span class="ic gd">G</span>100G</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">14</div><div class="a">宿（ベッドの看板・酒場の左）でセーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">15</div><div class="a">ギルド（手をつなぐ2人の看板・酒場の右上）で傭兵を雇う</div><div class="g"><span><span class="ic pa">＋</span>傭兵1人</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ビジュアルにこだわりがなければ能力重視で選んでOK（傭兵はボイス・専用セリフがほぼ無い）。<a href="chara4.html">スリム</a>：物理無効の敵に効く必殺技あり／HP満タンでも逃げる。<a href="chara3.html">ドムカ</a>：全体攻撃の必殺技は自分にもダメージ、序盤は痛い</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">16</div><div class="a">傭兵とホイヒューの防具を外して主人公に装備</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">主人公が倒れるとセーブ地点からやり直し。主人公を最優先で硬くする</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">17</div><div class="a">町の左上の柵で錆びた鍵を使う → アルカナの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F2.html">アルカナの山道</a><span class="ln">F2</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここからエンカウントあり。傭兵が気に入らなければリセットして選び直し可。必殺技・呪文はランダム発動、missの多さ、HPが減ると逃げるのは仕様なので諦めましょう。そんなモンです。</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">18</div><div class="a">木の後ろに近づいて拾う ×3箇所（火炎薬は必ず）</div><div class="g"><span><span class="ic at">攻</span>火炎薬</span><span><span class="ic hp">H</span>青色の小ビン×3</span><span><span class="ic at">攻</span>爆発薬</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">19</div><div class="a">山道の一番奥の洞窟に入る</div><div class="g"></div></div>
+
+<div class="area"><a href="F3.html">アルカナの洞窟</a><span class="ln">F3</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">20</div><div class="a">1F：一本道を進み階段を降りる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">21</div><div class="a">B1：岩が並ぶ場所を左からぐるっと回り階段を降りる</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">岩に当たると全員が今のHPの3分の1（端数切り捨て）のダメージを受ける。HPが0になることはない。奥の回復アイテムは割に合わないので無視</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">22</div><div class="a">B2：左→下と進む。下に行き過ぎるとボスが出る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">23</div><div class="a">小部屋に入る前に残りHPをチェックし、減っていれば赤色の小ビンで回復する</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">24</div><div class="a">B2：骨が散らばる小部屋で初のボス戦（ダタラ）→ レベルが一番高い人に火炎薬を使わせる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">25</div><div class="a">先へ進む（分岐はどちらでも可）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">26</div><div class="a">小部屋に入る前に残りHPをチェックし、減っていれば赤色の小ビンで回復する</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">27</div><div class="a">小部屋に入るとイベント。アギーレと女性（アイリス）がおり、主人公が歌魂を宿す</div><div class="g"><span><span class="ic ky">鍵</span>銀の音叉</span><span><span class="ic sg">♪</span><a href="songs.html">落石の歌</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">歌詞入力は7文字以下で自由（以降すべての歌で共通）。プレイ時間の効率重視なら「っ」1文字。ただ、これこそが本作独自の魅力的なシステムなのでじっくり楽しんでいこう。「◯◯ぱわあ（パワー）」にするとなんかテンション高めの曲ができる…かも。なお歌詞は後から変更できない</div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">28</div><div class="a">再びボス戦（ダタラ2回目）→ 主人公に落石の歌を歌わせる</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">29</div><div class="a">女性が消え、アギーレ院長ご臨終</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">30</div><div class="a">来た道を戻りアデンへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F1.html">港町アデン</a><span class="ln">F1</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">31</div><div class="a">ボビンの家（酒場よりだいぶ右端）で報告</div><div class="g"><span><span class="ic ky">鍵</span>音楽院の鍵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">32</div><div class="a">音楽院の左端の扉で音楽院の鍵を使い、机の日記を見る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">33</div><div class="a">右上の本棚を調べる</div><div class="g"><span><span class="ic sg">♪</span>炎の槍の歌</span><span><span class="ic sg">♪</span>氷の矢の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">34</div><div class="a">左側の箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめ×3</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">35</div><div class="a">酒場のカウンターの客と会話</div><div class="g"><span><span class="ic sg">♪</span>酒場の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">36</div><div class="a">バーテンと会話し、その場で酒場の歌を歌う（金額ランダム）</div><div class="g"><span><span class="ic gd">G</span>お金</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">37</div><div class="a">ボビンの家でボビンと会話 → ホイヒュー離脱</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">38</div><div class="a">すぐ近くの桟橋の先端へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F4.html">ボビンの船</a><span class="ln">F4</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">39</div><div class="a">船室の箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">40</div><div class="a">船室に入りホイヒューと会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">41</div><div class="a">甲板でホイヒューと会話 → 海上でトラブル発生</div><div class="g"></div></div>
+
+<div class="area"><a href="F1.html">港町アデン</a><span class="ln">F1</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">42</div><div class="a">ボビンの家でボビンと会話</div><div class="g"><span><span class="ic pa">＋</span>ホイヒュー</span><span><span class="ic gd">G</span>100G</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">43</div><div class="a">今後ドムカを使うなら、ギルドでスリムを雇って装備を全部外しておく。スリムを使うならギルドには行かない</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">44</div><div class="a">武器屋（剣がクロスの看板）・防具屋（鎧と盾の看板）で3人を最強装備に</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">45</div><div class="a">ディックの家（町の一番右上）でディックからパーツを購入（10G）</div><div class="g"><span><span class="ic pt">部</span>１２弦指板</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">46</div><div class="a">町の右上の短い橋（ディックの家のすぐ下）を渡り、細い通路から隣村へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F5.html">龍族の村バルエコ</a><span class="ln">F5</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">47</div><div class="a">柵に近づく → 門番が柵を開ける</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">48</div><div class="a">村の奥・右下の家でモルガンと会話</div><div class="g"><span><span class="ic pa">＋</span><a href="chara1.html">アイリス</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">スリムとドムカが両方いるとスリムが離脱（100G返金）</div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">アイリスは主人公のHPが30％以下になると回復してくれるが、当てにして死んだら笑えないので小ビンで回復したほうがいい</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">49</div><div class="a">村の一番上の柵に近づく → 柵が開く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">50</div><div class="a">この先エンカウントあり。不安ならアデンに戻ってセーブ</div><div class="g"></div></div>
+
+<div class="area"><a href="F7.html">バルエコの山道</a><span class="ln">F7</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">51</div><div class="a">目の前の家でアラバステルと会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">52</div><div class="a">右上の草むらへ → さらに右上でムシトリ草を取る（取るたびに全員のHPが5減る）</div><div class="g"><span><span class="ic ky">鍵</span>ムシトリ草×3</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">53</div><div class="a">ムシトリ草の場所のすぐ下、木の角に近づく</div><div class="g"><span><span class="ic at">攻</span>火炎薬×3</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">54</div><div class="a">アラバステルの家に戻って会話 →「次の町に着いたら、フォープキンという魔術師を探すがいいよ」</div><div class="g"><span><span class="ic ky">鍵</span>べたべた薬×3</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">55</div><div class="a">マップ中央上部のロープでべたべた薬を使う</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">56</div><div class="a">すぐ右へ進んで箱を開ける</div><div class="g"><span><span class="ic at">攻</span>爆発薬</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">57</div><div class="a">右奥へ進んで箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>真空の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">58</div><div class="a">すぐ近くのロープでべたべた薬 → まっすぐ上の木の陰で拾い、ロープを降りる</div><div class="g"><span><span class="ic sp">S</span>のどあめ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">59</div><div class="a">左上のロープでべたべた薬 → 右へ進み階段を上がる</div><div class="g"></div></div>
+
+<div class="area"><a href="F8.html">クーテの村</a><span class="ln">F8</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">60</div><div class="a">ホイヒューの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">61</div><div class="a">ギルドでクイクイと会話 → ホイヒュー離脱</div><div class="g"><span><span class="ic pa">＋</span><a href="chara6.html">クイクイ</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ギルドに<a href="chara5.html">ジョーイ</a>（HPが減った味方を呪文で回復）。交代するなら解雇する傭兵の装備を先に外す</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">62</div><div class="a">音楽院の奥の部屋で2回話しかけて購入</div><div class="g"><span><span class="ic pt">部</span>絹の弦</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">63</div><div class="a">酒場のバーテンの前で酒場の歌。※現段階でお金が十分余っている場合は行かない</div><div class="g"><span><span class="ic gd">G</span>お金</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">64</div><div class="a">武器屋・防具屋で全員を最強装備に → 宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">65</div><div class="a">マップ左上の道から神聖な森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F9.html">神聖な森</a><span class="ln">F9</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">66</div><div class="a">道を塞ぐ丸太に近づく（4人でどかす）→ とにかく左へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">67</div><div class="a">左の突き当たり（崖）から上へ、シベリンに近づく</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">68</div><div class="a">右下の大木を調べる</div><div class="g"><span><span class="ic ky">鍵</span>太いロープ</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">69</div><div class="a">シベリンの所に戻りロープを投げる → シベリンは1人で帰る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">70</div><div class="a">来た道を戻る（地形が変化）→ 一本道の先で謎の集団に遭遇</div><div class="g"></div></div>
+
+<div class="area"><a href="F11.html">ドミナントの村</a><span class="ln">F11</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">71</div><div class="a">スカイヘッドに蝶の捕獲を命じられ、シベリンが連行される</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">この村は店の看板が一切ない。場所は各行のカッコ内を参照</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">72</div><div class="a">酒場（釈放場所からハシゴを1つ上がって左の木）で酒場の歌。※現段階でお金が十分余っている場合は行かない</div><div class="g"><span><span class="ic gd">G</span>お金</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">73</div><div class="a">傭兵の装備を外し、ギルド（酒場の少し右上の細い通路の先）でエニクラウドを雇う</div><div class="g"><span><span class="ic pa">＋</span><a href="chara7.html">エニクラウド</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">今連れているキャラが猛烈な推しでない限り、絶対に交代させること。エニクラウドは圧倒的におすすめ。100G払った後に返金されるので実質タダ</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">74</div><div class="a">武器屋（酒場のフロアの右端）・防具屋（下の階の右端）で全員を最強装備に</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">75</div><div class="a">ハシゴを降り、左下出口付近の木の陰で拾う</div><div class="g"><span><span class="ic at">攻</span>減速薬×3</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">76</div><div class="a">宿屋（酒場の左、ハシゴのかかった木）で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">77</div><div class="a">村の出口付近の行商人に減速薬と不要装備を売り、回復を適量＋残金で火炎薬を大人買い</div><div class="g"><span><span class="ic hp">H</span>青色の小ビン</span><span><span class="ic sp">S</span>のどぐすり</span><span><span class="ic at">攻</span>火炎薬 大量</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">78</div><div class="a">マップ左上の細い道から先へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F19.html">ドミナントの山道</a><span class="ln">F19</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">エニクラウドは闇ミドルに必中の即死技をランダム使用</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">79</div><div class="a">ハシゴを降りて左の木の陰で拾う → 主人公に装備</div><div class="g"><span><span class="ic eq">装</span>火の盾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">80</div><div class="a">まっすぐ上へ進み洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F12.html">クモの洞窟</a><span class="ln">F12</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ファントムは物理無効（歌・スリムの必殺技・攻撃アイテムのみ有効）。逃げてもいい</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">81</div><div class="a">1F：少し進むとクモの糸に触るイベント</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">82</div><div class="a">1F：中央広間から左下の骸骨を調べる → 火の盾を誰かに装備させる。エニクラウドかスリムがおすすめ</div><div class="g"><span><span class="ic eq">装</span>火の盾</span><span><span class="ic gd">G</span>財宝</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">アイリスは元々火属性に耐性がある</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">83</div><div class="a">1F：中央広間の右真ん中から階段を降りる</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">B1の闇ミドル＋さまよう炎はターンアンデッドに期待し、他はさまよう炎を狙う</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">84</div><div class="a">B1：左上の骸骨を調べる</div><div class="g"><span><span class="ic ky">鍵</span>大バサミ</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">85</div><div class="a">B1：右上の骸骨を調べる（2箇所）</div><div class="g"><span><span class="ic ky">鍵</span>ビート杉の粉×2</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">86</div><div class="a">1Fに戻り、中央広間から左上の捕まった女性に大バサミ → アレイが村へ帰る</div><div class="g"><span><span class="ic ky">鍵</span>ビート杉の粉</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">87</div><div class="a">B1：右下の骸骨を調べる</div><div class="g"><span><span class="ic ky">鍵</span>ビート杉の粉</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">88</div><div class="a">B1：左下へ進み階段を降りる</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">89</div><div class="a">B2：階段広間から右へ → 箱を開ける</div><div class="g"><span><span class="ic pt">部</span>銀の弦</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">90</div><div class="a">B2：階段広間から上 → 左上のクモの糸の橋でビート杉の粉を使う</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">91</div><div class="a">その先で捕まった男性に大バサミ → ボグダが村へ帰る</div><div class="g"><span><span class="ic ky">鍵</span>クモ取りの薬</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">92</div><div class="a">B1に戻り、マップ中腹左側の骸骨を調べる</div><div class="g"><span><span class="ic sg">♪</span><a href="songs.html">謎の歌</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">謎の歌はランダム魔法。カーソルが味方全体なら1/2の確率で全体回復。選択→キャンセルを繰り返せばランダムの抽選をやり直せる。前列のみにカーソルが付けば強力な攻撃魔法で確定。敵味方両方に出たら絶対使わない</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">93</div><div class="a">謎の歌の場所のすぐ左、壁の【∞】マークを調べる</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">94</div><div class="a">全員のHPを確認（まもなくボス戦）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">95</div><div class="a">【∞】マークでクモ取りの薬を使う</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">96</div><div class="a">木霊グモ → 主人公は真空の歌、他は火炎薬</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">97</div><div class="a">奥の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>母グモの細糸</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">98</div><div class="a">来た道を戻りドミナントへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F11.html">ドミナントの村</a><span class="ln">F11</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">99</div><div class="a">長の家（下フロアの左端）で長と会話</div><div class="g"><span><span class="ic ky">鍵</span>捕虫用ネット</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">100</div><div class="a">アレイの家（右下・床板のないフロアの木）でアレイと会話</div><div class="g"><span><span class="ic gd">G</span>150G</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">101</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">102</div><div class="a">マップ左下から蝶の森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F13.html">蝶の森</a><span class="ln">F13</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">横一列に3体出たら謎の歌で敵全体を狙うと、まとめて倒せることがある</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">103</div><div class="a">右下の家でサイリュウと会話 →「できのいいカスタムナイフでもあれば…」→ ドミナントへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F11.html">ドミナントの村</a><span class="ln">F11</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">104</div><div class="a">武器屋のカウンターで会話 → 帰り際に箱を見る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">105</div><div class="a">酒場でボグダにナイフの件を相談 → 武器屋のカウンターで会話</div><div class="g"><span><span class="ic ky">鍵</span>ラブレのナイフ</span></div></div>
+
+<div class="area"><a href="F13.html">蝶の森</a><span class="ln">F13</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">106</div><div class="a">サイリュウにラブレのナイフを渡す</div><div class="g"><span><span class="ic sg">♪</span>蝶の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">107</div><div class="a">左下の花畑で蝶の歌を歌う（SP消費なし）</div><div class="g"><span><span class="ic ky">鍵</span>神秘の蝶</span></div></div>
+
+<div class="area"><a href="F11.html">ドミナントの村</a><span class="ln">F11</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">108</div><div class="a">長の家で長と会話</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">109</div><div class="a">No.72がまだなら、酒場のカウンターで酒場の歌を歌う</div><div class="g"><span><span class="ic gd">G</span>お金</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">110</div><div class="a">ハシゴを降りてシベリンと再会 → 右下の森からクーテへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F9.html">神聖な森</a><span class="ln">F9</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">111</div><div class="a">元の地形に戻っているので、右下を目指してクーテへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F8.html">クーテの村</a><span class="ln">F8</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">112</div><div class="a">No.63がまだなら、酒場のカウンターで酒場の歌を歌う</div><div class="g"><span><span class="ic gd">G</span>お金</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">113</div><div class="a">宿屋に泊まる → 夜中に出発</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">この先戻れない。スリム、ドムカ、ジョーイ、エニクラウドいずれも雇い直し不可なので連れて行く傭兵をしっかり決めること。エニクラウドの続投を推奨。</div></div>
+
+<div class="area"><a href="F14.html">リンリン草の草原</a><span class="ln">F14</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">夜のうちはエンカウントなし</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">114</div><div class="a">花の上を歩いて進む</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">115</div><div class="a">分岐を左に進み、箱を開ける</div><div class="g"><span><span class="ic gd">G</span>財宝</span></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">116</div><div class="a">出口に差し掛かると宿屋に移動し無料宿泊</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">117</div><div class="a">宿屋のカウンターでセーブする</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">118</div><div class="a">右に行き、クーテの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F15.html">クーテの山道</a><span class="ln">F15</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">横3体のエンカウントは謎の歌がおすすめ</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">119</div><div class="a">途中の建物で全員を最強装備に。黄色・緑色の小ビンを最大HPと相談して購入（この店は出口がわかりにくい。カウンターの縦線のあたり。）</div><div class="g"><span><span class="ic hp">H</span>黄色の小ビン</span><span><span class="ic hp">H</span>緑色の小ビン</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">120</div><div class="a">細い道を右に入り込んで少し先の箱を開ける</div><div class="g"><span><span class="ic pt">部</span>茶の胴</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">121</div><div class="a">この先は戻れないダンジョン。不安なら家を無視し、マップ一番下からゴーレムの村へ行き宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">122</div><div class="a">フォープキンの家に入る → 飲み込まれる</div><div class="g"></div></div>
+
+<div class="area"><a href="F17.html">内臓洞窟</a><span class="ln">F17</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">雑魚はすべてターンアンデッド対象。スケルトンは硬いのでエニクラウドか歌で</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">123</div><div class="a">一本道の最奥で箱を開ける →『…おお、胃壁んとこにな、小さな穴が開いてるでな…』</div><div class="g"><span><span class="ic ky">鍵</span>水晶玉</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">124</div><div class="a">戻ってマップ中腹・上側の壁の縦の亀裂を調べる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">125</div><div class="a">一本道を進みフォーリーと会話</div><div class="g"><span><span class="ic sg">♪</span>子守り歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">126</div><div class="a">近くの箱を開けて全回復</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">127</div><div class="a">右下へ進み、「うむ、だいぶ鼓動音が強くなったみたいだ。このへんで歌えばいいのかな？」のセリフを見る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">128</div><div class="a">HP、SPを回復する</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">129</div><div class="a">子守り歌を歌う（SP消費なし）</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">130</div><div class="a">ソウルイーター → 全員で火炎薬</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">131</div><div class="a">フォーリーの所に戻る → 脱出、フォープキンから三日月島の王宮の話を聞く</div><div class="g"><span><span class="ic sg">♪</span>手当ての歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">132</div><div class="a">家を出てマップ下へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F18.html">ゴーレムの村</a><span class="ln">F18</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">133</div><div class="a">クイクイの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">134</div><div class="a">船屋で会話 → 桟橋の先端へ（クイクイ離脱）→ 次の島へ</div><div class="g"></div></div>
+
+</div>
+</details>
+
+<!-- ============ 第2章〜最終章（準備中） ============ -->
+<details class="ch"><summary><div class="bn" style="background-image:url(field_maps/FIELD33/3300.png);--pos:50% 30%"></div><div class="bt"><span class="no">第2章</span><span class="nm">神殺しの歌を求めて</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">135</div><div class="a">マップ左下の建物で、カウンター左端の男と会話</div><div class="g"><span><span class="ic ky">鍵</span>ギルドの鍵</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">この先ヴェラを連れていきたい人はNo.136でヴェラを雇って装備を剥がさずNo.137→No.142へ、連れていく気がない人はNo.136から番号順に進める。不用品を全て売っても所持金が500Gに届かない場合はNo.137→No.141へ。なおヴェラを連れていく場合、宿屋に泊まれる回数は2回が上限となる。→<a href="chara9.html">くわしくはコチラ</a></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">136</div><div class="a">ギルドの鍵でギルドの入口を開け、ヴェラを雇う → ヴェラの装備を全て外す</div><div class="g"><span><span class="ic pa">＋</span><a href="chara9.html">ヴェラ</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">137</div><div class="a">寺院（マップ右上）の奥で楽譜を購入</div><div class="g"><span><span class="ic sg">♪</span>治しの歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">138</div><div class="a">武器屋・防具屋で元の3人を最強装備にする。不要な装備は売らずに残す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">139</div><div class="a">雑貨屋で緑色の小ビン、のどぐすり等回復アイテムを購入する。この時、残金を極力60Gぴったり残す（60Gを下回ってはいけない）</div><div class="g"><span><span class="ic hp">H</span>緑色の小ビン</span><span><span class="ic sp">S</span>のどぐすり</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">140</div><div class="a">宿屋に3回泊まる → ヴェラがいなくなる → 外した装備などを売りに行く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">141</div><div class="a">ギルドでトリリアを雇う</div><div class="g"><span><span class="ic pa">＋</span><a href="chara10.html">トリリア</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">142</div><div class="a">武器屋・防具屋で最強装備にする（トリリアは早速上位の武器が売っている）</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">高級防具屋はレベルが上がるまで使えない（初到着時のレベルでは無理）</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">143</div><div class="a">マップ中央上部の出口からエスタンシア城へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F21.html">エスタンシア城</a><span class="ln">F21</span></div>
+<div class="r b"><div class="t"><span class="tg">戦闘</span></div><div class="cn">144</div><div class="a">門に近づくと衛兵に止められ戦闘（逃走可）</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">145</div><div class="a">門は閉まったまま</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">146</div><div class="a">町に戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">147</div><div class="a">謎の男にスカウトされ、ドラゴの酒場を紹介される</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">148</div><div class="a">ギルドの鍵をもらった建物＝ドラゴの酒場（看板なし）の奥の部屋でロウと会話</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">149</div><div class="a">宿屋でセーブ（この先、戻れないダンジョンあり）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">150</div><div class="a">マップ右側の出口から強制収容所へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F22.html">収容所への道</a><span class="ln">F22</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">151</div><div class="a">左側中ほど（西の森の際）の箱を開ける。とはいえ、ほとんど使わない</div><div class="g"><span><span class="ic sg">♪</span>氷の鎧の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">152</div><div class="a">ヴェラに宿屋で逃げられていた場合は、一番南の箱を開ける</div><div class="g"><span><span class="ic gd">G</span>財宝</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">それ以外の箱は呪いの宝箱なので開けない（一番南の箱も、ヴェラに逃げられていなければ呪い）</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">153</div><div class="a">まっすぐ奥へ進み収容所へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F23.html">強制収容所</a><span class="ln">F23</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">154</div><div class="a">建物の右側奥で反乱軍と合流 → 陽動で見張りが移動</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">155</div><div class="a">裏口から中へ侵入</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">以降、収容所をクリアするまで戻れない</div></div>
+<div class="r b"><div class="t"><span class="tg">戦闘</span></div><div class="cn">156</div><div class="a">並んだ扉のうち左の扉から管理棟へ入ると、衛兵に見つかり戦闘（逃走可）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">157</div><div class="a">管理棟の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>一般房の丸鍵</span><span><span class="ic ky">鍵</span>工場の鍵</span><span><span class="ic ky">鍵</span>塔の鍵×2</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">158</div><div class="a">中央奥の扉で一般房の丸鍵を使い、捕まっている人全員と会話して逃がす</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">全員と話しておくと、町に戻ってからポンド・ペインのお礼がもらえる</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">159</div><div class="a">マップ一番下、2つ並んだ扉の右側で塔の鍵を使う</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">160</div><div class="a">箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>炎の輪の歌</span></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">161</div><div class="a">ハシゴを上がった所で監視人とボス戦（ボスBGMだがかなり弱い）</div><div class="g"><span><span class="ic ky">鍵</span>独房の角鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">162</div><div class="a">上部右側の扉で工場の鍵を使い、奥の男（タリス）から独房の開け方と場所を聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">163</div><div class="a">一般房の扉の左横のくぼみでセリフが出たら独房の角鍵を使う</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">164</div><div class="a">扉を開けライオネルと会話 → ライオネルは1人で正面から帰る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">165</div><div class="a">正面扉からエスタンシアへ戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">166</div><div class="a">解雇する方の傭兵の装備をすべて外す</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">エニクラウドは攻撃力が心もとなくなるが、すぐターンアンデッド案件が来るので続投推奨（トリリアが好みならトリリアでも可）</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">167</div><div class="a">ドラゴの酒場の奥の部屋で傭兵を1人解雇 → ライオネルが加入</div><div class="g"><span><span class="ic pa">＋</span><a href="chara13.html">ライオネル</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">168</div><div class="a">不安ならライオネルの防具を外して主人公に渡す</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">STR不足で素早さが下がっても、ターン後半に回るだけ（歌はどのみち最後）。主人公死亡のほうが大問題なので交換が得</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">169</div><div class="a">雑貨屋で、カウンターにいない方の人と会話</div><div class="g"><span><span class="ic ky">鍵</span>レンチ</span><span><span class="ic ky">鍵</span>ロックピック</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">170</div><div class="a">ペインの家（ドラゴの酒場の2軒右）でペインと会話</div><div class="g"><span><span class="ic sg">♪</span>死戻の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">171</div><div class="a">ポンドの店（町の右側出口付近）でポンドと会話</div><div class="g"><span><span class="ic gd">G</span>200G</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">172</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">173</div><div class="a">雑貨屋の左の小さな建物から下水道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F24.html">エスタンシアの下水道</a><span class="ln">F24</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">スカルフェイスはターンアンデッド対象。ライオネルの必殺技でも一撃</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">174</div><div class="a">B1：スタートからまっすぐ突き当たりの箱を開ける</div><div class="g"><span><span class="ic eq">装</span>火の盾</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">火の盾はすぐ装備させる。ライオネル、ドムカは装備不可</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">175</div><div class="a">ハシゴでB2へ。右側すぐ奥のバルブでセリフが出たらレンチを使う</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">176</div><div class="a">B2：短い橋を渡った先の箱を開ける</div><div class="g"><span><span class="ic hp">H</span>緑色の小ビン×5</span><span><span class="ic sp">S</span>のどぐすり×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">177</div><div class="a">一本道の先の扉でロックピックを使う → 小部屋の一番奥のハシゴでB1へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">178</div><div class="a">B1：下へ進み、ハシゴ手前の箱を開けて下に降りる</div><div class="g"><span><span class="ic hp">H</span>緑色の小ビン×5</span><span><span class="ic sp">S</span>のどぐすり×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">179</div><div class="a">B2：まっすぐ進んだ先のバルブでレンチ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">180</div><div class="a">来た道でB1へ戻り、先ほどの分岐を左へ。その後ひたすら左に進み、ハシゴを降りる</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">左に進む道中で分岐を右に進むと回復薬が落ちている。手持ちの充実度合いやレベルを見ながら寄り道するか決めるといい。ライオネルのレベル17を基準にし、それより低ければレベル上げを兼ねて取りに行く</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">181</div><div class="a">B2：一本道で左上を目指し、バルブの部屋でレンチ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">182</div><div class="a">B2：バルブの右隣の部屋で箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>神風の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">183</div><div class="a">B1経由でロックピックの部屋へ戻り、太いバルブを回す → 水が引く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">184</div><div class="a">水路を渡り、ハシゴを登って脱出</div><div class="g"></div></div>
+
+<div class="area"><a href="F25.html">エスタンシアの音楽院</a><span class="ln">F25</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">185</div><div class="a">中央奥の部屋へ → フーコーが震動石を持って逃走</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">戦闘</span></div><div class="cn">186</div><div class="a">衛兵と戦闘（逃走可）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">187</div><div class="a">右の部屋で箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>解呪の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">188</div><div class="a">正面扉から外へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">189</div><div class="a">ライオネルの部下から、フーコーが音の森へ逃げたと聞く（南門が開く）</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">以降アンデッドは出ないので、トリリアが好みならここで交代。エニクラウドの装備は次の村で売っているので、ずっと連れ歩いてもいい</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">190</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">191</div><div class="a">マップ下の出口からエスタンシアの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F26.html">エスタンシアの山道</a><span class="ln">F26</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ゴーストは歌・スリムの必殺技・攻撃アイテムしか効かない。逃げてもいい</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">192</div><div class="a">ひたすら左へ進んでから下へ、細い道の先の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ドラ</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">目立つ場所の宝箱（北西の奥）は呪いの宝箱。無視</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">193</div><div class="a">分岐点まで戻り、今度は下へ → 箱を開ける</div><div class="g"><span><span class="ic at">攻</span>火炎薬×10</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">194</div><div class="a">階段を降りて左へ → 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>フィドル</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">195</div><div class="a">来た道を戻り、さらに下の階段を降りて左下のフォリアの村へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F27.html">フォリアの村</a><span class="ln">F27</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">196</div><div class="a">傭兵を変えるなら：使わない傭兵を雇う→装備を外す、を2人分くり返してから目当てを雇う（外した装備の売値が賃金100Gを上回る）</div><div class="g"><span><span class="ic pa">＋</span>傭兵（任意）</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a"><a href="chara12.html">ヘンケン</a>：全属性耐性だが、属性敵が増える前に離脱。<a href="chara11.html">グラム</a>：脳筋、必殺技も物理。<a href="chara14.html">ピックマン</a>：次のレベルまでの経験値が少ない。今の傭兵が推しならギルドは無視、エニクラウドの次の武器もここで売っている</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">197</div><div class="a">武器屋で全員を最強装備に（外した装備を使い回せないか先に確認）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">198</div><div class="a">雑貨屋で不要装備・財宝を売り、風針薬を大量に。朱色の小ビン（HP300回復）も必要に応じて</div><div class="g"><span><span class="ic at">攻</span>風針薬 大量</span><span><span class="ic hp">H</span>朱色の小ビン</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">199</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">200</div><div class="a">山道の階段下の分岐点まで戻り、右奥の音の森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F28.html">音の森</a><span class="ln">F28</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">201</div><div class="a">上の方の小さな花畑でフィドルを使う → 魔法の音防御を解除</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">202</div><div class="a">右側中ほどの箱を開ける → 音楽が流れてくる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">203</div><div class="a">左下の小さな花畑でドラを使う → 魔法の音防御を解除</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">204</div><div class="a">フォリアの村へ戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F27.html">フォリアの村</a><span class="ln">F27</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">205</div><div class="a">ライオネルに酒を奢らされる。酒場で酒を2回飲む（人数×4Gを2回）</div><div class="g"><span><span class="ic sg">♪</span>精霊の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">206</div><div class="a">必要なら宿屋で回復＆セーブ</div><div class="g"></div></div>
+
+<div class="area"><a href="F28.html">音の森</a><span class="ln">F28</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">207</div><div class="a">例の宝箱の前で精霊の歌（SP消費なし）→ 少し左にフーコーの家が出現</div><div class="g"></div></div>
+
+<div class="area"><a href="F37.html">フーコーの家</a><span class="ln">F37</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">208</div><div class="a">右奥の箱を開け、中央の部屋に入る前にHPとSPをチェック</div><div class="g"><span><span class="ic pt">部</span>蝶ネック</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">209</div><div class="a">中央奥の部屋でフーコーと会話</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">210</div><div class="a">フーコー＆ツク法師 → 全員でフーコーに風針薬。ライオネルがツク法師を倒したら主人公は真空の歌</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">フーコーの攻撃魔法が強力なので先に倒す。ツク法師のノイズで歌が無効化されるのでアイテム中心で</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">211</div><div class="a">マップ左上の箱を開けてサンクトス島へワープ</div><div class="g"></div></div>
+
+<div class="area"><a href="F30.html">鍵盤階段</a><span class="ln">F30</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">212</div><div class="a">マップ下の道からグレゴリアの村へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F29.html">グレゴリアの村</a><span class="ln">F29</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">213</div><div class="a">武器屋・防具屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">214</div><div class="a">マップ右上の大きな建物でショウコと会話 → ジル大僧正が行方不明</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">215</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">216</div><div class="a">鍵盤階段をひたすら上り、変な音が鳴る鍵盤を踏む → グレゴリアに戻りショウコと会話</div><div class="g"></div></div>
+
+<div class="area"><a href="F30.html">鍵盤階段</a><span class="ln">F30</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">217</div><div class="a">変な音が鳴る鍵盤に立つと洞窟へ移動</div><div class="g"></div></div>
+
+<div class="area"><a href="F31.html">サンクトスの洞窟</a><span class="ln">F31</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">218</div><div class="a">分岐を下へ行き、箱を開ける（主人公に装備）</div><div class="g"><span><span class="ic eq">装</span>水の盾</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">219</div><div class="a">分岐まで戻り、右へ行き、箱を開ける</div><div class="g"><span><span class="ic pt">部</span>肌色／茶の線</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">220</div><div class="a">分岐を左へ、箱を開けてジルを救出 → ジルは1人で帰る</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">主人公のレベルがあともう少しで22になりそうなら洞窟内を適当にウロウロしてレベル上げをする</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">221</div><div class="a">グレゴリアに戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F29.html">グレゴリアの村</a><span class="ln">F29</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">222</div><div class="a">連れている傭兵の装備をすべて外す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">223</div><div class="a">雑貨屋で不要品を売って火炎薬を買う（次の町で装備を買うので使い切らない。ただし主人公のレベルが22未満なら使い切る）</div><div class="g"><span><span class="ic at">攻</span>火炎薬</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">224</div><div class="a">ショウコと会話し、傭兵を泣く泣く解雇</div><div class="g"><span><span class="ic pa">＋</span><a href="chara15.html">ショウコ</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">225</div><div class="a">神殿内の一番奥の箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>虹の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">226</div><div class="a">船屋で会話 → 桟橋の先端から船に乗る</div><div class="g"></div></div>
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">227</div><div class="a">主人公のレベルが22以上であれば、高級防具屋で主人公・アイリス・ライオネルの防具を購入。専任騎士様（？）が付いているのでショウコの分は買わなくていい</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">228</div><div class="a">宿屋で回復＆セーブ（この先、戻れないダンジョン）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">229</div><div class="a">中央一番上の出口からエスタンシア城へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F21.html">エスタンシア城</a><span class="ln">F21</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">230</div><div class="a">建物の外壁に沿って右へ → 隠し扉から中へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F33.html">エスタンシア城室内</a><span class="ln">F33</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">231</div><div class="a">書庫の本棚を左上・真ん中・右下と調べる（最後に調べた所で入手）</div><div class="g"><span><span class="ic ky">鍵</span>薄汚れた楽譜</span></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">232</div><div class="a">書庫を出ると衛兵に見つかり謁見の間へ → ショウコの正体が判明 → 全員地下牢へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F38.html">エスタンシア城地下</a><span class="ln">F38</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">233</div><div class="a">小部屋の右上にうっすら見える扉の形を調べて道を作り、先へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F34.html">エスタンシア城地下洞窟</a><span class="ln">F34</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ライオネルはショウコをかばい実質2人分のダメージを受ける（ショウコ満タン・自分HP1でもかばって倒れる）。ショウコの回復呪文は死にかけになるまで発動しないので当てにしない。ショウコ離脱までライオネルの戦闘不能に注意</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">234</div><div class="a">分岐を左へ行き、箱を開ける</div><div class="g"><span><span class="ic hp">H</span>朱色の小ビン×5</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">235</div><div class="a">分岐を下へ行き、箱を開ける（実は最強の魔法）</div><div class="g"><span><span class="ic sg">♪</span>炎の玉の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">236</div><div class="a">分岐を上へ → 扉はアイリスが龍族の力で開ける</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">237</div><div class="a">まっすぐ進み龍族の男と会話</div><div class="g"><span><span class="ic ky">鍵</span>曇ったオーブ</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">238</div><div class="a">扉のエリアに戻り、円形通路の左側でメッセージを何度も出す → ワープ（曇ったオーブは消える）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">239</div><div class="a">一本道を進みエスタンシア城地下へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F38.html">エスタンシア城地下</a><span class="ln">F38</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">敵は最大6体。ショウコの分も含めて1ターンに6回攻撃を受けることがあるのでライオネルのHPはこまめに回復しておく。十分残っていると油断していると倒される。謎の歌の全体攻撃に賭けるのもあり</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">240</div><div class="a">開始地点すぐのベッドの部屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">241</div><div class="a">ベッドの部屋の左の通路から左上を目指し、箱を開ける</div><div class="g"><span><span class="ic pt">部</span>金の弦</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">242</div><div class="a">金の弦の部屋の手前の分岐を右へ、その奥の倉庫のような区画で箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>書庫の鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">243</div><div class="a">ベッドの部屋付近まで戻り、分岐を左→上へ、扉で書庫の鍵を使い、中の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>太い鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">244</div><div class="a">再びベッドの部屋左横の通路から上へ、分岐を右へ進み扉で太い鍵を使う → 階段で上の階へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F33.html">エスタンシア城室内</a><span class="ln">F33</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここからエンカウントしない</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">245</div><div class="a">少し進んだところで破られた楽譜が見つかる</div><div class="g"><span><span class="ic ky">鍵</span>破られた楽譜</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">246</div><div class="a">右下→上と進み、小部屋で箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>毒の雨の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">247</div><div class="a">マップ右上の隠し扉（入ってきたところ）から脱出</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">248</div><div class="a">ボビンと再会しエスタンシアの宿へ → 翌朝、楽譜が盗まれている</div><div class="g"></div></div>
+
+<div class="area"><a href="F20.html">エスタンシアの町</a><span class="ln">F20</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">249</div><div class="a">セーブ。ショウコの装備をすべて外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">250</div><div class="a">船屋で会話 → 桟橋の先端へ（ショウコ離脱）→ 船で火山島へ</div><div class="g"></div></div>
+
+</div></details>
+<details class="ch"><summary><div class="bn" style="background-image:url(field_maps/FIELD56/5602.png);--pos:50% 50%"></div><div class="bt"><span class="no">第3章</span><span class="nm">怒れる岩屋</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F40.html">港町フエダ</a><span class="ln">F40</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">251</div><div class="a">ギルドで仲間を雇う（どちらでもいいが、雇わない方を先に雇い、装備を全て剥がしてからもう片方を雇う）</div><div class="g"><span><span class="ic pa">＋</span><a href="chara16.html">パストラン</a> または <a href="chara17.html">ドロシー</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">パストラン：敵をマヒさせるパラライズ持ち、攻撃力が高い。ドロシー：初期レベルは高いが次第に攻撃力不足に。絶対に逃げず特殊技もないので、死なない限り確実に指示通り動く</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">252</div><div class="a">武器屋・防具屋で全員を最強装備に（剥がした装備を先に装備し、足りない分を買い足すこと）→ 宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">253</div><div class="a">マップ右上の出口からフエダの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F41.html">フエダの森</a><span class="ln">F41</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">雑音草はノイズを使う</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">254</div><div class="a">分岐を右にまっすぐ進み箱を開ける。敵全体にターンアンデッド効果でかなり強い（必中ではないが成功率は高い）</div><div class="g"><span><span class="ic sg">♪</span>死戻強の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">255</div><div class="a">川が見えたら右上を目指す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">256</div><div class="a">分岐を下へ → 箱を開ける（主人公に装備）</div><div class="g"><span><span class="ic eq">装</span>風の盾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">257</div><div class="a">右上の洞窟の入口に近づく → 爆発で全員のHPが50減る。フエダに戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F40.html">港町フエダ</a><span class="ln">F40</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">258</div><div class="a">酒場の男からフィデレの話を聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">259</div><div class="a">マップ左下にぽつんと建つフィデレの家でフィデレと会話</div><div class="g"><span><span class="ic ky">鍵</span>フィデレの護符</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">260</div><div class="a">改めて洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F42.html">呪われた洞窟</a><span class="ln">F42</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">囁きが聞こえるたび、よく似た3つの洞窟の間をワープする。現在地は中央付近の張り紙で確認できる。余計に動くと別の場所に飛ばされ、チャートから外れるので注意</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">261</div><div class="a">左下を目指して箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>赤い宝石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">262</div><div class="a">まっすぐ直進し、部屋の入口で囁きを聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">263</div><div class="a">中央広間を経由して出入口付近へ戻り箱を開ける</div><div class="g"><span><span class="ic gd">G</span>ルビー</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">264</div><div class="a">左上を目指して箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>緑の宝石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">265</div><div class="a">中央広間を経由して右上へ、部屋の入口で囁きを聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">266</div><div class="a">上からぐるっと反時計回りに移動して箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>炎の心の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">267</div><div class="a">下へまっすぐ → 部屋の出口で囁き</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">268</div><div class="a">下へまっすぐ進んで箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>黄の宝石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">269</div><div class="a">上へまっすぐ → 部屋の出口で囁き → 上へまっすぐ → 入口で囁き → 上へまっすぐ → 入口で囁き → 下へまっすぐ → 入口で囁き</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">270</div><div class="a">上の箱を開け、扉の鍵を外す</div><div class="g"><span><span class="ic ky">鍵</span>青い宝石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">271</div><div class="a">中央広間を経由して上へ移動し、囁きを聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">272</div><div class="a">鉄格子の横のくぼみに4色の宝石を入れる → 扉が開く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">273</div><div class="a">その先を左へ進み男と会話 → トラビスは村に帰る</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">274</div><div class="a">小部屋を出ると洞窟の出口付近にワープ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">275</div><div class="a">フエダに帰る</div><div class="g"></div></div>
+
+<div class="area"><a href="F40.html">港町フエダ</a><span class="ln">F40</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">276</div><div class="a">フィデレの家に文句を言いに行く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">277</div><div class="a">町長の家（縦長の母屋から左に2棟伸びた大きな家）で町長と会話</div><div class="g"><span><span class="ic ky">鍵</span>坑道の鍵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">278</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">279</div><div class="a">マップ右上からフエダの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F41.html">フエダの森</a><span class="ln">F41</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">280</div><div class="a">ひたすら左奥を目指し、2つある洞窟の右側へ入る</div><div class="g"></div></div>
+
+<div class="area"><a href="F43.html">捨てられた坑道</a><span class="ln">F43</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">坑夫の亡霊が6体出たら死戻強の歌がおすすめ</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">281</div><div class="a">入ってすぐの扉で坑道の鍵を使う</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">282</div><div class="a">吊り橋を渡って右へ → 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>袋に入った黒砂</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">グラグラ揺れる橋は一度渡ると必ず崩れる</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">283</div><div class="a">右上を目指して箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>橋の絵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">284</div><div class="a">戻って、黒砂の場所あたりの橋に橋の絵を使う → 左上の箱を開ける</div><div class="g"><span><span class="ic gd">G</span>300G</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">285</div><div class="a">近くの階段から飛び降りてB1へ（着地で全員のHPが100減る）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">286</div><div class="a">B1：着地場所付近の箱を開ける</div><div class="g"><span><span class="ic hp">H</span>朱色の小ビン×5</span><span><span class="ic sp">S</span>スーパーのどあめ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">287</div><div class="a">B1：右下を目指し、壁のくぼみを調べる</div><div class="g"><span><span class="ic sg">♪</span>坑道の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">288</div><div class="a">右の一番奥の岩（埋まった階段）に袋に入った黒砂を使い、B2へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">289</div><div class="a">B2：左に手の形の洞窟。薬指（左から2本目）の先端でセリフが出たら坑道の歌 → 全回復</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">290</div><div class="a">中指の先端でセリフが出たら坑道の歌（SP消費なし）→ 道が開く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">291</div><div class="a">分岐を左へ進み、箱を開ける（地の盾は主人公に装備）</div><div class="g"><span><span class="ic eq">装</span>地の盾</span><span><span class="ic at">攻</span>興奮剤×3</span></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">292</div><div class="a">分岐を右へ → ダフニ。主人公のレベルが20以上なら炎の玉の歌、20未満なら基本4属性の歌のどれか。他の仲間は火炎薬か風針薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">293</div><div class="a">箱を開ける</div><div class="g"><span><span class="ic pt">部</span>黒の胴</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">294</div><div class="a">B1へ戻り、マップ左下の埋まった階段を全員で掘り返す（全員のHPが半分になる）→ まっすぐ外へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">295</div><div class="a">フエダに帰る</div><div class="g"></div></div>
+
+<div class="area"><a href="F40.html">港町フエダ</a><span class="ln">F40</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">296</div><div class="a">ライオネルの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">297</div><div class="a">フィデレの家で文句を言う → 祖母が帰宅し次の情報</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">298</div><div class="a">酒場でトラビスと会話 → ライオネル離脱</div><div class="g"><span><span class="ic pa">＋</span><a href="chara18.html">トラビス</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">299</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">300</div><div class="a">マップ右上からフエダの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F41.html">フエダの森</a><span class="ln">F41</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">301</div><div class="a">呪われた洞窟と捨てられた坑道のちょうど間で上へ行き川を渡る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">302</div><div class="a">渡って左の箱を開ける。木に隠れて分かりにくいところにある</div><div class="g"><span><span class="ic sp">S</span>スーパーのどあめ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">303</div><div class="a">右上を目指す</div><div class="g"></div></div>
+
+<div class="area"><a href="F45.html">沼地</a><span class="ln">F45</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">304</div><div class="a">正面の道が途切れているのを見る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">305</div><div class="a">右上を目指す</div><div class="g"></div></div>
+
+<div class="area"><a href="F46.html">沼の町イントラダ</a><span class="ln">F46</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">306</div><div class="a">町に入るなりいざこざに巻き込まれる</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">307</div><div class="a">マーリィに町長の家へ連れて行かれる → 依頼を引き受ける</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">308</div><div class="a">武器屋・防具屋で全員を最強装備に（鎧はすぐ上位品が出るので買い控えも可）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">309</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">310</div><div class="a">マップ上部の出口からイントラダの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F48.html">イントラダの森</a><span class="ln">F48</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">バウンダーは地属性、チャターは風属性の強力な技。状況に応じて主人公の盾を交換。スリーホーンはDEFが非常に高いので歌で倒す</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">311</div><div class="a">上に進んで箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>音符ペンダント</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">312</div><div class="a">左に進みホタへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F47.html">泥の町ホタ</a><span class="ln">F47</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">313</div><div class="a">防具屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">314</div><div class="a">雑貨屋で守りの水（物理攻撃無効）を念のため数個。桃色の小ビン（HP500）・白色の小ビン（HP700）も最大HPに応じて</div><div class="g"><span><span class="ic at">攻</span>守りの水</span><span><span class="ic hp">H</span>桃色の小ビン</span><span><span class="ic hp">H</span>白色の小ビン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">315</div><div class="a">外を歩いている人全員と会話（町の中央でじっとしている人は最後に）</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">316</div><div class="a">男たちに取り囲まれ、おばさんの仲裁の後、町を追い出される</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">317</div><div class="a">イントラダへ戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F46.html">沼の町イントラダ</a><span class="ln">F46</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">318</div><div class="a">走ってきたマーリィに言われ、町長の家で町長と会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">319</div><div class="a">リリィの家（マップ左中ほどの小さい家）でリリィと会話</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">320</div><div class="a">酒場の男に音符ペンダントを渡す（3ターン物理無効）</div><div class="g"><span><span class="ic sg">♪</span>石の壁の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">321</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">322</div><div class="a">イントラダの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F48.html">イントラダの森</a><span class="ln">F48</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">323</div><div class="a">ホタ寄りの森の上部から抜け、細い道をまっすぐ右上へ → 洞窟の入口</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここの宝箱は呪いの宝箱</div></div>
+
+<div class="area"><a href="F50.html">ジョリスの洞窟</a><span class="ln">F50</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">324</div><div class="a">1F：少し進むと像 → 足跡をたどって奥へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">325</div><div class="a">1F：2つ目の分岐を右へ → 箱を開ける（北の部屋）</div><div class="g"><span><span class="ic hp">H</span>桃色の小ビン×5</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">326</div><div class="a">1F：戻って1つ目の分岐を右へ、階段を無視して右下の箱を開ける（南東の部屋）</div><div class="g"><span><span class="ic sp">S</span>スーパーのどあめ×5</span><span><span class="ic hp">H</span>桃色の小ビン×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">327</div><div class="a">1F：階段を降りる → B1でまた像</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span><span class="tg tl">取り返し<br>不可</span></div><div class="cn">328</div><div class="a">B1：マップ左上の小部屋で壁のくぼみを調べレバーを引く。No.330の箱を開けるまで、絶対に1階に戻らないこと</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">329</div><div class="a">B1：左下からぐるっと回り、一番右下の部屋で倒れているウルフと会話 → ウルフは1人で帰る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">330</div><div class="a">B1：像の所まで戻り、下へ進んで箱を開ける</div><div class="g"><span><span class="ic pt">部</span>ドラゴンネック</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">331</div><div class="a">来た道でイントラダへ戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F46.html">沼の町イントラダ</a><span class="ln">F46</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">332</div><div class="a">マーリィと会話</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">333</div><div class="a">宿屋で回復＆セーブ → ホタへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F47.html">泥の町ホタ</a><span class="ln">F47</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">334</div><div class="a">アイリスの盾を外す（武器などはそのまま残す）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">335</div><div class="a">酒場でウルフと会話 → アイリスが離脱し、フィデレが加入</div><div class="g"><span><span class="ic pa">＋</span><a href="chara19.html">フィデレ</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">フィデレはライオネル同様かばう特性持ちで、主人公への通常攻撃のダメージを全部引き受ける。主人公死亡＝即終了なのでありがたい</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">336</div><div class="a">民家の男と会話し、リュートパーツを買う</div><div class="g"><span><span class="ic pt">部</span>１Ｍ指板</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">337</div><div class="a">ジョリスの洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F50.html">ジョリスの洞窟</a><span class="ln">F50</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">338</div><div class="a">B1：像の先の分岐を右へ、扉の前で開錠イベント → 先へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F49.html">ジョリスの森</a><span class="ln">F49</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">音返しはノイズを使う</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">339</div><div class="a">主人公に地の盾を装備</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">340</div><div class="a">階段を上がり、分岐を右へ → 箱を開ける</div><div class="g"><span><span class="ic gd">G</span>サファイア</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">341</div><div class="a">どんどん階段を上がって上へ（正面の宝箱は呪いの宝箱）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">342</div><div class="a">3つ目の階段を上がった後、正面へ → 森の中にある箱を開ける。かなり分かりにくいところにある</div><div class="g"><span><span class="ic eq">装</span>地の盾</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">343</div><div class="a">フィデレに地の盾を装備し、外した地のペンダントは地の盾を持たない人へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">344</div><div class="a">戻って左上を目指し、マップの切れ目からドドルの塔へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F51.html">ドドルの塔</a><span class="ln">F51</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">345</div><div class="a">扉に近づくとウルフたちが蹴破ってくれる</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">346</div><div class="a">外壁に沿って右へ → 箱を開ける（左側は呪いの宝箱）</div><div class="g"><span><span class="ic gd">G</span>財宝</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">347</div><div class="a">塔の中に入る</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">小部屋の入口で強制エンカウント（逃走可）。無音草はノイズ使用、ゾンビは地属性なので死戻強の歌はmissしやすい。確実に行くなら神風の歌を2ターンぶん</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">348</div><div class="a">1F：分岐の右側を一番奥まで → 小部屋で箱を開ける（トラビスに装備）</div><div class="g"><span><span class="ic eq">装</span>クロスボウ</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">349</div><div class="a">1F：分岐を左へ → 小部屋で箱を開ける</div><div class="g"><span><span class="ic sp">S</span>スーパーのどあめ×6</span><span><span class="ic hp">H</span>桃色の小ビン×6</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">350</div><div class="a">1F：分岐の中央を進み階段で2Fへ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">351</div><div class="a">2F：分岐を左へ、死体を調べる（パラライズに似た魔法で、ボスにも効く）</div><div class="g"><span><span class="ic sg">♪</span>凍結の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">352</div><div class="a">2F：分岐を上へ、左側から反時計回りに移動</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">353</div><div class="a">2F：上の小部屋で箱を開ける</div><div class="g"><span><span class="ic hp">H</span>桃色の小ビン×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">354</div><div class="a">2F：少し右の階段で3Fへ → 大きな机の部屋でウルフと再会（ロミーが石に）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">355</div><div class="a">廊下の先でHP・SPを確認</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">356</div><div class="a">部屋に入るとウルフが倒され、ドドルが手下を呼ぶ</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">357</div><div class="a">ガンド → 主人公は真空の歌、他は風針薬。風針薬が少なくSP回復が余っていれば、主人公は毎ターン凍結の歌で封じ、他3人で物理攻撃</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">358</div><div class="a">ドドル逃走、ウルフはロミーの所へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">359</div><div class="a">3F：大きな机の部屋へ戻る → ロミー回復、2人はイントラダへ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">360</div><div class="a">2F：右側の長い廊下の穴に落ちて1Fへショートカット → 出口でフィデレの呪文によりイントラダへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F46.html">沼の町イントラダ</a><span class="ln">F46</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">361</div><div class="a">トラビスの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">362</div><div class="a">町長の家で会話 → トラビス離脱</div><div class="g"><span><span class="ic gd">G</span>500G</span><span><span class="ic pa">＋</span><a href="chara1.html">アイリス</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">363</div><div class="a">盾を装備し直す（アイリスに地の盾、フィデレにヒーターシールド＋地のペンダントがおすすめ）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">364</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">365</div><div class="a">沼地の途切れていた場所へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F45.html">沼地</a><span class="ln">F45</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">366</div><div class="a">アイリスが道を復旧</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">367</div><div class="a">左へ進みカリンダへ</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここの宝箱は呪いの宝箱</div></div>
+
+<div class="area"><a href="F52.html">カリンダの村</a><span class="ln">F52</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">368</div><div class="a">武器屋・防具屋で全員を最強装備にし、クロスボウなど不要装備を売る（ラウンド・ヒーター以外の盾は売らない）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">369</div><div class="a">雑貨屋で銅色の小ビン（HP1000）を最大HPに応じて買い、興奮剤をお金に余裕があれば40個ほど買う。最低でも20個は買う</div><div class="g"><span><span class="ic hp">H</span>銅色の小ビン</span><span><span class="ic at">攻</span>興奮剤×20〜40</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">370</div><div class="a">民家で会話</div><div class="g"><span><span class="ic pt">部</span>茶色／白の線</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">371</div><div class="a">音楽院でアーノスタルに泥族のことを聞き、民家で泥族の挨拶を聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">372</div><div class="a">右上の出口から沼地へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F45.html">沼地</a><span class="ln">F45</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">373</div><div class="a">右に進んで箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>炎の柱の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">374</div><div class="a">下へ進み女の子と会話 → 自動で移動</div><div class="g"></div></div>
+
+<div class="area"><a href="F54.html">レイエンダの村</a><span class="ln">F54</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">375</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">376</div><div class="a">村長の家で村長と会話 →「食料足りない、足りない足りない食料足りない…フウ」</div><div class="g"></div></div>
+
+<div class="area"><a href="F53.html">どろどろの沼</a><span class="ln">F53</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">377</div><div class="a">どろどろを倒してどろどろの玉を集める（50個以上、集めすぎても無駄が出る）</div><div class="g"><span><span class="ic ky">鍵</span>どろどろの玉×50〜</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">378</div><div class="a">マップ右上の箱を開ける（右下の宝箱は呪い）</div><div class="g"><span><span class="ic gd">G</span>エメラルド</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">379</div><div class="a">村に帰る</div><div class="g"></div></div>
+
+<div class="area"><a href="F54.html">レイエンダの村</a><span class="ln">F54</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">380</div><div class="a">村長にどろどろの玉50個を渡し、怒れる岩屋について聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">381</div><div class="a">防具屋で地のペンダントを1つ（余裕があれば2つ）買い、地の盾を持たない人に装備</div><div class="g"><span><span class="ic eq">装</span>地のペンダント</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">382</div><div class="a">武器屋で武器を新調する</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">383</div><div class="a">マップ右上の出口からどろどろの沼へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F53.html">どろどろの沼</a><span class="ln">F53</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">384</div><div class="a">再びどろどろの沼へ行き、どろどろの玉を31個集める（民家の男20個＋門の男11個）</div><div class="g"><span><span class="ic ky">鍵</span>どろどろの玉×31〜</span></div></div>
+
+<div class="area"><a href="F54.html">レイエンダの村</a><span class="ln">F54</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">385</div><div class="a">民家の男にどろどろの玉20個（地属性耐性）</div><div class="g"><span><span class="ic sg">♪</span>土人形の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">386</div><div class="a">マップ左上の出口付近の男にどろどろの玉を全部渡す（11〜49個）</div><div class="g"><span><span class="ic eq">装</span>火のペンダント</span></div></div>
+
+<div class="area"><a href="F53.html">どろどろの沼</a><span class="ln">F53</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg" style="background:#d08a00">推奨</span></div><div class="cn">387</div><div class="a">どろどろの玉を集める（61個以上：村長50個＋門の男用に11個以上）</div><div class="g"><span><span class="ic ky">鍵</span>どろどろの玉×61〜</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">後から使うものを先に集める。レベル上げを兼ねてここでやったほうが安泰。</div></div>
+
+<div class="area"><a href="F54.html">レイエンダの村</a><span class="ln">F54</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">388</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">389</div><div class="a">マップ左上から出発</div><div class="g"></div></div>
+
+<div class="area"><a href="F55.html">レイエンダの山道</a><span class="ln">F55</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ガンバンは地属性、グラティスは風属性。状況に応じて盾を交換</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">390</div><div class="a">突き当たりの床の丸い物体に触り、アイリスを選ぶ → 入口が開く</div><div class="g"></div></div>
+
+<div class="area"><a href="F56.html">溶岩洞窟</a><span class="ln">F56</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">雑魚には氷の矢の歌がおすすめ</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">391</div><div class="a">主人公・アイリス・フィデレに火の盾、傭兵に火のペンダント</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">392</div><div class="a">1F：左上を目指して進み、箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>熱風の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">393</div><div class="a">1F：右上の階段 → B1：ほぼ一本道を反時計回りに階段へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">394</div><div class="a">B2：メルソンゲールの大歌巻の会話の先で、音圧に押し返されて進めなくなる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">395</div><div class="a">来た道を戻りレイエンダへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F54.html">レイエンダの村</a><span class="ln">F54</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">396</div><div class="a">村長と会話（また食料を要求される）→ No.387で集めておいたどろどろの玉50個を渡す</div><div class="g"><span><span class="ic sg">♪</span>溶岩の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">397</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">398</div><div class="a">左上の出口付近の男に、No.387で集めておいたどろどろの玉を全部渡す（11〜49個）</div><div class="g"><span><span class="ic eq">装</span>火のペンダント</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">399</div><div class="a">再び溶岩洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F56.html">溶岩洞窟</a><span class="ln">F56</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">400</div><div class="a">B2：音圧の場所で溶岩の歌（SP消費なし）→ その先の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>オード：序奏</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">401</div><div class="a">来た道を歩いて帰る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">402</div><div class="a">洞窟を出る前にステータス確認、HP・SPを回復</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">403</div><div class="a">地のペンダントを3つ買っていれば、火の盾を持つ人に装備</div><div class="g"></div></div>
+
+<div class="area"><a href="F55.html">レイエンダの山道</a><span class="ln">F55</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">404</div><div class="a">外に出る → ドドルとアーノスタルが登場、フィデレの呪文でドドルを封じる</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">405</div><div class="a">ドドル → 主人公は熱風の歌、他は風針薬。SP回復が余っていれば凍結の歌を連打して封じてもOK</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ドドルは火と地の両方を使うので、片方を盾、もう片方をペンダントで防ぐ</div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">406</div><div class="a">アーノスタルが去り、フィデレの呪文でフエダへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F40.html">港町フエダ</a><span class="ln">F40</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">407</div><div class="a">フィデレの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">408</div><div class="a">船屋で会話 → 桟橋の先端へ（フィデレ離脱）→ 船で休火山島へ</div><div class="g"></div></div>
+
+</div></details>
+<details class="ch"><summary><div class="bn" style="background-image:url(field_maps/FIELD70/7001.png);--pos:50% 50%"></div><div class="bt"><span class="no">第4章</span><span class="nm">時の止まった湖</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F60.html">港町マジョーレ</a><span class="ln">F60</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">409</div><div class="a">ギルドでドンキーを雇う</div><div class="g"><span><span class="ic pa">＋</span><a href="chara20.html">ドンキー</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ドンキーはアイリスをかばうが、HPが減ると逃げ、必殺技も雷鳴剣より弱い。次の傭兵までのつなぎ程度</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">410</div><div class="a">武器屋・防具屋で全員を最強装備に（短剣・槍・手裏剣はすぐ上位品が出るので買い控えも可）</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">411</div><div class="a">ハイネックレスを4個買う</div><div class="g"><span><span class="ic eq">装</span>ハイネックレス×4</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">412</div><div class="a">民家で話しかけてリュートのパーツを買う</div><div class="g"><span><span class="ic pt">部</span>２Ｍ指板</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">413</div><div class="a">雑貨屋で風針薬を多めに（全額は使わない）→ 宿屋で回復＆セーブ</div><div class="g"><span><span class="ic at">攻</span>風針薬</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">414</div><div class="a">真上の出口に近づく → 走ってきた男が術師に襲われる</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">戦闘</span></div><div class="cn">415</div><div class="a">術師2人と戦闘（逃走可）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">416</div><div class="a">酒場へ行く（閉まっていて入れない）→ 真上の出口からマジョーレの森へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F61.html">マジョーレの森</a><span class="ln">F61</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">死人狼は死戻強の歌が効く。風悪魔は物理攻撃無効</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">417</div><div class="a">マップ右下を目指して箱を開ける（ほぼ使わない）</div><div class="g"><span><span class="ic sg">♪</span>浮遊の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">418</div><div class="a">マップ右上を目指して箱を開ける</div><div class="g"><span><span class="ic eq">装</span>風の盾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">419</div><div class="a">マップ左上を目指しノルティナへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F63.html">ノルティナ学園都市</a><span class="ln">F63</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">420</div><div class="a">解雇する人の装備を外してから、ギルドでサザシイを雇う（パストラン＆サザシイがおすすめ）</div><div class="g"><span><span class="ic pa">＋</span><a href="chara21.html">サザシイ</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">サザシイはランダムでエアニードル（風属性）を使う。今の傭兵が推しなら無理に替えなくていいが、サザシイがよほど嫌いでない限り圧倒的におすすめ</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">421</div><div class="a">武器屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">422</div><div class="a">防具屋でカイトシールドを3つ</div><div class="g"><span><span class="ic eq">装</span>カイトシールド×3</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">423</div><div class="a">ラウンド・ヒーター・ノルマンシールドなど余った装備を売る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">424</div><div class="a">寺院（教会）の箱を開ける（全員HP100回復、今さら使い道なし）</div><div class="g"><span><span class="ic sg">♪</span>全手当の歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">425</div><div class="a">校舎に入り箱を開ける</div><div class="g"><span><span class="ic pt">部</span>女神のネック</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">426</div><div class="a">校舎でセレーネと会話し、マキバについて聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">427</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+
+<div class="area"><a href="F62.html">牧場</a><span class="ln">F62</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">428</div><div class="a">マジョーレの森の右側中腹にある牧場で呼び鈴を鳴らす → マキバからライアンについて聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">429</div><div class="a">マジョーレに帰る</div><div class="g"></div></div>
+
+<div class="area"><a href="F60.html">港町マジョーレ</a><span class="ln">F60</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">430</div><div class="a">酒場に入れるようになっている → 黒魔術について聞く</div><div class="g"><span><span class="ic ky">鍵</span>魂のビン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">431</div><div class="a">ノルティナに向かう</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">主人公のレベルが40以上ならノルティナに自動で移動</div></div>
+
+<div class="area"><a href="F63.html">ノルティナ学園都市</a><span class="ln">F63</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">432</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">433</div><div class="a">マップ左下の納屋に入り、箱を押して入口を見つける</div><div class="g"></div></div>
+
+<div class="area"><a href="F65.html">地下回廊</a><span class="ln">F65</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ハウラーはスノーフォール（全員行動不能）を使うので非常に危険</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">434</div><div class="a">最初の分岐を左へ行き、箱を開ける（ほぼ使わない）</div><div class="g"><span><span class="ic sg">♪</span>地震の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">435</div><div class="a">分岐点に戻り、どんどん上へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">436</div><div class="a">左上の部屋に入る前にHP・SP確認</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">437</div><div class="a">部屋でモーロックと会話し戦闘 → ノイズを使うが、主人公のレベルが40以上なら炎の玉の歌、40未満なら炎の柱の歌で挑む。他は攻撃力と相談して火炎薬</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">438</div><div class="a">右側の部屋のファーナの前で魂のビンを使う → ファーナは回復して1人で帰る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">439</div><div class="a">地下回廊を脱出して町の中へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F72.html">教会・パイプ洞窟</a><span class="ln">F72</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">440</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">441</div><div class="a">寺院（教会）のパイプオルガンの左から2番目を調べる → 入口が出現</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">吸音ゴケはノイズを使う</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">442</div><div class="a">分岐を下へ行き、箱を開ける</div><div class="g"><span><span class="ic pt">部</span>白／金の線</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">443</div><div class="a">分岐に戻りHP・SP確認</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">444</div><div class="a">右上でバルメイラス → 主人公のレベルが40以上であれば炎の玉の歌、未満なら炎の柱の歌、他は全員火炎薬</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">445</div><div class="a">来た道を戻りマジョーレへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F60.html">港町マジョーレ</a><span class="ln">F60</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">446</div><div class="a">酒場でライアンと会話 → ファーナからサンジャックについて聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">447</div><div class="a">ノルティナへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F63.html">ノルティナ学園都市</a><span class="ln">F63</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">448</div><div class="a">レベル44を超えていれば高級武器屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">449</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">450</div><div class="a">マップ上部の出口から山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F69.html">ノルティナの山道</a><span class="ln">F69</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">451</div><div class="a">右上を目指して箱を開ける</div><div class="g"><span><span class="ic eq">装</span>水の盾</span><span><span class="ic eq">装</span>水のペンダント</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">452</div><div class="a">左側中腹の家でサンジャックと会話 →「極上の羽根を取って来てくれたら助けてやろう」</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">453</div><div class="a">牧場へ向かう</div><div class="g"></div></div>
+
+<div class="area"><a href="F62.html">牧場</a><span class="ln">F62</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">454</div><div class="a">傭兵2人のうち解雇する方の装備を外す（サザシイを残すのがおすすめ）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">455</div><div class="a">マキバと会話し、装備を外した方を解雇</div><div class="g"><span><span class="ic pa">＋</span><a href="chara22.html">マキバ</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">456</div><div class="a">マキバにハイネックレスを装備</div><div class="g"></div></div>
+<div class="area"><a href="F60.html">港町マジョーレ</a><span class="ln">F60</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">457</div><div class="a">マジョーレの船屋で会話 → 桟橋の先端から船に乗る</div><div class="g"></div></div>
+
+<div class="area"><a href="F68.html">鳥の島</a><span class="ln">F68</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">458</div><div class="a">鳥の王と会話し、仲間が捕まっている話を聞く</div><div class="g"><span><span class="ic ky">鍵</span>チクタク館の鍵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">459</div><div class="a">右上（かなり見づらい）の箱を開ける</div><div class="g"><span><span class="ic eq">装</span>風のペンダント</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">460</div><div class="a">船屋の箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>風の壁の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">461</div><div class="a">船屋で会話 → 桟橋の先端から船でマジョーレへ → ノルティナへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F67.html">チクタク館</a><span class="ln">F67</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">462</div><div class="a">ノルティナの宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">463</div><div class="a">高級武器屋が解放されているなら、マキバの装備を更新する</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">464</div><div class="a">ノルティナのマップ左中腹、鍵のかかった扉でチクタク館の鍵を使う</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">反響ゴケはノイズを使う。風妖魔は物理攻撃無効</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">465</div><div class="a">中央の階段で2Fへ、左下の棚を調べる</div><div class="g"><span><span class="ic ky">鍵</span>時計ピン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">466</div><div class="a">2F：6:59の時計（右の壁寄り）で時計ピンを使う</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">467</div><div class="a">1F：6:59の時計（左上の2段目）で時計ピンを使う</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">468</div><div class="a">HP・SPが大きく減っていれば外に出て宿屋へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">469</div><div class="a">2F：左下の棚の前でHP・SP確認、全員にハイネックレスとカイトシールドを装備</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">470</div><div class="a">2F：左下の棚を調べてネジを巻く → からくり男爵が出現</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">471</div><div class="a">からくり男爵 → 主人公のレベルが40以上であれば炎の玉の歌、未満なら炎の柱の歌、他は火炎薬</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">472</div><div class="a">マップ右下の部屋で机の上の本を調べ、絵を破く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">473</div><div class="a">1Fに降りようとすると鳥がやってくる</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">474</div><div class="a">1F：時計が壊れて行けるようになった右下と左下で箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>炎爆発の歌</span><span><span class="ic pt">部</span>水晶の装飾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">475</div><div class="a">チクタク館から脱出</div><div class="g"></div></div>
+
+<div class="area"><a href="F63.html">ノルティナ学園都市</a><span class="ln">F63</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">476</div><div class="a">宿屋で回復＆セーブ。からくり男爵戦でレベル44になっていたなら、高級武器屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">477</div><div class="a">マジョーレの船屋で会話 → 桟橋の先端から船で鳥の島へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F68.html">鳥の島</a><span class="ln">F68</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">478</div><div class="a">鳥の王と会話</div><div class="g"><span><span class="ic ky">鍵</span>素晴らしい羽根</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">479</div><div class="a">船屋で会話 → 船でマジョーレへ → ノルティナの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F69.html">ノルティナの山道</a><span class="ln">F69</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">480</div><div class="a">サンジャックに素晴らしい羽根を渡し、湖の情報を聞く</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">この先は戻れないダンジョン。不安ならノルティナでセーブ</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">481</div><div class="a">マップ上部の途切れた階段へ → マキバが鳥を呼び、火口湖へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F70.html">火口湖</a><span class="ln">F70</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">482</div><div class="a">主人公に水の盾、他の人に水の盾・水のペンダントを装備</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">483</div><div class="a">湖を反時計回りに一周し、水辺の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>不思議な太鼓</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">484</div><div class="a">マップ左側の洞窟に入る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">485</div><div class="a">HP・SPを回復し、全員にカイトシールドとハイネックレスを装備</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">486</div><div class="a">ベッドの脇で不思議な太鼓を使う</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">487</div><div class="a">シャドウ → 主人公のレベルが40以上であれば炎の玉の歌、未満なら炎の柱の歌、他は風針薬か火炎薬</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">488</div><div class="a">老人が目覚める</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">489</div><div class="a">外に出てフクロウを追いかける</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">490</div><div class="a">目の前の箱を開ける（ほぼ使わない）</div><div class="g"><span><span class="ic sg">♪</span>台風の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">491</div><div class="a">右に進んで箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>オード：終奏</span></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">492</div><div class="a">時の老人が登場 → フクロウでノルティナの山道へ → マキバからかわうその話 → マジョーレへ</div><div class="g"></div></div>
+
+<div class="area"><a href="F60.html">港町マジョーレ</a><span class="ln">F60</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">493</div><div class="a">マキバの装備を外す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">494</div><div class="a">雑貨屋で風針薬をがっつり（全額は使わない）</div><div class="g"><span><span class="ic at">攻</span>風針薬 大量</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">495</div><div class="a">船屋で会話し代金を払う → 桟橋の先端へ</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">桟橋の左端ぎりぎりを通るとマキバが離脱しなくなるバグあり。右寄りを通る</div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">496</div><div class="a">マキバ離脱 → ライアンと会話 → 船で岩の島へ</div><div class="g"></div></div>
+
+</div></details>
+<details class="ch"><summary><div class="bn" style="background-image:url(field_maps/FIELD88/8800.png);--pos:50% 50%"></div><div class="bt"><span class="no">第5章</span><span class="nm">かわうその懐</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F80.html">オーパスの村</a><span class="ln">F80</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">497</div><div class="a">武器屋・防具屋で全員を最強装備に（ドロシーがいれば、外を歩いている男と話すと手裏剣が買える）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">498</div><div class="a">マップ左寄りの民家で女性からアロンについて聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">499</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">500</div><div class="a">右上の出口からオーパスの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F81.html">オーパスの山道</a><span class="ln">F81</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">501</div><div class="a">左から右へ時計回りに進み、右下の男（アロン）と会話し、助力する</div><div class="g"><span><span class="ic pa">＋</span><a href="chara23.html">アロン</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">502</div><div class="a">アロンにカイトシールド＆地のペンダント、または地の盾＆ハイネックレス</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">アロンは特技がないので、HPが低くない限り確実に命令通り動く</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">503</div><div class="a">洞窟に入る</div><div class="g"></div></div>
+
+<div class="area"><a href="F82.html">要塞迷路</a><span class="ln">F82</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">雑魚はダストデビルのみ。熱風の歌、3体なら神風の歌。逃げてもいい。風針薬は今後買えないので使い切りに注意</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg tb">戦闘</span></div><div class="cn">504</div><div class="a">B3スタート。左下を目指し、小部屋の入口で城兵に見つかる（逃走可）→ 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>要塞の鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">505</div><div class="a">入口付近まで戻り、右上を目指す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">506</div><div class="a">分岐を左へ行き、箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめＤＸ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg tb">戦闘</span></div><div class="cn">507</div><div class="a">右上の小部屋に入る → 城兵に見つかる（逃走可）→ 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>要塞の鍵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">508</div><div class="a">左へ進み、道中の箱を開ける</div><div class="g"><span><span class="ic hp">H</span>銀色の小ビン×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">509</div><div class="a">少し戻って分岐を下へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">510</div><div class="a">すぐ次の分岐を右へ行き、箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>幻惑の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">511</div><div class="a">分岐に戻り、左から反時計回りに通路を回る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">512</div><div class="a">分岐を曲がらずまっすぐ右へ → 箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめＤＸ×5</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">513</div><div class="a">分岐に戻って上へ、右から回って扉で要塞の鍵 → 階段でB2へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">514</div><div class="a">B2：分岐を上へ、扉で要塞の鍵</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">515</div><div class="a">分岐を右へ、小部屋で箱を開ける（後列専用・地属性最強攻撃）</div><div class="g"><span><span class="ic sg">♪</span>土の手の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg tb">戦闘</span></div><div class="cn">516</div><div class="a">そのまま進み、分岐を下へ → 右下の小部屋の入口で城兵に見つかる（逃走可）→ 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>要塞の鍵</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg tb">戦闘</span></div><div class="cn">517</div><div class="a">左側に戻り時計回りに。途中右側の小部屋の入口で城兵に見つかる（逃走可）→ 箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>要塞の鍵</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">518</div><div class="a">上に行き、小部屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">519</div><div class="a">扉で要塞の鍵 → 似た地形を上→右へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">520</div><div class="a">左上の通路の先端で箱を開ける（銅色の小ビンと同効果、歌の回復では最強）</div><div class="g"><span><span class="ic sg">♪</span>全快の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">521</div><div class="a">四角い廊下を1つ戻り、上に行く扉で要塞の鍵 → 階段でB1へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">522</div><div class="a">B1：中央の廊下を少し進み、左。廊下ではない小部屋の中へ。壁際の箱を開ける</div><div class="g"><span><span class="ic pt">部</span>白の胴</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">523</div><div class="a">中央通路一番上の廊下を左へ、細い廊下を上がってレバーを触る。中央通路を挟んだ反対側の同じ位置のレバーも触る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">524</div><div class="a">廊下を右端まで進み、右上の小部屋で箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>割れたピック</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">525</div><div class="a">中央通路を戻り、左下から行ける小部屋で箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>割れたピック</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">526</div><div class="a">中央通路の一番奥の扉で割れたピックを使う → 階段で王宮内部へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F82.html">王宮内部</a><span class="ln">F82</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">527</div><div class="a">しばらく上に進み、右の小部屋の従僕から暗号について聞く</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">528</div><div class="a">広い廊下を経由して右下の部屋へ、宝箱の暗号に「エド」と入力</div><div class="g"><span><span class="ic ky">鍵</span>城のカギ</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">529</div><div class="a">広い廊下を経由して右上の部屋の箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>熱地獄の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">530</div><div class="a">正面奥の扉で城のカギを使う</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">531</div><div class="a">HP・SP確認、全員にカイトシールドとハイネックレス</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">532</div><div class="a">エド＆城兵 → 主人公は熱地獄の歌で雑魚ごと倒し、エドだけになったら、主人公のレベルが40以上なら炎の玉の歌、40未満なら炎の柱の歌。他は通常攻撃か風針薬・火炎薬をエドに</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">533</div><div class="a">エドが正気に戻る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">534</div><div class="a">アロンからハイネックレスを回収。それ以外の装備は置いておく</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">535</div><div class="a">正面真下から外へ → 走ってきたエドが加入、アロン離脱</div><div class="g"><span><span class="ic pa">＋</span><a href="chara24.html">エド</a></span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">536</div><div class="a">エドにハイネックレスを装備（エドも特技なしで確実に命令通り動く。残りHPの管理だけは忘れずに。それ以外の人物にもハイネックレスを装備させ、盾はカイトシールドに。）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">537</div><div class="a">オーパスに帰る（現在位置は山道の右上。村はマップ中央下、右下から回り込む）</div><div class="g"></div></div>
+
+<div class="area"><a href="F80.html">オーパスの村</a><span class="ln">F80</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">538</div><div class="a">宿屋でセーブ（すぐ先に無料宿が出るので泊まらなくていい）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">539</div><div class="a">船屋で会話（エドの圧力で無料）→ 桟橋の先端から船に乗る</div><div class="g"></div></div>
+
+<div class="area"><a href="F84.html">囚人島</a><span class="ln">F84</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">540</div><div class="a">正面の扉に入り、左側から時計回りに回って階段でB1へ</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">しばらくエンカウントしない</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">541</div><div class="a">B1：右側から反時計回りに回り、中央上の部屋の階段でB2へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">542</div><div class="a">B2：階のちょうど中央あたりの部屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">543</div><div class="a">B2：左下を目指し、階段でB3（洞窟）へ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">544</div><div class="a">いったん右に行き、それから左上を目指す。採掘場に近づくと囚人が寄ってきて会話 → スカルマスター登場</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">545</div><div class="a">スカルマスター → 主人公のレベルが40以上であれば炎の玉の歌、未満なら炎の柱の歌、他は風針薬か火炎薬</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">546</div><div class="a">これまでの伏線がつながり、警報が鳴り出す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">547</div><div class="a">来た道を戻って階段を上がる（B2に赤いランプ）</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここからエンカウントする</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">548</div><div class="a">B2：右下の小部屋の箱を開ける（敵全体の攻撃力ダウン）</div><div class="g"><span><span class="ic sg">♪</span>冷風の歌</span></div></div>
+<div class="r b"><div class="t"><span class="tg">戦闘</span></div><div class="cn">549</div><div class="a">1つ手前の部屋に入り、城兵と戦闘（逃走可）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">550</div><div class="a">右上 → 左上を目指す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">551</div><div class="a">途中のベッドの部屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">552</div><div class="a">左上の階段でB1へ。来た道は使えないので左側の鉄格子を調べる → 囚人が開けてくれる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">553</div><div class="a">反時計回りに進み、同様に鉄格子を開けてもらって階段の部屋へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">554</div><div class="a">階段を無視して上へ、来たときは閉まっていた鉄格子の奥で箱を開ける</div><div class="g"><span><span class="ic pt">部</span>トルコ石の装飾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">555</div><div class="a">階段で1Fへ。来た道は使えないので左側の鉄格子から反時計回りに</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">556</div><div class="a">1F：正面奥の部屋の箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめＤＸ×10</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">557</div><div class="a">正面下から建物の外へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">558</div><div class="a">エドの装備を全て外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">559</div><div class="a">桟橋の先端へ → アロン登場、船で岩の島へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F80.html">オーパスの村</a><span class="ln">F80</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">560</div><div class="a">エドが城に帰り、アロンが再加入</div><div class="g"><span><span class="ic pa">＋</span>アロン</span><span><span class="ic sg">♪</span>かわうその歌</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">561</div><div class="a">アロンにハイネックレスを装備 → 宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">562</div><div class="a">オーパスの山道へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F81.html">オーパスの山道</a><span class="ln">F81</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">563</div><div class="a">左下の洞窟へ。左に進み、埋まった階段でセリフが出たらかわうその歌（SP消費なし）→ かわうそが現れ移動</div><div class="g"></div></div>
+
+<div class="area"><a href="F88.html">地下湖底</a><span class="ln">F88</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">悪かわうそはスカンク（全員石化）を使うので注意。村エリアでもエンカウントあり（室内は安全）</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">564</div><div class="a">右上を目指し、巻き貝が並ぶエリア（かわうその村）へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">565</div><div class="a">武器屋・防具屋で全員を最強装備に</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ここで買える装備が最強装備なので、何としても買うこと</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">566</div><div class="a">雑貨屋で回復などを調達（黄金の小ビン＝HP全回復が初登場だが、銀色＝HP2000で十分）</div><div class="g"><span><span class="ic hp">H</span>銀色の小ビン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">567</div><div class="a">村エリア右上の巻き貝で長と会話し、試練の内容を聞く</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">568</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">569</div><div class="a">村エリアを出て右下を目指し、調律の洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F98.html">調律の洞窟</a><span class="ln">F98</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">570</div><div class="a">1F：すぐ左の箱を開ける</div><div class="g"><span><span class="ic sg">♪</span>氷河の歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">571</div><div class="a">1F：時計回りに一番奥まで行き、階段でB1へ → 左の箱を開ける（「ア」の箱）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">572</div><div class="a">B1：階段を無視してどんどん右へ → 箱を開ける（「ト」の箱）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">573</div><div class="a">1Fに戻り、がっつり上に行ってすぐ左の階段を降りる → 箱を開ける（「ビ」の箱）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">574</div><div class="a">1Fに戻り、右下に少し行った階段を降りる → 箱を開ける（「オ」の箱）</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">575</div><div class="a">1Fに戻り、マップ左上の通路の奥の階段を降りる → 箱を開ける（「ン」の箱）</div><div class="g"><span><span class="ic ky">鍵</span>紺碧の原石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">576</div><div class="a">正面下あたりから洞窟を出る</div><div class="g"></div></div>
+
+<div class="area"><a href="F88.html">地下湖底</a><span class="ln">F88</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">577</div><div class="a">かわうその村の宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">578</div><div class="a">マップ左上を目指し、磨き石の洞窟へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F86.html">磨き石の洞窟</a><span class="ln">F86</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">579</div><div class="a">主人公に風の盾、他の人に風の盾と風のペンダント</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">580</div><div class="a">開始位置の少し右上の小部屋でかわうその磨き手と会話 →「この洞窟の奥に行って、磨き用の石を取ってくればいいのさ」</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">581</div><div class="a">中央通路を進み右上を目指す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">582</div><div class="a">かなり進んだところの箱を開ける</div><div class="g"><span><span class="ic pt">部</span>ダイヤの装飾</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">583</div><div class="a">少し戻り3つ目の分岐で上へ、次の分岐を右へ → 最終的に左上の小部屋を目指す</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">584</div><div class="a">小部屋が見えてきたらHP・SP確認、カイトシールドとハイネックレスに交換</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">585</div><div class="a">小部屋でオクトセンガー → 主人公のレベルが40以上であれば炎の玉の歌、未満なら炎の柱の歌、他は火炎薬</div><div class="g"><span><span class="ic ky">鍵</span>磨き石</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">586</div><div class="a">かわうその磨き手の所に戻って会話</div><div class="g"><span><span class="ic ky">鍵</span>紺碧の宝珠</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">587</div><div class="a">かわうその村に戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F88.html">地下湖底</a><span class="ln">F88</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">588</div><div class="a">かわうその長と会話 → ワープで脱出</div><div class="g"><span><span class="ic ky">鍵</span>オード全曲</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">589</div><div class="a">オーパスの村に戻る</div><div class="g"></div></div>
+
+<div class="area"><a href="F80.html">オーパスの村</a><span class="ln">F80</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">590</div><div class="a">船屋で会話 → 桟橋の先端へ → 船ではじまりの島へ</div><div class="g"></div></div>
+
+</div></details>
+<details class="ch"><summary><div class="bn" style="background-image:url(field_maps/FIELD32/3200.png);--pos:50% 50%"></div><div class="bt"><span class="no">最終章</span><span class="nm">聴け、この魂の歌を</span><span class="ar">▼</span></div></summary>
+<div class="body">
+
+<div class="area"><a href="F1-b.html">港町アデン</a><span class="ln">F1</span></div>
+<div class="hd"><div>種別</div><div>No.</div><div>行動</div><div>入手</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">591</div><div class="a">宿屋（無料）で回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">592</div><div class="a">バルエコへ向かう</div><div class="g"></div></div>
+
+<div class="area"><a href="F5-b.html">龍族の村バルエコ</a><span class="ln">F5</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">593</div><div class="a">モルガンの家でモルガンと会話</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">594</div><div class="a">以前は閉まっていた右下の門の先の家に入り、奥の長に楽譜を渡す</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">595</div><div class="a">建物から出ると衝撃の事実が発覚、モルガンに捕まる</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">596</div><div class="a">扉に近づく → ボビンが助けに来る</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">597</div><div class="a">建物の外に出て、右上の森から奥の村へ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">598</div><div class="a">主人公に火の盾＆ハイネックレス。他の人にも火の盾を装備し、盾が装備できない人は火のペンダントを装備する</div><div class="g"></div></div>
+
+<div class="area"><a href="F90.html">燃える村</a><span class="ln">F90</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">バットスメルはスカンク（全員石化）を使う</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">599</div><div class="a">左上の建物の横にある箱を開ける（今は使い道がないが持っておくこと）</div><div class="g"><span><span class="ic eq">装</span>Ｈ＃の剣</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">600</div><div class="a">マップ左上の森の出口を目指し、モルガンと会話 → 世界の真実、アイリスに呪い</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">601</div><div class="a">モルガン → 主人公は氷の矢の歌、他は通常攻撃（確実）か風針薬（高ダメージ狙い、ミスあり）。アイリスは風針薬を使う</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">602</div><div class="a">その先へ進む</div><div class="g"></div></div>
+
+<div class="area"><a href="F95.html">バルエコの森</a><span class="ln">F95</span></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">603</div><div class="a">洞窟に近づく → ボビンが登場</div><div class="g"><span><span class="ic sg">♪</span>カリヨン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">604</div><div class="a">来た道を戻り、アデンの桟橋へ</div><div class="g"></div></div>
+
+<div class="area"><a href="F1-b.html">港町アデン</a><span class="ln">F1</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">605</div><div class="a">宿屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">606</div><div class="a">雑貨屋で銀色・黄金の小ビン、のどあめＤＸなどをしっかり買う（火炎薬を複数買う分は残す）</div><div class="g"><span><span class="ic hp">H</span>銀色の小ビン</span><span><span class="ic hp">H</span>黄金の小ビン</span><span><span class="ic sp">S</span>のどあめＤＸ</span></div></div>
+
+<div class="area"><a href="F29.html">グレゴリアの村</a><span class="ln">F29</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">607</div><div class="a">雑貨屋で火炎薬を買う。55個あれば安泰</div><div class="g"><span><span class="ic at">攻</span>火炎薬</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">608</div><div class="a">鍵盤階段の一番上の洞窟に入る</div><div class="g"></div></div>
+
+<div class="area"><a href="F32.html">水晶の洞窟</a><span class="ln">F32</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">609</div><div class="a">「火の盾＋風のペンダント」「風の盾＋火のペンダント」の組み合わせで各人に装備</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">610</div><div class="a">右上を目指してどんどん進み、水晶の寝台を発見</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">611</div><div class="a">アイリスの装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">612</div><div class="a">アトビオン神の前でカリヨンを歌う → 夢の城へ行くよう言われる。アイリス離脱</div><div class="g"><span><span class="ic pa">＋</span><a href="chara25.html">ボビン</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">ボビンは特技を一切持たないので、HPさえあれば確実に命令通り動く</div></div>
+
+<div class="area"><a href="F92.html">夢の城</a><span class="ln">F92</span></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">613</div><div class="a">全員にハイネックレスとカイトシールド</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">614</div><div class="a">城の中に入る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">615</div><div class="a">中央エントランス右上の小部屋で、3つ並んだ丸い物体に触れて回復＆セーブ</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">616</div><div class="a">中央奥の階段で2Fへ</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">2Fの箱は全9個。最初に開けた箱と同じ色の箱からしかソングストーンが出ない。緑が一番近い</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">617</div><div class="a">2F：左へ行き、左下の小部屋の緑の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">618</div><div class="a">2F：廊下に戻り、右の細い廊下を下に降りた所の緑の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">619</div><div class="a">2F：廊下の途中で左に分岐し、小部屋の緑の箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">620</div><div class="a">階段を降りて1Fへ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">621</div><div class="a">1F：右上の部屋（回復量が少なくほぼ無意味）</div><div class="g"><span><span class="ic sg">♪</span>全治しの歌</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">622</div><div class="a">1F：右下へ長い廊下を下って箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">623</div><div class="a">1F：マップの一番左下を目指して箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">624</div><div class="a">1F：左上の部屋で箱を開ける</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">HP・SPが減ったら中央エントランス経由で回復部屋へ</div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span><span class="tg tb">戦闘</span></div><div class="cn">625</div><div class="a">途中の廊下の階段からB1へ。3つの小部屋の箱を開ける（部屋に入るたびにエンカウント、逃走可）</div><div class="g"><span><span class="ic ky">鍵</span>ソングストーン×3</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">626</div><div class="a">B1：南東の部屋の箱を開ける</div><div class="g"><span><span class="ic sp">S</span>のどあめＤＸ×5</span><span><span class="ic hp">H</span>黄金の小ビン×5</span></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">627</div><div class="a">全部揃ったら、中央エントランスの9つの円に触れないよう壁際を通って回復部屋で回復＆セーブ</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">628</div><div class="a">傭兵の装備を全部外す</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">629</div><div class="a">中央エントランスの9つの円に触れ、ソングストーンを置く</div><div class="g"><span><span class="ic ky">鍵</span>霧のタクト</span></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">630</div><div class="a">水晶の洞窟へ戻るとアイリスが石に → バルエコの森へ移動</div><div class="g"></div></div>
+
+<div class="area"><a href="F95.html">バルエコの森</a><span class="ln">F95</span></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">631</div><div class="a">エドが寄ってきて、傭兵を追い出して強引に加入</div><div class="g"><span><span class="ic pa">＋</span><a href="chara24.html">エド</a></span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">エドは囚人島で離脱した時のパラメータのままで、他より10レベルほど低いこともある。HPが減るとボス戦でも逃げる。レベルが上がるまでは1ターン目にアロン（一番素早いはず）に守りの水を使わせると安全</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">632</div><div class="a">傭兵から外した装備とＨ＃の剣をエドに装備し、必要ならHP回復</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">633</div><div class="a">主人公とアロンに地の盾とハイネックレス、エドとボビンに地のペンダント</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">634</div><div class="a">洞窟に入る</div><div class="g"></div></div>
+
+<div class="area"><a href="F6.html">ガリハアクの洞窟</a><span class="ln">F6</span></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">雑魚エンカウントなし。代わりに通路の特定地点でこれまでのボスの魂と戦う（以前より強い）</div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">635</div><div class="a">木霊グモの魂 → 主人公は熱風の歌、他は風針薬</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">636</div><div class="a">フーコーの魂 → 主人公は熱風の歌、他は風針薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">637</div><div class="a">戦闘後、主人公とアロンに火のペンダント</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">638</div><div class="a">右下の箱を開ける（入口の東の部屋）。エドにＮ＃の剣を装備</div><div class="g"><span><span class="ic eq">装</span>Ｎの剣</span><span><span class="ic eq">装</span>Ｎ＃の剣</span><span><span class="ic eq">装</span>シルバースケール</span></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">シルバースケールが入っているのは、バルメイラスの魂を倒す前に開けたときだけ</div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">639</div><div class="a">右上の箱を開ける（北東の行き止まり）</div><div class="g"><span><span class="ic hp">H</span>黄金の小ビン×8</span><span><span class="ic sp">S</span>のどあめＤＸ×8</span></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">640</div><div class="a">ドドルの魂 → 主人公は熱風の歌、他は風針薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">641</div><div class="a">戦闘後、主人公とアロンに風の盾、エドに風のペンダント、それ以外の3人はハイネックレスに</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">642</div><div class="a">箱を開けて回復＆セーブ（以降ボス戦の後ここに戻ると安心）</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">643</div><div class="a">モーロックの魂 → 主人公は炎の玉の歌、ボビンは興奮剤、アロンは火炎薬。エドはカリンダで40個買っていれば興奮剤、なければ火炎薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">644</div><div class="a">戦闘後、主人公とアロンに水の盾、エドに水のペンダント</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">645</div><div class="a">バルメイラスの魂 → 主人公は炎の玉の歌、他は火炎薬</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">646</div><div class="a">からくり男爵の魂 → 主人公は炎の玉の歌、他は火炎薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">647</div><div class="a">戦闘後、主人公とアロンに風の盾、エドに風のペンダント</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">648</div><div class="a">スカルマスターの魂 → 主人公は炎の玉の歌、他は火炎薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">649</div><div class="a">主人公とアロンにカイトシールド、全員にハイネックレス</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">650</div><div class="a">モルガンの魂 → 主人公は炎の玉の歌、ボビンは興奮剤、アロンは火炎薬。エドはカリンダで40個買っていれば興奮剤、なければ火炎薬</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">651</div><div class="a">龍族の魂戦が始まったら主人公とアロンに水の盾と火のペンダント、エドとボビンに水のペンダントか火のペンダント</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">652</div><div class="a">休む間もなく龍族の魂 → 主人公は熱風の歌、他は風針薬か通常攻撃</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">653</div><div class="a">箱まで戻って回復＆セーブ（最終セーブ）。回復アイテムが減っていればアデンまで買いに戻る</div><div class="g"></div></div>
+<div class="r o"><div class="t"><span class="tg">推奨</span></div><div class="cn">654</div><div class="a">主人公とアロンに風の盾、エドに風のペンダント、それ以外の3人にハイネックレス</div><div class="g"></div></div>
+<div class="r m"><div class="t"><span class="tg">必須</span></div><div class="cn">655</div><div class="a">洞窟を一番奥まで進む → ガリハアクの声、霧のタクトに守られる</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">656</div><div class="a">ガリハアク（足）→ しばらくは防御を連発（守りの水も可）。開始から4ターンの間はエドのHPをそこまで意識しなくてもいい。ターン経過でエドが必殺技（ガリハアクに900ダメージ、エドも大ダメージ。倒れていればHP1で復活）を使い、以降攻撃が通る。主人公は土の手の歌、アロンはエドを回復、ボビンは興奮剤。エドはカリンダで40個買っていれば興奮剤、なければ火炎薬</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">安全に行くなら2ターンに1回幻惑の歌を歌う。ガリハアクの形態が変わるタイミングを除き、ハメ技で完封できる。</div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">657</div><div class="a">足を倒すとアイリスが登場し、外野から主人公を回復（HPが30％以下になるまで使わない）</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">658</div><div class="a">ガリハアク（胴体）→ 属性装備を風から地へ。主人公は炎の玉の歌、他3人は風針薬</div><div class="g"></div></div>
+<div class="r b"><div class="t"><span class="tg">ボス</span></div><div class="cn">659</div><div class="a">ガリハアク（頭部）→ 属性装備を地から火へ。主人公は氷の矢の歌、ボビンは興奮剤、アロンは風針薬か通常攻撃。エドはカリンダで40個買っていれば興奮剤、なければ風針薬</div><div class="g"></div></div>
+<div class="r e"><div class="t"><span class="tg">自動</span></div><div class="cn">660</div><div class="a">エピローグ → お別れ会（傭兵はスリムとドムカ以外来ない）→ スタッフロール</div><div class="g"></div></div>
+<div class="r n"><div class="t"><span class="tg">メモ</span></div><div class="a">クリアデータのセーブ（強くてニューゲーム）はない。The End表示の後タイトルに戻らないので、リセットか電源ボタンで終了</div></div>
+
+</div></details>
+
+</div>
+<script src="menu.js"></script>
+<!-- 完成版(2026-10-16 ユーザー確認済み)。スクリプトで上書きしない(生成スクリプトなし・html を直接直す) -->
