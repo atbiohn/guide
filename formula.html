@@ -1,0 +1,98 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黄昏のオード 計算式</title>
+<style>
+.ode-fm{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222;line-height:1.6;max-width:880px}
+.ode-fm .lead{margin:8px 0 14px}
+.ode-fm table{border-collapse:collapse;width:100%}
+.ode-fm th,.ode-fm td{border:1px solid #c8c8c8;padding:5px 8px;vertical-align:top;background:#fff}
+.ode-fm th{background:#3d4b66;color:#fff;font-weight:normal;white-space:nowrap}
+.ode-fm tr.sec td{background:#e4e8f0;font-weight:bold}
+.ode-fm tr.note td{background:#fbf6e6}
+.ode-fm td.nm{font-weight:bold;white-space:nowrap}
+.ode-fm td.ds{counter-reset:st}
+.ode-fm td.ds div{margin:1px 0}
+.ode-fm .st{position:relative;padding-left:1.6em}
+.ode-fm .st::before{counter-increment:st;content:counter(st) ".";position:absolute;left:0;color:#3d4b66;font-weight:bold}
+.ode-fm .li{position:relative;padding-left:2.6em}
+.ode-fm .li::before{content:"・";position:absolute;left:1.6em;color:#999}
+.ode-fm .li.bt{color:#888}
+.ode-fm .pl{position:relative;padding-left:1em}
+.ode-fm .pl::before{content:"・";position:absolute;left:-.1em;color:#999}
+.ode-fm .tg{display:inline-block;font-size:11px;color:#fff;background:#a04848;border-radius:3px;padding:0 4px;margin-right:5px;line-height:1.5;vertical-align:1px}
+.ode-fm .nt,.ode-fm .ex{font-size:12px;color:#666}
+.ode-fm .ex{background:#f4f6fa;border-left:3px solid #d5dbe6;padding:1px 6px;margin-top:3px!important}
+.ode-fm .bug{font-size:12px;color:#b02a1a;margin-top:3px!important}
+.ode-fm .bgi{display:inline-block;font-size:10px;color:#fff;background:#c0392b;border-radius:3px;padding:0 5px;margin-right:4px;line-height:1.5;white-space:nowrap}
+.ode-fm .wrap{overflow-x:auto}
+.ode-fm a{color:#2a5a9a}
+</style>
+<div class="ode-fm">
+<h2>計算式</h2>
+<p class="lead">ゲームの中の確率・ダメージなどの計算のしくみです。<br>
+割り算の端数は、特に書いていなければ切り捨て。敵の「属性の数字」「特殊技の数字」はモンスター一覧、武器・防具の数値はそれぞれの一覧に載っています。</p>
+<div class="wrap"><table><tr><th>何の計算か</th><th>求め方</th></tr>
+<tr class="sec"><td colspan="2">味方の通常攻撃</td></tr>
+<tr><td class="nm">ダメージ</td><td class="ds"><div class="st">まず <b>武器の攻撃力 + キャラの力(STR) − 10</b> を計算する(ATK と同じ)</div><div class="st">クリティカルでなければ、そこから <b>敵の防御力</b> を引く → <b>ダメージ</b>(0 未満なら 0)</div><div class="nt">※呪い(水色)なら武器の攻撃力を 0、呪い(紫)なら半分として計算する</div><div class="nt">※炎の心の歌がかかっていると、上で出た最後のダメージを 2倍(0 なら 0 のまま)</div><div class="nt">※物理無効の敵には 0(クリティカルでも)</div></td></tr>
+<tr><td class="nm">命中率</td><td class="ds"><div class="st">まず <b>キャラの素早さ(AGI) − 敵の素早さ</b> を計算する(キャラの素早さは装備の重さで下がった後の値。マイナスにもなる)</div><div class="st">その値を 2 で割る(マイナスのまま計算を続ける。端数は 0 に近い方へ切り捨て)</div><div class="st">その値に 80 を足す(素早さが同じなら 80)</div><div class="st">武器の系統と隊列で倍率を掛ける(下の「・」。武器なしは短剣と同じ)</div><div class="li">短剣: どちらかが後列 &#215;50%、両方後列 &#215;20%</div><div class="li">片手剣・両手剣・斧: どちらかが後列 &#215;75%、両方後列 &#215;40%</div><div class="li">ムチ: 両方後列だけ &#215;75%</div><div class="li">杖・槍・弓・手裏剣: 下がらない</div><div class="st">浮遊の敵に弓・ムチ・手裏剣で攻撃するなら、その値を 2 で割る(端数は切り上げ)</div><div class="st">さらに呪い(橙)なら 2 で割る(端数は切り上げ)、呪い(青)なら 3 で割る(端数は四捨五入)</div><div class="st">最後に 10〜175 に収める(10 未満なら 10、175 を超えたら 175)→ <b>命中率</b></div><div class="ex">例: 素早さ 30 のキャラが素早さ 20 の敵を片手剣で攻撃 → 30 − 20 = 10 → 10 &#247; 2 = 5 → 80 + 5 = 85 → 両方前列なら <b>85%</b>、キャラが後列なら 85 &#215; 75% ≒ <b>63%</b></div><div class="bug"><span class="bgi">バグ</span>浮遊の敵に弓・ムチ・手裏剣が半分になるのは、武器屋の説明(弓は浮遊にも当てやすい)と逆</div><div class="bug"><span class="bgi">バグ</span>重い防具で素早さが 0 まで下がると、重さの分だけ逆に命中率が上がる。<a href="armors.html">くわしくはコチラ</a></div></td></tr>
+<tr><td class="nm">クリティカル率</td><td class="ds"><div class="st">武器一覧の「クリティカル率%」が基本</div><div class="st">上の命中率(10〜175 に収める前の値)が 100 を超えていたら、<b>超えた分</b> を足す → <b>クリティカル率</b></div><div class="nt">※武器を装備していないとクリティカルは出ない</div><div class="ex">例: クリティカル率 4% の武器で命中率 110 → 4 + 10 = <b>14%</b></div></td></tr>
+<tr class="sec"><td colspan="2">歌</td></tr>
+<tr><td class="nm">力の歌のダメージ</td><td class="ds"><div class="st">まず、主人公のレベルを 3 で割る(端数は四捨五入)</div><div class="st">その値に歌の <b>威力</b> を掛ける</div><div class="st">その値に (100 + LUTE) を掛けて 100 で割る(LUTE はリュート部品の合計)</div><div class="st">その値に、敵の <b>属性の数字</b> を掛けて 100 で割る → <b>ダメージ</b></div><div class="ex">例: Lv20・LUTE30 で炎の槍(威力 17)をレインキャット(火 150)に → 20 &#247; 3 = 6.66… → 7 → 7 &#215; 17 = 119 → 119 &#215; 130 &#247; 100 = 154 → 154 &#215; 150 &#247; 100 = <b>231</b></div></td></tr>
+<tr><td class="nm">炎の玉の歌</td><td class="ds"><div class="st">発数 = 主人公のレベル &#247; 10 + 1</div><div class="st">1発のダメージ = 威力 6 として、上の力の歌と同じ計算</div><div class="st">1発ごとに、生きている敵から1体をランダムに選んで当てる(同じ敵に何発も当たることがある)</div><div class="nt">※画面ではどの敵にも炎の玉が1つずつ落ちてくるが、見た目だけ。実際のダメージは上のとおりランダムに割り振られ、0 の敵も出る</div><div class="ex">例: Lv23・LUTE28 → 1発 61 &#215; 3発。1体に 122・1体に 61・残りは 0 などに分かれる</div></td></tr>
+<tr><td class="nm">力の歌の成功率</td><td class="ds"><div class="pl">火属性の歌すべて、風属性の歌すべて(状態異常の冷風も)、氷の矢・落石・土の手・地震: <b>必ず当たる</b></div><div class="pl">毒の雨(80)・凍結(80)・幻惑(80)・氷河(60): (基本の成功率 + LUTE) &#215; 敵の <b>水の数字</b> &#247; 100</div><div class="pl">死戻(80)・死戻強(60): (基本の成功率 + LUTE) &#215; 敵の <b>地の数字</b> &#247; 100。成功するとアンデッドは即死</div><div class="nt">※( )の中が基本の成功率。死戻強はアンデッドでない敵へのダメージにもこの判定がある</div><div class="nt">※地震の歌は浮遊の敵にも当たるが、ダメージは 0</div><div class="ex">例: ゾンビ(地 50)に LUTE28 で死戻強 → (60 + 28) &#215; 50 &#247; 100 = <b>44%</b></div></td></tr>
+<tr><td class="nm">守りの歌の成功率</td><td class="ds"><div><b>100%</b>(必ずかかる)</div></td></tr>
+<tr><td class="nm">癒しの歌の成功率</td><td class="ds"><div>解呪の歌は <b>25%</b>、それ以外は <b>100%</b></div></td></tr>
+<tr><td class="nm">謎の歌</td><td class="ds"><div>33曲(古の歌・解呪・謎の歌を除く歌)から1曲を <b>約3%</b> ずつで選ぶ。覚えていない歌も出る</div></td></tr>
+<tr class="sec"><td colspan="2">道具・特技</td></tr>
+<tr><td class="nm">攻撃アイテムのダメージ</td><td class="ds"><div class="st">まず、使った人のレベルを 2 で割る(端数は切り上げ)</div><div class="st">その値に <b>威力</b> を掛ける(火炎薬・風針薬 18、爆発薬 25)</div><div class="st">その値に属性の数字(火炎薬 = 敵の火、風針薬 = 敵の風、爆発薬 = 100)を掛けて 100 で割る → <b>ダメージ</b></div><div class="nt">※爆発薬はボスには 0</div><div class="ex">例: Lv21 で火炎薬をレインキャット(火 150)に → 21 &#247; 2 = 10.5 → 11 → 11 &#215; 18 = 198 → 198 &#215; 150 &#247; 100 = <b>297</b></div></td></tr>
+<tr><td class="nm">攻撃アイテムの成功率</td><td class="ds"><div>敵の <b>属性の数字</b>(火炎薬 = 火、風針薬 = 風)がそのまま成功率(%)。100 以上なら必ず当たる。爆発薬は必ず当たる</div></td></tr>
+<tr><td class="nm">特殊攻撃の道具と特殊技の成功率</td><td class="ds"><div>聖水・しびれ薬・石化薬・ターンアンデッド(エニクラウド)・パラライズ(トリリア・パストラン)は、敵の <b>特殊技の数字</b> がそのまま成功率(%)</div><div class="nt">※レベル・LUTE は関係しない。ボスには必ず失敗</div><div class="ex">例: ゾンビ(特殊技 10)に聖水 → <b>10%</b></div></td></tr>
+<tr><td class="nm">興奮剤のターゲッティング</td><td class="ds"><div><b>完全ランダム</b>(生きている敵から同じ確率で1体。前列・後列・HP は関係しない)</div><div class="nt">※3回とも同じ敵を攻撃する。命中率・クリティカル・ダメージは通常攻撃と同じ</div></td></tr>
+<tr class="sec"><td colspan="2">敵の攻撃</td></tr>
+<tr><td class="nm">敵の通常攻撃のダメージ</td><td class="ds"><div><b>敵の攻撃力 − 受けるキャラの防御力</b> → <b>ダメージ</b>(0 未満なら 0)</div><div class="nt">※味方の通常攻撃と違って −10 は無く、クリティカルも無い</div><div class="nt">※敵が毒の雨・冷風の歌にかかっていると、敵の攻撃力が半分(端数は切り上げ)</div><div class="nt">※氷の鎧の歌がかかっていると防御力を 2倍にして引く。石の壁の歌・守りの水・スクリーンがかかっていると 0</div></td></tr>
+<tr><td class="nm">敵の攻撃技のダメージ</td><td class="ds"><div class="st">まず、技を使った敵のレベルを 2 で割る(端数は切り上げ)</div><div class="st">その値に技の <b>威力</b> を掛ける</div><div class="st">その値に、受けるキャラの <b>耐性</b>(火・水・地・風のうち技の属性に合うもの)を掛けて 100 で割る → <b>ダメージ</b></div><div class="nt">※耐性は、キャラと装備の中で一番小さい値(重ねがけはしない)</div><div class="ex">例: レベル 20 の敵のファイア－ボール(威力 15)、火の耐性 100 → 20 &#247; 2 = 10 → 10 &#215; 15 = 150 → 150 &#215; 100 &#247; 100 = <b>150</b></div><div class="bug"><span class="bgi">バグ</span>炎の輪・虹・土人形・風の壁の歌がかかっていると、技の属性に関係なく 0</div></td></tr>
+<tr><td class="nm">エナジードレインのダメージ</td><td class="ds"><div>使った <b>敵のレベル</b> と同じだけ HP を吸い取られる</div><div class="nt">※吸い取った分だけ敵の HP が回復する(敵の最大HPまで)</div><div class="nt">※当たる確率は、受けるキャラの <b>特殊技の耐性</b> がそのまま(%)。外れるとダメージも回復も 0</div></td></tr>
+<tr><td class="nm">敵の通常攻撃の命中率</td><td class="ds"><div class="st">まず <b>敵の素早さ − 受けるキャラの素早さ</b> を計算する</div><div class="st">その値を 2 で割る(マイナスのまま計算を続ける。端数は 0 に近い方へ切り捨て)</div><div class="st">その値に 80 を足す</div><div class="st">敵の通常攻撃の間合いと隊列で倍率を掛ける(下の「・」。間合いの近接・遠隔は敵ごとに異なる。<a href="monsters.html">くわしくはコチラ</a>)</div><div class="li">近接の敵: どちらかが後列 &#215;75%、両方後列 &#215;40%</div><div class="li">遠隔の敵: 下がらない</div><div class="st">受けるキャラが浮遊の状態(空飛び薬・浮遊の歌)なら、その値を 2 で割る</div><div class="st">最後に 10〜175 に収める(10 未満なら 10、175 を超えたら 175)→ <b>命中率</b></div></td></tr>
+<tr><td class="nm">敵の特殊技の成功率</td><td class="ds"><div class="pl">炎・水・地・風の攻撃技、スノーフォール・パラライズ・ターントゥストン・スカンク: 必ず当たる</div><div class="pl">アクセル: 狙ったキャラに通常攻撃を3回。1回ずつ通常攻撃の命中率で判定する(特殊技の耐性は関係しない)</div><div class="pl">エナジードレイン: 受けるキャラの <b>特殊技の耐性</b> がそのまま成功率(%)</div><div class="bug"><span class="bgi">バグ</span>スノーフォール(水の耐性)・パラライズ・ターントゥストン・スカンク(特殊技の耐性)は、本来は耐性で防げる作りなのに、判定に失敗しても必ず効く</div></td></tr>
+<tr><td class="nm">敵が誰を狙うか</td><td class="ds"><div>戦える仲間(HP 0・逃げた仲間を除く)から <b>同じ確率で1人</b>(3人なら 1/3 ずつ)。隊列・HP・レベル・素早さは関係しない</div></td></tr>
+<tr><td class="nm">敵が技を使う確率</td><td class="ds"><div>敵ごとに異なる。<a href="monsters.html">くわしくはコチラ</a>(モンスター一覧の「行動」)</div></td></tr>
+<tr><td class="nm">敵がアイテムを落とす確率</td><td class="ds"><div>敵ごとに異なる。<a href="monsters.html">くわしくはコチラ</a>(モンスター一覧の「ドロップ」)</div></td></tr>
+<tr><td class="nm">敵が仲間の敵に使う技の相手</td><td class="ds"><div>回復・スクリーンなど、敵が自分たちの側の1体に使う技は、生きている敵(自分も含む)から <b>完全ランダム</b> に1体。HP が減っているかどうかは関係しない</div></td></tr>
+<tr><td class="nm">かばう</td><td class="ds"><div>敵の通常攻撃の狙いが次のキャラなら、相方が <b>必ず</b> かばう(相方が戦える状態のとき。技はかばわない)</div><div class="li">ショウコ ← ライオネル</div><div class="li">リュッケルト ← フィデレ</div><div class="li">アイリス ← ドンキー</div><div class="li bt"><span class="tg">没</span>シベリン ← クイクイ</div><div class="li bt"><span class="tg">没</span>アイリス ← ボビン</div><div class="bug"><span class="bgi">バグ</span>ドンキーとボビンが両方いると、攻撃1回ごとに 1/2 ずつでどちらかがかばう</div></td></tr>
+<tr class="sec"><td colspan="2">戦闘その他</td></tr>
+<tr><td class="nm">逃走</td><td class="ds"><div><b>75%</b> で成功。レベル・素早さ・隊列などに関係なく一律。ボスがいる戦闘では選べない</div><div class="nt">※判定は、逃走を選んだキャラの番ごとに1回。何人かで選ぶと、誰か1人が成功した時点で全員逃げられるので、パーティー全体では上がる: 2人 約94%、3人 約98%、4人 約99.6%</div><div class="nt">※逃走を選んだキャラの番より先に動いた敵の攻撃は受ける</div></td></tr>
+<tr><td class="nm">行動の順番</td><td class="ds"><div class="st">素早さ(AGI)の大きい順(敵の素早さは減速薬がかかっていると半分)</div><div class="st">同じ素早さなら、味方が敵より先。味方どうしは並びの左から、敵どうしは前列の左から</div><div class="st">主人公が歌うターンは、主人公が一番最後(敵の後)</div><div class="nt">※順番はターンの初めに決まる</div><div class="bug"><span class="bgi">バグ</span>敵が2体以上いるときに減速薬を使うと、順番が狂ったり、そのターンに動けない人が出たりする</div></td></tr>
+<tr><td class="nm">もらえる経験値</td><td class="ds"><div>仲間1人ずつ、倒した敵1体ずつ計算して合計する(仲間で分け合わない。HP 0・逃げた仲間はもらえない)</div><div class="li">仲間のレベルが敵のレベル以下: 敵の EXP の 100%</div><div class="li">敵より1つ上: 70%</div><div class="li">2つ上: 50%</div><div class="li">3つ上: 20%</div><div class="li">4つ以上上: 1(減らした結果が 0 になるときも 1)</div><div class="ex">例: レインキャット(Lv7・EXP5)→ Lv7 以下 5、Lv8 3、Lv9 2、Lv10 以上 1</div></td></tr>
+<tr class="sec"><td colspan="2">仲間が勝手にする行動(必殺技・回復・逃走)</td></tr>
+<tr class="note"><td class="nm">共通</td><td class="ds"><div>下の 1 は技、2 は逃走の判定。仲間の番が来るたびに命令より先に 1 を判定し、出なかったときだけ 2 を判定する。どちらかが出たら命令した行動はしない</div><div class="nt">※「HP が 1/5 未満」= 自分の HP が最大HPの 1/5 未満</div></td></tr>
+<tr><td class="nm">ホイヒュー</td><td class="ds"><div class="st">自分の HP が最大HPの半分より多ければ <b>25%</b>、半分以下なら <b>40%</b> でスクリーン。対象は自分</div><div class="st">HP が 1/10 未満なら <b>必ず</b> 逃げる</div></td></tr>
+<tr><td class="nm">スリム</td><td class="ds"><div class="st"><b>10%</b> で巨大手裏剣。対象は攻撃を命令した敵(攻撃以外を命令していたら完全ランダム)</div><div class="st">HP に関係なく <b>5%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ドムカ</td><td class="ds"><div class="st">自分の HP が 21 以上なら <b>10%</b> でアクスウェイク。対象は敵全員</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">アイリス</td><td class="ds"><div class="st">リュッケルトの HP が最大HPの 30% 以下なら <b>50%</b> でテラヒーリング。対象はリュッケルト</div><div class="st">逃げない</div></td></tr>
+<tr><td class="nm">クイクイ</td><td class="ds"><div class="st"><b>30%</b> で炎の矢。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ジョーイ</td><td class="ds"><div class="st">HP が最大HPの 30% 未満の仲間(自分も)がいれば <b>40%</b> でギガヒーリング。対象は該当する仲間のうち並びの一番左の人</div><div class="st">逃げない</div></td></tr>
+<tr><td class="nm">エニクラウド</td><td class="ds"><div class="st">アンデッドがいれば <b>50%</b> でターンアンデッド。対象は前列の左から数えて最初のアンデッド</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ヴェラ</td><td class="ds"><div class="st">自分の HP が 1/5 未満のときだけ <b>30%</b> で「うぉりゃああ！」。対象は完全ランダム</div><div class="st">HP が半分未満なら <b>50%</b> で逃げる</div></td></tr>
+<tr><td class="nm">トリリア</td><td class="ds"><div class="st"><b>10%</b> でパラライズ。対象は完全ランダム</div><div class="st">HP が 1/10 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ライオネル</td><td class="ds"><div class="st"><b>25%</b> で雷鳴剣。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ヘンケン</td><td class="ds"><div class="st">自分の HP が 1/4 未満なら <b>50%</b> でメガヒーリング。対象は自分</div><div class="st">HP が半分未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">グラム</td><td class="ds"><div class="st"><b>25%</b> で稲妻突き。対象は完全ランダム</div><div class="st">HP が 1/10 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ピックマン</td><td class="ds"><div class="st">技なし</div><div class="st">HP が 1/10 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ショウコ</td><td class="ds"><div class="st">HP が最大HPの 15% 未満の仲間(自分も)がいれば <b>40%</b> でヒーリング３。対象は該当する仲間のうち並びの一番左の人</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">パストラン</td><td class="ds"><div class="st"><b>20%</b> でパラライズ。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>50%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ドロシー</td><td class="ds"><div class="st">技なし</div><div class="st">逃げない</div></td></tr>
+<tr><td class="nm">トラビス</td><td class="ds"><div class="st"><b>10%</b> で強者の弓。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>50%</b> で逃げる</div></td></tr>
+<tr><td class="nm">フィデレ</td><td class="ds"><div class="st"><b>20%</b> でファイア－ボール。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>50%</b> で逃げる</div></td></tr>
+<tr><td class="nm">ドンキー</td><td class="ds"><div class="st"><b>30%</b> で「秘奥義！風鬼大車輪！」。対象は完全ランダム</div><div class="st">HP が半分未満なら <b>50%</b> で逃げる</div></td></tr>
+<tr><td class="nm">サザシイ</td><td class="ds"><div class="st"><b>15%</b> でエアニードル。対象は完全ランダム</div><div class="st">HP が 1/10 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">マキバ</td><td class="ds"><div class="st"><b>15%</b> でエアニードル。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr><td class="nm">アロン</td><td class="ds"><div class="st">技なし</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる(ラスボス戦では逃げない)</div></td></tr>
+<tr><td class="nm">エド</td><td class="ds"><div class="st">技なし</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる(ラスボス戦では逃げない)</div></td></tr>
+<tr><td class="nm">ボビン</td><td class="ds"><div class="st">技なし</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる(ラスボス戦では逃げない)</div></td></tr>
+<tr><td class="nm">シベリン</td><td class="ds"><div class="st"><b>30%</b> で炎の矢。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
+<tr class="sec"><td colspan="2">戦闘の外</td></tr>
+<tr><td class="nm">酒場の歌の報酬</td><td class="ds"><div>酒場ごとに次のお金がもらえる(各酒場1回だけ)</div><div class="li">アデン: 主人公のレベル &#215; 5 + 0〜20 のランダム</div><div class="li">クーテ: 主人公のレベル &#215; 10 + 0〜50 のランダム</div><div class="li">ドミナント: 主人公のレベル &#215; 10 + 0〜15 のランダム</div><div class="ex">例: Lv10 → アデン 50〜70、クーテ 100〜150、ドミナント 100〜115</div></td></tr>
+<tr><td class="nm">売値</td><td class="ds"><div>買値の <b>80%</b>(道具・武器・防具)。リュート部品・大事な物は売却不可</div></td></tr>
+<tr><td class="nm">呪いの宝箱で呪われる人</td><td class="ds"><div>主人公が <b>2/5</b>、ほかの仲間が1人ずつ <b>1/5</b></div><div class="nt">※4人なら必ず誰かが呪われる。3人なら 80%、2人なら 60%</div><div class="bug"><span class="bgi">バグかも</span>5回に1回、並びの表の外を読んでしまい、そこは常に主人公なので、主人公だけほかの仲間の2倍呪われやすい</div></td></tr>
+</table></div>
+</div>
+<script src="menu.js"></script>
+<!-- 完成版(2026-10-11 ユーザー確認済み)。スクリプトで上書きしない。追記するときは tools/formula_page.ps1 を直し、この印を外して流し直す -->

@@ -1,0 +1,148 @@
+<meta charset="utf-8"><title>黄昏のオード フィールド別攻略</title>
+<style>
+.ode-fi{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:14px;color:#222;max-width:760px;line-height:1.6}
+.ode-fi *{box-sizing:border-box}
+.ode-fi h2{margin:0 0 8px;font-size:22px;color:#3d4b66;letter-spacing:.04em;padding-bottom:6px;border-bottom:2px solid #3d4b66}
+.ode-fi .lead{margin:8px 0 14px}
+/* 章の帯: 白地、左に章の色の太線とドット絵の枠 */
+.ode-fi details.ch{margin:0 0 8px;border:1px solid #d5dbe6;border-left:6px solid var(--c);border-radius:6px;background:#fff;overflow:hidden}
+.ode-fi details.ch>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:80px;padding:6px 14px 6px 10px}
+.ode-fi details.ch>summary::-webkit-details-marker{display:none}
+.ode-fi details.ch>summary:hover{background:#f7f8fb}
+.ode-fi .dot{flex:none;display:flex;align-items:flex-end;justify-content:center;width:44px;height:68px;border:1px dashed #c3cad8;border-radius:4px}
+.ode-fi .dot.on{border:0;background:radial-gradient(ellipse 15px 4px at 50% 92%,rgba(0,0,0,.18),transparent)}
+.ode-fi .dot img{image-rendering:pixelated;image-rendering:crisp-edges}
+.ode-fi .tx{flex:1;min-width:0}
+.ode-fi .hd{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.ode-fi .no{font-size:13px;font-weight:bold;letter-spacing:2px;color:#fff;background:var(--c);border-radius:3px;padding:1px 8px;white-space:nowrap}
+.ode-fi .nm{font-size:20px;font-weight:bold;color:#2b3242;letter-spacing:1px}
+.ode-fi .sub{display:block;margin-top:3px;font-size:12px;color:#6b7280}
+.ode-fi .sub.note{line-height:1.6;color:#4b5263}
+.ode-fi .ar{flex:none;font-size:16px;color:var(--c);transition:transform .2s}
+.ode-fi details.ch[open] .ar{transform:rotate(180deg)}
+.ode-fi details.ch[open]>summary{border-bottom:1px solid #e3e7ee}
+/* 章の中身: 訪れる順に縦1列。左の線と丸でつないで、上から下へ読む並びだと分かるように */
+.ode-fi .body{padding:10px;background:#fafbfd}
+.ode-fi .flow{list-style:none;margin:0;padding:6px 10px 6px 14px}
+.ode-fi .flow li{position:relative;padding:2px 0 2px 24px}
+.ode-fi .flow li::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--c);opacity:.4}
+.ode-fi .flow li:first-child::before{top:50%}.ode-fi .flow li:last-child::before{bottom:50%}
+.ode-fi .flow li::after{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;margin-top:-6px;border-radius:50%;background:#fff;border:2px solid var(--c)}
+.ode-fi a.fd{display:flex;align-items:center;gap:8px;max-width:440px;padding:5px 10px;background:#fff;border:1px solid #dfe3ea;border-radius:4px;color:#222;text-decoration:none}
+.ode-fi .cnote{margin:10px 2px 14px;font-size:12px;color:#6b7280}
+.ode-fi a.fd:hover{border-color:var(--c);color:#2c5aa0}
+.ode-fi .fn{flex:none;min-width:2.8em;font-size:12px;font-weight:bold;color:var(--c);font-variant-numeric:tabular-nums}
+/* F番号順: 2段組の行 */
+.ode-fi .rows{columns:2 300px;column-gap:16px}
+.ode-fi a.fr{display:flex;align-items:baseline;gap:8px;padding:4px 6px;border-bottom:1px dotted #d5dbe6;color:#222;text-decoration:none;break-inside:avoid}
+.ode-fi a.fr:hover{background:#eef1f7;color:#2c5aa0}
+.ode-fi a.fr .t{flex:1;min-width:0}
+.ode-fi a.fr .c{flex:none;font-size:11px;color:#7a8499}
+.ode-fi .in{margin-left:6px;font-size:11px;color:#7a8499}
+.ode-fi .bot{margin-left:6px;font-size:10px;padding:0 4px;border-radius:2px;background:#777;color:#fff;vertical-align:1px}
+@media (max-width:600px){
+ .ode-fi details.ch>summary{gap:10px;padding:6px 10px 6px 8px}
+ .ode-fi .nm{font-size:17px}
+ .ode-fi .flow{padding:4px 2px 4px 6px}
+}
+</style>
+<div class="ode-fi">
+<h2>フィールド別攻略</h2>
+<p class="lead">町やダンジョンごとのマップと攻略です。章の帯を▼で開くと、その章のフィールドが訪れる順に並んでいます。</p>
+<details class="ch" style="--c:#3e8f5a"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAYAAAAl+Z4RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF+SURBVEhLrZMxcsJADEU5Bleg5AqUlCnTUrrkCpSUlLQcIWVaylzJmSfzFiEvnhTRjMbjr///ane1q1Unht1+zPmx2Y7b9XqsvG5ARnQ+DC01+JPJfv9cuRpQq/yXgHA9nbtJbdFAMasp+rnfIzWgVnUtNHCvJIK8/8UzyOLT5/P7dT7MsKqN+L5sokhG+7fTeBl2YUCCUYNHzsTX41SARNsKTbC2wHHih5i2+LEgCZwOSFvPHL5xJsNuatmJ091OXFncQZs0DwOGxSvMJ+5AZcxrRtMMBCg6ffU95Kl0wTB4/kxbqKKK5S1Qj/uvBu7dmji3lA3IMBCo+8zpVUcmTYww8+6sK/YN+I183E7WrACZOtL2PJcs9mDpUH4Mkwa27mHVDvIhatIMABxXifUMsoEPrBk4up6B5DpQ1sGczheDauJjq+IXAx+JD0siqUHG4IA1XTXQRGI2tj4zkJhNqkHFiP8xqOGB5mIPexuQvJkl7G30yD1sMXrEHkb8Arorz4KC/kHOAAAAAElFTkSuQmCC" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">第1章</span><span class="nm">目覚め</span></span><span class="sub">17か所　港町アデン 〜 ゴーレムの村</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F1.html"><span class="fn">F1</span>港町アデン</a></li><li><a class="fd" href="F2.html"><span class="fn">F2</span>アルカナの山道</a></li><li><a class="fd" href="F3.html"><span class="fn">F3</span>アルカナの洞窟</a></li><li><a class="fd" href="F4.html"><span class="fn">F4</span>ボビンの船</a></li><li><a class="fd" href="F5.html"><span class="fn">F5</span>龍族の村バルエコ</a></li><li><a class="fd" href="F7.html"><span class="fn">F7</span>バルエコの山道</a></li><li><a class="fd" href="F8.html"><span class="fn">F8</span>クーテの村</a></li><li><a class="fd" href="F9.html"><span class="fn">F9</span>神聖な森</a></li><li><a class="fd" href="F11.html"><span class="fn">F11</span>ドミナントの村</a></li><li><a class="fd" href="F19.html"><span class="fn">F19</span>ドミナントの山道</a></li><li><a class="fd" href="F12.html"><span class="fn">F12</span>クモの洞窟</a></li><li><a class="fd" href="F13.html"><span class="fn">F13</span>蝶の森</a></li><li><a class="fd" href="F14.html"><span class="fn">F14</span>リンリン草の草原</a></li><li><a class="fd" href="F35.html"><span class="fn">F35</span>リンリン草の草原</a></li><li><a class="fd" href="F15.html"><span class="fn">F15</span>クーテの山道</a></li><li><a class="fd" href="F17.html"><span class="fn">F17</span>内臓洞窟</a></li><li><a class="fd" href="F18.html"><span class="fn">F18</span>ゴーレムの村</a></li></ol></details>
+<details class="ch" style="--c:#3d4b66"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF9SURBVEhLnZQ7bsMwEERV5ghpXaZ06TaljuDWpcuUaV3qCGlT+iq6koK38BNGlPxBCCxILWdmh0tQXbcx9vv9dDweJ2bXRIvbHBKHy7ASYW7xmyOJSX7JRUvOYP+pizzCOI4VrJ8SGad+N72/76ach3O/yrW8brz+TL/nrjYPH28V1+GrvtljTQ4X5MCSKzIfkglAVgKkEDkFFCHKtmEVRbDvEcyDSU650DaBaoJTlL3Ezj2gig609913dQNaTTIYOEX2rJ5TADPXR2TV7E8dYUtAYMZdAax5hATrQkKKeoS6BRtk57OapNZVcrp8dWx6ddrUDTmaqgAcuLODEtkdpv7zVDMBkfBbUj64zqqlfBMwdLLIXYbZKXMJ2BirEIDtNGvzOpNXAnNTGgFFW4Fs+kpAcPZilUuBmXz7YazAjQCYBWehxmY00nP6zR6YdD0L+LCyqrl0M+PyGv8roOvFIGm3zbEmt0loh88XwqPc3QGQnwnzo9zd4ct7Nf8Ht5Nm9iedbgoAAAAASUVORK5CYII=" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">第2章</span><span class="nm">神殺しの歌を求めて</span></span><span class="sub">16か所　エスタンシアの町 〜 エスタンシア城地下洞窟</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F20.html"><span class="fn">F20</span>エスタンシアの町</a></li><li><a class="fd" href="F21.html"><span class="fn">F21</span>エスタンシア城</a></li><li><a class="fd" href="F22.html"><span class="fn">F22</span>収容所への道</a></li><li><a class="fd" href="F23.html"><span class="fn">F23</span>強制収容所</a></li><li><a class="fd" href="F24.html"><span class="fn">F24</span>エスタンシアの下水道</a></li><li><a class="fd" href="F25.html"><span class="fn">F25</span>エスタンシアの音楽院</a></li><li><a class="fd" href="F26.html"><span class="fn">F26</span>エスタンシアの山道</a></li><li><a class="fd" href="F27.html"><span class="fn">F27</span>フォリアの村</a></li><li><a class="fd" href="F28.html"><span class="fn">F28</span>音の森</a></li><li><a class="fd" href="F37.html"><span class="fn">F37</span>フーコーの家</a></li><li><a class="fd" href="F30.html"><span class="fn">F30</span>鍵盤階段</a></li><li><a class="fd" href="F29.html"><span class="fn">F29</span>グレゴリアの村</a></li><li><a class="fd" href="F31.html"><span class="fn">F31</span>サンクトスの洞窟</a></li><li><a class="fd" href="F33.html"><span class="fn">F33</span>エスタンシア城室内</a></li><li><a class="fd" href="F38.html"><span class="fn">F38</span>エスタンシア城地下</a></li><li><a class="fd" href="F34.html"><span class="fn">F34</span>エスタンシア城地下洞窟</a></li></ol></details>
+<details class="ch" style="--c:#8a6d1e"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAdCAYAAACaCl3kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFDSURBVDhPnZMxUsNADEVdcoS0lJQpuYJLyrQpU/oKlC65AmWOwBV8JTNP8Dxahc0Qa+aPZen/lSyth6HYNAwrWJZlnd/n8EHlNZZFp+MUuCu+vl1WcB6f13Ecg2xFQOz15Sk4oBEjmqdTIPxfEQLj+I0IyyIBMb+DRkR5RIfDcf24/LTF82s+b76HNK3au8nl+hlAyNPqzTcSgGCS6eETM07MQ+1ioI0sAk7Y1owrRhMVY3JpX5BZB8hCp7xN111lQt6jcXe8DQeSyTxBTydmHu4m5CTHz0qqkBg5OHAboYHelau8uGpW4j2LspicleMG2aLVnWYW5YHYcpS3Wm2z127wt5twp81cFW7usDFakRxt/de8p6Lmu7ZbmH+rh4SQdwndLXhoOLuEdYf6lXdj/o88uSH6lfenVWHNd82fFmGv2jfTqyeoA1yTgwAAAABJRU5ErkJggg==" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">第3章</span><span class="nm">怒れる岩屋</span></span><span class="sub">16か所　フエダの町 〜 溶岩洞窟</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F40.html"><span class="fn">F40</span>フエダの町</a></li><li><a class="fd" href="F41.html"><span class="fn">F41</span>フエダの森</a></li><li><a class="fd" href="F42.html"><span class="fn">F42</span>呪われた洞窟</a></li><li><a class="fd" href="F43.html"><span class="fn">F43</span>捨てられた坑道</a></li><li><a class="fd" href="F45.html"><span class="fn">F45</span>沼地</a></li><li><a class="fd" href="F46.html"><span class="fn">F46</span>沼の町イントラダ</a></li><li><a class="fd" href="F48.html"><span class="fn">F48</span>イントラダの森</a></li><li><a class="fd" href="F47.html"><span class="fn">F47</span>泥の町ホタ</a></li><li><a class="fd" href="F50.html"><span class="fn">F50</span>ジョリスの洞窟</a></li><li><a class="fd" href="F49.html"><span class="fn">F49</span>ジョリスの森</a></li><li><a class="fd" href="F51.html"><span class="fn">F51</span>ドドルの塔</a></li><li><a class="fd" href="F52.html"><span class="fn">F52</span>カリンダの村</a></li><li><a class="fd" href="F54.html"><span class="fn">F54</span>レイエンダの村</a></li><li><a class="fd" href="F53.html"><span class="fn">F53</span>どろどろの沼</a></li><li><a class="fd" href="F55.html"><span class="fn">F55</span>レイエンダの山道</a></li><li><a class="fd" href="F56.html"><span class="fn">F56</span>溶岩洞窟</a></li></ol></details>
+<details class="ch" style="--c:#b0413e"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGiSURBVEhLlZQ7csMwDERZ5gi6gsqUalPqCG5dpkyZ1qVKl2ld+gi+gq7EzEO4DAh9LGMGIwraXYEAyJRetOky5Rg7bC+Rr5ev/Lj/ZJ6ncTDiPM/HBCJZjsDTLG6fKctFZP09pnwa0jEBwLiE9I5AxDfG35Q+YO+xHpsGYDp/5K57t+djOtf1UzLpDv2bkSDM91td8+QbmMgzG8fRPpIqQMhykdkCGLALMi2iUAh4EU/GwYBtRGiNelyLNfxtB2ctAY+tAgRw/yer/HTO175rBCyzgq/po4ZT7Tp5kPrORKyVJW4dKXjbhlJSBl5AqXoBn0HdBm1Sn0X2wlFE+P8alGp7AY2xUvUCmo0qwL4AqeK+A83hKnGwcKqAxrWpgduzhDUTYFk3GVgNXJr+LtCarVp9ylmpAjIV0s+CnwGdCWKRmwTeE1ABVwVUVQO5cSbG2u6IreOsP9m6CNj+V2KRu7CmgE5AsYhfmI62po+YpnJxD6wZIB0wxTSNhwTqeXejatdbvAO2zP4eDoveD2WgjkQB36lNq8O0Atz71tgeYO3bL2zyiTNaT4kaAAAAAElFTkSuQmCC" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">第4章</span><span class="nm">時の止まった湖</span></span><span class="sub">10か所　港町マジョーレ 〜 火口湖・山頂の洞窟</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F60.html"><span class="fn">F60</span>港町マジョーレ</a></li><li><a class="fd" href="F61.html"><span class="fn">F61</span>マジョーレの森</a></li><li><a class="fd" href="F63.html"><span class="fn">F63</span>ノルティナ学園都市</a></li><li><a class="fd" href="F62.html"><span class="fn">F62</span>牧場</a></li><li><a class="fd" href="F65.html"><span class="fn">F65</span>学園内の納屋・地下回廊</a></li><li><a class="fd" href="F72.html"><span class="fn">F72</span>学園内の教会内部・パイプ洞窟</a></li><li><a class="fd" href="F69.html"><span class="fn">F69</span>ノルティナの山道</a></li><li><a class="fd" href="F68.html"><span class="fn">F68</span>鳥の島</a></li><li><a class="fd" href="F67.html"><span class="fn">F67</span>学園内のチクタク館</a></li><li><a class="fd" href="F70.html"><span class="fn">F70</span>火口湖・山頂の洞窟</a></li></ol></details>
+<details class="ch" style="--c:#1f8fa0"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAfCAYAAADupU20AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF6SURBVEhLjZOxccMwDEVVpvQKLjOCW5UZwa3GSKvSa6j0CFlBKyX3cHk8CJRk4w5HCPz/CyTAYXjDxnH8rblTm6YpCBCJr9drfLu+NIj4PM9B1l9WIghfliVcEXIvKxGEU7pHqJVU3sYEfX8NQb5cLvHNanWnImw+pjEIrBCMT4kA13UN0M/jHoT1ubSY9X4bAtNVYUKBiJ9Lc8gt/4/ZdMQNhZpgIuc9RYJMq0w4NJmQY/bFwIHbKuCjEvKtZ7LYdn7U7Ls9ByTJWcDB8O2RQ0SQfxSoSCYrgG8u0ZLcvH1+hAB/Is6kjO8EWJlC3TeBSMZsBPKNemEQGBzcMZa06QBGrwEpADj/ndg3AYYYThNw1hXwGD5nYnL+xLfSBLLlGYBsd8xVfGcCvQs85yq+M48gSaJe8Z0BchrzxZqr+M6cc0pXIOcqvjPHlzULmKv4znwD+cb3cofmY6kCNXdotm5P4K074Nz6WW7X7Pke0LdweowjsqZIzv0BF/cqixovYAQAAAAASUVORK5CYII=" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">第5章</span><span class="nm">かわうその懐</span></span><span class="sub">8か所　オーパスの村 〜 磨き石の洞窟</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F80.html"><span class="fn">F80</span>オーパスの村</a></li><li><a class="fd" href="F81.html"><span class="fn">F81</span>オーパスの山道</a></li><li><a class="fd" href="F82.html"><span class="fn">F82</span>要塞迷路・王宮内部</a></li><li><a class="fd" href="F84.html"><span class="fn">F84</span>囚人島・囚人島地下洞窟</a></li><li><a class="fd" href="F87.html"><span class="fn">F87</span>岩の島洞窟</a></li><li><a class="fd" href="F88.html"><span class="fn">F88</span>地下湖底</a></li><li><a class="fd" href="F98.html"><span class="fn">F98</span>調律の洞窟</a></li><li><a class="fd" href="F86.html"><span class="fn">F86</span>磨き石の洞窟</a></li></ol></details>
+<details class="ch" style="--c:#6a4fa0"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAYAAAAl+Z4RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF8SURBVEhLlZO9bcNADIWvzBoqU6bUCh7BbUqXLr1CSpdpXWqErOBS6yj4DvgIipLyQ4Dwiff4yMejW/vBruN5uZ3awm+9OzSTptu9/z6nR/xW7K4Jxud57i6JpDUnLCfnDvAs55CES5PxLEcSzjVvZTn5fjmtSH7tABP0NrwsXx/v3TlLlnHrzNbaOAwdnLVDYPvcgal53awM4Dy2TmIHnIl5v6lOAOcSt6pxibw3HgTT9TWCtMm3EpRBTHk4312ObRHQAbhAukl6DJSDTwaQKlZCt/MwDsYXiYG6QOp8Xj5Dr24h5xP6Md+cSjLvuUvkbgRBHiAgh6hepbgLm1ewAq0rJw8sE+QOg0AJEACsyYDBSLKR4PTV6FPiVssEvka0T2Xb9/nqAO1UGUoJAoO+9x6BBTcEmRUHmId1RCC21cWRQBKB3q8IPGQZlUBSk2uxbtFO+s4Vje/Fdu2I4E/m/yI7T1txh+Y2usKeK+7Q3Lgs4V8EWJ70atrFvgHiO4v7K86vKQAAAABJRU5ErkJggg==" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">最終章</span><span class="nm">聴け、この魂の歌を</span></span><span class="sub">8か所　港町アデン 〜 港町アデン（エピローグ）</span></span><span class="ar">▼</span></summary><ol class="body flow"><li><a class="fd" href="F1-b.html"><span class="fn">F1</span>港町アデン</a></li><li><a class="fd" href="F5-b.html"><span class="fn">F5</span>龍族の村バルエコ</a></li><li><a class="fd" href="F90.html"><span class="fn">F90</span>燃える村</a></li><li><a class="fd" href="F95.html"><span class="fn">F95</span>バルエコの森</a></li><li><a class="fd" href="F32.html"><span class="fn">F32</span>水晶の洞窟</a></li><li><a class="fd" href="F92.html"><span class="fn">F92</span>夢の城</a></li><li><a class="fd" href="F6.html"><span class="fn">F6</span>ガリハアクの洞窟</a></li><li><a class="fd" href="F96.html"><span class="fn">F96</span>港町アデン（エピローグ）</a></li></ol></details>
+<p class="cnote">※章タイトルは当サイトが独自に付けたものです。作中に章の表記はなく、章の変わり目は島を移動するところで区切っています。</p>
+<details class="ch byno" style="--c:#5b6170"><summary><span class="dot on"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF3SURBVEhLhZSxccMwDEVZZoS0Kj2CW5caIa1LraFSpcusoFW0En0f9mO+EYnCHQ4UiP8JgKBKOZDpfqnbttXfx7Vqnfe7IoCAt1sJ1bcs+9r7RJg4QBmsy9SIpF2w5DGNdVuXAJefEopPVuTdkq6Xr3ofh+rWNcf/EwXppOF7COvrUwLSVGCUsS7RAynE8mVcWeZXzWHfJF63fytmHMfQAGsBQej7ZNWvkwXUGgLiIQqSBk5Z0LgM/shAdwsjJNrMpfjJkMRwMRy6WyfRmjnwk2V9Uss6l1e357+x9YzcMqGOKTRItUIgdrLCooqhLzEXHuzg7HcCj4uX55rBTsKD8vi4CeZeI7uXAZb0eSNtEjUwAku1uQeWMhe8jUYgB/OuwEwi5ZY820aAeH0CQOJXHHd/JN5hWZ8P70PGNSGQYGqGVNol8OA9AnwZ14RgUoXAe9MlkOw1a893KDyceI0d36Fwz1J8fJ+mL+Enmgnwf0YnIdDBZ3tPBA6h58vSVGoAAAAASUVORK5CYII=" width="32" height="64" alt=""></span><span class="tx"><span class="hd"><span class="no">F番号順</span></span><span class="sub note">F番号はデバッグルームで表示される内部IDです。各ページのフィールド名にはF番号がついているので、その場所が何章で訪れる場所か分からない時はF番号順で探せます。</span></span><span class="ar">▼</span></summary><div class="body rows"><a class="fr" href="F1.html"><span class="fn">F1</span><span class="t">港町アデン</span><span class="c">第1章</span></a>
+<a class="fr" href="F1-b.html"><span class="fn">F1</span><span class="t">港町アデン（最終章）</span><span class="c">最終章</span></a>
+<a class="fr" href="F2.html"><span class="fn">F2</span><span class="t">アルカナの山道</span><span class="c">第1章</span></a>
+<a class="fr" href="F3.html"><span class="fn">F3</span><span class="t">アルカナの洞窟</span><span class="c">第1章</span></a>
+<a class="fr" href="F4.html"><span class="fn">F4</span><span class="t">ボビンの船</span><span class="c">第1章</span></a>
+<a class="fr" href="F5.html"><span class="fn">F5</span><span class="t">龍族の村バルエコ</span><span class="c">第1章</span></a>
+<a class="fr" href="F5-b.html"><span class="fn">F5</span><span class="t">龍族の村バルエコ（最終章）</span><span class="c">最終章</span></a>
+<a class="fr" href="F6.html"><span class="fn">F6</span><span class="t">ガリハアクの洞窟</span><span class="c">最終章</span></a>
+<a class="fr" href="F7.html"><span class="fn">F7</span><span class="t">バルエコの山道</span><span class="c">第1章</span></a>
+<a class="fr" href="F8.html"><span class="fn">F8</span><span class="t">クーテの村</span><span class="c">第1章</span></a>
+<a class="fr" href="F9.html"><span class="fn">F9</span><span class="t">神聖な森</span><span class="c">第1章</span></a>
+<a class="fr" href="F9.html"><span class="fn">F10</span><span class="t">神聖な森<span class="in">→F9</span></span><span class="c">第1章</span></a>
+<a class="fr" href="F11.html"><span class="fn">F11</span><span class="t">ドミナントの村</span><span class="c">第1章</span></a>
+<a class="fr" href="F12.html"><span class="fn">F12</span><span class="t">クモの洞窟</span><span class="c">第1章</span></a>
+<a class="fr" href="F13.html"><span class="fn">F13</span><span class="t">蝶の森</span><span class="c">第1章</span></a>
+<a class="fr" href="F14.html"><span class="fn">F14</span><span class="t">リンリン草の草原</span><span class="c">第1章</span></a>
+<a class="fr" href="F15.html"><span class="fn">F15</span><span class="t">クーテの山道</span><span class="c">第1章</span></a>
+<a class="fr" href="F6.html"><span class="fn">F16</span><span class="t">ガリハアクの洞窟<span class="in">→F6</span></span><span class="c">最終章</span></a>
+<a class="fr" href="F17.html"><span class="fn">F17</span><span class="t">内臓洞窟</span><span class="c">第1章</span></a>
+<a class="fr" href="F18.html"><span class="fn">F18</span><span class="t">ゴーレムの村</span><span class="c">第1章</span></a>
+<a class="fr" href="F19.html"><span class="fn">F19</span><span class="t">ドミナントの山道</span><span class="c">第1章</span></a>
+<a class="fr" href="F20.html"><span class="fn">F20</span><span class="t">エスタンシアの町</span><span class="c">第2章</span></a>
+<a class="fr" href="F21.html"><span class="fn">F21</span><span class="t">エスタンシア城</span><span class="c">第2章</span></a>
+<a class="fr" href="F22.html"><span class="fn">F22</span><span class="t">収容所への道</span><span class="c">第2章</span></a>
+<a class="fr" href="F23.html"><span class="fn">F23</span><span class="t">強制収容所</span><span class="c">第2章</span></a>
+<a class="fr" href="F24.html"><span class="fn">F24</span><span class="t">エスタンシアの下水道</span><span class="c">第2章</span></a>
+<a class="fr" href="F25.html"><span class="fn">F25</span><span class="t">エスタンシアの音楽院</span><span class="c">第2章</span></a>
+<a class="fr" href="F26.html"><span class="fn">F26</span><span class="t">エスタンシアの山道</span><span class="c">第2章</span></a>
+<a class="fr" href="F27.html"><span class="fn">F27</span><span class="t">フォリアの村</span><span class="c">第2章</span></a>
+<a class="fr" href="F28.html"><span class="fn">F28</span><span class="t">音の森</span><span class="c">第2章</span></a>
+<a class="fr" href="F29.html"><span class="fn">F29</span><span class="t">グレゴリアの村</span><span class="c">第2章</span></a>
+<a class="fr" href="F30.html"><span class="fn">F30</span><span class="t">鍵盤階段</span><span class="c">第2章</span></a>
+<a class="fr" href="F31.html"><span class="fn">F31</span><span class="t">サンクトスの洞窟</span><span class="c">第2章</span></a>
+<a class="fr" href="F32.html"><span class="fn">F32</span><span class="t">水晶の洞窟</span><span class="c">最終章</span></a>
+<a class="fr" href="F33.html"><span class="fn">F33</span><span class="t">エスタンシア城室内</span><span class="c">第2章</span></a>
+<a class="fr" href="F34.html"><span class="fn">F34</span><span class="t">エスタンシア城地下洞窟</span><span class="c">第2章</span></a>
+<a class="fr" href="F35.html"><span class="fn">F35</span><span class="t">リンリン草の草原</span><span class="c">第1章</span></a>
+<a class="fr" href="F35.html"><span class="fn">F36</span><span class="t">リンリン草の草原<span class="in">→F35</span></span><span class="c">第1章</span></a>
+<a class="fr" href="F37.html"><span class="fn">F37</span><span class="t">フーコーの家</span><span class="c">第2章</span></a>
+<a class="fr" href="F38.html"><span class="fn">F38</span><span class="t">エスタンシア城地下</span><span class="c">第2章</span></a>
+<a class="fr" href="F40.html"><span class="fn">F40</span><span class="t">フエダの町</span><span class="c">第3章</span></a>
+<a class="fr" href="F41.html"><span class="fn">F41</span><span class="t">フエダの森</span><span class="c">第3章</span></a>
+<a class="fr" href="F42.html"><span class="fn">F42</span><span class="t">呪われた洞窟</span><span class="c">第3章</span></a>
+<a class="fr" href="F43.html"><span class="fn">F43</span><span class="t">捨てられた坑道</span><span class="c">第3章</span></a>
+<a class="fr" href="F45.html"><span class="fn">F45</span><span class="t">沼地</span><span class="c">第3章</span></a>
+<a class="fr" href="F46.html"><span class="fn">F46</span><span class="t">沼の町イントラダ</span><span class="c">第3章</span></a>
+<a class="fr" href="F47.html"><span class="fn">F47</span><span class="t">泥の町ホタ</span><span class="c">第3章</span></a>
+<a class="fr" href="F48.html"><span class="fn">F48</span><span class="t">イントラダの森</span><span class="c">第3章</span></a>
+<a class="fr" href="F49.html"><span class="fn">F49</span><span class="t">ジョリスの森</span><span class="c">第3章</span></a>
+<a class="fr" href="F50.html"><span class="fn">F50</span><span class="t">ジョリスの洞窟</span><span class="c">第3章</span></a>
+<a class="fr" href="F51.html"><span class="fn">F51</span><span class="t">ドドルの塔</span><span class="c">第3章</span></a>
+<a class="fr" href="F52.html"><span class="fn">F52</span><span class="t">カリンダの村</span><span class="c">第3章</span></a>
+<a class="fr" href="F53.html"><span class="fn">F53</span><span class="t">どろどろの沼</span><span class="c">第3章</span></a>
+<a class="fr" href="F54.html"><span class="fn">F54</span><span class="t">レイエンダの村</span><span class="c">第3章</span></a>
+<a class="fr" href="F55.html"><span class="fn">F55</span><span class="t">レイエンダの山道</span><span class="c">第3章</span></a>
+<a class="fr" href="F56.html"><span class="fn">F56</span><span class="t">溶岩洞窟</span><span class="c">第3章</span></a>
+<a class="fr" href="F60.html"><span class="fn">F60</span><span class="t">港町マジョーレ</span><span class="c">第4章</span></a>
+<a class="fr" href="F61.html"><span class="fn">F61</span><span class="t">マジョーレの森</span><span class="c">第4章</span></a>
+<a class="fr" href="F62.html"><span class="fn">F62</span><span class="t">牧場</span><span class="c">第4章</span></a>
+<a class="fr" href="F63.html"><span class="fn">F63</span><span class="t">ノルティナ学園都市</span><span class="c">第4章</span></a>
+<a class="fr" href="F63.html"><span class="fn">F64</span><span class="t">学園内の校舎<span class="in">→F63</span></span><span class="c">第4章</span></a>
+<a class="fr" href="F65.html"><span class="fn">F65</span><span class="t">学園内の納屋・地下回廊</span><span class="c">第4章</span></a>
+<a class="fr" href="F72.html"><span class="fn">F66</span><span class="t">パイプ洞窟<span class="in">→F72</span></span><span class="c">第4章</span></a>
+<a class="fr" href="F67.html"><span class="fn">F67</span><span class="t">学園内のチクタク館</span><span class="c">第4章</span></a>
+<a class="fr" href="F68.html"><span class="fn">F68</span><span class="t">鳥の島</span><span class="c">第4章</span></a>
+<a class="fr" href="F69.html"><span class="fn">F69</span><span class="t">ノルティナの山道</span><span class="c">第4章</span></a>
+<a class="fr" href="F70.html"><span class="fn">F70</span><span class="t">火口湖・山頂の洞窟</span><span class="c">第4章</span></a>
+<a class="fr" href="F70.html"><span class="fn">F71</span><span class="t">山頂の洞窟<span class="in">→F70</span></span><span class="c">第4章</span></a>
+<a class="fr" href="F72.html"><span class="fn">F72</span><span class="t">学園内の教会内部・パイプ洞窟</span><span class="c">第4章</span></a>
+<a class="fr" href="F70.html"><span class="fn">F73</span><span class="t">火口湖<span class="bot">没</span><span class="in">→F70</span></span><span class="c">第4章</span></a>
+<a class="fr" href="F80.html"><span class="fn">F80</span><span class="t">オーパスの村</span><span class="c">第5章</span></a>
+<a class="fr" href="F81.html"><span class="fn">F81</span><span class="t">オーパスの山道</span><span class="c">第5章</span></a>
+<a class="fr" href="F82.html"><span class="fn">F82</span><span class="t">要塞迷路・王宮内部</span><span class="c">第5章</span></a>
+<a class="fr" href="F84.html"><span class="fn">F84</span><span class="t">囚人島・囚人島地下洞窟</span><span class="c">第5章</span></a>
+<a class="fr" href="F84.html"><span class="fn">F85</span><span class="t">囚人島（帰り）<span class="in">→F84</span></span><span class="c">第5章</span></a>
+<a class="fr" href="F86.html"><span class="fn">F86</span><span class="t">磨き石の洞窟</span><span class="c">第5章</span></a>
+<a class="fr" href="F87.html"><span class="fn">F87</span><span class="t">岩の島洞窟</span><span class="c">第5章</span></a>
+<a class="fr" href="F88.html"><span class="fn">F88</span><span class="t">地下湖底</span><span class="c">第5章</span></a>
+<a class="fr" href="F84.html"><span class="fn">F89</span><span class="t">囚人島地下洞窟<span class="in">→F84</span></span><span class="c">第5章</span></a>
+<a class="fr" href="F90.html"><span class="fn">F90</span><span class="t">燃える村</span><span class="c">最終章</span></a>
+<a class="fr" href="F6.html"><span class="fn">F91</span><span class="t">ガリハアクの洞窟<span class="in">→F6</span></span><span class="c">最終章</span></a>
+<a class="fr" href="F92.html"><span class="fn">F92</span><span class="t">夢の城</span><span class="c">最終章</span></a>
+<a class="fr" href="F92.html"><span class="fn">F93</span><span class="t">夢の城（室内）<span class="in">→F92</span></span><span class="c">最終章</span></a>
+<a class="fr" href="F5-b.html"><span class="fn">F94</span><span class="t">バルエコ村の龍族の会議所<span class="in">→F5</span></span><span class="c">最終章</span></a>
+<a class="fr" href="F95.html"><span class="fn">F95</span><span class="t">バルエコの森</span><span class="c">最終章</span></a>
+<a class="fr" href="F96.html"><span class="fn">F96</span><span class="t">港町アデン（エピローグ）</span><span class="c">最終章</span></a>
+<a class="fr" href="F96.html"><span class="fn">F97</span><span class="t">港町アデン（エピローグ）<span class="in">→F96</span></span><span class="c">最終章</span></a>
+<a class="fr" href="F98.html"><span class="fn">F98</span><span class="t">調律の洞窟</span><span class="c">第5章</span></a></div></details>
+</div>
+<script src="menu.js"></script>

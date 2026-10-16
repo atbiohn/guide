@@ -1,0 +1,105 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黄昏のオード 敵の技一覧</title>
+<style>
+.ode-skill{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222}
+.ode-skill table{border-collapse:collapse}
+.ode-skill th,.ode-skill td{border:1px solid #c8c8c8;padding:3px 7px;vertical-align:middle;background:#fff}
+.ode-skill th{background:#3d4b66;color:#fff;font-weight:normal;white-space:nowrap}
+.ode-skill td.n{text-align:right}.ode-skill td.c{text-align:center;white-space:nowrap}.ode-skill td.nm{white-space:nowrap}
+.ode-skill td.ef{min-width:14em;max-width:22em}
+.ode-skill td.who{font-size:12px;line-height:1.6;max-width:30em}
+.ode-skill .nt{font-size:11px;color:#a05a00}.ode-skill .nt2{font-size:11px;color:#3e8f5a}.ode-skill .star{color:#c00}.ode-skill tr.sub td{background:#eee;color:#666;font-weight:normal;font-size:12px}.ode-skill tr.un td{color:#777}
+.ode-skill .dim{color:#999}
+.ode-skill tr.sec td{background:#e4e8f0;font-weight:bold}
+.ode-skill tr.dm td{background:#f3e3e3;color:#844}
+.ode-skill .tg{display:inline-block;font-size:11px;color:#fff;border-radius:3px;padding:0 4px;margin-right:5px;min-width:2.2em;text-align:center}
+.ode-skill .tm{background:#a04848}.ode-skill .tc{background:#3e8f5a}.ode-skill .ti{background:#3e6fb0}
+.ode-skill .calc{background:#f4f6fa;border:1px solid #d5dbe6;border-radius:4px;padding:4px 14px;margin:8px 0;max-width:780px}
+.ode-skill .calc ol{margin:2px 0 4px;padding-left:1.6em}.ode-skill .calc p{margin:6px 0 2px}.ode-skill .ex{font-size:12px;color:#555}
+.ode-skill .wrap{overflow-x:auto}
+.ode-skill .tdm{background:#a04848}.ode-skill .w{white-space:nowrap;margin-right:.5em}.ode-skill .w .tg{margin-right:3px;min-width:0}
+/* 狭い画面(スマホ): 1技1枚のカード。名前、数値の段(属性・対象・威力・ターン)、効果、使う敵 */
+@media (max-width:760px){
+.ode-skill .calc{max-width:none;padding:2px 10px}
+.ode-skill table,.ode-skill tbody{display:block}
+.ode-skill tr.hd{display:none}
+.ode-skill tr.sec{display:block;margin:12px 0 6px}.ode-skill tr.sec td{display:block;border:none;border-radius:3px;padding:3px 8px}
+.ode-skill tr:not(.sec):not(.hd){display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #c8c8c8;margin:0 0 8px;background:#fff}
+.ode-skill tr td{display:block;border:none;border-top:1px solid #e8e8e8;padding:3px 6px;min-width:0;max-width:none;white-space:normal;text-align:left}
+.ode-skill tr td.nm{grid-column:1 / -1;border-top:none;font-size:14px;font-weight:bold;padding-top:5px}
+.ode-skill tr td.at,.ode-skill tr td.tg2,.ode-skill tr td.pw,.ode-skill tr td.tn{text-align:center;font-size:13px}
+.ode-skill tr td.at::before,.ode-skill tr td.tg2::before,.ode-skill tr td.pw::before,.ode-skill tr td.tn::before{display:block;font-size:10px;color:#777;line-height:1.3}
+.ode-skill tr td.at::before{content:"属性"}.ode-skill tr td.tg2::before{content:"対象"}.ode-skill tr td.pw::before{content:"威力"}.ode-skill tr td.tn::before{content:"ターン"}
+.ode-skill tr td.ef,.ode-skill tr td.who{grid-column:1 / -1;font-size:12px;line-height:1.6}
+.ode-skill tr td.ef::before,.ode-skill tr td.who::before{display:inline-block;font-size:10px;color:#fff;background:#3d4b66;border-radius:3px;padding:0 5px;margin:0 6px 2px 0;vertical-align:1px}
+.ode-skill tr td.ef::before{content:"効果"}.ode-skill tr td.who::before{content:"使う敵"}
+.ode-skill tr td.pw:empty,.ode-skill tr td.tn:empty{visibility:hidden}.ode-skill tr.dm{background:#f3e3e3}.ode-skill tr.un td,.ode-skill tr.un{background:#f7f7f7}
+}
+.ode-skill details.calc>summary{cursor:pointer;list-style:none;margin:5px 0}
+.ode-skill details.calc>summary::-webkit-details-marker{display:none}
+.ode-skill details.calc>summary::before{content:"▶";display:inline-block;width:1.3em;color:#3d4b66;font-size:11px;vertical-align:1px}
+.ode-skill details.calc[open]>summary::before{content:"▼"}
+</style>
+<div class="ode-skill">
+<h2>敵の技一覧</h2>
+<p>敵が使う技の一覧。使う敵の後ろの%は、その敵が1回の行動でその技を選ぶ確率。仲間の技・必殺技はキャラの一覧に載せている。<br>威力: 攻撃の技はダメージの計算に使う値(下の計算)、回復の技はそのまま回復量。「*」はバグで本来と違う値(効果の欄に本来の値)。<br>効果ターン: かかったターンの残りに加えて、その後に続くターン数(例: 1 なら、かかったターンと次のターンの間、効果が続く)。</p>
+<details class="calc">
+<summary><b>敵の攻撃技のダメージ</b></summary>
+<p class="ex">割り算の端数は切り捨て</p>
+<ol>
+<li>まず、技を使った敵のレベルに 1 を足して 2 で割る</li>
+<li>その値に <b>威力</b> を掛ける</li>
+<li>その値に、受けるキャラの <b>耐性</b>(火・水・地・風・特殊技のうち技に合うもの。装備の中で一番小さい値)を掛けて 100 で割る → これがダメージ</li>
+</ol>
+<p class="ex">例: レベル20の敵のファイア－ボール(威力15)、火の耐性100 → (20+1)÷2 = 10 → 10×15 = 150 → 150×100÷100 = <b>150</b>。火の耐性50なら 75。炎の輪・虹・土人形・風の壁の歌がかかっていると、バグで属性に関係なく0<br>
+道具(火炎薬・風針薬・爆発薬)や仲間が敵に使うときも同じ形で、レベルは使った人、耐性は敵の属性の倍率になる。回復の技は威力がそのまま回復量。</p>
+</details>
+<div class="wrap"><table><tr class="hd"><th>名前</th><th>属性</th><th>対象</th><th>威力</th><th>効果<br>ターン</th><th>効果</th><th>使う敵</th></tr>
+<tr class="sec"><td colspan="7">HPを回復する技</td></tr>
+<tr class=""><td class="nm nm">ヒール</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">20</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="w">モノアイ 15%</span></td></tr>
+<tr class=""><td class="nm nm">ヒール２</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">50</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="w">ダタラ 5%</span> <span class="w">ハンガン 20%</span></td></tr>
+<tr class=""><td class="nm nm">ヒーリング</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">200</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="w">木霊グモ 10%</span> <span class="w">セミ法師 20%</span></td></tr>
+<tr class=""><td class="nm nm">ヒーリング２</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">156<span class="star">*</span></td><td class="c tn"></td><td class="ef ef">HPを回復<div class="nt">本来の回復量は300。バグで、敵の並びの位置によって回復量が変わり、フーコーは156になる</div></td><td class="who who"><span class="w">フーコー 25%</span></td></tr>
+<tr class=""><td class="nm nm">ヒーリング３</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">500</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="w">ガンド 20%</span> <span class="w">フライアイ 15%</span> <span class="w"><span class="tg tdm">没</span>サンドデモン 10%</span> <span class="w"><span class="tg tdm">没</span>ガンドの魂 30%</span></td></tr>
+<tr class=""><td class="nm nm">メガヒーリング</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">700</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="w">ビッグアイ 15%</span> <span class="w">木霊グモの魂 10%</span> <span class="w">フーコーの魂 25%</span> <span class="w">ガリハアク(全形態) 10%</span></td></tr>
+<tr class="sec"><td colspan="7">属性の攻撃技</td></tr>
+<tr class=""><td class="nm nm">ファイア－ボール</td><td class="c at">火</td><td class="c tg2">1体</td><td class="n pw">15</td><td class="c tn"></td><td class="ef ef">火のダメージ</td><td class="who who"><span class="w">さまよう炎 30%</span> <span class="w">さざめく炎 40%</span> <span class="w">ファイヤーモンキー 40%</span></td></tr>
+<tr class=""><td class="nm nm">フレイム</td><td class="c at">火</td><td class="c tg2">全体</td><td class="n pw">11</td><td class="c tn"></td><td class="ef ef">火のダメージ</td><td class="who who"><span class="w">ゆらぐ炎 40%</span> <span class="w">メルトリザード 50%</span> <span class="w">ドドル 40%</span> <span class="w">モルガン 30%</span> <span class="w">フレームモンキー 40%</span> <span class="w">ドドルの魂 20%</span> <span class="w">龍族の魂 20%</span> <span class="w">ガリハアク(第3形態) 20%</span> <span class="w"><span class="tg tdm">没</span>下龍 40%</span></td></tr>
+<tr class=""><td class="nm nm">ウォーターナイフ</td><td class="c at">水</td><td class="c tg2">1体</td><td class="n pw">15</td><td class="c tn"></td><td class="ef ef">水のダメージ</td><td class="who who"><span class="w">ウィスパー 30%</span> <span class="w">ガーゴイル 20%</span> <span class="w">海ヘビ 30%</span> <span class="w">オクトバンパイヤ 30%</span> <span class="w">バルメイラスの魂 20%</span> <span class="w">からくり男爵の魂 30%</span> <span class="w">龍族の魂 20%</span></td></tr>
+<tr class=""><td class="nm nm">サンドストーム</td><td class="c at">地</td><td class="c tg2">1体</td><td class="n pw">15</td><td class="c tn"></td><td class="ef ef">地のダメージ</td><td class="who who"><span class="w">ダマシ 30%</span> <span class="w">ダフニ 20%</span> <span class="w">ヌマアルキ 40%</span> <span class="w">バウンダー 30%</span> <span class="w">人狼 20%</span> <span class="w">ドロヌマアルキ 40%</span></td></tr>
+<tr class=""><td class="nm nm">マッドサンド</td><td class="c at">地</td><td class="c tg2">全体</td><td class="n pw">11</td><td class="c tn"></td><td class="ef ef">地のダメージ</td><td class="who who"><span class="w">フーコー 25%</span> <span class="w">ドロモドキ 50%</span> <span class="w">ガンド 20%</span> <span class="w">ドロダマシ 50%</span> <span class="w">ダストデビル 30%</span> <span class="w">フーコーの魂 25%</span> <span class="w">ガリハアク(第2形態) 20%</span> <span class="w"><span class="tg tdm">没</span>サンドデモン 30%</span></td></tr>
+<tr class=""><td class="nm nm">アースクイック</td><td class="c at">地</td><td class="c tg2">敵味方全員</td><td class="n pw">18</td><td class="c tn"></td><td class="ef ef">地のダメージ。浮いている相手には効かない</td><td class="who who"><span class="w">ガンバン 40%</span> <span class="w">ドドル 20%</span> <span class="w">ドドルの魂 10%</span></td></tr>
+<tr class=""><td class="nm nm">エアニードル</td><td class="c at">風</td><td class="c tg2">1体</td><td class="n pw">15</td><td class="c tn"></td><td class="ef ef">風のダメージ</td><td class="who who"><span class="w">シーウィング 20%</span> <span class="w">黒妖蛾 30%</span> <span class="w">風妖魔 40%</span> <span class="w">風悪魔 40%</span></td></tr>
+<tr class=""><td class="nm nm">サンダーボルト</td><td class="c at">風</td><td class="c tg2">全体</td><td class="n pw">11</td><td class="c tn"></td><td class="ef ef">風のダメージ</td><td class="who who"><span class="w">アクスウィング 30%</span> <span class="w">チャター 40%</span> <span class="w">グラティス 60%</span> <span class="w">洞窟コウモリ 30%</span> <span class="w">水晶コウモリ 30%</span> <span class="w">モーロックの魂 25%</span> <span class="w">スカルマスターの魂 20%</span> <span class="w">ガリハアク(第1形態) 20%</span></td></tr>
+<tr class="sec"><td colspan="7">行動できなくする技</td></tr>
+<tr class=""><td class="nm nm">スノーフォール</td><td class="c at">水</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn">1</td><td class="ef ef">凍らせて行動できなくする</td><td class="who who"><span class="w">音返し 10%</span> <span class="w">ハウラー 40%</span> <span class="w">オクトセンガー 30%</span> <span class="w">バルメイラスの魂 10%</span></td></tr>
+<tr class=""><td class="nm nm">パラライズ</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn">1</td><td class="ef ef">しびれさせて行動できなくする</td><td class="who who"><span class="w">スネークラット 10%</span> <span class="w">ダタラ 20%</span> <span class="w">毒ヅタ 20%</span> <span class="w">コブララット 20%</span> <span class="w">木霊グモ 20%</span> <span class="w">ケロック 20%</span> <span class="w">腐れたる者 20%</span> <span class="w">グロック 20%</span> <span class="w">バルメイラス 20%</span> <span class="w">木霊グモの魂 20%</span></td></tr>
+<tr class=""><td class="nm nm">ターントゥストン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn">2</td><td class="ef ef">石にして行動できなくする</td><td class="who who"><span class="w">妖蛾 20%</span> <span class="w">スカルボ 20%</span> <span class="w">スカルマスター 20%</span></td></tr>
+<tr class=""><td class="nm nm">スカンク</td><td class="c at">特殊</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn">1</td><td class="ef ef">全員を行動できなくする</td><td class="who who"><span class="w">スメル 10%</span> <span class="w">悪かわうそ 10%</span> <span class="w">バットスメル 10%</span></td></tr>
+<tr class="sec"><td colspan="7">そのほかの技</td></tr>
+<tr class=""><td class="nm nm">スクリーン</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn">3</td><td class="ef ef">仲間の敵1体が受ける、通常攻撃のダメージを0にする</td><td class="who who"><span class="w">ミラーズ 30%</span></td></tr>
+<tr class=""><td class="nm nm">召喚</td><td class="c at">—</td><td class="c tg2">—</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">自分と同じモンスターを1体呼ぶ<div class="nt">呼ばれる枠は、前列の左から右、次いで後列の左から右の順に調べて、最初に見つかった「最初から空いている枠」か「同じ種類の敵が倒された枠」。ほかの種類の敵が倒された枠には呼ばない。当てはまる枠がないときは、召喚を選んだ分の確率が通常攻撃に置き換わる</div><div class="nt" style="margin-top:.7em">経験値は戦闘の終わりに6つの枠を数えるので、何体呼ばれても6体分まで</div></td><td class="who who"><span class="w">モノアイ 15%</span> <span class="w">ハンガン 20%</span> <span class="w">坑夫の亡霊 10%</span> <span class="w">フライアイ 15%</span> <span class="w">ビッグアイ 15%</span></td></tr>
+<tr class=""><td class="nm nm">アクセル</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">ランダムな相手に通常攻撃を3回(1回ずつ命中の判定があり、ミスもある)</td><td class="who who"><span class="w">ポルポス 20%</span> <span class="w">赤ポルポス 30%</span> <span class="w">からくり男爵 30%</span></td></tr>
+<tr class=""><td class="nm nm">エナジードレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPを吸い取る(量 = 使った敵のレベル)</td><td class="who who"><span class="w">ソウルイーター 80%</span> <span class="w">ダフニ 20%</span> <span class="w">ソウルスワロー 30%</span> <span class="w"><span class="tg tdm">没</span>ソウルイーターの魂 80%</span> <span class="w"><span class="tg tdm">没</span>ダフニの魂 20%</span></td></tr>
+<tr class=""><td class="nm nm">ノイズ</td><td class="c at">—</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn">1</td><td class="ef ef">歌を使えなくする(必中)</td><td class="who who"><span class="w">セミ法師 30%</span> <span class="w">ツク法師 60%</span> <span class="w">雑音草 60%</span> <span class="w">音返し 20%</span> <span class="w">無音草 60%</span> <span class="w">モーロック 25%</span> <span class="w">吸音ゴケ 55%</span> <span class="w">反響ゴケ 40%</span> <span class="w">ノイズ植物 60%</span></td></tr>
+<tr class="sec sub"><td colspan="7">使う敵のいない技(仲間の技や道具使用時にこのデータが引用されている)</td></tr>
+<tr class="un"><td class="nm nm">ヒール３</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">100</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ギガヒーリング</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">1000</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">テラヒーリング</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">2000</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ジゴヒーリング</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">9999</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">イズミ</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">1</td><td class="c tn"></td><td class="ef ef">SPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ノドアメ</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">5</td><td class="c tn"></td><td class="ef ef">SPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ノドグスリ</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">10</td><td class="c tn"></td><td class="ef ef">SPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">スーパーアメ</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">30</td><td class="c tn"></td><td class="ef ef">SPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ディーエックス</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">50</td><td class="c tn"></td><td class="ef ef">SPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ターンアンデッド</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">アンデッドを倒す</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">ウイング</td><td class="c at">—</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">効果なし(空飛び薬の浮遊は道具の専用処理)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">スモーク</td><td class="c at">—</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">効果なし(バグ)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="un"><td class="nm nm">クラッカー</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw">25</td><td class="c tn"></td><td class="ef ef">ダメージ</td><td class="who who"><span class="w"><span class="tg tdm">没</span>ダフニの魂 20%</span></td></tr>
+<tr class="un"><td class="nm nm">スローダウン</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">素早さを半分にする</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="sec sub"><td colspan="7">没の技(一切使われない)</td></tr>
+<tr class="dm"><td class="nm nm">ダブルドレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPを吸い取る(量 = 使った敵のレベル)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="dm"><td class="nm nm">スチール</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">吸い取る(量 = 使った敵のレベル。何を取るかは未解析)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+</table></div>
+</div>
+<!-- 完成版(2026-10-09 手で最終調整済み。2026-10-10 上部の枠を ▼ でたたむ形に。2026-10-11 召喚の枠の順を追記)。スクリプトで上書きしない -->
+<script src="menu.js"></script>

@@ -1,0 +1,173 @@
+<meta charset="utf-8"><title>黄昏のオード FIELD90 燃える村</title>
+<style>
+.ode-field{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:14px;color:#222;max-width:760px;line-height:1.6}
+.ode-field *{box-sizing:border-box}
+.ode-field h3{color:#3d4b66;border-left:6px solid #3d4b66;padding:2px 0 2px 8px;margin:28px 0 10px;font-size:17px}
+.ode-field .hd{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:#3d4b66;color:#fff;border-radius:6px 6px 0 0;padding:10px 14px}
+.ode-field .hd .no{background:#fff;color:#3d4b66;font-weight:bold;border-radius:4px;padding:1px 8px;font-size:15px;letter-spacing:1px}
+.ode-field .hd .nm{font-size:22px;font-weight:bold;margin:0;color:#fff;border:0;padding:0}
+.ode-field .hd .enc{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:4px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.ode-field .hd .enc b{font-size:16px;margin-left:4px}
+.ode-field .lead{margin:0;padding:8px 14px;background:#f4f6fa;border:1px solid #c8c8c8;border-top:0;border-radius:0 0 6px 6px}
+.ode-field .legend{font-size:12px;color:#555;margin:10px 0 6px}
+.ode-field .legend span.it{margin-right:14px;white-space:nowrap}
+.ode-field .lb{display:inline-block;background:#3d4b66;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .lbug{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .lx{display:inline-block;background:#a05a00;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .map img{width:100%;height:auto;display:block;border:1px solid #c8c8c8;border-radius:4px;image-rendering:auto}
+.ode-field .mk{display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;color:#fff;font-size:11px;font-weight:bold;margin-right:3px;vertical-align:1px;padding:0 3px}
+.ode-field .mk.m{background:#b0413e;border-radius:9px}
+.ode-field .mk.s{background:#2e7d6b;border-radius:4px}
+.ode-field .mk.i{background:#a0682a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);min-width:22px;height:22px;line-height:22px;padding:0}
+.ode-field .rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.ode-field .room{border:1px solid #c8c8c8;border-radius:6px;overflow:hidden;background:#fff}
+.ode-field .room.wide{grid-column:1/-1}
+.ode-field .room.wide.one .imgs{justify-content:center}
+.ode-field .room.wide.one figure{flex:0 1 380px !important}
+.ode-field .room .rh{background:#3d4b66;color:#fff;padding:4px 10px;font-size:14px}
+.ode-field .rid{display:inline-block;background:#fff;color:#3d4b66;font-weight:bold;font-size:12px;border-radius:3px;padding:0 5px;margin-right:5px;vertical-align:1px}
+.ode-field .rid.s{background:#3d4b66;color:#fff}
+.ode-field .room .rnm{margin-left:3px}
+.ode-field .imgs{display:flex;gap:4px;background:#000}
+.ode-field figure{margin:0;min-width:0;display:flex;flex-direction:column}
+.ode-field figure figcaption{margin-top:auto}
+.ode-field figcaption{background:#f4f6fa;color:#3d4b66;font-size:12px;padding:2px 6px}
+.ode-field figcaption .rid{background:#3d4b66;color:#fff}
+.ode-field .room img.rm{width:100%;height:auto;display:block;image-rendering:auto}
+.ode-field .room .rb{padding:6px 10px;font-size:13px}
+.ode-field .room .rn{margin:4px 0}
+.ode-field ul.pts{margin:6px 0;padding-left:1.3em}
+.ode-field ul.pts li{margin:3px 0}
+.ode-field details.calc{background:#f4f6fa;border:1px solid #d5dbe6;border-radius:4px;padding:2px 12px;margin:6px 0;font-size:13px}
+.ode-field details.calc summary{cursor:pointer;list-style:none;margin:3px 0;font-weight:bold;color:#3d4b66}
+.ode-field details.calc summary::-webkit-details-marker{display:none}
+.ode-field details.calc summary::before{content:"▶";display:inline-block;width:1.2em;font-size:11px}
+.ode-field details.calc[open] summary::before{content:"▼"}
+.ode-field details.calc ol{margin:2px 0 4px;padding-left:1.6em}
+.ode-field details.calc p{margin:6px 0 2px}
+.ode-field details.calc table{width:auto}
+.ode-field details.calc td{text-align:center;padding:2px 10px}
+.ode-field table{border-collapse:collapse;width:100%;margin-top:6px}
+.ode-field th,.ode-field td{border:1px solid #c8c8c8;padding:2px 6px;vertical-align:middle}
+.ode-field th{background:#3d4b66;color:#fff;font-weight:normal;font-size:12px}
+.ode-field td.i{text-align:center;width:38px;padding:1px}
+.ode-field td.p{text-align:right;width:4.5em}
+.ode-field table.hire td{text-align:center}
+.ode-field img{image-rendering:pixelated;vertical-align:middle}
+.ode-field .k{display:inline-block;font-size:11px;color:#fff;border-radius:3px;padding:0 4px;margin-right:5px;vertical-align:1px}
+.ode-field .k1{background:#b0413e}.ode-field .k2{background:#3e6fb0}.ode-field .k4{background:#3e8f5a}
+.ode-field .kg{background:#6a4fa0}.ode-field .kc{background:#8e2b2b}.ode-field .kj{background:#1f8fa0}.ode-field .kl{background:#7a7a7a}
+.ode-field .small{font-size:11px;color:#666;margin-top:2px}
+.ode-field .ev{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed #c8c8c8}
+.ode-field .ev .bd{width:30px;height:30px;line-height:30px;text-align:center;color:#fff;font-weight:bold;font-size:14px}
+.ode-field .bd.m{background:#b0413e;border-radius:50%}
+.ode-field .bd.s{background:#2e7d6b;border-radius:6px}
+.ode-field .ev .bd.i{background:#a0682a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);width:34px;height:34px;line-height:34px;margin-left:-2px}
+.ode-field .ev.i .tt{color:#8a5520}
+.ode-field .subhead.it{background:#f6efe6;border-left-color:#a0682a;color:#8a5520}
+.ode-field table.enc td{padding:4px 8px}
+.ode-field table.enc td.pc{text-align:right;font-weight:bold;width:4.5em;white-space:nowrap}
+.ode-field .mon{display:inline-flex;align-items:center;gap:4px;margin-right:12px}
+.ode-field .mon img{image-rendering:pixelated}
+.ode-field a.ml{color:inherit;text-decoration:none;border-bottom:1px dotted #3e6fb0}
+.ode-field a.ml:hover{color:#3e6fb0}
+.ode-field .encp{margin:4px 0}
+.ode-field .encrm{margin-top:10px;font-weight:bold;color:#3d4b66}
+.ode-field .dim{color:#999}
+.ode-field .shopcap{font-size:12px;font-weight:bold;color:#3d4b66;margin-top:8px}
+.ode-field .bt-s{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-field .bug .bl .bx{flex:1;min-width:0}
+.ode-field details.era-box{margin:0}
+.ode-field details.era-box>summary{list-style:none;cursor:pointer}
+.ode-field details.era-box>summary::-webkit-details-marker{display:none}
+.ode-field details.era-box>summary.era span::after{content:"　▼ 押すと開く";font-size:11px;opacity:.85}
+.ode-field details.era-box[open]>summary.era span::after{content:"　▲ 閉じる"}
+.ode-field details.era-box>summary.era:hover span{background:#2a3550}
+.ode-field .room .trims{padding:2px 10px 0}
+.ode-field .room .trims .trim{margin:2px 0}
+.ode-field .room .trims .rid{font-size:10px;padding:0 3px}
+.ode-field .mshop{max-width:380px}
+.ode-field table.lines{width:100%;table-layout:fixed;margin:6px 0}
+.ode-field table.lines th:first-child{width:10.5em}
+.ode-field table.lines th{text-align:left}
+.ode-field table.lines td:first-child{font-weight:bold;color:#3d4b66;vertical-align:top;overflow-wrap:anywhere}
+.ode-field table.lines td .botsu{margin-right:4px}
+.ode-field table.enc{table-layout:fixed}
+.ode-field table.enc col.c1{width:5em}
+.ode-field table.enc col.c0{width:3.6em}
+.ode-field table.enc td.eid{text-align:center;color:#666;font-size:12px;white-space:nowrap}
+.ode-field .mx{font-weight:bold;margin-left:2px}
+.ode-field .kbt{display:inline-block;background:#2f2f2f;color:#fff;font-size:11px;font-weight:bold;border-radius:3px;padding:0 6px;margin:0 6px 0 8px;vertical-align:2px}
+.ode-field .btl{font-size:15px;font-weight:bold;margin:6px 0;padding:4px 8px;background:#f1f1f1;border-left:4px solid #2f2f2f}
+.ode-field .btl .kbt{margin-left:0}
+.ode-field .sys{margin:8px 0;padding:8px 12px;background:#eef3fb;border:2px solid #3e6fb0;border-radius:6px}
+.ode-field .sys .sh{font-size:16px;font-weight:bold;color:#2a4f86;margin-bottom:4px}
+.ode-field .sys .st{display:inline-block;background:#3e6fb0;color:#fff;font-size:11px;border-radius:3px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.ode-field h3.floor .rid{font-size:13px;vertical-align:3px}
+.ode-field h3.floor{font-size:19px;margin-top:34px}
+.ode-field .trim{font-size:11px;color:#888;margin:3px 0 8px}
+.ode-field .fh{margin:14px 0 4px;font-weight:bold;color:#3d4b66;border-bottom:2px solid #d6dbe6;padding-bottom:2px}
+.ode-field .fnote{margin:6px 0}
+.ode-field .quote{margin:4px 0 8px 2.4em;padding:4px 10px;background:#f4f6fa;border-left:3px solid #c8c8c8;color:#333;font-size:12.5px}
+.ode-field .quote .qh{font-weight:bold;color:#3d4b66;margin-top:4px}
+.ode-field .ev .tt{font-weight:bold;font-size:15px;color:#3d4b66}
+.ode-field .ev.s .tt{color:#2e7d6b}
+.ode-field .ev .pl{font-size:12px;color:#a05a00}
+.ode-field .ev .bo{margin:4px 0}
+.ode-field .ev ul.br{margin:4px 0;padding-left:1.4em}
+.ode-field .ev .gt{font-size:13px;margin:3px 0}
+.ode-field .ev .gi{display:inline-block;background:#f4f6fa;border:1px solid #d6dbe6;border-radius:3px;padding:0 6px;margin:1px 4px 1px 0}
+.ode-field .ev .nx{font-size:13px;margin-top:4px}
+.ode-field .ev .nl{display:inline-block;background:#3d4b66;color:#fff;border-radius:3px;padding:0 6px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-field .opt{display:inline-block;font-size:11px;font-weight:normal;color:#2e7d6b;border:1px solid #2e7d6b;border-radius:3px;padding:0 5px;margin-left:8px;vertical-align:2px}
+.ode-field .lim{color:#9a4a00;font-weight:bold;font-size:13px;background:#fff1e0;border-left:4px solid #e07b00;padding:3px 8px;margin:4px 0}
+.ode-field .lim .lt{display:inline-block;background:#e07b00;color:#fff;font-size:11px;border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px}
+.ode-field .bug{font-size:12px;background:#fdf0ee;border:1px solid #e3b5ae;border-radius:4px;padding:3px 8px;margin:5px 0}
+.ode-field .bug .bt{display:inline-block;background:#c0392b;color:#fff;font-size:11px;border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px;min-width:4.6em;text-align:center}
+.ode-field .bug .bl{margin:2px 0;display:flex;align-items:baseline}
+.ode-field .bug .bl .bt{flex:none}
+.ode-field .bug .bh{font-weight:bold;color:#c0392b;margin-bottom:2px}
+.ode-field img.ic{width:20px;height:20px;margin:0 3px 0 -2px;vertical-align:-4px}
+.ode-field .tip{font-size:12px;background:#fff8e1;border:1px solid #ecd58a;border-radius:4px;padding:3px 8px;margin:5px 0}
+.ode-field .tip .ti{display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;background:#d9a400;color:#fff;font-weight:bold;font-size:11px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.ode-field .warn{color:#c0392b;font-weight:bold;font-size:13px;margin:3px 0}
+.ode-field .foot{margin-top:6px}
+.ode-field .ev .aft{font-weight:bold;color:#222;margin-top:6px}
+.ode-field a.fl{color:#3e6fb0;font-weight:bold;text-decoration:none;border-bottom:1px solid #9fb6d8}
+.ode-field a.fl:hover{border-bottom-color:#3e6fb0}
+.ode-field a.cl{color:inherit;text-decoration:none;border-bottom:1px dotted #3e6fb0}
+.ode-field a.cl:hover{color:#3e6fb0}
+.ode-field a.more{display:inline-block;margin-top:4px;font-size:13px;font-weight:bold;color:#3e6fb0;text-decoration:none;border:1px solid #9fb6d8;border-radius:4px;padding:1px 10px;background:#f4f6fa}
+.ode-field a.more::before{content:"▶ ";font-size:10px}
+.ode-field a.more:hover{background:#e3ebf7}
+.ode-field .era{border-top:4px solid #3d4b66;margin:18px 0 0;padding-top:6px;text-align:center}
+.ode-field .era span{display:inline-block;background:#3d4b66;color:#fff;font-size:12px;border-radius:0 0 4px 4px;padding:1px 12px;margin-top:-6px}
+.ode-field .era a.fl{color:#fff;border-bottom-color:rgba(255,255,255,.6)}
+.ode-field .alert{margin:10px 0;padding:8px 12px;border:3px solid #c0392b;border-radius:6px;background:#fff0ee;color:#8e1f15;font-size:15px;font-weight:bold;line-height:1.6}
+.ode-field .alert .at.irr{background:#4a1010}
+.ode-field .alert .at{display:inline-block;background:#c0392b;color:#fff;font-size:13px;border-radius:3px;padding:1px 8px;margin-right:8px;vertical-align:1px}
+.ode-field .alert a.fl{color:#8e1f15}
+.ode-field .subhead{margin-top:18px;padding:4px 10px;background:#e8f3f0;border-left:6px solid #2e7d6b;color:#2e7d6b;font-weight:bold}
+.ode-field .note{font-size:12px;color:#666}
+.ode-field ul.unused{list-style:none;padding:0;margin:6px 0;font-size:12px;color:#555}
+.ode-field ul.unused li{margin:3px 0}
+.ode-field ul.unused .unenc{margin:4px 0 8px 2.4em;width:calc(100% - 2.4em);font-size:12.5px}
+.ode-field ul.unused .unmap{margin:4px 0 10px 2.4em}
+.ode-field .botsu{display:inline-block;background:#b0413e;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+</style>
+<div class="ode-field">
+<div class="hd"><span class="no">FIELD90</span><h2 class="nm">燃える村</h2><span class="enc">エンカウント率<b>1.17%</b></span></div>
+<p class="lead">龍族の村バルエコの北にある、焼け落ちた村。モルガンが待ち受けている。</p>
+
+<div class="legend"><span class="it"><span class="lx">→</span> ほかの FIELD へ</span><span class="it"><span class="mk m">1</span>メインイベント</span><span class="it"><span class="mk i">1</span>宝箱・落ちている物</span></div>
+<div class="map"><img src="field_guide/F90_img/9000.png" alt="燃える村のマップ"></div>
+<div class="tip"><span class="ti">！</span>しばらくの間、南東の出口からバルエコへ戻ろうとすると「もう、あともどりはできない…」と言われて戻れない。</div>
+<h3>エンカウント</h3>
+<p class="encp">1歩ごとに <b>1.17%</b>(平均 85.3 歩に1回)。戦闘になったときに出る組と、その確率:</p><table class="enc"><colgroup><col class="c0"><col class="c1"><col class="c2"><col class="c2"></colgroup><tr><th>ID</th><th>確率</th><th>前列</th><th>後列</th></tr><tr><td class="eid">218</td><td class="pc">33.3%</td><td><span class="mon"><a class="ml" href="monsters.html#m21">さざめく炎</a><span class="mx">×2</span></span></td><td><span class="mon"><a class="ml" href="monsters.html#m40">バットスメル</a></span></td></tr><tr><td class="eid">219</td><td class="pc">33.3%</td><td><span class="mon"><a class="ml" href="monsters.html#m21">さざめく炎</a></span></td><td><span class="mon"><a class="ml" href="monsters.html#m21">さざめく炎</a><span class="mx">×2</span></span></td></tr><tr><td class="eid">220</td><td class="pc">33.3%</td><td><span class="mon"><a class="ml" href="monsters.html#m21">さざめく炎</a><span class="mx">×3</span></span></td><td><span class="mon"><a class="ml" href="monsters.html#m40">バットスメル</a></span></td></tr></table>
+<h3>イベント</h3>
+<div class="ev m"><div class="bd m">1</div><div class="et"><div class="tt">焼け落ちた村</div><div class="pl">場所: 村の東の道(X160-172 Y81)</div><div class="bo"><a class="fl" href="F5-b.html">F5 龍族の村バルエコ</a>の北の橋を渡ると、村は一面焼け落ちている。主人公は、ボビンの仲間の足留めが失敗したと知る。</div><div class="nx"><span class="nl">次へ</span>村の西へ。</div></div></div>
+<div class="ev m"><div class="bd m">2</div><div class="et"><div class="tt">モルガン<span class="kbt">戦闘</span></div><div class="pl">場所: 村の西の道(X36-44 Y37)</div><div class="bo">モルガンが待ち受けていて、この世界を造ったのはガリハアクで、アトビオンこそ破壊神だと明かす。ダークオードで世界を造り直せば古き種族以外はすべて消える、と語るモルガンを、アイリスは止めると決意する。モルガンはアイリスに「不戦の呪い」(呪いの宝箱と同じ <img class="ic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC7SURBVDhPpZPLDYMwEET3yDFHjj6mHMqhFEqhBLpyNBZjjcc2QgrSSGh35+2HJCIiUkpZtWxb/ux7I8S8Dt7GPDK6HFQBSLwFKKQBoGA9jiqaPDYEIJHOM3+vqwjvNHm81DqABl0HMUjHJrADgK5kGNhRR0ZNiTug20873x31Th0AyTqerePx4RG1mF04EU1uHgJYwK9ScrbCI8ALVPxdPALqge6unETXmgJmEB7RzQXgfyjKLz81//v8AKsqo3RPA7gEAAAAAElFTkSuQmCC" width="20" height="20" alt="">水色の呪い)をかけて、戦いを挑んでくる。<br><b>戦闘中は、アイリスにかかった不戦の呪いを解く方法が無い。</b></div><div class="btl"><span class="kbt">戦闘</span><a class="ml" href="monsters.html#m114">モルガン</a>(前列)</div><div class="nx"><span class="nl">次へ</span>↑<a class="fl" href="F95.html">F95 バルエコの森</a>へ(村の北西の出口)。森を東へ進み、奥の洞窟に入ろうとする。</div></div></div>
+<div class="subhead it">宝箱・落ちている物</div>
+<div class="ev i"><div class="bd i">1</div><div class="et"><div class="tt">宝箱</div><div class="pl">場所: 北の焼けた家の右(X74-76 Y27-31)</div><div class="bo">「箱を開けると、中には両手剣が入っていた。」</div><div class="gt"><span class="k kg">入手</span><span class="gi"><img class="ic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVHhe7dexDcIwEEBRxkiZMRgjJWOkZAyPklHYCGp/JE5WgMS+b+k3l8TSvQouF5xt256fKqVUzfPcVdz37XBhJoAAgwHwBS64LEvVcCAccCEBBEgGsK5rFRccDUQADgTIDsBGBxGAAyZAdgA2GogAHEQJkB2A9Q4iAAetCZAdgPUGIgAHexMgOwA7O4gAHHw7AbIDsL0g/J73s/t1quJzATj4dVxAgGwAjAu1gvA+9ihTFZ8LwMG/EyA7AGsF4fNoYSYAB0cnQHaAqGjh6IcPE4CDsydAeoDbVMWF+ZzxPgE4OHtcSIDRAKKF+D6LvuefKQF4wdFFC/B9Fn0vAAF4eGHvRT+cuL8AvKD3BGgF8Hg8qc4LfnfWGUBw870AAAAASUVORK5CYII=" width="20" height="20" alt="">Ｈ＃の剣</span></div></div></div>
+</div>
+<script src="menu.js"></script>
