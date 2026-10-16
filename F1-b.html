@@ -1,0 +1,198 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黄昏のオード FIELD1 港町アデン（最終章）</title>
+<style>
+.ode-field{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:14px;color:#222;max-width:760px;line-height:1.6}
+.ode-field *{box-sizing:border-box}
+.ode-field h3{color:#3d4b66;border-left:6px solid #3d4b66;padding:2px 0 2px 8px;margin:28px 0 10px;font-size:17px}
+.ode-field .hd{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:#3d4b66;color:#fff;border-radius:6px 6px 0 0;padding:10px 14px}
+.ode-field .hd .no{background:#fff;color:#3d4b66;font-weight:bold;border-radius:4px;padding:1px 8px;font-size:15px;letter-spacing:1px}
+.ode-field .hd .nm{font-size:22px;font-weight:bold;margin:0;color:#fff;border:0;padding:0}
+.ode-field .hd .enc{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:4px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.ode-field .hd .enc b{font-size:16px;margin-left:4px}
+.ode-field .lead{margin:0;padding:8px 14px;background:#f4f6fa;border:1px solid #c8c8c8;border-top:0;border-radius:0 0 6px 6px}
+.ode-field .legend{font-size:12px;color:#555;margin:10px 0 6px}
+.ode-field .legend span.it{margin-right:14px;white-space:nowrap}
+.ode-field .lb{display:inline-block;background:#3d4b66;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .lbug{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .lx{display:inline-block;background:#a05a00;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;vertical-align:1px}
+.ode-field .map img{width:100%;height:auto;display:block;border:1px solid #c8c8c8;border-radius:4px;image-rendering:auto}
+.ode-field .mk{display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;color:#fff;font-size:11px;font-weight:bold;margin-right:3px;vertical-align:1px;padding:0 3px}
+.ode-field .mk.m{background:#b0413e;border-radius:9px}
+.ode-field .mk.s{background:#2e7d6b;border-radius:4px}
+.ode-field .mk.i{background:#a0682a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);min-width:22px;height:22px;line-height:22px;padding:0}
+.ode-field .rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.ode-field .room{border:1px solid #c8c8c8;border-radius:6px;overflow:hidden;background:#fff}
+.ode-field .room.wide{grid-column:1/-1}
+.ode-field .room.wide.one .imgs{justify-content:center}
+.ode-field .room.wide.one figure{flex:0 1 380px !important}
+.ode-field .room .rh{background:#3d4b66;color:#fff;padding:4px 10px;font-size:14px}
+.ode-field .rid{display:inline-block;background:#fff;color:#3d4b66;font-weight:bold;font-size:12px;border-radius:3px;padding:0 5px;margin-right:5px;vertical-align:1px}
+.ode-field .rid.s{background:#3d4b66;color:#fff}
+.ode-field .room .rnm{margin-left:3px}
+.ode-field .imgs{display:flex;gap:4px;background:#000}
+.ode-field figure{margin:0;min-width:0;display:flex;flex-direction:column}
+.ode-field figure figcaption{margin-top:auto}
+.ode-field figcaption{background:#f4f6fa;color:#3d4b66;font-size:12px;padding:2px 6px}
+.ode-field figcaption .rid{background:#3d4b66;color:#fff}
+.ode-field .room img.rm{width:100%;height:auto;display:block;image-rendering:auto}
+.ode-field .room .rb{padding:6px 10px;font-size:13px}
+.ode-field .room .rn{margin:4px 0}
+.ode-field ul.pts{margin:6px 0;padding-left:1.3em}
+.ode-field ul.pts li{margin:3px 0}
+.ode-field details.calc{background:#f4f6fa;border:1px solid #d5dbe6;border-radius:4px;padding:2px 12px;margin:6px 0;font-size:13px}
+.ode-field details.calc summary{cursor:pointer;list-style:none;margin:3px 0;font-weight:bold;color:#3d4b66}
+.ode-field details.calc summary::-webkit-details-marker{display:none}
+.ode-field details.calc summary::before{content:"▶";display:inline-block;width:1.2em;font-size:11px}
+.ode-field details.calc[open] summary::before{content:"▼"}
+.ode-field details.calc ol{margin:2px 0 4px;padding-left:1.6em}
+.ode-field details.calc p{margin:6px 0 2px}
+.ode-field details.calc table{width:auto}
+.ode-field details.calc td{text-align:center;padding:2px 10px}
+.ode-field table{border-collapse:collapse;width:100%;margin-top:6px}
+.ode-field th,.ode-field td{border:1px solid #c8c8c8;padding:2px 6px;vertical-align:middle}
+.ode-field th{background:#3d4b66;color:#fff;font-weight:normal;font-size:12px}
+.ode-field td.i{text-align:center;width:38px;padding:1px}
+.ode-field td.p{text-align:right;width:4.5em}
+.ode-field table.hire td{text-align:center}
+.ode-field img{image-rendering:pixelated;vertical-align:middle}
+.ode-field .k{display:inline-block;font-size:11px;color:#fff;border-radius:3px;padding:0 4px;margin-right:5px;vertical-align:1px}
+.ode-field .k1{background:#b0413e}.ode-field .k2{background:#3e6fb0}.ode-field .k4{background:#3e8f5a}
+.ode-field .kg{background:#6a4fa0}.ode-field .kc{background:#8e2b2b}.ode-field .kj{background:#1f8fa0}.ode-field .kl{background:#7a7a7a}
+.ode-field .small{font-size:11px;color:#666;margin-top:2px}
+.ode-field .ev{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed #c8c8c8}
+.ode-field .ev .bd{width:30px;height:30px;line-height:30px;text-align:center;color:#fff;font-weight:bold;font-size:14px}
+.ode-field .bd.m{background:#b0413e;border-radius:50%}
+.ode-field .bd.s{background:#2e7d6b;border-radius:6px}
+.ode-field .ev .bd.i{background:#a0682a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);width:34px;height:34px;line-height:34px;margin-left:-2px}
+.ode-field .ev.i .tt{color:#8a5520}
+.ode-field .subhead.it{background:#f6efe6;border-left-color:#a0682a;color:#8a5520}
+.ode-field table.enc td{padding:4px 8px}
+.ode-field table.enc td.pc{text-align:right;font-weight:bold;width:4.5em;white-space:nowrap}
+.ode-field .mon{display:inline-flex;align-items:center;gap:4px;margin-right:12px}
+.ode-field .mon img{image-rendering:pixelated}
+.ode-field a.ml{color:inherit;text-decoration:none;border-bottom:1px dotted #3e6fb0}
+.ode-field a.ml:hover{color:#3e6fb0}
+.ode-field .encp{margin:4px 0}
+.ode-field .encrm{margin-top:10px;font-weight:bold;color:#3d4b66}
+.ode-field .dim{color:#999}
+.ode-field .shopcap{font-size:12px;font-weight:bold;color:#3d4b66;margin-top:8px}
+.ode-field .bt-s{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-field .bug .bl .bx{flex:1;min-width:0}
+.ode-field details.era-box{margin:0}
+.ode-field details.era-box>summary{list-style:none;cursor:pointer}
+.ode-field details.era-box>summary::-webkit-details-marker{display:none}
+.ode-field details.era-box>summary.era span::after{content:"　▼ 押すと開く";font-size:11px;opacity:.85}
+.ode-field details.era-box[open]>summary.era span::after{content:"　▲ 閉じる"}
+.ode-field details.era-box>summary.era:hover span{background:#2a3550}
+.ode-field .room .trims{padding:2px 10px 0}
+.ode-field .room .trims .trim{margin:2px 0}
+.ode-field .room .trims .rid{font-size:10px;padding:0 3px}
+.ode-field .mshop{max-width:380px}
+.ode-field table.lines{width:100%;table-layout:fixed;margin:6px 0}
+.ode-field table.lines th:first-child{width:10.5em}
+.ode-field table.lines th{text-align:left}
+.ode-field table.lines td:first-child{font-weight:bold;color:#3d4b66;vertical-align:top;overflow-wrap:anywhere}
+.ode-field table.lines td .botsu{margin-right:4px}
+.ode-field table.enc{table-layout:fixed}
+.ode-field table.enc col.c1{width:5em}
+.ode-field table.enc col.c0{width:3.6em}
+.ode-field table.enc td.eid{text-align:center;color:#666;font-size:12px;white-space:nowrap}
+.ode-field .mx{font-weight:bold;margin-left:2px}
+.ode-field .kbt{display:inline-block;background:#2f2f2f;color:#fff;font-size:11px;font-weight:bold;border-radius:3px;padding:0 6px;margin:0 6px 0 8px;vertical-align:2px}
+.ode-field .btl{font-size:15px;font-weight:bold;margin:6px 0;padding:4px 8px;background:#f1f1f1;border-left:4px solid #2f2f2f}
+.ode-field .btl .kbt{margin-left:0}
+.ode-field .sys{margin:8px 0;padding:8px 12px;background:#eef3fb;border:2px solid #3e6fb0;border-radius:6px}
+.ode-field .sys .sh{font-size:16px;font-weight:bold;color:#2a4f86;margin-bottom:4px}
+.ode-field .sys .st{display:inline-block;background:#3e6fb0;color:#fff;font-size:11px;border-radius:3px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.ode-field h3.floor .rid{font-size:13px;vertical-align:3px}
+.ode-field h3.floor{font-size:19px;margin-top:34px}
+.ode-field .trim{font-size:11px;color:#888;margin:3px 0 8px}
+.ode-field .fh{margin:14px 0 4px;font-weight:bold;color:#3d4b66;border-bottom:2px solid #d6dbe6;padding-bottom:2px}
+.ode-field .fnote{margin:6px 0}
+.ode-field .quote{margin:4px 0 8px 2.4em;padding:4px 10px;background:#f4f6fa;border-left:3px solid #c8c8c8;color:#333;font-size:12.5px}
+.ode-field .quote .qh{font-weight:bold;color:#3d4b66;margin-top:4px}
+.ode-field .ev .tt{font-weight:bold;font-size:15px;color:#3d4b66}
+.ode-field .ev.s .tt{color:#2e7d6b}
+.ode-field .ev .pl{font-size:12px;color:#a05a00}
+.ode-field .ev .bo{margin:4px 0}
+.ode-field .ev ul.br{margin:4px 0;padding-left:1.4em}
+.ode-field .ev .gt{font-size:13px;margin:3px 0}
+.ode-field .ev .gi{display:inline-block;background:#f4f6fa;border:1px solid #d6dbe6;border-radius:3px;padding:0 6px;margin:1px 4px 1px 0}
+.ode-field .ev .nx{font-size:13px;margin-top:4px}
+.ode-field .ev .nl{display:inline-block;background:#3d4b66;color:#fff;border-radius:3px;padding:0 6px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-field .opt{display:inline-block;font-size:11px;font-weight:normal;color:#2e7d6b;border:1px solid #2e7d6b;border-radius:3px;padding:0 5px;margin-left:8px;vertical-align:2px}
+.ode-field .lim{color:#9a4a00;font-weight:bold;font-size:13px;background:#fff1e0;border-left:4px solid #e07b00;padding:3px 8px;margin:4px 0}
+.ode-field .lim .lt{display:inline-block;background:#e07b00;color:#fff;font-size:11px;border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px}
+.ode-field .bug{font-size:12px;background:#fdf0ee;border:1px solid #e3b5ae;border-radius:4px;padding:3px 8px;margin:5px 0}
+.ode-field .bug .bt{display:inline-block;background:#c0392b;color:#fff;font-size:11px;border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px;min-width:4.6em;text-align:center}
+.ode-field .bug .bl{margin:2px 0;display:flex;align-items:baseline}
+.ode-field .bug .bl .bt{flex:none}
+.ode-field .bug .bh{font-weight:bold;color:#c0392b;margin-bottom:2px}
+.ode-field img.ic{width:20px;height:20px;margin:0 3px 0 -2px;vertical-align:-4px}
+.ode-field .tip{font-size:12px;background:#fff8e1;border:1px solid #ecd58a;border-radius:4px;padding:3px 8px;margin:5px 0}
+.ode-field .tip .ti{display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;background:#d9a400;color:#fff;font-weight:bold;font-size:11px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.ode-field .warn{color:#c0392b;font-weight:bold;font-size:13px;margin:3px 0}
+.ode-field .foot{margin-top:6px}
+.ode-field .ev .aft{font-weight:bold;color:#222;margin-top:6px}
+.ode-field a.fl{color:#3e6fb0;font-weight:bold;text-decoration:none;border-bottom:1px solid #9fb6d8}
+.ode-field a.fl:hover{border-bottom-color:#3e6fb0}
+.ode-field a.cl{color:inherit;text-decoration:none;border-bottom:1px dotted #3e6fb0}
+.ode-field a.cl:hover{color:#3e6fb0}
+.ode-field a.more{display:inline-block;margin-top:4px;font-size:13px;font-weight:bold;color:#3e6fb0;text-decoration:none;border:1px solid #9fb6d8;border-radius:4px;padding:1px 10px;background:#f4f6fa}
+.ode-field a.more::before{content:"▶ ";font-size:10px}
+.ode-field a.more:hover{background:#e3ebf7}
+.ode-field .era{border-top:4px solid #3d4b66;margin:18px 0 0;padding-top:6px;text-align:center}
+.ode-field .era span{display:inline-block;background:#3d4b66;color:#fff;font-size:12px;border-radius:0 0 4px 4px;padding:1px 12px;margin-top:-6px}
+.ode-field .era a.fl{color:#fff;border-bottom-color:rgba(255,255,255,.6)}
+.ode-field .alert{margin:10px 0;padding:8px 12px;border:3px solid #c0392b;border-radius:6px;background:#fff0ee;color:#8e1f15;font-size:15px;font-weight:bold;line-height:1.6}
+.ode-field .alert .at.irr{background:#4a1010}
+.ode-field .alert .at{display:inline-block;background:#c0392b;color:#fff;font-size:13px;border-radius:3px;padding:1px 8px;margin-right:8px;vertical-align:1px}
+.ode-field .alert a.fl{color:#8e1f15}
+.ode-field .subhead{margin-top:18px;padding:4px 10px;background:#e8f3f0;border-left:6px solid #2e7d6b;color:#2e7d6b;font-weight:bold}
+.ode-field .note{font-size:12px;color:#666}
+.ode-field ul.unused{list-style:none;padding:0;margin:6px 0;font-size:12px;color:#555}
+.ode-field ul.unused li{margin:3px 0}
+.ode-field ul.unused .unenc{margin:4px 0 8px 2.4em;width:calc(100% - 2.4em);font-size:12.5px}
+.ode-field ul.unused .unmap{margin:4px 0 10px 2.4em}
+.ode-field .botsu{display:inline-block;background:#b0413e;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+@media (max-width:600px){
+.ode-field{font-size:15px;overflow-wrap:anywhere}
+.ode-field .hd .nm{font-size:19px}
+.ode-field .rooms{grid-template-columns:1fr}
+.ode-field .imgs{flex-wrap:wrap}
+.ode-field .ev{gap:8px}
+.ode-field .quote{margin-left:0}
+.ode-field ul.unused .unenc{margin-left:0;width:100%}
+.ode-field ul.unused .unmap{margin-left:0}
+.ode-field img{max-width:100%;height:auto}
+.ode-field img.ic,.ode-field td.i img,.ode-field .mon img{max-width:none}
+}</style>
+<div class="ode-field">
+<div class="hd"><span class="no">FIELD1</span><h2 class="nm">港町アデン（最終章）</h2><span class="enc">エンカウント率<b>0%</b></span></div>
+<p class="lead">オード全曲を受け取ったあと、船で戻ってきたときの港町アデン。武器屋と防具屋は店を閉め、町の人はガリハアクの復活におびえている。</p>
+
+<div class="legend"><span class="it"><span class="lb">名前</span> 建物・場所</span><span class="it"><span class="lx">→</span> ほかの FIELD へ</span><span class="it"><span class="mk m">1</span>メインイベント</span><span class="it"><span class="mk s">1</span>サブイベント</span></div>
+<div class="map"><img src="field_guide/F1-b_img/100.png" alt="港町アデン（最終章）のマップ"></div>
+<div class="tip"><span class="ti">！</span>町の人のセリフは、最初に訪れたときとはすべて変わり、ガリハアクの復活を嘆くものになる(「おしまいだ…」「みんな、みんな、ガリハアクに殺されちまうんだ…」など)。</div>
+<div class="tip"><span class="ti">！</span>北門は閉じていて、アルカナの山道へは出られない。</div>
+<h3>イベント</h3>
+<div class="ev m"><div class="bd m">1</div><div class="et"><div class="tt">アデンに帰る</div><div class="pl">場所: 桟橋(X100-104 Y137)</div><div class="bo"><a class="fl" href="F80.html">F80 オーパスの村</a>から船で桟橋に着くと、アイリスが「帰って来たのね…　始まりの島に…」。オードを見つけたので、おとうさまのところへ行こう、と言う。</div><div class="nx"><span class="nl">次へ</span>→<a class="fl" href="F5-b.html">F5 龍族の村バルエコ</a>へ(町の東の出口)。モルガンの家を訪ねる。</div></div></div>
+<div class="subhead">サブイベント</div>
+<div class="ev s"><div class="bd s">1</div><div class="et"><div class="tt">院長の私室(まだの場合)</div><div class="pl">場所: 音楽院の左奥の扉(X6 Y11)→ 院長の私室(部屋115)</div><div class="bo">最初に訪れたときに院長の私室の物を取っていなければ、まだ残っている。扉で音楽院の鍵を「使う」と入れる(鍵はなくなる)。机の上の日記を読んでから一番右端の棚を調べると歌を2つ覚える。宝箱もある。</div><div class="gt"><span class="k kg">入手</span><span class="gi"><img class="ic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVHhe7dS9ccNADERhlaFQZbgUl6UyXI5LcOjQoTI75sdgB3P0n7SceckBh8O+gKcT3+Vy+fxLvD+dNlifYt7d54XfpgIq4JsF2LDK9fm8wfrRgVapAA9WqYB7EzBd+PV63pCEJKbvT/srwAOZDqyAexMwRQGShBhA7F+lAjxYxcBSAY8uQKZCpvVEBXiwigETFfDfBKQHU0DrYr/z0/uS+ivAg0QamAJZF/udn96X1F8BHogDxH4DWTeg/da9//Fy2pD2SVSAB+IDYr+BrBvQfuver4CfFjDFQNbFwOn+VECqV4AHq6QAUgGPJiAtlO4rQJwvzqsAD1ZJAdJC6b6BxfnivArwIJEGpgDiT1Dsv93eNihA0r4V4EEiDayAexeQWBVg3cCJCqiACjhWgAsaMJHmWTfQlAqogApYE+CCBkp43/ligFUqoAIqYE2AGGga2AVc0ABTnOd77iMV4IEYsALuTYCfDUfjggaY4jzfE/PuPi8cjQsbaIrzfE/Mu/u8cDQubKApzvM9Me/u88LRuLCBpjjP98S8/fr1e+zvC3Q2qlbUfwU/AAAAAElFTkSuQmCC" width="20" height="20" alt="">炎の槍の歌</span><span class="gi"><img class="ic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVHhe7dSxccMwFARRleBQoUKX5FJUhkKVpNAd2TEfgxvOZyLoMLMJgI/hbsDLhXW73f5WRt/dcmA19N0tB1ZD391yYDX0PV348XPd4PmU6/O5wfOjNIAbUxrg0wP8Pq4bzg7SAA3QAO8VQKZBGqABGuC9A0gKonDC+UQDuDFFwUQDrB5AQc/F+76vsHg/0QBuTElCnov3fV9h8X6iAdyYopDnCnrfc+cVTjgvDeDGFIU8V9D7njuvYMJ5aQA3pijkuSic5r/u9w0Ki/PSAG5MSQLSAJ8eQNK8AcQA4nsN4MaUJJBI8wqLwuJ7DeDGlCQg/gTF+wqLwuJ7DeDGlAZogFkAzxWU79drg+cN0AANMAvgByqYSO95roAonGiABmiAYwH8QIUSzvt+wg82gBwVlgZwQwEFE877fkIBhaUBzg4gCp0tnFAo4XyiAdwQBRtgtQAuL6yGvrvlwGrou1sOrIa+u+XAaujb1dX12esfaEjSKbvEiwQAAAAASUVORK5CYII=" width="20" height="20" alt="">氷の矢の歌</span><span class="gi"><img class="ic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVHhe7da7jcNADEVRl6HQJThUGSrFZThUCVuCO9yN5yggBmNgLc0b4Cb8iOQNDN9uvPv9/ntlvPfwbLga3nt4NlwN7z08G66G957+4Pf73WC+IgIMnI0IuJoAD3otS4P15u23XiLAwH/jAR5ovXn7rZcIMDCKC5kXF7a/yj+fzwbz9js/AgyM4gLmxQXtr/IR8G0CHOhCvQubt9/5vUSAgVF6DzDf2+/8XiLAwCgu7EHrujZ4kP3m7Xd+LxFgYBQPiIDZBLiwefGgbdsazNs/SgQYGCUCzi5g3/cG81cjAgxEwOwC/CPSK8Qfwep74vcq/KNlviICDFQLWy8RcHYBftADPHBblgb75efxaDBfCXEf+62viAADftCBETCbABeqDq4OlKreee6jEO+piAADLuBAF7K+Okiqeue5TwR8WoAfdKFqAeurA8XvVfPMe09FBBhwgAs6sKqPgLMJqBay3rwLiULM+0fLeeadb31FBBiIgNkFuJD5ChdyYbHe74kC/Z71FRFgIAJmE+Cz4NtRiHnx3sOz4duJgAj4sIC8vLyp3h8lE7c4rHkX4gAAAABJRU5ErkJggg==" width="20" height="20" alt="">のどあめ×3</span></div></div></div>
+<div class="ev s"><div class="bd s">2</div><div class="et"><div class="tt">カウンターで歌う(まだの場合)</div><div class="pl">場所: 酒場(部屋101)のバーテン(X32 Y19)</div><div class="bo">酒場の歌を覚えていて、歌の報酬をまだもらっていなければ、カウンターのバーテンの前(X32 Y19)で酒場の歌を使うと報酬がもらえる(1回だけ)。<div class="warn">報酬が出るのは X32〜33・Y19 に立ったときだけ。右に半マスずれた X33 なら報酬が出るが、左に半マスずれた X31 では、バーテンとは話せても歌の報酬はもらえない。</div></div><div class="gt"><span class="k kg">入手</span><span class="gi">お金(5 × 主人公のレベル + 0〜20 GOLD)</span></div></div></div>
+<h3>部屋</h3>
+<div class="rooms">
+<div class="room wide"><div class="rh"><span class="rid">101</span><span class="rnm">アデンの酒場</span></div><div class="imgs"><figure style="flex:608 1 0"><img class="rm" src="field_guide/F1-b_img/101.png" alt=""></figure></div><div class="trims"><p class="trim">元のマップは 40×30 マス。下約5マスの何もない部分を切って載せている。</p></div><div class="rb"><span class="mk s">2</span>カウンターで歌う(まだの場合)</div></div>
+<div class="room wide"><div class="rh"><span class="rid">102</span><span class="rid">103</span><span class="rnm">アデンの酒倉・アデンの酒倉の地下</span></div><div class="imgs"><figure style="flex:288 1 0"><img class="rm" src="field_guide/F1-b_img/102.png" alt=""><figcaption><span class="rid">102</span>アデンの酒倉</figcaption></figure><figure style="flex:288 1 0"><img class="rm" src="field_guide/F1-b_img/103.png" alt=""><figcaption><span class="rid">103</span>アデンの酒倉の地下</figcaption></figure></div></div>
+<div class="room wide"><div class="rh"><span class="rid">108</span><span class="rid">115</span><span class="rnm">アデンの音楽院・アデンのアギーレ院長の私室</span></div><div class="imgs"><figure style="flex:608 1 0"><img class="rm" src="field_guide/F1-b_img/108.png" alt=""><figcaption><span class="rid">108</span>アデンの音楽院</figcaption></figure><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/115.png" alt=""><figcaption><span class="rid">115</span>アデンのアギーレ院長の私室</figcaption></figure></div><div class="rb"><div class="rn"><span class="rid s">108</span><span class="mk s">1</span>左奥の扉は院長の私室(音楽院の鍵が必要)。</div><div class="rn"><span class="rid s">115</span><span class="mk s">1</span>日記・力の楽譜・宝箱(まだの場合)</div></div></div>
+<div class="room"><div class="rh"><span class="rid">106</span><span class="rnm">アデンのアンナおばさんの家</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/106.png" alt=""></figure></div></div>
+<div class="room"><div class="rh"><span class="rid">105</span><span class="rnm">アデンのボビンの家</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/105.png" alt=""></figure></div></div>
+<div class="room"><div class="rh"><span class="rid">104</span><span class="rnm">アデンのディックの家</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/104.png" alt=""></figure></div><div class="rb"><div class="alert"><span class="at">注意</span>浜辺でディックの話を聞いていて１２弦指板をまだ買っていなければ、ここで<b>10GOLD</b>で買える。ただし、今付けている指板がもっと良い物でも１２弦指板に置き換わり、<b>LUTE が下がる</b>(元の指板は戻らない)。</div></div></div>
+<div class="room wide"><div class="rh"><span class="rid">109</span><span class="rid">114</span><span class="rnm">アデンの宿屋・アデンの宿屋の２階</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/109.png" alt=""><figcaption><span class="rid">109</span>アデンの宿屋</figcaption></figure><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/114.png" alt=""><figcaption><span class="rid">114</span>アデンの宿屋の２階</figcaption></figure></div><div class="rb"><div class="rn"><span class="rid s">109</span>宿泊は<b>無料</b>。主人は「好きに泊まって下さい…。商売どころではありません…」。</div><div class="rn"><span class="rid s">114</span>宿屋に泊まるとここで眠る。<div class="tip"><span class="ti">！</span>外観は平屋建てなのに、泊まって寝室(２階)へ移るときに階段の効果音が鳴る。</div></div></div></div>
+<div class="room"><div class="rh"><span class="rid">110</span><span class="rnm">アデンの武器屋</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/110.png" alt=""></figure></div><div class="rb"><b>閉店</b>。店員は「おしまいだ…」と言うだけで、武器は買えない。</div></div>
+<div class="room"><div class="rh"><span class="rid">113</span><span class="rnm">アデンの防具屋</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/113.png" alt=""></figure></div><div class="rb"><b>閉店</b>。店員は「もう、商売どころではありませんね…」と言うだけで、防具は買えない。</div></div>
+<div class="room"><div class="rh"><span class="rid">112</span><span class="rnm">アデンの雑貨屋</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/112.png" alt=""></figure></div><div class="rb">品ぞろえが変わり、上級の小ビンとのどあめを売っている。<table class="shop"><tr><th colspan="2">商品名</th><th>値段</th></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="32" height="32" alt=""></td><td>白色の小ビン</td><td class="p">70</td></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="32" height="32" alt=""></td><td>銅色の小ビン</td><td class="p">100</td></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="32" height="32" alt=""></td><td>銀色の小ビン</td><td class="p">200</td></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="32" height="32" alt=""></td><td>黄金の小ビン</td><td class="p">400</td></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVHhe7da7jcNADEVRl6HQJThUGSrFZThUCVuCO9yN5yggBmNgLc0b4Cb8iOQNDN9uvPv9/ntlvPfwbLga3nt4NlwN7z08G66G957+4Pf73WC+IgIMnI0IuJoAD3otS4P15u23XiLAwH/jAR5ovXn7rZcIMDCKC5kXF7a/yj+fzwbz9js/AgyM4gLmxQXtr/IR8G0CHOhCvQubt9/5vUSAgVF6DzDf2+/8XiLAwCgu7EHrujZ4kP3m7Xd+LxFgYBQPiIDZBLiwefGgbdsazNs/SgQYGCUCzi5g3/cG81cjAgxEwOwC/CPSK8Qfwep74vcq/KNlviICDFQLWy8RcHYBftADPHBblgb75efxaDBfCXEf+62viAADftCBETCbABeqDq4OlKreee6jEO+piAADLuBAF7K+Okiqeue5TwR8WoAfdKFqAeurA8XvVfPMe09FBBhwgAs6sKqPgLMJqBay3rwLiULM+0fLeeadb31FBBiIgNkFuJD5ChdyYbHe74kC/Z71FRFgIAJmE+Cz4NtRiHnx3sOz4duJgAj4sIC8vLyp3h8lE7c4rHkX4gAAAABJRU5ErkJggg==" width="32" height="32" alt=""></td><td>スーパーのどあめ</td><td class="p">40</td></tr><tr><td class="i"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVHhe7da7jcNADEVRl6HQJThUGSrFZThUCVuCO9yN5yggBmNgLc0b4Cb8iOQNDN9uvPv9/ntlvPfwbLga3nt4NlwN7z08G66G957+4Pf73WC+IgIMnI0IuJoAD3otS4P15u23XiLAwH/jAR5ovXn7rZcIMDCKC5kXF7a/yj+fzwbz9js/AgyM4gLmxQXtr/IR8G0CHOhCvQubt9/5vUSAgVF6DzDf2+/8XiLAwCgu7EHrujZ4kP3m7Xd+LxFgYBQPiIDZBLiwefGgbdsazNs/SgQYGCUCzi5g3/cG81cjAgxEwOwC/CPSK8Qfwep74vcq/KNlviICDFQLWy8RcHYBftADPHBblgb75efxaDBfCXEf+62viAADftCBETCbABeqDq4OlKreee6jEO+piAADLuBAF7K+Okiqeue5TwR8WoAfdKFqAeurA8XvVfPMe09FBBhwgAs6sKqPgLMJqBay3rwLiULM+0fLeeadb31FBBiIgNkFuJD5ChdyYbHe74kC/Z71FRFgIAJmE+Cz4NtRiHnx3sOz4duJgAj4sIC8vLyp3h8lE7c4rHkX4gAAAABJRU5ErkJggg==" width="32" height="32" alt=""></td><td>のどあめＤＸ</td><td class="p">60</td></tr></table></div></div>
+<div class="room wide"><div class="rh"><span class="rid">116</span><span class="rnm">アデンのギルド</span></div><div class="imgs"><figure style="flex:592 1 0"><img class="rm" src="field_guide/F1-b_img/116.png" alt=""></figure></div><div class="rb">貼り紙の2人を今でも<b>100GOLD</b>で雇える。<div class="warn">レベルは解雇したときのまま(雇ったことがなければ下の初期レベル)なので、今から雇うのはおすすめしない。</div><table class="hire"><tr><th>名前</th><th>武器</th><th>Lv</th><th>HP</th><th>攻撃力</th><th>防御力</th><th>すばやさ</th></tr><tr><td><a class="cl" href="chara4.html">スリム</a></td><td>手裏剣</td><td>3</td><td>29</td><td>20</td><td>3</td><td>8</td></tr><tr><td><a class="cl" href="chara3.html">ドムカ</a></td><td>斧</td><td>5</td><td>60</td><td>31</td><td>3</td><td>8</td></tr></table><div class="small">数値は貼り紙に書かれている値(初期レベル)。</div></div></div>
+<div class="room"><div class="rh"><span class="rid">107</span><span class="rnm">アデンの町民の家</span></div><div class="imgs"><figure style="flex:304 1 0"><img class="rm" src="field_guide/F1-b_img/107.png" alt=""></figure></div></div>
+</div>
+</div>
+<script src="menu.js"></script>
