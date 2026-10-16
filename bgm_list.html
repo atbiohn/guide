@@ -1,0 +1,86 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黄昏のオード BGM一覧</title>
+<style>
+.ode-bgm{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222}
+.ode-bgm table{border-collapse:collapse}
+.ode-bgm th,.ode-bgm td{border:1px solid #c8c8c8;padding:3px 7px;vertical-align:middle;background:#fff}
+.ode-bgm th{background:#3d4b66;color:#fff;font-weight:normal;white-space:nowrap}
+.ode-bgm td.n{text-align:right}.ode-bgm td.c{text-align:center;white-space:nowrap}.ode-bgm td.nm{white-space:nowrap}
+.ode-bgm td.who{font-size:12px;line-height:1.6;max-width:44em}
+.ode-bgm .nt{font-size:11px;color:#a05a00;white-space:normal;max-width:18em}.ode-bgm .warn{font-size:11px;color:#c00;font-weight:bold;white-space:normal;max-width:18em}
+.ode-bgm .dim{color:#999}.ode-bgm tr.dm td{background:#f3e3e3;color:#844}
+.ode-bgm tr.sec td{background:#e4e8f0;font-weight:bold}
+.ode-bgm tr.sub td{background:#eee;color:#666;font-weight:normal;font-size:12px}
+.ode-bgm .tg{display:inline-block;font-size:11px;color:#fff;border-radius:3px;padding:0 4px;margin-right:5px;min-width:2.2em;text-align:center}
+.ode-bgm .tr{background:#3e6fb0}.ode-bgm .te{background:#7a4fa0}.ode-bgm .tb{background:#2f2f2f}
+.ode-bgm .wrap{overflow-x:auto}
+.ode-bgm .pl{display:flex;align-items:flex-start;margin:2px 0}.ode-bgm .pl .tg{flex:none;margin-top:2px}.ode-bgm .pl .ls{flex:1}
+@media (max-width:600px){
+.ode-bgm table,.ode-bgm tbody{display:block}
+.ode-bgm tr:has(th){display:none}
+.ode-bgm tr{display:grid;grid-template-columns:2.4em 1fr auto;border:1px solid #c8c8c8;border-top:0;background:#fff}
+.ode-bgm tr.sec,.ode-bgm tr.sub{display:block;border-top:1px solid #c8c8c8}
+.ode-bgm tr.dm{background:#f3e3e3}
+.ode-bgm td{border:0;padding:3px 6px}
+.ode-bgm td.c{grid-column:1;grid-row:1;font-weight:bold;color:#3d4b66}
+.ode-bgm td.nm{grid-column:2;grid-row:1;white-space:normal;font-weight:bold}
+.ode-bgm td.n{grid-column:3;grid-row:1;color:#666;font-size:12px;white-space:nowrap}
+.ode-bgm td.n::after{content:" 秒"}
+.ode-bgm td.who{grid-column:1/-1;grid-row:2;max-width:none;padding-top:0;padding-left:2.4em}
+.ode-bgm td.who:has(.dim){display:none}
+.ode-bgm .nt,.ode-bgm .warn{max-width:none}
+}</style>
+<div class="ode-bgm">
+<h2>BGM一覧</h2>
+<p>番号はデバッグルームの「ＢＧＭ　ＴＥＳＴ」の番号。戦闘と航海の曲は別の形式で、「効果音テスト」の番号で聞ける。<br>
+長さ: 1周の長さ(秒)。曲の終わりで最初に戻る。<br>
+流れる場所: <span class="tg tr">部屋</span>その部屋に入ると流れる。<span class="tg te">イベント</span>イベントの途中で曲が切り替わる。<span class="tg tb">戦闘</span>戦闘中に流れる。「F番号」はフィールドの番号。<br>
+ちなみに曲名は一切公開されておらず、CDも発売されていない。</p>
+<div class="wrap"><table><tr><th>番号</th><th>長さ(秒)</th><th>主な場面</th><th>流れる場所</th></tr>
+<tr class="sec"><td colspan="4">BGMに収録されている曲</td></tr>
+<tr><td class="c">1</td><td class="n">29.6</td><td class="nm">燃える村</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F90 燃える村</span></div><div class="pl"><span class="tg te">イベント</span><span class="ls">F3 アルカナの洞窟(Ｂ２)<br>F5 バルエコのモルガンの家</span></div></td></tr>
+<tr><td class="c">2</td><td class="n">36.5</td><td class="nm">エスタンシアの山道 ほか</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F8 クーテのギルド・音楽院・雑貨屋・酒場・宿屋・村民の家・武器屋・防具屋<br>F22 収容所への道<br>F24 エスタンシアの下水道(Ｂ１)<br>F26 エスタンシアの山道<br>F73 火口湖(没)<br>F95 バルエコの森</span></div></td></tr>
+<tr class="dm"><td class="c">3</td><td class="n">96.1</td><td class="nm">没曲</td><td class="who"><span class="dim">—</span></td></tr>
+<tr><td class="c">4</td><td class="n">69.6</td><td class="nm">お店 ほか<div class="nt">バグで揃っていない所がある。クーテの店・宿屋とオーパスの宿屋(寝室)は別の曲、フエダの町(屋外)とホタの町民の家はこの曲</div></td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F1 アデンのギルド・雑貨屋・酒場・宿屋・宿屋(寝室)・武器屋・防具屋<br>F8 クーテの宿屋(寝室)<br>F11 ドミナントのギルド・酒場・宿屋・宿屋(寝室)・武器屋・防具屋<br>F15 名もない防具屋、フォープキンの家<br>F18 ゴーレムの雑貨屋・宿屋・船屋<br>F20 エスタンシアのギルド・スマイスの店・ドラゴの酒場・ポンドの店・高級防具屋・雑貨屋・寺院・酒場・宿屋・宿屋(寝室)・船屋・武器屋・防具屋<br>F27 フォリアのギルド・酒場・宿屋・武器屋<br>F29 グレゴリアの雑貨屋・宿屋・宿屋(寝室)・武器屋・防具屋<br>F35 リンリン草の草原の宿<br>F36 リンリン草の草原の宿<br>F40 フエダの町、ギルド・雑貨屋・酒場・宿屋(寝室)・船屋・武器屋・防具屋<br>F46 イントラダのギルド・酒場・宿屋(寝室)・武器屋・防具屋<br>F47 ホタの雑貨屋・酒場・町民の家・防具屋<br>F52 カリンダの雑貨屋・寺院・酒場・武器屋・防具屋<br>F54 レイエンダの寺院・宿屋(寝室)・武器屋・防具屋<br>F60 マジョーレのギルド・雑貨屋・酒場・宿屋・宿屋(寝室)・船屋・武器屋・防具屋・魔法防具屋<br>F63 学園内のギルド・高級武器屋・雑貨屋・宿屋・宿屋(寝室)・武器屋・防具屋<br>F68 鳥の島の船屋<br>F80 オーパスの雑貨屋・宿屋・船屋・武器屋・防具屋<br>F88 かわうその雑貨屋・宿屋・宿屋(寝室)・武器屋・防具屋</span></div></td></tr>
+<tr><td class="c">5</td><td class="n">41.9</td><td class="nm">シベリンの笛</td><td class="who"><div class="pl"><span class="tg te">イベント</span><span class="ls">F9 神聖な森</span></div></td></tr>
+<tr><td class="c">6</td><td class="n">44.2</td><td class="nm">チクタク館</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F67 学園内のチクタク館</span></div></td></tr>
+<tr><td class="c">7</td><td class="n">42.6</td><td class="nm">パイプ洞窟</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F66 パイプ洞窟</span></div></td></tr>
+<tr><td class="c">8</td><td class="n">20.7</td><td class="nm">リンリン草の草原</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F35 リンリン草の草原</span></div></td></tr>
+<tr><td class="c">9</td><td class="n">40.0</td><td class="nm">エスタンシア城</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F25 エスタンシアの音楽院<br>F33 エスタンシア城室内<br>F34 エスタンシア城地下洞窟<br>F38 エスタンシア城地下</span></div></td></tr>
+<tr><td class="c">10</td><td class="n">76.0</td><td class="nm">音の森・フーコーの家</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F28 音の森<br>F37 フーコーの家</span></div></td></tr>
+<tr><td class="c">11</td><td class="n">92.4</td><td class="nm">森・ドドルの塔</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F41 フエダの森<br>F48 イントラダの森<br>F49 ジョリスの森<br>F51 ドドルの塔<br>F55 レイエンダの山道</span></div></td></tr>
+<tr><td class="c">12</td><td class="n">38.6</td><td class="nm">森・学園の校舎・山道</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F61 マジョーレの森<br>F64 学園内の校舎<br>F69 ノルティナの山道<br>F70 火口湖</span></div></td></tr>
+<tr><td class="c">13</td><td class="n">39.0</td><td class="nm">マジョーレ・ノルティナ学園都市</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F60 港町マジョーレ、音楽院・町民の家<br>F62 牧場、マキバの家<br>F63 ノルティナ学園都市、学園内の教師の家<br>F68 鳥の島<br>F69 サンジャックの家<br>F72 学園内の教会内部</span></div></td></tr>
+<tr><td class="c">14</td><td class="n">101.4</td><td class="nm">オーパスの山道</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F81 オーパスの山道</span></div></td></tr>
+<tr><td class="c">15</td><td class="n">38.0</td><td class="nm">強制収容所</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F23 強制収容所</span></div></td></tr>
+<tr><td class="c">16</td><td class="n">230.8</td><td class="nm">夢の城</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F92 夢の城<br>F93 夢の城</span></div></td></tr>
+<tr class="dm"><td class="c">17</td><td class="n">28.5</td><td class="nm">没曲</td><td class="who"><span class="dim">—</span></td></tr>
+<tr><td class="c">18</td><td class="n">67.2</td><td class="nm">山道・森・船</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F2 アルカナの山道<br>F4 船長室、ボビンの船、船室<br>F7 バルエコの山道<br>F9 神聖な森<br>F10 神聖な森<br>F13 蝶の森、サイリュウの家<br>F14 リンリン草の草原<br>F15 クーテの山道<br>F19 ドミナントの山道<br>F36 リンリン草の草原</span></div></td></tr>
+<tr><td class="c">19</td><td class="n">86.5</td><td class="nm">エスタンシアの町・城</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F20 エスタンシアの町、ペインの家・町民の家<br>F21 エスタンシア城</span></div></td></tr>
+<tr class="dm"><td class="c">20</td><td class="n">18.2</td><td class="nm">没曲</td><td class="who"><span class="dim">—</span></td></tr>
+<tr><td class="c">21</td><td class="n">118.3</td><td class="nm">囚人島</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F84 囚人島</span></div></td></tr>
+<tr><td class="c">22</td><td class="n">56.2</td><td class="nm">囚人島</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F85 囚人島</span></div></td></tr>
+<tr><td class="c">23</td><td class="n">38.3</td><td class="nm">沼</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F45 沼地<br>F53 どろどろの沼</span></div></td></tr>
+<tr><td class="c">24</td><td class="n">54.1</td><td class="nm">ガリハアクの洞窟・水晶の洞窟</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F32 水晶の洞窟<br>F6 ガリハアクの洞窟<br>F16 ガリハアクの洞窟<br>F91 ガリハアクの洞窟</span></div></td></tr>
+<tr class="dm"><td class="c">25</td><td class="n">6.0</td><td class="nm">通常戦のアレンジ版</td><td class="who"><span class="dim">—</span></td></tr>
+<tr class="dm"><td class="c">26</td><td class="n">4.3</td><td class="nm">ボス戦のアレンジ版</td><td class="who"><span class="dim">—</span></td></tr>
+<tr><td class="c">27</td><td class="n">53.4</td><td class="nm">町・村</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F1 港町アデン、アギーレ院長の私室・アンナおばさんの家・ディックの家・ボビンの家・音楽院・酒倉・酒倉の地下・町民の家<br>F5 バルエコのアーノスタルの家・アガルックの家・モルガンの家・長の家・龍族の家<br>F7 アラバステルの家<br>F8 クーテの村<br>F11 ドミナントの村、アレイの家・長の家<br>F18 ゴーレムの村、寺院<br>F20 エスタンシアのタリスの家<br>F27 フォリアの村、村民の家<br>F29 グレゴリアの村、神殿<br>F40 フエダのフィデレの家・町長の家・町民の家<br>F46 沼の町イントラダ、マーリィの家・リリィの家・音楽院・町長の家<br>F47 泥の町ホタ、寺院・町民の家<br>F52 カリンダの村、音楽院・村民の家<br>F54 レイエンダの村、村長の家・村民の家<br>F65 学園内の納屋<br>F80 オーパスの村、宿屋(寝室)・村民の家<br>F88 かわうそ寺院、長の家</span></div></td></tr>
+<tr><td class="c">28</td><td class="n">40.3</td><td class="nm">下水道・地下回廊</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F24 エスタンシアの下水道(Ｂ２)<br>F65 地下回廊</span></div></td></tr>
+<tr><td class="c">29</td><td class="n">75.0</td><td class="nm">地下湖底</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F88 地下湖底</span></div></td></tr>
+<tr class="dm"><td class="c">30</td><td class="n">6.3</td><td class="nm">ラスボス戦のアレンジ版</td><td class="who"><span class="dim">—</span></td></tr>
+<tr><td class="c">31</td><td class="n">56.5</td><td class="nm">エピローグ</td><td class="who"><div class="pl"><span class="tg te">イベント</span><span class="ls">エピローグ(F6 ガリハアクの洞窟から、F96・F97 港町アデン)</span></div></td></tr>
+<tr><td class="c">32</td><td class="n">58.7</td><td class="nm">洞窟</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F3 アルカナの洞窟<br>F12 クモの洞窟<br>F31 サンクトスの洞窟<br>F42 呪われた洞窟<br>F43 捨てられた坑道<br>F50 ジョリスの洞窟<br>F71 山頂の洞窟<br>F86 磨き石の洞窟<br>F87 岩の島洞窟<br>F89 囚人島地下洞窟<br>F98 調律の洞窟</span></div></td></tr>
+<tr><td class="c">33</td><td class="n">81.3</td><td class="nm">内臓洞窟</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F17 内臓洞窟</span></div></td></tr>
+<tr><td class="c">34</td><td class="n">64.6</td><td class="nm">溶岩洞窟</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F56 溶岩洞窟</span></div></td></tr>
+<tr><td class="c">35</td><td class="n">104.1</td><td class="nm">要塞迷路・王宮</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F82 要塞迷路、王宮内部</span></div></td></tr>
+<tr><td class="c">36</td><td class="n">68.7</td><td class="nm">龍族の村バルエコ・鍵盤階段</td><td class="who"><div class="pl"><span class="tg tr">部屋</span><span class="ls">F5 龍族の村バルエコ<br>F30 鍵盤階段<br>F94 バルエコ村の龍族の会議所</span></div></td></tr>
+<tr><td class="c">37</td><td class="n">6.3</td><td class="nm">宿屋で休む(ジングル)<div class="warn">リンリン草の草原の宿(F36)だけは、バグで休んでもこの曲が鳴らない</div></td><td class="who"><div class="pl"><span class="tg te">イベント</span><span class="ls">宿屋で休んだとき(各地の宿屋と、洞窟などの休める所)</span></div></td></tr>
+<tr class="sec"><td colspan="4">SEとして収録されている曲</td></tr>
+<tr><td class="c">効果音 2</td><td class="n">6.1</td><td class="nm">通常戦闘</td><td class="who"><div class="pl"><span class="tg tb">戦闘</span><span class="ls">通常戦<br>イベント戦闘</span></div><div class="pl"><span class="tg te">イベント</span><span class="ls">F10 神聖な森<br>F11 ドミナントの村</span></div></td></tr>
+<tr><td class="c">効果音 3</td><td class="n">6.4</td><td class="nm">ボス戦</td><td class="who"><div class="pl"><span class="tg tb">戦闘</span><span class="ls">ボスのいる戦闘</span></div></td></tr>
+<tr><td class="c">効果音 4</td><td class="n">4.8</td><td class="nm">勝利のファンファーレ</td><td class="who"><div class="pl"><span class="tg tb">戦闘</span><span class="ls">戦闘に勝ったとき</span></div></td></tr>
+<tr><td class="c">効果音 11</td><td class="n">5.1</td><td class="nm">ラスボス戦</td><td class="who"><div class="pl"><span class="tg tb">戦闘</span><span class="ls">ガリハアクとの戦闘</span></div></td></tr>
+<tr><td class="c">効果音 67</td><td class="n">9.7</td><td class="nm">全体マップ(航海)</td><td class="who"><div class="pl"><span class="tg te">イベント</span><span class="ls">船で海を移動するとき</span></div></td></tr>
+</table></div>
+</div>
+<!-- 完成版(2026-10-09 手で最終調整済み)。スクリプトで上書きしない -->
+<script src="menu.js"></script>

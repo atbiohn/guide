@@ -24,7 +24,16 @@
 .ode-fm .bgi{display:inline-block;font-size:10px;color:#fff;background:#c0392b;border-radius:3px;padding:0 5px;margin-right:4px;line-height:1.5;white-space:nowrap}
 .ode-fm .wrap{overflow-x:auto}
 .ode-fm a{color:#2a5a9a}
-</style>
+@media (max-width:600px){
+.ode-fm table,.ode-fm tbody{display:block}
+.ode-fm tr:has(th){display:none}
+.ode-fm tr{display:block;margin-bottom:6px;border:1px solid #c8c8c8}
+.ode-fm td{display:block;border:0;padding:4px 8px}
+.ode-fm td.nm{white-space:normal;background:#f4f6fa;border-bottom:1px solid #e4e4e4}
+.ode-fm tr.sec{border:0;margin:14px 0 4px}
+.ode-fm tr.sec td{padding:5px 10px}
+.ode-fm tr.note td{padding:6px 10px}
+}</style>
 <div class="ode-fm">
 <h2>計算式</h2>
 <p class="lead">ゲームの中の確率・ダメージなどの計算のしくみです。<br>
