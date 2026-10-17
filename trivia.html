@@ -1,0 +1,167 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小ネタ</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVHhe7da7jcNADEVRl6FQZWwpLsVluLTtaB3rKCAILvSB3wA3GXL4uYGgx4Ozruvfnfh9Ly3cd3dscHVcsMJ9d8cGV8cFK9x3d2xwdVywwn3/feH3c9lgfIoL2U9eP1t8HwE2mOIAxqe4gP0kAo4WYAMHMr+L9Y1LBERABJwrQKZCXKiqV/WPAB9MsaE4gO8rIuDuAsSBrNelWz8CvJjiABXVgF269SPAiynVAMbFfOtXWM+PpvkR4MUUB3Ah42K+9SusFwFnCzDuguYb971U7yMgAiLgWgLEgbvvzXfh57LF9xHgxRQHMi4R8O0CpPvefAWYLxHgxRQHMl7RfW9+BNxNgB9BMV/MF/MlAryYEgERMBNgvEu3fwR4MaU7QARcXYAD2qCiqmd8iv2rH6MI8EIc2AYVVT3jU+wfAV0BDmjBCt9b/2icz3gEeOECFqjwvfWPxvmMR4AX4kIWNO77s3Fe4xHghbigBY37/myc13gEeEy4Owpw392xwN2JgAhoCsjJyfmq8wFHRFQp9yI5gAAAAABJRU5ErkJggg==">
+<style>
+.ode-kn{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222;line-height:1.7;max-width:880px}
+.ode-kn h3{margin:30px 0 10px;font-size:17px;color:#fff;background:#232c40;padding:6px 12px;font-weight:bold;letter-spacing:.05em;border-left:6px solid #c9a227}
+.ode-kn h4{margin:28px 0 6px;font-size:14px;color:#3d4b66;border-left:4px solid #3d4b66;padding-left:6px}
+.ode-kn .lead{margin:8px 0 14px}
+.ode-kn a{color:#2a5a9a}
+.ode-kn .red{color:#c0392b;font-weight:bold}
+.ode-kn .sm{font-size:11.5px;color:#666}
+.ode-kn .bt{display:inline-block;background:#c0392b;color:#fff;font-size:11px;font-weight:normal;border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px;line-height:1.6}
+/* 読み物の形: 結論はマーカーで本文の中に。表と順位は線だけで区切る */
+.ode-kn .tn p{margin:8px 0}
+.ode-kn .tn .mk{font-weight:bold;background:linear-gradient(transparent 60%,#f3dc8a 60%);padding:0 2px}
+.ode-kn .tn .big{font-size:15px;margin:12px 0}
+.ode-kn .tn ol.steps{margin:8px 0;padding-left:1.8em}
+.ode-kn .tn ol.steps li{margin:2px 0}
+.ode-kn .tn table{border-collapse:collapse;width:100%;margin:10px 0 14px;font-size:12.5px;border-top:2px solid #3d4b66}
+.ode-kn .tn th{color:#3d4b66;font-weight:bold;text-align:left;padding:6px 8px;border-bottom:1px solid #3d4b66;white-space:nowrap}
+.ode-kn .tn td{padding:6px 8px;border-bottom:1px solid #d5dbe6;vertical-align:top}
+.ode-kn .tn td.nm{font-weight:bold;white-space:nowrap}
+.ode-kn ol.rank{list-style:none;padding:0;margin:14px 0 16px;max-width:540px;border-top:2px solid #3d4b66}
+.ode-kn ol.rank li{display:grid;grid-template-columns:2em 1fr auto;align-items:center;gap:0 10px;padding:7px 4px;margin:0;border-bottom:1px solid #d5dbe6}
+.ode-kn ol.rank .no{font-family:Georgia,serif;font-size:19px;font-weight:bold;color:#3d4b66;text-align:center}
+.ode-kn ol.rank .what{font-weight:bold}
+.ode-kn ol.rank small{display:block;font-weight:normal;font-size:11.5px;color:#666;line-height:1.4}
+.ode-kn ol.rank .dmg{font-size:16px;font-weight:bold;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ode-kn ol.rank li:first-child .dmg{font-size:19px;color:#a8322a}
+/* ドット絵を並べる(地面の線の上に立たせる) */
+.ode-kn .tn .pg{margin:18px 0 4px;font-weight:bold;color:#3d4b66;font-size:13.5px}
+.ode-kn .tn .pg .sm{font-weight:normal;margin-left:8px}
+.ode-kn .poses{display:flex;flex-wrap:wrap;gap:8px 6px;margin:6px 0 4px}
+.ode-kn .pose{margin:0;width:106px;text-align:center;font-size:11.5px;color:#444}
+.ode-kn .pose .fr{height:100px;display:flex;align-items:flex-end;justify-content:center;background:#f4f6fa;border-bottom:2px solid #c3cbd9;border-radius:4px 4px 0 0;padding-bottom:3px}
+.ode-kn .pose img{image-rendering:pixelated;display:block}
+.ode-kn .pose figcaption{margin-top:2px}
+@media (max-width:600px){
+.ode-kn h3{font-size:15px;padding:5px 10px}
+.ode-kn .tn th,.ode-kn .tn td{padding:5px 5px}
+.ode-kn .tn th,.ode-kn .tn td.nm{white-space:normal}
+.ode-kn .tn td.nm{width:7em}
+}
+</style>
+<div class="ode-kn">
+<h2>小ネタ</h2>
+<p class="lead">遊んでいても気に留めなかったこと、誰も気にしたことがなさそうなことを、ゲームの中身までのぞいて掘り下げたまとめ。細かい挙動の謎から、ドット絵のこだわりまで。</p>
+
+<h3>戦闘中のあれこれ</h3>
+
+<h4>敵の全滅と主人公の戦闘不能が同時に起きたら</h4>
+<div class="tn">
+<p><a href="songs.html">地震の歌・台風の歌</a>は敵味方全員に当たる。敵の技の<a href="skills.html">アースクイック</a>も同じだ。では、最後の敵を倒したその一撃で、主人公の HP も 0 になったらどうなるのか。</p>
+<p class="big">結果は<span class="mk">ゲームオーバー</span>。敵を全滅させていても、主人公が倒れていれば負けになる。</p>
+<p>戦闘では、1人(1体)の行動が終わるたびに、次の順で勝ち負けを確かめている。</p>
+<ol class="steps">
+<li>主人公の HP が 0 → <span class="red">ゲームオーバー</span>(ここで終わり)</li>
+<li>敵が1体でも残っている → 次の行動へ</li>
+<li>敵が全滅している → 勝利</li>
+</ol>
+<p>主人公が倒れているかを先に見るので、相打ちになったときはゲームオーバーが優先される。歌や技のダメージは敵と味方の全員に入れ終わってから確かめるので、画面でどちらが先に倒れたように見えても結果は同じ。「HP 1 で踏みとどまって勝利」という劇的な展開は用意されていない。</p>
+<p>主人公さえ生き残っていれば勝利になる。巻き添えで倒れた仲間は経験値をもらえないが、戦闘が終わると HP 1 で起き上がる(逃げたときも同じ)。</p>
+<p>地震の歌とアースクイックは、浮いている相手には当たらない。浮遊の歌か空飛び薬で主人公を浮かせておけば、この2つで自滅することはない。台風の歌は浮いていても当たるので、こちらは HP に余裕があるときに。</p>
+</div>
+
+<h4>選んだ相手が、自分の番の前にいなくなったら</h4>
+<div class="tn">
+<p>行動はターンの初めにまとめて決めるので、自分の番が来る前に狙った敵が倒れたり、歌をかけるはずの仲間が倒れたり逃げたりすることがある。主人公の歌はいつもターンの最後(敵の行動の後)に回されるので、これはしょっちゅう起きる。</p>
+<p class="big">敵を狙った行動は、<span class="mk">残っている敵に狙いを変える</span>。仲間を狙った行動は、別の仲間には移らない。</p>
+<p>敵を狙った行動の、新しい狙いの決まり方はこうなっている。</p>
+<table>
+<tr><th>行動</th><th>狙った敵が倒れていたとき</th></tr>
+<tr><td class="nm">通常攻撃</td><td>同じ列(前列・後列)に残っている敵のうち、並び順で最初の敵。その列が全滅していたら、残りの敵からランダム</td></tr>
+<tr><td class="nm">敵1体に使う道具</td><td>残りの敵からランダム(どの敵も同じくらいの確率で、列は関係ない)。火炎薬・風針薬・しびれ薬など<br><span class="sm">興奮剤だけは元から狙いを見ず、毎回ランダムに選ぶ</span></td></tr>
+<tr><td class="nm">敵1体への歌</td><td>残りの敵からランダム。ただし同じ確率ではなく、空いた枠のすぐ後ろにいる敵が選ばれやすい</td></tr>
+<tr><td class="nm">敵全体への歌</td><td>残っている敵全員</td></tr>
+<tr><td class="nm">前列・後列への歌</td><td>その列に残っている敵だけ。<span class="red">その列が全滅していたら歌わない</span>(もう一方の列には移らない)</td></tr>
+</table>
+<p>倒れた敵の枠に、仲間を呼ぶ技で新しい敵が出ていたら、通常攻撃はそのまま新しい敵に向かう。融通が利かないのは前列・後列への歌で、狙った列が空なら黙って番を終える。</p>
+<p>仲間を狙った行動はこうなる。倒れた仲間は相手から外され、別の仲間に移ることはない。</p>
+<table>
+<tr><th>行動</th><th>相手が倒れていたとき</th><th>相手が逃げていたとき</th></tr>
+<tr><td class="nm">守りの歌</td><td>1人が相手なら歌わない。全員が相手なら生き残りにだけかかる</td><td><span class="bt">バグ</span><span class="red">歌がかかり、逃げた仲間が戻ってくる</span></td></tr>
+<tr><td class="nm">癒しの歌</td><td>守りの歌と同じ</td><td>歌うが回復しない</td></tr>
+<tr><td class="nm">回復の小ビン</td><td colspan="2">使わない(道具は減らない)</td></tr>
+<tr><td class="nm">守りの水・空飛び薬</td><td>使ってしまう(道具は減るが、効き目はない)</td><td><span class="bt">バグ</span><span class="red">効き目がかかり、逃げた仲間が戻ってくる</span></td></tr>
+</table>
+<p>「歌わない」「使わない」ときは、メッセージも出ずに何もしないまま番が終わる。歌わなかったときは SP も減らない。道具を使う仲間のほうが自分の番の前に倒れたり逃げたりした場合も、道具は減らずに袋に戻る。</p>
+</div>
+
+<h4>浮いている仲間が倒れたら</h4>
+<div class="tn">
+<p>浮遊の歌や空飛び薬で浮いている仲間の HP が 0 になると、倒れた絵のまま上下にふらふら揺れ続ける。</p>
+<p class="big"><span class="bt">バグ</span>たまたま起きる表示の乱れではなく、<span class="mk">毎回必ずこうなる</span>。</p>
+<p>仲間の絵を描くとき、倒れた絵にするかどうかは HP が 0 かどうかで、ふらふら揺らすかどうかは浮遊の状態かどうかで、別々に決めている。HP が 0 になっても浮遊は解けないので、倒れた絵に揺れがそのまま付く。倒れてなお宙を漂う姿は、魂が抜けかけているようにも見える。</p>
+<p>揺れが止まるのは、浮遊の効果が切れたとき(使ったターンの残りと、次の3ターン)。戦闘に勝って HP 1 で起き上がれば、次の戦闘では元に戻っている。</p>
+</div>
+
+<h4>動けなくされたり、歌を止められたりしたら</h4>
+<div class="tn">
+<p>敵の<a href="skills.html">スノーフォール・パラライズ・ターントゥストン・スカンク</a>を受けるとしばらく動けなくなり、ノイズを受けるとしばらく歌えなくなる。行動を決めた後にこれをされたら、使うはずだった道具や SP はどうなるのか。</p>
+<p class="big">動けなくされると<span class="mk">道具はなくなる</span>。SP は、動けなくされても、ノイズで歌を止められても減らない。</p>
+<table>
+<tr><th>行動できなかった理由</th><th>道具</th><th>SP</th></tr>
+<tr><td class="nm">自分の番の前に動けなくされた</td><td><span class="red">なくなる</span></td><td>減らない</td></tr>
+<tr><td class="nm">ノイズで歌を止められた</td><td>(道具は止められない)</td><td>減らない</td></tr>
+<tr><td class="nm">選んだ相手がいなくなった</td><td>減らない(使わなかったとき)</td><td>減らない(歌わなかったとき)</td></tr>
+<tr><td class="nm">自分の番の前に倒れた・逃げた</td><td>減らない</td><td>―</td></tr>
+</table>
+<p>道具は、行動を決めた時点で袋から取り出して手に持ち、番が来たら使う。相手がいない・自分が倒れた・逃げたときは袋に戻す処理があるのに、動けなかったときだけはこの処理が無い。「動けない」と出て番が終わり、手に持っていた道具はそのまま消える。固まっている間に落としてしまったらしい。</p>
+<p>SP は、歌い終わるときに引く。動けなかったときも、ノイズで歌を取りやめたときも、そこまで進まないので減らない。主人公の歌はいつもターンの最後に回るので、固められたりノイズを受けたりして歌えないことはよくあるが、SP の損はない。</p>
+<p>動けない状態は、受けたターンの残りと次の1ターン(ターントゥストンは次の2ターン)続く。次のターンは行動を選ぶ画面そのものが飛ばされるので、道具を取り出すことはない。道具がなくなるのは、行動を決めた後、自分の番が来る前に固められたターンだけ。</p>
+<p>ノイズの効果も、受けたターンの残りと次の1ターン。止められるのは歌だけで、通常攻撃や道具は普通に使える。</p>
+<p>動けなくされたそのターンのうちに戦闘が終わったとき(後から動いた仲間が敵を全滅させた、など)は、戦闘の終わりに手に持っていた道具が袋に戻る。倒し損ねて次のターンに持ち越すと、もう戻らない。</p>
+<p>固められても、同じターンのうちに<a href="items.html">守りの水</a>を使えば動けない状態が治り、予定どおりに行動できる。固められた仲間が守りの水より後に動く順番なら、道具も無駄にならない。</p>
+</div>
+
+<h4>味方が受ける最大のダメージは</h4>
+<div class="tn">
+<p>敵の攻撃、ダンジョンの仕掛け、味方の歌の巻き添え。味方が一度に受けるダメージを全部並べてみると、一番痛いのは敵の攻撃ではなかった。</p>
+<p class="big">最大は、<span class="mk">エドが自分の特攻で受ける 6,480</span>。</p>
+<p>ラスボス戦の5ターン目、エドは「このままでは…勝てぬ！　ならば、私の命を賭けた技を」と、それまで何も通らなかったガリハアクに 900 ダメージを叩き込む。その代わりに持っていかれるのが、そのときの HP の3分の2。HP を3で割って(端数は切り捨て)2倍した分が減るので、<a href="chara24.html">エド</a>が Lv99 で HP 満タンの 9,722 なら、6,480 が一度に吹き飛ぶ。それでも必ず HP が残る作りなので、エドが自分の技で倒れることはない。</p>
+<ol class="rank">
+<li><span class="no">1</span><span class="what">エドの特攻<small>エド自身が受ける。Lv99・HP 満タン(9,722)</small></span><span class="dmg">6,480</span></li>
+<li><span class="no">2</span><span class="what">捨てられた坑道の落盤<small>ライオネル Lv99・HP 満タン(9,926)</small></span><span class="dmg">4,963</span></li>
+<li><span class="no">3</span><span class="what">アルカナの洞窟の落石<small>エニクラウド Lv99・HP 満タン(9,921)</small></span><span class="dmg">3,307</span></li>
+<li><span class="no">4</span><span class="what">地震の歌の巻き添え<small>主人公 Lv99・LUTE 100</small></span><span class="dmg">1,650</span></li>
+<li><span class="no">5</span><span class="what">ガリハアク(最終形態)の通常攻撃<small>防具の防御力が 0 のとき</small></span><span class="dmg">1,514</span></li>
+</ol>
+<p>2位と3位はダンジョンの仕掛け。どちらも今の HP の割合で削ってくるので、HP が多いほど痛い。</p>
+<p><a href="F43.html">捨てられた坑道</a>では、埋もれた階段をシャベルで掘り起こしたときと、B1 の西の崩れかけた岩を崩したときに落盤が起き、パーティー全員の HP が半分(端数切り捨て)になる。ここへ連れて行ける仲間で一番 HP が多いのはライオネルで、Lv99 なら 9,926 の半分の 4,963。崩れかけた岩は B1 から出る唯一の道なので、こちらは避けようがない。さらにデバッグルームで仲間を入れ替えれば、仲間でただ一人 HP が1万を超えるヘンケン(Lv99 で 10,019)も連れて行けて、残り 5,009 で受けるダメージは 5,010。とうとう5千の大台に乗る。</p>
+<p><a href="F3.html">アルカナの洞窟</a>の落石は、通るたびに全員の HP が今の HP の3分の1(端数切り捨て)減る。ここで一番 HP が多くなるのはエニクラウドで、Lv99 なら 3,307。第1章の洞窟の天井が、終盤のどの敵よりも重い。</p>
+<p>4位は主人公の<a href="songs.html">地震の歌</a>。敵味方全員に当たる歌で、味方には「威力 25 × 主人公のレベルを3で割って四捨五入した値 × (100 + LUTE) ÷ 100」が入る。Lv99・LUTE 100 なら 25 × 33 × 2 で 1,650。地の盾などの装備を着けても減らない。浮遊の歌で浮かせておけば当たらないので、使うなら先に浮かせておきたい。台風の歌は同じ条件で 1,320。</p>
+<p>そしてようやく出てくる5位が、ラスボスのガリハアク。通常攻撃のダメージは「攻撃力 − 防御力」なので、防具を全部外して受けても、最終形態の攻撃力 1,514 がそのまま上限になる。技のほうはもっと控えめで、どの敵のどの技でも 1,000 に届かない。こうして並べると、上位はほぼフィールドの仕掛けで、敵は仲間の捨て身の技にも、坑道や洞窟の天井にも、主人公の歌にすら負けている。神、大したことないな。</p>
+</div>
+<h4>倒れたときのポーズ</h4>
+<div class="tn">
+<p>戦闘で HP が 0 になった仲間は、倒れた姿の絵に変わる。戦闘中に戦闘不能を治す手段は無いので、一度倒れたらその戦闘が終わるまでずっとこの姿のまま。倒れた仲間をまじまじと眺めることはあまりないが、26人分を並べてみると、この絵がキャラごとにきちんと描き分けられている。</p>
+<p class="big">倒れ方は、<span class="mk">大きく6つのポーズ</span>に分かれる。</p>
+
+<p class="pg">片膝をつく<span class="sm">6人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAXCAYAAAAP6L+eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFSSURBVEhLlZW7DcMwDERdZoS0LjOC25Qps4JLr5EyZUqv4FW0koMjfMbpQhsRgYNkfR5JiUq67sCme7cur25FS/maZpumaX2PNRRjkK/9y+Z5js1oVYSGNkfPvjEDgEopNUw0DENAm+BMFRsAhwByEdx09tiE86VwgS4/ezhzTmUOZbouBTMLZ+2WQU+1RUr11z6HA4w0AcUFYnFUhAMlSkgv1ZlhPM8sGv1mHxHqmsOovawyAPvenoJRWv4Y/oFmrbMjajiIy9vAvpH9bE7HKzAmeUGA68IzyD5/u+RgwMrySaEO99r2Oq+ipTCpMP+GmJk+GL6FHQwYL47H4eDs1bkqKMFVrQrY03QnrH8d38GE61FQR78Z+vx9DgEFlBuP4JCnjTH+ERCmWQYUXsdHHyJIz92dhKPtEekeVZQYob4I8OwOOA5zIDk/E5XXBlMo+l+c5Ym2eqnbHgAAAABJRU5ErkJggg==" width="66" height="69" alt="ドムカ 倒れ"></div><figcaption>ドムカ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAWCAYAAAA8VJfMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFuSURBVEhLtZQ7csJAEEQV+gikhA4VkhLqCEoJCR06dagjOCXkKr6SXL32o5oGWawspmpqhcTOm+79NE1FtG075rtVQwAgfd+Pys1m+1yoIIBJQWkg//+vAACUcfgYnqd2CkiiVO93ry8ls0Z1FMixu7I1rZZawQ7dz7gKWHEe3m5gADU6UM+r2D6lNBtBdc6vDnVO9ygDkFBXn3UeDq3n6diU9KIo8rV09TST9WZDwK/zZwHq+Z5SXHjvmksTDs+as4FCbSLfKK6GRhzqjS1SK5hUUhA7/exmAzig+YvhArla7HSoXxaLoe12N3b7Q0kV0Npq1GSBBeXScNWAHQJ0do0BCs6G8psJxVhPQ253NdihSm0oTeC85hoD9eIOfwgKjJRtKJyC8lvfvZar/hOsyRfob5eyEvUqjBsO892rd65UdV31FVBWcu4ooN3rmyud8GZLw2ZnAhxcvmlCHnTsKxMC5sAseA+4amT3NbBvVf0w01Uzs1AAAAAASUVORK5CYII=" width="87" height="66" alt="ライオネル 倒れ"></div><figcaption>ライオネル</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAbCAYAAACX6BTbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGLSURBVEhLrZU7bsMwEERVpkypK/gIbl3yGi5VpkzrkmWu4FJX0ZUUDJFHjDa0fskCC8vk8s1yREldF+J6eZvHx1DyfrvMcf50CCboNE3zNOb/ExDk654WYKXGYu3hqPAx/4JrTnY9h36ecpo/UndcEBsiGHh+5HMCWqwE5t0DF5CUiMYipxlsm9OirvlFmHkX2RSofupm5lSuAQF3MGKyafM0qVBQFukaEcawhuuUUslVuIrxNtqghRLwm8p1/96X5H/klig3r3G2Se/ad7IL7p0D1CLAskeLfUfynRqOa+TW0KQfOxa6JZ9DX1MC+k23ru4qMhdR7Pmxhi3rNCiLJflaOxdUicApeBQB5rsAviqArzpe6lLJ4pZISyAyawgO1OEsjiJqwudW4REYwQ5BhAdJ45FXowWOUPc23pNVz/cAW2Af50W2AOt0OGQvGLjqeAW/fEu+2rYXMxebUALfFIgdek0U9vTudws0C03Ix1zMx2sw6V+cWLM7APElKk/plodHgq+6g/8K/QZusrXFFNFYcgAAAABJRU5ErkJggg==" width="69" height="81" alt="グラム 倒れ"></div><figcaption>グラム</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAbCAYAAACa9mScAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFgSURBVEhLnZQ9boNAFIQpU3IFlylTpk1JSek2JdegpKTMFbgKV8L61prn2acFRX7SCNg3Mzv7Y3fdSX1/fhy/w+1Yp6GA98xpFkTEwMU+LmRtVT67TN4yaAkzsraqTD5D1pWiMf10xziOp/hb5gJ4WV8KEwj7vgf0zZNl+hNUifhgH2hsc1eEPLdlKrMi9KcjTETQcRaD+UnKRo5qf4pwmUJIg3fGzwzEi0sIad/WmLXv+yDIKOP29UpfTDCQCU2ZAIiMOXyClwmnsa2VIKdpGVV7gpgUTr5Kox53J04HsdYHwdFKo3H2JkwokSFA9A1WGm2qJqgMKM0y3J/IRn5SSlOJJWwhp8l7U0xw57pnsSfKadwoTM6MlDKn4VT0w4wluZGaEHN0GdGDHwYUBGYQIEhAT5P4ktQHYeR/OkqiXjZxg8qEyk0ntBJkTrn6GnRBEKyaBlRe85XJZeWY/zV5AD2HWrgd/fCDAAAAAElFTkSuQmCC" width="51" height="81" alt="トラビス 倒れ"></div><figcaption>トラビス</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAZCAYAAAA14t7uAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFKSURBVEhLpZSxDYMwFERdpmQFl4yQlpIRaBkjLWXWYIyswEpEZ+Wi85mACSedjIH//ve3IQRR13WrzsdxzOZ/C2DAMLpjjMkesysNIGCe52RCfTXV0qqmaUpQVM97p6ulWBWgsEPVVdV7EAP9HsyVaHLnFeIm7VWqSQF2RiEG6LUm0JOh7aqCQwxcliWDIokeQ0/mnEJ8UcEKV6g+P4QTqiC2BOO9vSVrxYcbiN1mpdrHRx+SAfTlD/ewPsfKo4cEGFmdHi0FwwDDTdP8hiMAFWsv9cx69Yd9VQHIQMz5WRN4asNUBHMeQ7v2sU/2NpwCs7+4/oJCm8wEMN7Z7asLPeav0qtjAk/ijEI4Nq/nsA39GFXCp5IADCuUoF9G3FYSZxe/UCTx/4SDs3hJkj8wKI8bE3A1TJIF12irWgdj9LhL8nb580uqAb8B4UL4cWtZGjMAAAAASUVORK5CYII=" width="66" height="75" alt="アロン 倒れ"></div><figcaption>アロン</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFMSURBVEhLnZQxbsMwDEUz5ghZM2bM2Ct4zJi1R+iYtWOO0LVjx17DV3LxDLzim1bsxAQ+ZIvkEyXT2u0a1nXdcP+8j/L5cDgNNe4pIxEBqtoEFSg03zcBse/beQbaDMNu18PQUj1bVHOb1vf9gEh0rKCnYAQtwdD18jvCzsf9qMoYLUGphAJK2Ht3HC5vuzbUIAEmq/3pYyJigT0EYqyIE3gFVAFarBAHrWJABeDjK/sObBXY/3yNSQYkTOE3fhFIoAkECXRO6fP8mkAmBWYVNnG2TvbeKjCrZJ5fLRexQqv0S09gAm3SKnyAGYXzbPWz6rRaQarlWwQySQINzGhlLWiCgTZvIAD5N+R2VesoHkINykauACHGOXrrzKD1asqFkFtNmAt4nhNoVpgLpWWFFdiEWiFBE9KKeRzof4ItudKrwJll6bZIjXnF/gDDZjXaGJRQ9AAAAABJRU5ErkJggg==" width="60" height="75" alt="エド 倒れ"></div><figcaption>エド</figcaption></figure></div>
+<p>ドムカ・ライオネル・グラム・トラビス・アロン・エド。体力自慢か、まだこの世に未練のありそうな面々で、HP が尽きても片膝で踏みとどまっている。</p>
+
+<p class="pg">両ひざをつく<span class="sm">2人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFXSURBVEhLrZI7coQwEEQJCXUFh4QbcoUNCUkJN3ToaxBu6qv4CFxHrta65aYRJVF2V03pN3ozGk3XFfQ2LhF2X9Zs7nNZCl3XFxQj9tz3kggGTA0B/gQn2EvBPfe/JIfr6L7NCiFkqNs8z9n83qm2bYsw1HMc+gOUYK27Mw5S6HMK8XHr4him+Li/J0vzW5fOEBTrataaBS4RQDjNwTBnHcSs1BzuUNxxzkF8Mj4uw4c+w3O2FrwKp9MOLHDNHv6+PhXBcFY41rn+AuEr9pSCFETYtLw+NdV16PMe/BF8/ah0BbTrhB8IQTTsEwxfwJ1TFDPDHNmwtgrHWTOwJAbRz6OxbH6nSdoJmnEqSaHlqm0H8dP0E1lfztXfA5wGYl1LUIV7gKq+Pn+7QQEsC1uSxrI55yA4A87W45xrjjQN4qyiWi453M9PxadeulSTluRfwdrLftaib7DH/k9Cm8XBAAAAAElFTkSuQmCC" width="66" height="78" alt="ホイヒュー 倒れ"></div><figcaption>ホイヒュー</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFISURBVEhLpZMxjoQwDEU5AleYkmtMSUk57ZaUXGPLXGFLyin3Clwpqxfpoy8Twoj9khVI7BfbmK6r6LV0edu2zIqt61jW6PeRBAMi0L+gCnaYW/Q/1fA8BrtxLh/WGF9VhAoSYY/nK4/zdxu6pHfGPLhm9Bc/oJGxi9vcPCt/B5ZSasOkaZoOUD0DERDYR0CCZAKpV4CUHRezxviDPMBhrF4q51iMr0oZEtD3/V6egBj7X+Mjp3lsQ1WWbieQr+nZ7aXPYx6G4RzI4bb+FOMdGOU60HuJXQLlcAYjQ5UtaOTs+k1L6Qswz8JhNWjkFAGKMAWRZRwhfWX5RF5RhOk3VN8U7BlrhKrQs8y0R6D6LB+fycNsOkwlsifIlVV/R89SMN0cRyQC1Qb32QWwBavJ+xrPigD5qMTzmppA5OMSz27p8sY7ugP8A63mX6RRV2VZAAAAAElFTkSuQmCC" width="60" height="75" alt="パストラン 倒れ"></div><figcaption>パストラン</figcaption></figure></div>
+<p>ホイヒューとパストラン。両ひざを落としてがっくりとうなだれる。</p>
+
+<p class="pg">前に突っ伏す<span class="sm">1人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAVCAYAAAC33pUlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFFSURBVEhLtZOxjcMwDEVdZoSs4TIruNQKV3oEty4zgtuUGeFWuJV0+AoewPthEuXgfODDNk3riRQ9DKbzPNW5jNXjH9F1/ao/l7UKWk7Hz0EBYQcuZajRf7/ukBYVxEHE1dLLstZtOdTvbWjWvfw2ULvPYIAAZKB5HFvOW+2OQKyYg+TYRuVgAbug2l0EZiCq4Zn8COyuEiCgbSo3h7YxNBGYwV4CleBn1EBTaaB4pnqOA5MBff07ZROnIXAYQD87gbqrcxATFweHSeXqZyeIuvEURmsiCBgLuj1OVV0wN23xCrjqZ48tVFwQKnRGk14yaYCUPB5vQ5OBZCogR/cR6JwmQDEGLALjVeb3ABg31oDrOQdmcmA0AIdRnb5vHdgD6O2Lpjpfq1u+oKx4Ngy7AB/Jz1sCiH1D/9ajs/Eu7CbBMmDUL2E5l/YP6oagAAAAAElFTkSuQmCC" width="81" height="63" alt="サザシイ 倒れ"></div><figcaption>サザシイ</figcaption></figure></div>
+<p>サザシイだけが、体を完全に前に折りたたんで丸くなる。かわいい。</p>
+
+<p class="pg">足を横に投げ出す<span class="sm">3人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAYCAYAAAAcYhYyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEkSURBVDhPndO9DcIwEIZhl4xAS0lJmRU8Ai0lJSUtZdagZJ2sY/QZvdHni8PfSScT2/fkDCYli+32UHK+lPE21lHPvv4xAMi/IAci+DVEocb4+WtE4UUx49634YXeTdzXjfE8FOX9nMop72YE6JpTGfabmrE2qcABTxABjiwgIUotAIL4kRw4DqlFNOEbQDkSkAPqqkH0RiDviCIgngWopkE0+Rhf534HadT+nHO9zQ2iRcm0qGd9LwAg7AdvEAEuA3gnXiRQazOgUHvTNM1d0ImyBy0AJn3jGhA7aoIibeCeAOhXi1cg1tfgToA4EG/pKkKAaOSaexf8zMzRZXQq1APWcoEwyZ3hZpL+gvhf6kJspiPvirc71CBEbLl3tFjzU/SQJzEdpUJCHqMlAAAAAElFTkSuQmCC" width="51" height="72" alt="スリム 倒れ"></div><figcaption>スリム</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAVCAYAAAC33pUlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEGSURBVEhLtZShDoNAEET5DGwlspJfQCKxSD6hthKJ5FdqK/mla5ZkyGRYSq5sJ9kcTW7n3RxbiuIHtbcudc2Qxse8rva7LO9J910WIMuyrCsqHGiGADEsPB2DOBFAKO3LFgzxzCCGhSWDeDD4+v4CwyR6oFBYVbeHIF61L1srqH9uhvyeOFlIOoON02sH84Damy1LZUAYeqAwIGAA6siHXiVAnE7/1H1Tx8I0IRK953lLfOnzNQ1Dsqqr0gVy8dVmwexaDILVYAAx8AisfocyY4DQDIgH4sLh1NOVgtjoWzIrHMx6rdR7/d7xCGOjB+JkZ0CtHYhfrpqomXfg0+HAJjU9A+TqA+Qc3gKWNiNNAAAAAElFTkSuQmCC" width="81" height="63" alt="ヴェラ 倒れ"></div><figcaption>ヴェラ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAWCAYAAADNX8xBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEMSURBVDhPnZMhFoMwEEQ5QmVtZWUlFskRsMjKyF4Biew1Kmsre6X0TcrQyZJA6Ly3L4TNfHaTUFUbcufK39vaP4c+jJjbNVnRADPjb1h9/FWiMEYxTEEYMYfZHS5hxJzvrHeW7gsXq3GGrkFUNLMVzjcrUXVd49+vx1yV7g0CeQRy1htpHG4BpDCFIL8bRNh4bQOAkCIQW1OgQnB6RSAIJhii+4PjnyK0Oz1bbyQFWAjyPEHrW4gAbVO/zopiV0LRPZoqAVTzq6C6bjwCi+x/ZlvDSVp/ADjnviGbPP/1Zo+gvj15xALAaliRAnOwCKL3BfOUMQlQaRUMux/F0gpsa8Wwta/n3ie1a3FGH66qmDthQf28AAAAAElFTkSuQmCC" width="54" height="66" alt="トリリア 倒れ"></div><figcaption>トリリア</figcaption></figure></div>
+<p>スリム・ヴェラ・トリリア。足を横に流して座り込む、しなやかなポーズ。この枠に唯一混ざっている男がスリムだ。</p>
+
+<p class="pg">ぺたんと座る<span class="sm">4人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFASURBVEhLrZQ9DoMwDIUz9ghdGTsycgWO0LUjY8deoSMja0eO0Ct05DqpHuqLnJcgaMCSZZGf98WOg3Mb7N5c/fjoPaLO7TaIfsbXDNC5wwyAaZpmJ+zQjJiFih8GopgFPFoXIuYZi2HcTIAFEYB1jEXG01EwByrOIGe2NIwE6tq/DYLwa+N837X+0w2hEQDC+K5yEUAI3AJmYDf4ujqVQygMH++XJAtC4Lp3s0H8/bwlZaJwAP3GdP9mgwBACiHAgoo7DYAIYkoUlWxPNigVIOdznQUccje8l9BdK6CikvF9IEIgJ6xg1dhkIQO59Nwd0VUjMntiOF90EF3qLnVp90S8qarI55+jPMZEdMnNeqfC+FUg2gwxpiJ6T7nMOBbKZSFRR/FEmSxsedWhmUCsLbWtPa3uKTKC+G1h8cp1+wIGUK8L9RMFjgAAAABJRU5ErkJggg==" width="75" height="72" alt="アイリス 倒れ"></div><figcaption>アイリス</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEYSURBVDhPndMxEoIwEIVhSo9Aa0lpyRVyBFtKS0tbS0pLW0uO4BW8Es4PvszOEmLgzezgkOxHILGqMunCcXxcwsjVj20OyL2qJgz0M7z24SAeUnGvGBQE0jaHCFp0M8hksBS4CSNqEGbBTZCSA/3c1fgNsCtSvfuubIX9vZ8w6hna+Fvlv6XvjwkhjGAgw7VZ1C3MIPP+gsIoDwkDYJ56sq8rjMYUxNVi2QjjdWi0xb26PpVjelWa/CZwbxcmhFNvd7cYIsJ0DAAofmsnfU8253b+Rvr49pwxDswc3zc1clY41ZSHLMYKGRfGNYnYv47F7E6qhMXV2WbKL11Pjk//RRuTGosrXDwtEfu6fmwRYWtgMaTkMJICv4obrzpphFZFAAAAAElFTkSuQmCC" width="57" height="69" alt="ジョーイ 倒れ"></div><figcaption>ジョーイ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAYCAYAAAAcYhYyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEJSURBVDhPlZQxDsIwFEN7BEZWxh6hKyNjR1aOwMjKETpyBc4Y5IqHHLeiqaWvhjR2HOeXrjOc+0MZh+NcGvfHrvj7TTyvQ5nuY/HnLjEthPyeHvOYQkiVvApOchc8EUpeBV/shYMmJ05IAeXRlImQu0JWbbpwyAHEPFauXQWE2+W0CJX55CzgxHzKSZOIFul62TmvV++SswA9orHflPLRBk1OJOAiEnh9nTVfMy3PUVQS8Vw2hbTYbwYRSr//OpIDD45A10LmeLWC5UGAEN2Flwf+E4DsrZ5uIOKi6h1c6Ej8l2jeBdN+fmfzpBTpE8RUW/1RiTjIw7s3newCTbe62x7gJud3oUXkA6GicQzKbr3PAAAAAElFTkSuQmCC" width="51" height="72" alt="ドロシー 倒れ"></div><figcaption>ドロシー</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAADqSURBVDhPlZKxEcMgDEUps0pG8AqULtOmdOkVUlK6TOvSI7hNyUrknpPvYJmzie7+nRDSEwicK9jQ+fR6uhRjTHEaF7/3Ltm8opG4FE/jBiANXXMM2wC+kBwgkVcNssVVAJkSOXquagDJpRlY2bqdMQt7Cik8Qh0AzX34vE62Dm23QLz3xyD+B6IgBwjC3ul1SJrDfS20AtBcL+cQRGJ+fHxi7NmanSnx1rTrXIDwbwSqmokAkgWxXwTpGhqqlUD45OPn618gez66CYBPTK+lxoKsoDVY8w8yo4GabAyI/oXd+8t0jWKXgr0Bo9d62Njt1AEAAAAASUVORK5CYII=" width="51" height="54" alt="シベリン 倒れ"></div><figcaption>シベリン</figcaption></figure></div>
+<p>アイリス・ジョーイ・ドロシー・シベリン。その場にぺたんと座り込む。<span class="sm">シベリンは仲間にならない没キャラだが、倒れた絵はちゃんと用意されている。</span></p>
+
+<p class="pg">尻もちをつく<span class="sm">10人</span></p>
+<div class="poses"><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAfCAYAAACCox+xAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAH3SURBVFhHvZUxcoMwEEV9DF/Bpa9ASZkybUrKXIHSZUq3uU6u5My38uF5LUCC4J3ZQRLS/seXZB8OG+J8PN7eTud7qh3fvyQkfPnobl3TPsB8dc1rgCSklLAhrv1lSMH8fPf7w0hE4m3bDuJqO9Xf3RVB+GsJIBec6ut91+x4ZrwtahuEEEzN8dbFOpuDX0nR/j2faU1y6F/Dt0RtAQjMonZLuSuMitHqCJF7KjXPNyzWrI709ePvhSGiMOHc1tMfcf08pfP196wOgqTtGbeCrkyDpC0SADPqzIZ/MQ1hR6ILBInnROMUXwUhJwzCrcmBWFhCBKMr1eHtcBom3pY5EEKsBrEbowsJxkUpEkHUpitO37jiiLfEbiR3HkEovgRS7Qrd4C+oz0cNSNyeYhi6YQCP83wQSIIlIKozC0TB6EactwTCMa3h9qgfHRo0eAC1iOciglDczxoQwygi0B3EhXwOchAEngIxLLcniqpNGOcg4sWa7P6I8exGDsRrCEKnHhxA3ag1AD29CP+2NSB2JYIQiGCT4W3y5AhiCILwnetQtEiYwXPhMYPQOdqvPkH4BxdrFQWvKi2nG54bzwHreCz3rigoRutdjIDsrxacChYTBAXolLeAEFy7GYoF+eUMCkeA+J7j1TEnUhJes2ZtNtaCMJbW/wL3A88A94BwTwAAAABJRU5ErkJggg==" width="102" height="93" alt="主人公 倒れ"></div><figcaption>主人公</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAD6SURBVDhPpZEtEsIwEIUrkUiuUImsrYxEYiuRyFpkZK9QyRG4Qq8U5oX5OpttCoKdeZO/fV9e2qbZqeOlTdI4j1ndGLK053urZQGYJQv0nqIAIAtgrbn3FUVcG9/OWXtftWj2qewYwh8wAPERf4PUtCzLRtoHoNH7cukwG55zesUhjxZgU+wm4aZr16QxlJpvH+msaw8pDn0dQpIaRMlk5uwrREnUbKVnaZSZJJoX5mm6JylDhn6ThGewFqQKkARQbBkw2TlazTTodgBATqdzFh/a/+Y1iQDE5HcRlT0PQDpf0xCVTd3Oc0iG2NO4+Sa2BGBuLyAdf4ueNzpoh00IKmVLAAAAAElFTkSuQmCC" width="51" height="51" alt="クイクイ 倒れ"></div><figcaption>クイクイ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEdSURBVEhLrZM7DoMwEEQpc42UHIGW0teg5BqULilzBa7iKzmalSYajQLBgZVGfOydZ6/XXXcy5qmvpZT6WoeKdx+/FDRXwDh290FgqubULRAawZxSwCUIa00zPB3kOX/F0D/qlJ4hvLt8flOULR+aE55SagflJcfhxlNAqnVOIQCaIJjM1oS2PAdkD9QMQCgAu4AUhJXTHGPNEG1PlkthKkLYwu71NbDCKM/SxYqRqCCFsZWxI8w/dT94iOiUvXvgN1vlfhFM5iSa0kTNHYL52rru/TFnogN0fA8CH+48IFGzPMcHaqqr0RLh3QEOY54vPCAUDkz/A74H8B0c1p4A/4+gATvEIRTGIM8/FVwdIWxdiN88ZM9tip9taPEGa1wQixPuerEAAAAASUVORK5CYII=" width="72" height="60" alt="エニクラウド 倒れ"></div><figcaption>エニクラウド</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAYAAACKsM07AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFDSURBVEhLpZMhbsRAEAQN84SjgYGGpoGBgaYH7wn5wsGDoYb5RqC/tFE5Kqs1vlg5uaWWV+ud7tmdma47gMt5bLfbtfGt/w7jdegbRByyrmcO4eOta1AjWc/9GwSfTn0bh659T/3C6dK16/MvDxsgXrPVRGJe4x4CgtUEIu4/E6mxu6BToGLVoBKTqrELguZ5XoLJFIGkwhSdBGr8LmxBaEtaZPc0Qjw7q2ptkINEAOt875wB9r2NhlVvhe9NME+jSAraQQixZ212i6yIBnyrgde3FmafxffcIupEsiYos6wGe9TAeLhmjQFDMrw8bZ7Bp8jsrEMdPt+d/6sBQBxmJimYwvmvPpMGJLpp1wz0ELQjvF3eSvGcYvg+nu8XOfE5fa0H08RbpAFr+18DWXVX5AFvplHeFj40XH8hBTWq+zUG/AArw+eSmHj2kgAAAABJRU5ErkJggg==" width="72" height="57" alt="ヘンケン 倒れ"></div><figcaption>ヘンケン</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFVSURBVEhLpZMhcsMwEEUNAwtDCwMNQwsLA017hFwh0LDQtDBH6BV6JXeeZl5mteN4VPXP/IlsS+9rV8owNOhtGNZleClmjP02Xw4rrlf8UQZ8Xi9ViCbge3ktzmubZQXPAvL8Lm3BtRX8qwoEwL7rCPddPKcuRWAcn0+H9XgcSyt9zmubBJDFwhnr2DLG3SEf76cCiIdvJY69BMzN65v0c19WLSzDv27nqsLM2BU7Aw4Eb10C3scKukLcnUH4Pl+LDTGoq10s4p8uwMoI4Jdv2CDbmjm7GsdxnaapmKsq3EpyCJtgLusy66kAawDCcyUGWQnPmbUpdqNtGzYA6FZI8/nEgFiFIbZnKyCHFSA9nG/zI9VziAHCc6v8jeAY9ggCRgj2kHObInwPmOFV2+ItijeDycK1cCwkbspnGZWcGN8JjJXE3ef5XWJXuZqmm9Mjz6YX/gsgU2EBNa4luwAAAABJRU5ErkJggg==" width="75" height="66" alt="ピックマン 倒れ"></div><figcaption>ピックマン</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEhSURBVEhLrZLBEYMgFEQtwzZogxJsg2OuHj16TAs5pg1bMrPMLLP5ggL6Z3aM5rOP/TAMDeX8tL/WT9QU5h3vkO3rLpjBeNu2JIXhadc0FxPQ/Ax2G8gRwYhgQh4dIY1qZddfVmlUNtEjqWhQGptCboEIYCILyQGtx2Vh0RnEnk13Mh2Xmo+jO6gbxDSEKOA9f6PCtO7ehagc1HpmK5cAxjkRpMAmEJq991E0gJkFxO/e1xnb4o6WeUmgXBI8b4FYBMGUZ8PzyZ2RXV9V3CnTAICrrhfhMEIX6mEwT0kkDSH6W2Hsx7v1TKWzVgCTqLmmKl11vUBppGzmrvCtBFFjNS8pQWjGPwixoNzOaVTSYWQK4YFyxyoF/Jm0FiFWtq+nfuK4nN8e1m7rAAAAAElFTkSuQmCC" width="78" height="66" alt="ショウコ 倒れ"></div><figcaption>ショウコ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEkSURBVEhLrZM9rsIwEIRdcoS0lJSUuYJLStqUKXMFypSUXIEjcIVcKWgsTTQZhR/bGWmU98C7X3a8hFCgIYT5Edv5NXbpCfuZ3bQFw2ewn63S89LPMIEOU3ttldiUMIf6+Wr5pAR18Zi8K5iw9nSYx+GaTJDCcMZri+RAhdFeUyQAsJX3PiYY4/T7w3eA4pz3yBIaEIYnAd+g3iNLaJJivI3L708hNGPFWe+RLcBijMmMl/alwRmvz9Y0TQtQY91y9R1CBGE6nYZx68tU3yHEhk1zTiYIkyNujbx6U9EAk+k0AACmJhgumpLLoFESRuDWk9HC+J/xe/+VdAP1btjkExRmD9authd/8C1YoDAUMk59IZ2UTg1/yVcahUX55+qvnHfQGwBwxF/gbodyAAAAAElFTkSuQmCC" width="84" height="60" alt="フィデレ 倒れ"></div><figcaption>フィデレ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAYAAAArK+5dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFaSURBVEhLrZQxkoMwDEUpOcK2KTnCtpQ5Am3KlFyBcsst027JVbgSmW/mJ5+PPLE30YwmGEv/SbZI0xTapTut8/mcnO+4xt4+utIovsy35H/jJa3xi/XbEAIoqKLaxb8hTCaEa3fPKzYV8Yo/Avhqu4NYDBnqILfr7wpHMiARiI64vu/LAahmWZZ1mqaUrE7RsQdwSM8Q354Lu4A4nJVRgJCn+JD2UAhjXCs0ArwLisIV8t21aY1Y18oakjCWSKTA/qi2jhziOllDMD4qAuAUnX/Gw1FhCKoAqJ4dcIq2Sdog/Kq1i6pJgjABrFB/0UUEgbtW1jSJ4nTeBUFVEJ1rJnoHeuGA8F5eAjw5EvcYQrJdMCE6UxV1fwU5iHsFkXuMCqvvABqsAe65vQiSABrkc+5Cnux7etE7gI4e76T03P09APrucclu/Ad1MMyBDikClJiLf0w4spzwHYSO9J+YP5SdAAAAAElFTkSuQmCC" width="72" height="75" alt="ドンキー 倒れ"></div><figcaption>ドンキー</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEzSURBVEhLrZQxcsIwEEVV5ghcgTKlW0odwS1lypRpKV1SpnXJEbiCr6TM18yD9bfJyMDO/LEs7z6tvgQpNcQ0TcXn3hLDaSiSz78l6Pp6+S3S+fRd+ty9tpi6FdihyPObAyuk8StVAf3JqcprmkMwIFLf3fU0WJ1p+1gxW+BVS4DHBXjXt5zzNnD0U4rQCFdeM1yJ3f7jdlh0ByzeDsBNcCXpJuBlhEWoxsrZBNb9FdxtiFAJ6L9wigSVlOhgt0KWcddXwSRKWBHBDuVZwcdDuQ7HJVQBRImANY7bdmjserf7XILxUwl0IDn0EZyaCuMXxJYdrK1R6DDvGPgMzCFF432hVt0s4M/ET7N226WazHitQ8axtgZgn9dB8G26jKtQwLNOW0JQrpBDNbfYfmtE8Jb4A5V6FcV9wyFpAAAAAElFTkSuQmCC" width="66" height="66" alt="マキバ 倒れ"></div><figcaption>マキバ</figcaption></figure><figure class="pose"><div class="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAVCAYAAABCIB6VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFNSURBVEhLpZQxbsMwEAT5DLUqVfoLfEZalSlT+gsuU6ZN6dLf0JcYzMErrM5UYjkHLHygyPHyjmQpB+L8cW4oj78ccx3bZa4BJa9TCTHm8w796XL9DgByqMC11jaOU1uuJfK8vhs4uF3mBhxodgtI4K/38hxUwULgcj0Mp1XLssQv4LzuzwiHd2dIznGIgB8C405OBVMT9Q0wUDU1N3MTvm0HaOFnGUKqv8PZXeatoYUuARw6nd4exv8FFhQ9DVUwycFqFLlDkZ/rzNlEnE+bjFvlckveayh55kVokv/+BiVXg9X0zIxwB9w2Tfa6CqSdufPdcnDfqZsvdmjPoZetCwbALdILhYMM9XqqVLnGD3Cuaxzy+wvVg2a5e9/BCnRwhrojh/QkcLwdevakPagrAwXdlAKYwwWN8U5de9o9FYKSA/Vvuesuvcs+X/EDrWdQSKhmktcAAAAASUVORK5CYII=" width="66" height="63" alt="ボビン 倒れ"></div><figcaption>ボビン</figcaption></figure></div>
+<p>主人公・クイクイ・エニクラウド・ヘンケン・ピックマン・ショウコ・フィデレ・ドンキー・マキバ・ボビン。一番の大所帯だが、同じ尻もちでも中身はさまざま。主人公は頭を抱え込み、ヘンケンは大きく後ろへのけぞり、フィデレは足を大きく開いた超開脚を見せる。ドンキーはマントに隠れて足元がよく分からないので、実は片膝や両ひざをついているのかもしれない。</p>
+<p>並べてみると主人公の絵だけが一回り大きい。縮尺はほかの仲間と同じで、絵そのものが大きく描かれている。倒れ姿にまで主人公補正がかかっているらしい。</p>
+
+<p>倒れた仲間は、戦闘が終わるまで元の陣形の位置でこの姿のまま動かない。ちなみに、倒れた仲間がいる状態で隊列を変えると、倒れた姿のまま指定した並びに移る。</p>体格や性格に合わせたポーズが選ばれている。誰がどの倒れ方をしているかを見比べると、作り手がそのキャラをどう見ていたかが透けて見えるようで、考察のしがいがある。</p>
+</div>
+</div>
+<script src="menu.js"></script>

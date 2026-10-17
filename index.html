@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>黄昏のオード 非公式攻略サイト</title>
+<title>黄昏のオード　非公式攻略サイト</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVHhe7da7jcNADEVRl6FQZWwpLsVluLTtaB3rKCAILvSB3wA3GXL4uYGgx4Ozruvfnfh9Ly3cd3dscHVcsMJ9d8cGV8cFK9x3d2xwdVywwn3/feH3c9lgfIoL2U9eP1t8HwE2mOIAxqe4gP0kAo4WYAMHMr+L9Y1LBERABJwrQKZCXKiqV/WPAB9MsaE4gO8rIuDuAsSBrNelWz8CvJjiABXVgF269SPAiynVAMbFfOtXWM+PpvkR4MUUB3Ah42K+9SusFwFnCzDuguYb971U7yMgAiLgWgLEgbvvzXfh57LF9xHgxRQHMi4R8O0CpPvefAWYLxHgxRQHMl7RfW9+BNxNgB9BMV/MF/MlAryYEgERMBNgvEu3fwR4MaU7QARcXYAD2qCiqmd8iv2rH6MI8EIc2AYVVT3jU+wfAV0BDmjBCt9b/2icz3gEeOECFqjwvfWPxvmMR4AX4kIWNO77s3Fe4xHghbigBY37/myc13gEeEy4Owpw392xwN2JgAhoCsjJyfmq8wFHRFQp9yI5gAAAAABJRU5ErkJggg==">
 <style>
 body{margin:0;background:#16130e}
 .ode-top{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;color:#2b2b2b;background:#16130e}
@@ -49,6 +49,12 @@ body{margin:0;background:#16130e}
 .ode-top .box.soon{color:#cfc8b6}
 .ode-top .box.soon h3{color:#d9c597}
 .ode-top .box .tag{position:absolute;right:8px;top:9px;font-size:10px;padding:0 5px;border-radius:2px;background:rgba(180,80,60,.85);color:#fff}
+/* 6つの枠のすぐ下の横長の枠(50音索引)。地図が狭くて収まらないときは fit() が地図の高さを伸ばす */
+.ode-top .kana{display:flex;align-items:baseline;justify-content:center;gap:4px 16px;flex-wrap:wrap;grid-column:1/-1;box-sizing:border-box;padding:8px 14px;border-radius:6px;text-decoration:none;color:#f3ecda;
+  background:rgba(14,18,10,.6);border:1px solid rgba(240,220,170,.5);box-shadow:0 2px 10px rgba(0,0,0,.35);transition:background .15s,border-color .15s}
+.ode-top a.kana:hover{background:rgba(70,44,18,.72);border-color:#f0c070}
+.ode-top .kana b{font-size:15.5px;color:#ffe0a0;letter-spacing:.06em}
+.ode-top .kana span{font-size:11.5px}
 .ode-top .foot{text-align:center;color:#8d846f;font-size:11.5px;padding:10px 16px 18px}
 /* 画面の幅が 700px 以下ならスマホ版(.ode-sp。tools/top_mobile.ps1)に切り替える */
 .ode-sp{display:none}
@@ -96,6 +102,7 @@ body{margin:0;background:#16130e}
 <a class="box" href="database.html"><h3>データベース</h3><p>武器・防具・道具・大事な物・リュート部品・歌・敵の技・モンスター・お店の一覧</p></a>
 <div class="box soon"><h3>やりこみ</h3><p>やりこみ要素のまとめ</p><span class="tag">準備中</span></div>
 <a class="box" href="koneta.html"><h3>その他の情報</h3><p>基本情報・BGM・効果音・セリフ・計算式・バグ一覧など</p></a>
+<a class="kana" href="kana_index.html"><b>50音索引</b><span>プレイ中に気になった言葉を、すぐに調べられる</span></a>
 </nav>
 </div>
 <p class="foot">地図にポインタを合わせると、リュッケルトがそこへ歩いていきます。クリックでそのページへ。<br>当サイトは個人運営の非公式攻略サイトです。</p>
@@ -114,6 +121,7 @@ body{margin:0;background:#16130e}
 <a class="box" href="database.html"><h3>データベース</h3><p>武器・防具・道具・歌・モンスターなどの一覧</p></a>
 <div class="box soon"><h3>やりこみ</h3><p>やりこみ要素のまとめ</p><span class="tag">準備中</span></div>
 <a class="box" href="koneta.html"><h3>その他の情報</h3><p>基本情報・BGM・効果音・セリフ・計算式・バグ一覧など</p></a>
+<a class="box" href="kana_index.html"><h3>50音索引</h3><p>プレイ中に気になった言葉を、すぐに調べられる</p></a>
 <a class="box" href="singsim.html"><h3>歌魔法シミュレーター</h3><p>ゲームの声で、好きな歌詞を歌わせる</p></a>
 </nav>
 <p class="disc">トップの絵は、ページを開き直すたびに別の場所に変わります。<br>当サイトは個人運営の非公式攻略サイトです。</p>
@@ -127,7 +135,7 @@ var W=C.map[0],H=C.map[1],S=1,wrap=document.querySelector('.ode-top .mapwrap'),s
 var plate=wrap.querySelector('.plate'),nav=wrap.querySelector('.nav');
 stage.style.width=W+'px';stage.style.height=H+'px';
 // 地図だけを拡大する(名札と下の枠は拡大しない。文字が大きくなりすぎないように)
-function fit(){S=Math.min(wrap.clientWidth/W,2);stage.style.transform='scale('+S+')';wrap.style.height=Math.round(H*S)+'px';nav.style.top=Math.round(C.navTop*S+10)+'px';}
+function fit(){S=Math.min(wrap.clientWidth/W,2);stage.style.transform='scale('+S+')';wrap.style.height=Math.round(H*S)+'px';var nt=Math.round(C.navTop*S+10);nav.style.top=nt+'px';wrap.style.height=Math.max(Math.round(H*S),nt+nav.offsetHeight+12)+'px';}
 window.addEventListener('resize',fit);fit();
 var bg=stage.querySelector('.bg');bg.src=C.imgs.map;bg.width=W;bg.height=H;
 function el(cls,parent){var e=document.createElement('div');e.className=cls;(parent||stage).appendChild(e);return e;}
