@@ -20,7 +20,8 @@
 .ode-sub tr.hd{display:none}
 .ode-sub tr{display:grid;grid-template-columns:auto 1fr;border:1px solid #c8c8c8;margin:0 0 10px;background:#fff}
 .ode-sub td{display:block;border:none;border-top:1px solid #e2e2e2;min-width:0;max-width:none}
-.ode-sub td.img{grid-row:1 / 3;border-top:none;border-right:1px solid #e2e2e2;display:flex;flex-direction:column;justify-content:center;padding:4px 6px}
+.ode-sub td.img{grid-row:1 / 3;border-top:none;border-right:1px solid #e2e2e2;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;padding:4px 6px}
+.ode-sub td.img .inote{flex-basis:100%;text-align:center}
 .ode-sub td.nm{border-top:none;font-size:14px;white-space:normal;padding-top:6px}
 .ode-sub td.pl{border-top:none;white-space:normal;padding-bottom:6px}
 .ode-sub td.ds,.ode-sub td.nt{grid-column:1 / -1;max-width:none;min-width:0}

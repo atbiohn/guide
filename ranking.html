@@ -98,6 +98,26 @@
 .ode-rank .calc{background:#f4f6fa;border:1px solid #d5dbe6;border-radius:4px;padding:4px 14px;margin:8px 0}
 .ode-rank .calc summary{cursor:pointer;color:#3d4b66;font-weight:bold}
 .ode-rank .calc ul{margin:4px 0;padding-left:1.4em}
+/* スマホ幅(2026-10-17): 列を詰める。説明の列(td.nt)がある表は、説明を名前とバーの下の段に回す */
+@media (max-width:600px){
+.ode-rank details.rkbox .body{padding:8px 6px 10px}
+.ode-rank th,.ode-rank td{padding:3px 4px}
+.ode-rank td.r{width:2.2em}
+.ode-rank td.nm{width:auto}
+.ode-rank td.v{min-width:0;width:38%}
+.ode-rank tr.s1 .cn,.ode-rank tr.s1 .bar b,.ode-rank tr.s1 .rk{font-size:18px}
+.ode-rank tr.s2 .cn,.ode-rank tr.s2 .bar b,.ode-rank tr.s2 .rk{font-size:16px}
+.ode-rank tr.s3 .cn,.ode-rank tr.s3 .bar b,.ode-rank tr.s3 .rk{font-size:14px}
+.ode-rank table:has(td.nt){display:block;border-top:1px solid #c8c8c8}
+.ode-rank table:has(td.nt) tbody{display:block}
+.ode-rank table:has(td.nt) tr:has(th){display:none}
+.ode-rank table:has(td.nt) tr{display:grid;grid-template-columns:2.2em 46px minmax(0,1fr) 40%;border:1px solid #c8c8c8;border-top:none}
+.ode-rank table:has(td.nt) td{border:none;width:auto}
+.ode-rank table:has(td.nt) td.r,.ode-rank table:has(td.nt) td.i{grid-row:span 2;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ode-rank table:has(td.nt) td.nm,.ode-rank table:has(td.nt) td.v{display:flex;flex-direction:column;justify-content:center}
+.ode-rank table:has(td.nt) td.nm{white-space:normal;min-width:0}
+.ode-rank table:has(td.nt) td.nt{grid-column:3 / -1;min-width:0;padding-top:0;color:#555}
+}
 </style>
 <div class="ode-rank">
 <h2>仲間いろいろランキング</h2>
