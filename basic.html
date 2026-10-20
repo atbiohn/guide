@@ -55,7 +55,11 @@
 .ode-bi .bug .bx{flex:1;min-width:0}
 .ode-bi .bug img{display:block;width:100%;max-width:400px;height:auto;margin:4px 0 2px;border:1px solid #e3b5ae}
 @media (max-width:520px){.ode-bi .mk{font-size:9px}}
-</style>
+.ode-bi .wps{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px}
+.ode-bi .wp{display:flex;align-items:center;gap:6px;border:1px solid #c8c8c8;background:#fff;padding:3px 8px 3px 3px;min-width:7.6em}
+.ode-bi .wp img{display:block;background:#2b2b2b;padding:2px;image-rendering:pixelated}
+.ode-bi .wp .hd{font-size:11px;color:#fff;background:#7a5aa8;border-radius:3px;padding:0 4px}
+.ode-bi h4{margin:14px 0 4px;font-size:14px;color:#3d4b66}</style>
 <div class="ode-bi">
 <h2>基本情報</h2>
 <p class="lead">遊ぶ前に知っておきたい、このゲームのあれこれ。説明書には書かれていない細かいところまでまとめました。</p>
@@ -145,10 +149,52 @@
 </table></div>
 <p class="box">歌のアイコン4つは主人公以外のキャラにも表示されるが、カーソルは止まらずに飛ばされる。主人公でも、その種類の歌を1曲も覚えていないときは選べない。</p>
 
-<h3>戦闘の流れ</h3>
+<h3>武器と防具と魔法のイロハ</h3>
+<h4>武器</h4>
+<p>武器は全部で9種類。</p>
+<div class="wps">
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVHhe7de7bcQwEEXRLUOhynAZDl2GQpehUlSKO7JjHgEiCO3KXPENcJMZ/t7N+HhQ8zz/3hnz7soNd8O8u3LD3TDvrtxwN8x7OvCyLAXOeycCbLQSARFQChDX90YE2GjFwOL63ogAG62s61qwbVtB70IiwEYrERABxwKkNyERYKOVCBhdgIHeTUgE2GjFABEwmgBRgChAWoWsX1OB8xoRYOMsBhYDSwS8uwADKEAUIJ73s04F3t9KBNg4iw82sBhYPC8CehcgBlCAKMDAn9Mx3l8jAmw8mwgYXYDUhNQCf38c43rvlwiw8WoiYHQBcjawnyHxPO+PABtXEwGjCfCBzn1wLXDr3PsiwMar8YHOI+BuAnyQAV0vrjeQ5zt3v+dHgI1n4wNrDxLXG9Dznbvf8yPAxtUYwLkYqDWwRICNq4mA/xZgueBqFOJnybn7a5h3V264GgNGQARcLCCVSg1Vf7M/7Rqr40FhAAAAAElFTkSuQmCC" width="32" height="32" alt=""><b>短剣</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVHhe7dfBbcMwEERRl6GjykgZOqaUlKFSVEo6Ss58BEIIlh2KnAX+Zbm79vyDAT8e1LquPyNj3qpcGA3zVuXCaJi3KhdGw7zDB24RATZmIwJsyL7vf+L83YgAG2Jgcf5uRIANMfC2bQXHcRS43zsRYEMiYHYBMpqQCLDRIgJmFyAGvpuQCLBxFgNGwGwCxMAK8UfU/XcTATaeJQJmFyCvFrJ/LgW+t4gAG1cTAbMLEAOfFfK9LwW+nyUCbLwaA0bAbALEwAox8LaUeO8sEWDj3UTA7AKkFfjro8R377WIABv/TQSMJqD1Z+VsYO/57r6fJxFg42r8wr5HwGwCxHkxkIG957v73o8AG1fjFxTnxQAG9J7v7ns/Amz0joEMrBDnvRcBNnrHQBHwrADLgd4xoDhv3qpc6B0Di/PmrcqF3jGwOG/eqlzoHQOL8+ZNpVJz1y/5pKGLV4GuDQAAAABJRU5ErkJggg==" width="32" height="32" alt=""><b>片手剣</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVHhe7dexDcIwEEBRxkiZMRgjJWOkZAyPklHYCGp/JE5WgMS+b+k3l8TSvQouF5xt256fKqVUzfPcVdz37XBhJoAAgwHwBS64LEvVcCAccCEBBEgGsK5rFRccDUQADgTIDsBGBxGAAyZAdgA2GogAHEQJkB2A9Q4iAAetCZAdgPUGIgAHexMgOwA7O4gAHHw7AbIDsL0g/J73s/t1quJzATj4dVxAgGwAjAu1gvA+9ihTFZ8LwMG/EyA7AGsF4fNoYSYAB0cnQHaAqGjh6IcPE4CDsydAeoDbVMWF+ZzxPgE4OHtcSIDRAKKF+D6LvuefKQF4wdFFC/B9Fn0vAAF4eGHvRT+cuL8AvKD3BGgF8Hg8qc4LfnfWGUBw870AAAAASUVORK5CYII=" width="32" height="32" alt=""><b>両手剣</b><span class="hd">両手</span></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFESURBVHhe7dmxjYNAEIVhl0FIGZRBeGUQugxKocO7eL+VvNrDYGn9RvoT2GHm/UgkPB7UPM+/I2PeqmwYDfNWZcNomLcqG0bDvN2Bj+Mo8P7VOH/f94J1XQvslwjwQgsX8P7VOD8CrhbgQDm7QC/PZXrJOpXYLxHgBTGwRMBoAgzQCrxt20t8nji/xf4zFURABETAewUYUAEGvBv3cV/PL8tS4AuIgAiIgFKAA8QBd+M+BvJ8BERABJwT0PrI3E3vfhEQAREQAREQARHwfwHigLtxHwN5PgIiIAL6BPhRcaAD7sZ93NfzERABEdAnwAO9A8XnifNbnP0RIhHgBReMgG8TIAoQhZwN2OLyn6NiYImACBhcgCjA+1cTAREQAZ8V8GkiIAIi4L0CLA+MhnmrsmE0zFuVDaNh3qpsGA3zplKp764/W2c0ZTvObzwAAAAASUVORK5CYII=" width="32" height="32" alt=""><b>斧</b><span class="hd">両手</span></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVHhe7ZaxEYMwDEUZg5IxMkbKjEGZEVIyChsmtZ8Lnc/iAubp7jUCjP4rdJ4m1LIs3yPZXnPB+1HymUv4fS/MWxU/yEYBCjiZAL6QTRSYUMAT8PxeFMBGNgoYXcC2bQXruhZQwL7vBa0CqvPxf84XoQA2WuEA1YAKGFxABAMSBmQgPuf5vSiAjWwYmDCgAq4uoFpSo1+EiAIUcHMBhAGzL0L8XysKYCMbBlTAaAJ4ceGA0RJkQJ7H5/x/LwpgoxUOrIC7CYhg4IhoCfL8XhTARjYMGKGA0QRwCWZfhLg0+f8IBbCRjQJGF8ABqgFHvwhxYAUo4GYCIhiYcOkRBShAAdcWwCVIGJgoQAEKuLYAQgFcikcHJgpg42gUoAAFKEABZxLA4gvZ/FsA81bFD7JRgAJOLsCyrFvVDzi3+4vaGTx5AAAAAElFTkSuQmCC" width="32" height="32" alt=""><b>杖</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFDSURBVHhe7dexjcMwEERRl+FQZVwZCl2GwitDpajDc8xn4IiFBFoAZ4GfrMnFzg8I6/GglmX5u5LjOBr8fTTm/SgvnCUCIuDmAjxwFgPv+/4v3h9NBNg4SwTMJmBd1wYFbNvW4HnnjSYCbFQxUATMJsBHTQEGFueNJgJsVImACIiACIiAmQUYWCEGFueNJgJsVImACDgnwI8lqc53vx4RYKNKdUExsFTnu1+PCLBRpbqgGFiq892vRwTYqFJdUAws1fnu1yMCbFSpLijOk/31bPj9aVmfLd7vEQE2qkRABLQCxMDiPImACIiAewvw0YuACIiAuQQYSAF+3HjeeRIBERAB9xYgCvCRFAVJb15VqESAjbP0FhYDS29eBNxNgBjAhQ0s3o+ACIiAawVYHvg2V/8RMu9HeeHbREAEDBaQSqWmqjdVMko40wYauAAAAABJRU5ErkJggg==" width="32" height="32" alt=""><b>槍</b><span class="hd">両手</span></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFtSURBVHhe7dqxcQIxEIVhyiC8EghdxoUOXQKhS3B4JbgESqAzO9bHjDUa6TwHejvzJ7taofcHJHA6Ucuy/OzJtm0FzvfGvA/lwmgiIAIOJsADo7ndbgXruhZcr9cC9/cmAmyMJgJmE2BguX99FChAvH80EWCjFwNLBLy6gBoKcP7fRICNvYmACIiACIiAVxKwvZ//5POtRAHr+Vzgeed+fi8RYKMVA4uBIuDZBBhIfLAYoCZAvE887/trRIANMbD4IPGBEXB0AQbs/QBRgPNWfJ+CPC8RYCMCZhNgYA+MZrSAGgpyHgERMLsAG3v/gWFvAa0/rESAjQiYXYCMFnJf1wLnrbQGlgiwIREwuwBpFfJ9uRQowLn70htYIsBGjQiYXYDUHmTgGu7X7u8lAmy0UnugAWu4X7u/lwiw0Yt/hjagX3rO3ff+0USAjV4MYMAIOJoAywO91AIqxP3RmPehXOglAiLgyQSkUqmp6hfnSUMaiorzDAAAAABJRU5ErkJggg==" width="32" height="32" alt=""><b>弓</b><span class="hd">両手</span></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVHhe7djNacNgEIRhl+Gjy0gZOaaUlOHS0lFy1iPIsEgIJM0H70U7+zNzMCGPB+/1ev1eGf2ung1XQ7+rZ8PV0O/q2XA19Ds2/Pl8Lvh5L/n++J/315K96+L90gD8kGgAdwtAgx5g3QPUH13XjzQAP4gGXWjdA9QfXdePNAA/aMgF6s9OA/BDA7hbANM/bBwg9hvg3rh/SgNoAHcPIB1sQ9LLNMAp7hP10gCSIRuSXhrA2QNIdQcmDMR5CefJ9N4GkBpS3YGJBnC2AMQB4rxk2H5x3t79DSAJxAXivAZw9QBSv/qtTPclfQNIApkuUL+V6b6kbwDpR0qmC8T+KWnfVN8AGsDdA5g2iP3WRf2UdJ966/4TuAHYkBaI/dZF/ZR0n3rrDSAFkH4U1VsX9VOSYQ1Z14/zG4AfbHCgeuuifkoDODoAcYAL1It65yU0KGm+90gD8IM40IXqRb3zEhqWNN97pAH4IeGC6QEamNan+xINwA8JF04PSgZTfbov0QB8CrbiwRpM9a0GRb+rZ8NWksFUbwAN4OAA+vr6bvX+AGBpC7hXUlI+AAAAAElFTkSuQmCC" width="32" height="32" alt=""><b>ムチ</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVHhe7dfRjQIxDIRhStkyKINSKIVS6PDueb+Vzoq8gSOMpf/FG8cz8xDB5UJt2/azMvo9lAOrod9DObAa+j2UA6uh35cbfj6fO/z+ahKAjdkkgG8L4PF4DOH8bBKAjbPRYIXzs0kANip8xCoD9/t9x/V63eF3573f/Z4fJQHYqFCAAj2vwQTw6QEoSEO32+1Puufdr75REoCNCgUoUAPSPe9+9Y2SAGyMUgnu4v3u75IAbIyiQA108X73d0kANsRHxx8uCtRAF+93v/rUX5EAbIgLFKBADXTxfverT/0VCcCGfzZcoMB3oz71608SgA0vcIEC3o361K8/SQA2xAU+Qj5SCuzi/e5Xn/orEoANcYECFKiBLt7vfvWpvyIB2BhFgRro4v3u75IAbIyiQA108X73d0kANip8dCrB0j3vfvWNkgBsVChAgRqQ7nn3q2+UBGCjwj8blSB/uGjI7857v/s9P0oCsFGhAAV6XoMJ4NMDGEUDFc7PJgHYOBsNVjg/mwRgYzZnP2JdEoCN2SSA/xaA5YHV0O+hHFgN/R7KgdXQ76EcWA39plKp765f7jNlKVBUxp8AAAAASUVORK5CYII=" width="32" height="32" alt=""><b>手裏剣</b></div>
+</div>
 <ul>
+<li><b>どの種類の武器を装備できるかは、キャラごとに決まっている</b>。1人が使える武器は1種類だけで、途中で変わることはない</li>
+<li>武器の種類によって当たりやすさが違う。前列どうしならどれも同じだが、<b>自分か敵が後列にいると差が出る</b>(短剣は特に当たりにくくなり、杖・槍・弓・手裏剣は下がらない)。くわしくは <a href="formula.html">計算式</a> へ</li>
+</ul>
+<h4>防具</h4>
+<div class="wps">
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACwSURBVDhPpZOBCcAgDAQzimM4hqM4iqO4YcsLH74xBWkLT6rmT5NaMzMrpVxfBG9qnnO6xhhX733LcYgOkAgTYmvNVWtdcxnoAcBuuruegCDEFKBmvEcpJAVAWKSQzGNDb5AFiDsjkSCuKUzLcADLQGQi5nkShRwBEGlG5NprCdEYRUPaxJOOa4M3AEWTJuo4mjdANMTxEQDid4dg0rK0HwugP1S8vrwPegfYaDf/fW5eULjskzyi3gAAAABJRU5ErkJggg==" width="32" height="32" alt=""><b>頭</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVDhPpVOBCcAgDOspnuQpnuIpfuiIEIm1ONBBp61pTAOamVlKqd8Eeq+bJwl+rbUZyEspvdY6a9ijFmENhwTnnMcKMAI5gjlwyInHatzwkASRAiVgzXgLApJ4oFKVFBjt2UxUuV4BfdhM1NC5VaqqPBIoiQ+PCwm80xyBNY9fCKL5/3xYCHR2lczb6cWRgOCIIPJi8yACnepPD2o0v34f1D/DhBJTHfMAAAAASUVORK5CYII=" width="32" height="32" alt=""><b>体</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC2SURBVDhPtZOxDYQwDEU9BmXKGyEjUGYMypQ3wpUZJRvm9H36kRWCAaFDsmxh/2cTExERCSE0WM5ZvWcppR5D28UxRk0CUkpptdb2josaYrxDDjWo7RALgCcAws/6M8QE2NodgBOwKwGc5nSC7bWo2e52CuYPAfBngP9+gt3C0SG6AHi7RjvBrS14AHcCAgghgGIY6qaAETIDjN1dALfB078EIIQgAigcxQqwF2oEzf68nfjp8wW3ZKd8wj9fEQAAAABJRU5ErkJggg==" width="32" height="32" alt=""><b>盾</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVDhPY2BgYGBQUFD4Tw4G6cXQ3OEh8X9GBASD2DBcYQHBGRoS/yMkJBCGUN0AmGayDQBhkCKYQmwYWS1WA5BdALMZm+0EDUA3hGgDkA0h2wBYbFDNAGyacRoAUojuBeSYwWsASDFZgYhPI0EDkDWh2wjCyGx0F4MzFEwSHcMU4fQ/NQAALGF2lIljEYEAAAAASUVORK5CYII=" width="32" height="32" alt=""><b>足</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPpZPRDcMgDEQZI5+MkE/G8CiMkU9G6AiM0M1SHZIr+3AoUiOdLB65s4lISimlnPNtJSKj1lqHLLOCdzKXUlx9Yt8QBugYvah7zFwAG1trg2ll8xSwY2CFE+yaXQB3xZr3LJsCoq5gzHntjtB7f5xCzczCb4Agyy1bTsBB6KYd2bgMgOyliS7QzwDodZ5DzLcCYHyL3NdxLEPCH0oFM8Tcmf99Prcsanx86oAIAAAAAElFTkSuQmCC" width="32" height="32" alt=""><b>アクセサリー</b></div>
+</div>
+<ul>
+<li>盾以外の防具とアクセサリーは誰でも装備できる</li>
+<li><b>両手剣・斧・槍・弓は両手持ちなので、これらを使うキャラは盾を装備できない</b>(判定はキャラの武器の種類で決まるので、武器を外しても装備できない)</li>
+<li>アイコンに<b>杖の絵が添えられている防具は、属性の攻撃を軽減できる</b>
+<div class="wps">
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADPSURBVDhPpZPBDcIwEARdRp4pw2X4SRl5UoZLcSl0FLTAnNYXSyARaWWT3M5tLqaUUsq+7+evevQtJO/SPMYI9d7P4zjC3G9v3esH4kYVyqS1tRaqtQaA2iVA3bx7TiCTunuaALhZ+ywgbtZ+SqCoSNFlQnkWShOA3FmFgHiWB3kB8Bpa6ar7JKGG7m37AtCKWSvPPP4F4MYsDJyDCbCauH9/iZmQYgIgTF7svx0wDdGVi1cAT3EBSHx3SSZ/LeYRAP9D5ePLeWCPALzM/15PH2bJvM3G+PMAAAAASUVORK5CYII=" width="32" height="32" alt=""><b>マジックヘルム</b></div>
+<div class="wp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADVSURBVDhPpZOxDcMgEEUZg9JlRmCElC49QkrKjJCSUTxKNsL6WM86MKBIsXTyGfjvPgd2zjm3LEtWxBjLexbf5K+Q9hKHEPK6rgWSUsr7vud38CWUI07bGRovEAvAhQBa8HmeoRwA67sAHFAVAA40rurWTQV4PXwJW711YcXKb1uYATQHAODPW7B9oIlDQK+JGrPVN98B6G2P0TpoAeiGDkYA7sEUAASAcsZxcQO0kB5Ac+02hgBOQ8G35ugVLioAEEAAECKuAPaHakHcTCu0gCL+9zkAGJuyrA48LkwAAAAASUVORK5CYII=" width="32" height="32" alt=""><b>火の盾など</b></div>
+</div>
+<div class="ex">アクセサリーの属性のペンダント(火・水・地・風)は、杖の絵がなくても軽減がある</div></li>
+</ul>
+<h4>魔法(歌)</h4>
+<ul>
+<li>このゲームの魔法にあたるのが歌。力の歌・守りの歌・癒しの歌・古の歌の4種類があり、SP を使う</li>
+<li><b>歌えるのは主人公だけ</b></li>
+<li>戦闘で歌を選ぶと、<b>素早さに関係なく必ずそのターンの最後</b>に回る</li>
+</ul>
+
+<h3>戦闘の流れ</h3><ul>
 <li><b>パーティー全員の行動を先に決めてから、ターンが始まる</b>。行動を決めるのは左の枠の人から順番</li>
-<li>ターンが始まったら、<b>実際に動くのは素早さが高い順</b>(枠の並びの順ではない)。ただし<b>歌を選んだ主人公は、素早さに関係なく必ずターンの最後</b>に回る</li>
+<li>ターンが始まったら、<b>実際に動くのは素早さが高い順</b>(枠の並びの順ではない)。歌は例外で、ターンの最後に回る</li>
 <li>行動を決めた時点で、その分の道具は数に入れられる。<b>左の枠の人が選んで在庫がなくなる道具は、右の枠の人は選べない</b>
 <div class="ex">例: 上の画面で、赤色の小ビン(残り1個)をホイヒューに使うよう決めると、ホイヒューより右のスリム・ドムカは赤色の小ビンを選べない。ホイヒューが使う前に HP が 0 になって、小ビンが1個そのまま残っても、全員の行動は最初に決めてあるので、そのターンはスリムもドムカも使えない</div></li>
 <li>SP も同じで、<b>ターンの最初の時点で SP が足りないと歌を選べない</b>。リュッケルトより素早い仲間に SP を回復する道具を使わせるよう決めても、そのターンに足りない歌は選べない</li>
@@ -190,10 +236,6 @@
 <tr><td class="no">⑬</td><td class="nm">リュート性能</td><td>○ボタンでリュートの性能の画面に切り替わる</td></tr>
 </table></div>
 <p class="box">本作には「HPが最大HPの○%以下になると逃げる」のような条件がいくつもあるのに、最大HPは見られない。気になるときは、宿屋に泊まった直後のHP(= 最大HP)を控えておくしかない。</p>
-<ul>
-<li>各キャラが装備できる武器の種類は、あらかじめ決まっている。盾以外の防具とアクセサリーは誰でも装備できる。</li>
-<li>盾を装備できるかどうかは、そのキャラの武器の種類で決まる。両手剣・斧・槍・弓は両手持ちなので、これらを使うキャラは盾を装備できない。</li>
-</ul>
 
 <h3>陣形</h3>
 <p>陣形は3種類。<b>何人目が後列に回るか</b>だけが違う(1〜4人目はフィールドの「順番変更」で並べ替える)。点の上の段が前列、下の段が後列。</p>
@@ -223,4 +265,4 @@
 </ul>
 </div>
 <script src="menu.js"></script>
-<!-- 完成版(2026-10-12 ユーザー確認済み)。スクリプトで上書きしない。追記するときは tools/basic_info.ps1 を直し、この印を外して流し直す -->
+<!-- 完成版(2026-10-12 ユーザー確認済み・2026-10-20 イロハの節を追加)。スクリプトで上書きしない。追記するときは tools/basic_info.ps1 を直し、この印を外して流し直す -->
