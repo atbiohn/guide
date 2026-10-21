@@ -1,0 +1,387 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>縛りプレイ</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVHhe7da7jcNADEVRl6FQZWwpLsVluLTtaB3rKCAILvSB3wA3GXL4uYGgx4Ozruvfnfh9Ly3cd3dscHVcsMJ9d8cGV8cFK9x3d2xwdVywwn3/feH3c9lgfIoL2U9eP1t8HwE2mOIAxqe4gP0kAo4WYAMHMr+L9Y1LBERABJwrQKZCXKiqV/WPAB9MsaE4gO8rIuDuAsSBrNelWz8CvJjiABXVgF269SPAiynVAMbFfOtXWM+PpvkR4MUUB3Ah42K+9SusFwFnCzDuguYb971U7yMgAiLgWgLEgbvvzXfh57LF9xHgxRQHMi4R8O0CpPvefAWYLxHgxRQHMl7RfW9+BNxNgB9BMV/MF/MlAryYEgERMBNgvEu3fwR4MaU7QARcXYAD2qCiqmd8iv2rH6MI8EIc2AYVVT3jU+wfAV0BDmjBCt9b/2icz3gEeOECFqjwvfWPxvmMR4AX4kIWNO77s3Fe4xHghbigBY37/myc13gEeEy4Owpw392xwN2JgAhoCsjJyfmq8wFHRFQp9yI5gAAAAABJRU5ErkJggg==">
+<style>
+.ode-sb{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222;line-height:1.7;max-width:880px}
+.ode-sb .lead{margin:8px 0 12px}
+.ode-sb a{color:#2a5a9a}
+.ode-sb .toc{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 6px;padding:0;list-style:none}
+.ode-sb .toc a{display:inline-block;padding:3px 10px;border:1px solid #c9b48a;border-radius:14px;background:#fbf7ee;color:#5a4320;text-decoration:none;font-size:12.5px}
+.ode-sb .toc a:hover{background:#f3ead6}
+.ode-sb .toc .dg a{border-style:dashed}
+.ode-sb .common{background:#fbf7ee;border:1px solid #cfc4ad;border-left:6px solid #c9a227;border-radius:4px;padding:7px 12px;margin:10px 0 8px;font-weight:bold;color:#4a3a24}
+.ode-sb .common ul{margin:4px 0 0}
+.ode-sb .common .cl{display:inline-block;margin-right:10px;padding:0 8px;border-radius:3px;background:#4a3a24;color:#fff;font-size:12px;font-weight:normal;vertical-align:1px}
+.ode-sb .grp{margin:34px 0 0;padding:4px 0 4px 10px;border-bottom:2px solid #4a3a24;font-size:15px;font-weight:bold;color:#4a3a24}
+.ode-sb .grp small{margin-left:8px;font-size:12px;font-weight:normal;color:#666}
+.ode-sb .rule{margin:22px 0 0;border:1px solid #cfc4ad;border-radius:4px;background:#fff;overflow:hidden}
+.ode-sb .rule h3{display:flex;align-items:center;gap:8px;margin:0;font-size:16px;color:#fff;background:#4a3a24;padding:7px 12px;letter-spacing:.04em;border-left:6px solid #c9a227}
+.ode-sb .rule h3 img{flex:none;image-rendering:pixelated}
+.ode-sb .rule h3 .tt{flex:1;min-width:0}
+.ode-sb .lv{flex:none;margin-left:auto;font-size:15px;letter-spacing:0;white-space:nowrap;color:#f2c94c}
+.ode-sb .lv .of{color:rgba(255,255,255,.22)}
+.ode-sb .lv .mb{color:#f2c94c;opacity:.45}
+.ode-sb .dbg{display:inline-block;margin:6px 0 0;padding:0 8px;border-radius:3px;background:#6b4a8a;color:#fff;font-size:11.5px}
+.ode-sb .bd{padding:4px 14px 10px}
+.ode-sb h4{margin:10px 0 4px;font-size:13.5px;color:#4a3a24}
+.ode-sb h4::before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;background:#c9a227;vertical-align:1px}
+.ode-sb ul{margin:4px 0;padding-left:1.4em}
+.ode-sb li{margin:2px 0}
+.ode-sb .hard{background:#fdf1ef;border:1px solid #e3b5ad;border-left:4px solid #c0392b;padding:6px 10px;margin:6px 0 2px}
+.ode-sb .hard p{margin:0 0 4px}.ode-sb .hard p:last-child{margin:0}
+.ode-sb .hard p.big{font-size:15px;font-weight:bold;color:#a8321f;white-space:nowrap;overflow-x:auto}
+.ode-sb .dnote{margin:8px 0 0;padding:6px 10px;background:#f3eef8;border:1px solid #d6c8e4;border-left:4px solid #6b4a8a;font-size:12.5px;font-weight:bold}
+.ode-sb .note{margin:6px 0 0;font-size:12.5px}
+.ode-sb .ban{display:flex;flex-wrap:wrap;gap:4px 10px;margin:4px 0 6px;padding:6px 8px;background:#faf8f3;border:1px dashed #cfc4ad;font-size:12px}
+.ode-sb .ban span{display:inline-flex;align-items:center;gap:3px;white-space:nowrap}
+.ode-sb .ban img{image-rendering:pixelated}
+@media (max-width:600px){
+.ode-sb .rule h3{font-size:15px;padding:6px 10px;gap:6px}
+.ode-sb .lv{font-size:13px}
+.ode-sb .bd{padding:2px 10px 8px}
+}
+@media (max-width:374px){
+.ode-sb .rule h3{font-size:14px;padding:6px 8px;gap:5px;letter-spacing:0}
+.ode-sb .rule h3 img{height:24px;width:auto}
+.ode-sb .lv{font-size:11px}
+}
+@media (max-width:330px){
+.ode-sb .rule h3{font-size:13px}
+}
+</style>
+<div class="ode-sb">
+<h2>縛りプレイ</h2>
+<p class="lead">わざと自分に不自由な決まりを課して、もう一度群島を旅する遊び方。勝手に逃げる、勝手に技を出す――このゲームならではの「思いどおりにならない仲間」が、縛りをさらに厳しくする。難易度は★1〜★5。</p>
+<div class="common"><span class="cl">全項目共通</span><ul><li>戦闘からの逃走禁止。エンカウントした雑魚は全て相手にすること。</li><li>無意味にうろうろしてレベル上げをするのは禁止。</li></ul></div>
+<ul class="toc">
+<li><a href="#s7">歌えない詩人</a></li>
+<li><a href="#s17">十八番(おはこ)</a></li>
+<li><a href="#s8">手助け無用！</a></li>
+<li><a href="#s9">ハルモニアの刀狩り</a></li>
+<li><a href="#s4">本日もメニューはございません</a></li>
+<li><a href="#s15">拾い食いはやめなさい</a></li>
+<li><a href="#s18">ご利用は計画的に</a></li>
+<li><a href="#s20">残機ゼロ</a></li>
+<li><a href="#s2">クスリ、ダメ。ゼッタイ。</a></li>
+<li><a href="#s3">全裸でGO</a></li>
+<li><a href="#s1">死ぬまで生きろ</a></li>
+<li><a href="#s10">ビビりの所作</a></li>
+<li><a href="#s11">お金で買えない旅がある</a></li>
+<li class="dg"><a href="#s12">癒しは専門家にお任せ</a></li>
+<li class="dg"><a href="#s13">推しと行く二人旅</a></li>
+<li class="dg"><a href="#s19">孤独な人生</a></li>
+<li class="dg"><a href="#s6">子供と保護者のわくわく遠足旅</a></li>
+<li class="dg"><a href="#s14">三角関係は慎重に</a></li>
+<li class="dg"><a href="#s21">幽霊屋敷はメモ魔の独擅場</a></li>
+<li><a href="#s5">自由の翼</a></li>
+<li><a href="#s16">運命の選択</a></li>
+</ul>
+
+<div class="rule" id="s7">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVHhe7drBbYNAEIVhl8GRY0qgDI4pIUeOKYNSKCUdJef9LHmEMLGBt9J/2Vlm3/yRLGTndmP1ff/7iGmaGqz/N+M4NlgX571bPiAREAEnE+ABGYahwQsVMs9zg/3mz67B+rIsDfbzPvOY1/4SAW6IDb3QQAa2XwQcXYB1AxnY8z9z11AJsZ/3eb7KKxHghlQNDWRgz0fA0QX4oWOg76FrsJ8CpBLifeYxr89LBLghNvRCA0XA2QV8fXQP2SpAKiHeb17PSwS4ITb0QomAswuwboC1Aqq6VEKqvBIBbkjVMAKuJsAXD19MtgoQz0dABETAewvwCwz7OZD1rQLNa10iwA2xYQRcXYD1ZwvwhxHr1fNVXokAN6RqGAFXE7D3h6D44iOeN691iQA3xIYREAGtAM9XbBVg3XzieYkAN8SGEXA1ARUGdMCKqp91/wBrB5YIcGMtBnbAiqqf9Qh4tQADOlCFz1dfgPiiFQEREAGvFSAOtHXgakDx+bVEgBtrccAIOJoAlwf2xn+wePaA4rx3ywf2JgIi4M0EZGVlXWr9AUtFFrg3ZqunAAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">歌えない詩人</span><span class="lv">★<span class="of">★★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>全ての歌魔法禁止(シナリオ進行上必須の歌のみ可)。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>歌魔法は必中で、属性が合えば大ダメージが狙える強力な技。これがすべて封じられる縛りだ。</p>
+<p>…一見地獄のように見えるが、本作には火炎薬と風針薬という強力な攻撃アイテムがある。これらをうまく利用していけば、案外簡単にクリアできる。はじめての縛りプレイにおすすめのコース。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s17">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACZSURBVDhPpdPRDYAgDEXRjsEnYzgGn47iGIzCKG6Eqabk0QpWNSEGwz0BEomIKMZYvwxuH+O8BvOtQ9rCnM+hF+w5TJEOSCnVUooBZkh3hDtEgBFi7oBjRCQcIQZARAB+C+ICBEEAERcgQwd6/grgHbiPoIE12HgI4K3zwHhbrvkQ0LGEHHHMc0QMgIjeMiIN8PxQGuniv88Bd/F/DMI2dh4AAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">十八番(おはこ)</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>使える歌魔法は、基本の4つ(炎の槍の歌・氷の矢の歌・落石の歌・真空の歌)のうち1曲だけ。最後までその1曲で戦う。</li>
+<li>守りの歌・癒しの歌も禁止(シナリオ進行上必須の歌のみ可)。</li>
+<li>攻撃アイテムの使用禁止。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>歌うたいたるもの、持ち歌は一つで勝負。どの属性を選ぶか、最初の選択が最後まで響く。</p>
+<p>選んだ属性が効きにくい敵が出てきたら、もう歌では手も足も出ない。歌で守ることも癒すこともできないので、仲間のみんなで補助してあげよう。</p><p>歌えない詩人では使えていた攻撃アイテムも使えなくなっているので、むしろ難易度が上がっている。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s8">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVFhHxVQxbsMwEPMTOvoJHjNmzJjRY0ePHTP6CR479rcpKIAGRUs6NwpQARdJdzyKupMzfC23J2x93JPpfprGg+97+8zivfkDN/N82YFYM5ExxtWvxK/kJwH4uV2ntMGsa/e5v+TzeJSfKoCyqDKuAdBb0k884z35ewswQ5WXSP0wXTPek58JgEPJtFSaVBPwSv7ABwKDg+tx/Eh7zLASRte+P5ufHuF/2oDhTr5cfb3qL/laMV/T0uEYHsQaJXJyGmOOYWkdV7JMgPbk7K3U9KAS1kVxnwnQRLd5mZ/LY0mzx9wirJ51qABfrqrGHoTrtqaZJF6FGtZvXawAvlt+uwqiWr8VY8jhzP+BGlZzmJcJ0JsQyFvxZlpGF0GxLazyZhVQAi/p5X7NboW9485gOfOsTECtBVpS9lWJFcfDYYr1KpxugQoA4fazJVIeRBF6OGZggEVOTQDP2QXogSUBrAAJ/cYqJqoArdkC7WtJAGNqincByvmnFrAKbiylkp3Bcn2qBUocmQvxmPtgzRY4gZOUfC1/DbML0PJ7z3TvsZLP9+7T9S4Aw3uXBd8wQn5VWAR0jpAfPWkCOkfIz0dCkMd7R8gfAjpHyB8COkfIz2+UII/3jpCfgMOfxJtGjf8X5cxxLEtixrsAAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">手助け無用！</span><span class="lv">★<span class="of">★★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>ギルドで仲間を雇わない(シナリオ進行上必須のものを除く)。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>本来4人で進むゲームが、だいたい3人になる。</p>
+<p>龍族の村バルエコを出立する際は、強制的にメンバーを増やさなければならないので、ここはおとなしく4人に増やそう。その後、ライオネルが加入したら、ギルドキャラの枠をヴェラと交代して、宿屋に3回泊まって去ってもらう。以降はギルドキャラを一切使用せずにプレイ可能だ。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s9">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVHhe7ZaxEYMwDEUZg5IxMkbKjEGZEVIyChsmtZ8Lnc/iAubp7jUCjP4rdJ4m1LIs3yPZXnPB+1HymUv4fS/MWxU/yEYBCjiZAL6QTRSYUMAT8PxeFMBGNgoYXcC2bQXruhZQwL7vBa0CqvPxf84XoQA2WuEA1YAKGFxABAMSBmQgPuf5vSiAjWwYmDCgAq4uoFpSo1+EiAIUcHMBhAGzL0L8XysKYCMbBlTAaAJ4ceGA0RJkQJ7H5/x/LwpgoxUOrIC7CYhg4IhoCfL8XhTARjYMGKGA0QRwCWZfhLg0+f8IBbCRjQJGF8ABqgFHvwhxYAUo4GYCIhiYcOkRBShAAdcWwCVIGJgoQAEKuLYAQgFcikcHJgpg42gUoAAFKEABZxLA4gvZ/FsA81bFD7JRgAJOLsCyrFvVDzi3+4vaGTx5AAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">ハルモニアの刀狩り</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>杖以外の武器は全て使用禁止。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>武器なしでは、ほぼ全ての敵にダメージを与えることができない。武器なしだとクリティカルも出ないので、杖を装備できるエニクラウド・ピックマン・フィデレ以外は、実質ほぼ全員がおくすり要員となる。歌魔法・火炎薬・風針薬・爆発薬を駆使して戦い抜く縛り。</p>
+<p>前半はエニクラウドかピックマンの武器攻撃、中盤はフィデレの武器攻撃とファイアーボール、後半はサザシイとマキバのエアニードルが、薬以外の主戦力となるだろう。</p>
+<p>…で、なんで最終決戦のメンバーは誰も特技を持ってないんですかね…。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s4">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAESSURBVHhe7Zu7DcJAEAVdhkOXRVkug3IogRIInUF8Q7A6YXNr76w0ybsPehNhWZ4mzLIs70yst7lh254Nj3VueN2nBt5H2F8B3DAaBRwtgEE2egtRCOF+BTDIhgIU0CeAKEABCji3ABboFcLzXFcAg2ywgAKuLoAF+TDEQhE8z99TAIPRKKCagKgw9++NAhj8GwVUEzC6MFEAg6NRQDUBfJExujBRAIO9UUA1AdkLEwUw+BUFVBOQ7Y9NLwpg0IsCqgk4e2GiAAYRCqgmIHrREK3zvmwogAGJCkbrvC8bCmAQFeJ6dJ7r2VAAAxZQQDUB/ICChSJ4X3YU8BUooJgADjeQyxXm8ABRgAIuLsBxnFLzAfwbEhrb51sXAAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">本日もメニューはございません</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>メニュー画面を開くのは禁止(シナリオでアイテムを使う時は、それのみ使う)。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>回復は全て戦闘中のみ。わざわざターンを消費しなければならないほか、ボス戦前にしっかり回復することもできない。装備は戦闘中に替えるので、店で替えて古いものをその場で売ることもできない。</p>
+<p>だがそれよりも…アギーレ院長の部屋って鍵を使わないと入れないんだよなぁ…それってつまり…</p></div>
+</div>
+</div>
+
+<div class="rule" id="s15">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVHhe7dixbcMwEIVhj6HSZUbQGCo9gkuVGUNlxsiGSit/KohDGpF6BP7mwDve/woh8ePBeT6f+8joezo2jIa+p2PDaOh7OjaMhr7DC7dIABbuRgLYtm0/Ms/zBz+v6YPf9dq4rz76JgALNjjQB6+G++qjbwJY13U/YoMDe0MffROABRsc2Bv66JsALMj3PHWNPpIALIgDe0MfSQDLsuxH/Gi8pqlr9NE3AViwwYG9oY++CcBCFT8q/uDgPx9VnOd77lMlAVio4kIurFAV5/me+1RJABZaHw1xoZZAFef5nvtIyycBWGg1iAu5sEJVnOd77iMtnwRgQfzDoooLKyTed14VfSQBWBAHVlFIYfG+86roIwnAgh8NB76//oeC4v0q7quPvgnAgg0O9MEqCov3q7ivPvomgNYF8YGr4b6ibwKwYIP44NVwX9E3AfgR8oIDekMffROABRsc2Bv66JsAbPCCA3pDH30TgAUbHNgb+uibAPwR8m4kAAt3IwF4vDAa+p6ODaOh7+nYMBr6no4No6FvTk7Ovc8fc7DTuCs4tu8AAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">拾い食いはやめなさい</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>宝箱を開けるのは禁止(シナリオで必須のものを除く)。</li>
+<li>床に落ちているもの、骸骨の遺品を拾うのも禁止。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>ほとんどの歌魔法が宝箱に入っているため、覚えられる歌に制限がつく。</p>
+<p>これだけ見ていると歌禁止縛りよりさらに簡単なのでは？と思うかもしれないが、属性盾はどこにも売っていないことを覚えているだろうか…　敵の魔法攻撃はなかなかに痛いので、それを防ぐ手段もなくなってしまうのだ。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s18">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGxSURBVHhe7dkxbsJAFEVRluGSMktgGZQsIaWXQplleIdJGx9HekLYBMMb6TZ/xv7v32JkxOHAOh6P3785n88z3N8bzrtYPlABFfDiAjwg1+t1hvt7pwIsSAW8ugAvOQeepmmG+z5vg2enAhzAASvg1QVYEAd2XwHjOG5K6me+RAVYkAp4dwE2VMjpdJrxdRk2xX7mMX+iAixIBby7APHDSEHTOGzKoh95zJuoAAsJGy4C/RF6TRb9KuDBArx0/BB5NOYxb6ICLCRsaKBHYx7zJirAQsKGXkruf34Md+H7Uj/zJirAQsKGKZAD3YrvS/3Mm6gACwkvIX+cXIZhU+xnHvMmKsBCwoYGMvDa2M885k1UgIWEl1DCgF5a4nnflzBvogIsJGyYcCAHFs/7voR5ExVgIWFDLyU/ZMQBxfNiP/OI+aUCLCRsYCADiwOL58V+5hHzSwVYSBjYQH64rI39HNh85pcKsJCwgYEMvDb2q4D/FiAG2hr7+0eJ+wqsAAdM+EIx4NbYvwK2FvDsOLD7UgEW9k4F3CrA5YG94SXnvvMulg/sjQqogDsFdHV1vdX6AeGKYrh0qo+HAAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">ご利用は計画的に</span><span class="lv">★<span class="of">★★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>町や村を出る時、所持金は100GOLD以下にしておく。余ったら、何でもいいから買って使い切る。</li>
+<li>宿代も、もちろん手持ちの中から。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>後先を考えて貯金ができないので、お金のほとんどが薬に変わっていく。買った物は次の町で売ればお金に戻せるが、売値は8割。実質、もらえるお金が8割になる縛りプレイと考えると分かりやすい。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s20">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF9SURBVEhLnZQ7bsMwEERV5ghpXaZ06TaljuDWpcuUaV3qCGlT+iq6koK38BNGlPxBCCxILWdmh0tQXbcx9vv9dDweJ2bXRIvbHBKHy7ASYW7xmyOJSX7JRUvOYP+pizzCOI4VrJ8SGad+N72/76ach3O/yrW8brz+TL/nrjYPH28V1+GrvtljTQ4X5MCSKzIfkglAVgKkEDkFFCHKtmEVRbDvEcyDSU650DaBaoJTlL3Ezj2gig609913dQNaTTIYOEX2rJ5TADPXR2TV7E8dYUtAYMZdAax5hATrQkKKeoS6BRtk57OapNZVcrp8dWx6ddrUDTmaqgAcuLODEtkdpv7zVDMBkfBbUj64zqqlfBMwdLLIXYbZKXMJ2BirEIDtNGvzOpNXAnNTGgFFW4Fs+kpAcPZilUuBmXz7YazAjQCYBWehxmY00nP6zR6YdD0L+LCyqrl0M+PyGv8roOvFIGm3zbEmt0loh88XwqPc3QGQnwnzo9zd4ct7Nf8Ht5Nm9iedbgoAAAAASUVORK5CYII=" width="16" height="30" alt=""><span class="tt">残機ゼロ</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>主人公以外の仲間のHPが0になった時も、ゲームオーバーとみなす。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>ゲームオーバーの条件が、なんと4倍に。仲間は大事にしましょう。</p>
+<p>でも、大事にしたいから回復してって言ってるのに「スクリーン！」とかいう人いるんだよなぁ…。命顧みずにかばいに行く男もいるんだよな…</p></div>
+</div>
+</div>
+
+<div class="rule" id="s2">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">クスリ、ダメ。ゼッタイ。</span><span class="lv">★★★<span class="of">★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>小ビンのアイコンが付いているものは全て禁止。</li>
+</ul>
+<div class="ban"><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">赤色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">青色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">黄色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">緑色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">朱色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">桃色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">白色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">銅色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">銀色の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">黄金の小ビン</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">のどぐすり</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">聖水</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">しびれ薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">石化薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">守りの水</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">空飛び薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">煙薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">興奮剤</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">爆発薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">減速薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">火炎薬</span><span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFZSURBVHhe7dmxccMwDIVhj6FSY3gMlRlDY6TUKB4lGyU1PxY4nnIu4Ie7vwFF4uEvXCSPB7Xv+29n3HcqL3TDfafyQjfcdyovdMN9/33hY9sGrq+Rn2vEc/E9590lAmzcxcAuFAHdBBzHMXCe58Dr9Rq4rmvA731Pns/ngHlWiQAbqxjQhSKguwAxoAKqhb0vzrtLBNi4i4EjoLsAA7qQP3qVEPE955lnlQiwsYqBDBwB3QQYwIAu4MIK8fvqPc/NY96KCLBR4UADGTgCugkwgBj4roBVzFsRATYqHCguFAHtBfBHS3Hh721bopwXAREQAREQAREQAREQAREQAREQAREw5a2IABsVDpwCRUAERMBnC+BcAZ4vU8wzb0UE2KhwYBUoAroJ8J+RBng35jFvRQTYqHCggd6NecxbEQGWH3TDfafyQjfcdyovdMN9p/JCN9w3lUp9dv0BBluTqV9UgKoAAAAASUVORK5CYII=" width="16" height="16" alt="">風針薬</span></div>
+<ul>
+<li>勝手にHPを回復してしまうので、ジョーイの雇用は不可。</li>
+<li>宿屋は、シナリオで町を訪れたタイミングで1回のみ使用可。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>回復手段がマジでない。歌の回復はターンのラストなので間に合わないことがある。SP回復はのどぐすり以外なら使える。火炎薬などは全て封じられる。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s3">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVHhe7dfBbcMwEERRl6GjykgZOqaUlKFSVEo6Ss58BEIIlh2KnAX+Zbm79vyDAT8e1LquPyNj3qpcGA3zVuXCaJi3KhdGw7zDB24RATZmIwJsyL7vf+L83YgAG2Jgcf5uRIANMfC2bQXHcRS43zsRYEMiYHYBMpqQCLDRIgJmFyAGvpuQCLBxFgNGwGwCxMAK8UfU/XcTATaeJQJmFyCvFrJ/LgW+t4gAG1cTAbMLEAOfFfK9LwW+nyUCbLwaA0bAbALEwAox8LaUeO8sEWDj3UTA7AKkFfjro8R377WIABv/TQSMJqD1Z+VsYO/57r6fJxFg42r8wr5HwGwCxHkxkIG957v73o8AG1fjFxTnxQAG9J7v7ns/Amz0joEMrBDnvRcBNnrHQBHwrADLgd4xoDhv3qpc6B0Di/PmrcqF3jGwOG/eqlzoHQOL8+ZNpVJz1y/5pKGLV4GuDQAAAABJRU5ErkJggg==" width="32" height="32" alt=""><span class="tt">全裸でGO</span><span class="lv">★★★<span class="of">★★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>装備できるのは武器のみ。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>防御力が0のままなので、ダメージを受けまくる。とにかく回復薬の消費が激しい。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s1">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVFhHxVS7bsMwEPMndPQneMyYMWNGjx09dsyYT/DYsX+bgkIpUPTJcqIAFcDqnrzLndzha7k8gPvtmqD6NI0b2/f6Wfh78wcq83zKgZCZSB/9alfiV/JTA/hzOU9Jwa2y29we2dzfyk8TwFi0M8oI0F9JO+Pp78nPK8CNrnxEagdUpr8nv2gABiXTUWlSrYFX8gc+EAAGyuP4kXTcQBSjsutH89Mj/E8MOG70V6sv2XW1uR7lbYrjuNMJHBjfnq5cGL/76M8N6E5q3Z6u54R5mUPQv9yWpCMHj9EbYC3IRQNaTEESkIL8vt4f68+aAR1gcci4NVf5tNZmAgzWCWgDbCICp6MTIGdzAijCb1eDlIRdK5nCfZpLPoC1IBcNRF2SlN/yM9Bcb4B1cgNeUH8FCdV+BNoMuXCzFuRiAr4Cjgl32utfImQdo/v013os+Q6vgIF42bTx1auucfTBpnHKyTq5ATp9TAQ+NyZTJjl1ylpYfY7dFejOABDWZOqIr/mU76kVENGeSeQ+2tWnRQ+vgAmE6+6L/DU7UDTAwGgCEUlk27PXYnIDvieX92xuj2IiG5AbwEGQonC+4TT5tdswoPM0+bGT3YDO0+TnI2GQ+3tPk78Z0Hma/M2AztPk5zfKIPf3niY/Azb/JN50avy/c3KAXMD50LMAAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">死ぬまで生きろ</span><span class="lv">★★★★<span class="of">★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>回復ができるのは、HPが0になったあと、戦闘終了後に1回のみ。</li>
+<li>次に回復できるのは、その1回で回復したHPがまた減って0になったあと。</li>
+<li>その回復は一度に1回のみ。1回の戦闘でHPが0になったキャラが2人いても、戦闘終了後に回復できるのは1人だけ。</li>
+<li>主人公の回復は、HPが半分以下になった時に1回のみ。</li>
+<li>勝手にHPを回復してしまうので、ジョーイの雇用は不可。</li>
+<li>全員回復してしまうので、宿屋は禁止(シナリオで泊まる分は除く)。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>HPが減ると勝手に逃走する。そのため、いつまでも回復ができない。逃走したキャラは経験値がもらえないので悪循環になる。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s10">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVDhPpZPRDcMgDEQ9Bp98dgTG4DMj9JNRPAqjdCOqc3WVQwJFJdLJFso9mZMREZEYY/tH8N6a9QhWjxCsh176qTg7QXozxJ/R55xbKaWpaqu1Wo+zn4A7CAAppbUJegjMmAIwDxkCeO8ewisQMgSg+vB6AHMYApg2Idar2jm0DHg+NgHcgy0AKiaZAnzqPkSap4DeTCPExCHuwQXgIX77ZvruwehBrcjMu98bKzOWtFiRZiIAAAAASUVORK5CYII=" width="32" height="32" alt=""><span class="tt">ビビりの所作</span><span class="lv">★★★★<span class="of">★</span></span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>HPが僅かでも減ったら即回復し、常にHP最大をキープしなければならない。</li>
+<li>たった1しか受けていなくても、ダメージを受けたら次のターンは必ず回復の動作をしなければならない。</li>
+<li>戦闘終了後は、フィールド画面で一気に回復可。</li>
+<li>HP回復の手段がなくなったら「詰み」でリセット。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>回復にかかりきりになって攻撃が進まない。とにかく薬の補充が必須なので、装備を買うお金がなくなる。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s11">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVFhHxVS7bsMwEPMndMwnZMyYsWNGjx09dsyYT/DYsX+bgkIpUMzJ50YBKoD1vY+6Uzp9Lu934Ha9FKh+PB4ebF/rR+MfzZ+ozPOpBkJmIn30q10LP5NfCODP+/lYFHxVdpvbI5v7s/wyAYxFmVFGgN6SdsbTP5JfV4AvWPmI1A6oTP9IfkMABi2mo9KkHoFn8ic+EAAGyofDW9HxBaIYlV3fm18e4X9iwnEjX66+XrVHti2fy0RpjuNOyBiRF3d4DEfb8ysaAroTv5UyzuBNIiJKsiHgxRTw87XjN6y/eyefQWMfJsCX66zVhqbaWP1+w8imciXAop7gN1QS2pwxnqOy2mhvCESMe821iI6WiGooAfapBLyRwpv7/jUugxJrCPRW4M0BLQacLuf7vMz323orX+rLdam61ty1Ah2vEiij/m2mDSKQKGLK9y8roB7ZWFhvCkLr9xoScwLE5goAHbOPnTYlQUTNtd6uFThbv70jGj2BPG26ewVMIFwndEKa740dDQFfgTf2IpFty96LqQR8tz3dfZHNdbepXAng+O4a5wtOWl8ZhgGDJ62PnWwGDJ60Ph8Jg9w/etL6acDgSeunAYMnrc/fKIPcP3rS+gx4+CfxotOr/wPQZGdUu9eiFgAAAABJRU5ErkJggg==" width="32" height="32" alt=""><span class="tt">お金で買えない旅がある</span><span class="lv">★★★★★</span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>武器屋・防具屋・雑貨屋など、あらゆる買い物を禁止する。</li>
+<li>会話イベントで売ってもらうリュートパーツも購入禁止。</li>
+<li>ギルドは利用可。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>仕様上、武器がないとほぼダメージが与えられない。加えて火炎薬などの攻撃アイテムも買えないので、歌以外でほとんどダメージが与えられない。その歌もSP回復手段が限られている。宿屋との往復がカギとなる。</p></div>
+</div>
+</div>
+
+<p class="grp">デバッグルームを使う縛り<small>入り方は<a href="urawaza.html">裏ワザ</a>、使い方は<a href="debug.html">デバッグルームの使い方</a></small></p>
+<p class="dnote">※パーティーの人数を減らす縛りでは、シナリオに必要なキャラが揃っていないと、シナリオが進まない箇所が多々あります。こまめなセーブを行い、発生するはずのイベントが起きなくなったら、その場面にいるはずのキャラを呼び出してください。イベントが終わり次第、また元に戻してかまいません。</p>
+
+<div class="rule" id="s12">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAeCAYAAAAcni9KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAE9SURBVDhPnZS9bcMwEEZVeo2UHkErcIS0LlOmTOtSZUq3KT1CVnCpdRQ8OY84/lgy/AEHUtT3dMcjoWHY0Sm9Ld8faWGs3xXSeLv+ZOA8DNugkEAcgYmaKUqKMR4P23A0MUYgfqiAVIQAfqdTsdfaXwiT2QD9yEOQ2gXIYjbCSrr7m85T3rzZCOau4ynAlFIGr5/H5SvdjQRz1gTxZpAFQhPlMcbgnb4MzvOcQWHNjoJ4G5C55cWwKZug8CWNzU0pQBvjpmNDYqMarxsW7DUHOIJrdaSOdXvoERZE2c+N4KBZfB/7xwHIOzxewzXDOvkHYzd5joEHL4wVrLKLXjejMNWK7X8aFLDtNmcXNJvPEWz2ExUhJLCbsQb9bRDM47tNvQR6ZvVZ1r5GmDhkAee1ryv+M4IP/2499a5arT8zKA4g52jk/QAAAABJRU5ErkJggg==" width="16" height="30" alt=""><span class="tt">癒しは専門家にお任せ</span><span class="lv">★★<span class="of">★★★</span></span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li>回復はジョーイの魔法のみ。</li>
+<li>宿屋も禁止(シナリオで泊まる分のみ可)。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>仲間のHPを1000回復するジョーイのみが、唯一の回復手段となる。仲間の技は好きなタイミングで使えないので、運要素の強い縛りプレイだ。</p>
+<p>アイリスが主人公を回復するのはOK(もっとも、こちらも運要素だが…)。</p></div>
+<p class="note">※普通にプレイしているとジョーイはグレゴリアで離脱するが、デバッグルームを使えば連れ戻すことができる。</p>
+</div>
+</div>
+
+<div class="rule" id="s13">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVDhPY2BgYGBQUFD4Tw4G6SVbM9wQdAFSMYYBHRIScIxPDKsBIAULDAzgGKYJXYygAQcCAsAYpgmZT5IB6JigAQFEGABSg9MAfK7AZjtWA7AZgkszTgOQDcGnGa8BMEPwaSZoADGYcgMoyVBgzZQCANXybfSWPgGyAAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">推しと行く二人旅</span><span class="lv" title="相方しだいで★2〜★5">★★<span class="mb">★★★</span></span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li>デバッグルームを使用し、主人公と誰か一人だけにする。</li>
+<li>シナリオでキャラが加入するたびに追い出し、常に選んだ人物と二人だけにする。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>本来4人で進む物語を、たった二人でクリアしなければならない。ボビンなど初期レベルが高いキャラを相方につければ、序盤はかなり簡単になる。「誰が推しか」によって難易度が★2〜★5まで変動する。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s19">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAYAAAAl+Z4RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF+SURBVEhLrZMxcsJADEU5Bleg5AqUlCnTUrrkCpSUlLQcIWVaylzJmSfzFiEvnhTRjMbjr///ane1q1Unht1+zPmx2Y7b9XqsvG5ARnQ+DC01+JPJfv9cuRpQq/yXgHA9nbtJbdFAMasp+rnfIzWgVnUtNHCvJIK8/8UzyOLT5/P7dT7MsKqN+L5sokhG+7fTeBl2YUCCUYNHzsTX41SARNsKTbC2wHHih5i2+LEgCZwOSFvPHL5xJsNuatmJ091OXFncQZs0DwOGxSvMJ+5AZcxrRtMMBCg6ffU95Kl0wTB4/kxbqKKK5S1Qj/uvBu7dmji3lA3IMBCo+8zpVUcmTYww8+6sK/YN+I183E7WrACZOtL2PJcs9mDpUH4Mkwa27mHVDvIhatIMABxXifUMsoEPrBk4up6B5DpQ1sGczheDauJjq+IXAx+JD0siqUHG4IA1XTXQRGI2tj4zkJhNqkHFiP8xqOGB5mIPexuQvJkl7G30yD1sMXrEHkb8Arorz4KC/kHOAAAAAElFTkSuQmCC" width="16" height="30" alt=""><span class="tt">孤独な人生</span><span class="lv">★★★★★</span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li>デバッグルームを使用し、主人公ひとりだけで旅をする。</li>
+<li>シナリオでキャラが加入するたびに追い出し、常に一人にする。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>「推しと行く二人旅」の、その相方すらいない旅。攻撃も回復も歌も、すべて主人公ひとりでこなす。倒れたら即ゲームオーバーなのは言うまでもない。</p>
+<p>勝手に逃げる仲間も、勝手に技を出す仲間もいない。振り回されない代わりに、助けてくれる人も誰もいない。</p></div>
+</div>
+</div>
+<div class="rule" id="s6">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFtSURBVHhe7dqxcQIxEIVhyiC8EghdxoUOXQKhS3B4JbgESqAzO9bHjDUa6TwHejvzJ7taofcHJHA6Ucuy/OzJtm0FzvfGvA/lwmgiIAIOJsADo7ndbgXruhZcr9cC9/cmAmyMJgJmE2BguX99FChAvH80EWCjFwNLBLy6gBoKcP7fRICNvYmACIiACIiAVxKwvZ//5POtRAHr+Vzgeed+fi8RYKMVA4uBIuDZBBhIfLAYoCZAvE887/trRIANMbD4IPGBEXB0AQbs/QBRgPNWfJ+CPC8RYCMCZhNgYA+MZrSAGgpyHgERMLsAG3v/gWFvAa0/rESAjQiYXYCMFnJf1wLnrbQGlgiwIREwuwBpFfJ9uRQowLn70htYIsBGjQiYXYDUHmTgGu7X7u8lAmy0UnugAWu4X7u/lwiw0Yt/hjagX3rO3ff+0USAjV4MYMAIOJoAywO91AIqxP3RmPehXOglAiLgyQSkUqmp6hfnSUMaiorzDAAAAABJRU5ErkJggg==" width="32" height="32" alt=""><span class="tt">子供と保護者のわくわく遠足旅</span><span class="lv">★★★<span class="of">★★</span></span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li><a href="debug.html">デバッグルーム</a>で、パーティーを主人公・クイクイ・シベリンとシナリオキャラだけにする。</li>
+<li>子供(クイクイ・シベリン)が逃走したりHPが0になったりするとリセット。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>子供が迷子になったり、ましてや死なせてしまったりしたら保護者の責任ですよ！！　主人公のHP0がゲームオーバー条件の本作だが、パーティー4人中3人がゲームオーバー直結に。しかもクイクイとシベリンは逃走してもアウトなので、かなり丁寧に面倒を見る必要がある。</p>
+<p>問題は、武器が弓なので盾を装備できないこと…</p></div>
+</div>
+</div>
+
+<div class="rule" id="s14">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAYAAAAl+Z4RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF8SURBVEhLlZO9bcNADIWvzBoqU6bUCh7BbUqXLr1CSpdpXWqErOBS6yj4DvgIipLyQ4Dwiff4yMejW/vBruN5uZ3awm+9OzSTptu9/z6nR/xW7K4Jxud57i6JpDUnLCfnDvAs55CES5PxLEcSzjVvZTn5fjmtSH7tABP0NrwsXx/v3TlLlnHrzNbaOAwdnLVDYPvcgal53awM4Dy2TmIHnIl5v6lOAOcSt6pxibw3HgTT9TWCtMm3EpRBTHk4312ObRHQAbhAukl6DJSDTwaQKlZCt/MwDsYXiYG6QOp8Xj5Dr24h5xP6Md+cSjLvuUvkbgRBHiAgh6hepbgLm1ewAq0rJw8sE+QOg0AJEACsyYDBSLKR4PTV6FPiVssEvka0T2Xb9/nqAO1UGUoJAoO+9x6BBTcEmRUHmId1RCC21cWRQBKB3q8IPGQZlUBSk2uxbtFO+s4Vje/Fdu2I4E/m/yI7T1txh+Y2usKeK+7Q3Lgs4V8EWJ70atrFvgHiO4v7K86vKQAAAABJRU5ErkJggg==" width="16" height="30" alt=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAdCAYAAACaCl3kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFDSURBVDhPnZMxUsNADEVdcoS0lJQpuYJLyrQpU/oKlC65AmWOwBV8JTNP8Dxahc0Qa+aPZen/lSyth6HYNAwrWJZlnd/n8EHlNZZFp+MUuCu+vl1WcB6f13Ecg2xFQOz15Sk4oBEjmqdTIPxfEQLj+I0IyyIBMb+DRkR5RIfDcf24/LTF82s+b76HNK3au8nl+hlAyNPqzTcSgGCS6eETM07MQ+1ioI0sAk7Y1owrRhMVY3JpX5BZB8hCp7xN111lQt6jcXe8DQeSyTxBTydmHu4m5CTHz0qqkBg5OHAboYHelau8uGpW4j2LspicleMG2aLVnWYW5YHYcpS3Wm2z127wt5twp81cFW7usDFakRxt/de8p6Lmu7ZbmH+rh4SQdwndLXhoOLuEdYf6lXdj/o88uSH6lfenVWHNd82fFmGv2jfTqyeoA1yTgwAAAABJRU5ErkJggg==" width="16" height="30" alt=""><span class="tt">三角関係は慎重に</span><span class="lv">★★★<span class="of">★★</span></span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li>パーティーを主人公・アイリス・フィデレの三人に固定。</li>
+<li>主人公のHP回復を一切禁止(シナリオで泊まる宿屋のみOK)。</li>
+<li>アイリスに回復薬を使ったら、フィデレにも同じ薬を与える。その逆で、フィデレに優しくしたらアイリスにも同じ行動を行う。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>HPが満タンでも回復ができるシステムを利用した縛り。片方の女の子にだけ優しくしてはいけません。</p>
+<p>ポイントとしては、回復などを二人分持ち歩く必要があるということ。普通にプレイするより当然薬の減りが早い。そして回復の動作にターンを持っていかれて、攻撃の手が止まる。ただ、本来フィデレが登場するまでの第1〜2章は、縛りプレイとは思えないほど簡単になる。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s21">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAF3SURBVEhLhZSxccMwDEVZZoS0Kj2CW5caIa1LraFSpcusoFW0En0f9mO+EYnCHQ4UiP8JgKBKOZDpfqnbttXfx7Vqnfe7IoCAt1sJ1bcs+9r7RJg4QBmsy9SIpF2w5DGNdVuXAJefEopPVuTdkq6Xr3ofh+rWNcf/EwXppOF7COvrUwLSVGCUsS7RAynE8mVcWeZXzWHfJF63fytmHMfQAGsBQej7ZNWvkwXUGgLiIQqSBk5Z0LgM/shAdwsjJNrMpfjJkMRwMRy6WyfRmjnwk2V9Uss6l1e357+x9YzcMqGOKTRItUIgdrLCooqhLzEXHuzg7HcCj4uX55rBTsKD8vi4CeZeI7uXAZb0eSNtEjUwAku1uQeWMhe8jUYgB/OuwEwi5ZY820aAeH0CQOJXHHd/JN5hWZ8P70PGNSGQYGqGVNol8OA9AnwZ14RgUoXAe9MlkOw1a893KDyceI0d36Fwz1J8fJ+mL+Enmgnwf0YnIdDBZ3tPBA6h58vSVGoAAAAASUVORK5CYII=" width="16" height="30" alt=""><span class="tt">幽霊屋敷はメモ魔の独擅場</span><span class="lv">★★★<span class="of">★★</span></span></h3>
+<div class="bd">
+<span class="dbg">デバッグルーム必須</span>
+<h4>条件</h4>
+<ul>
+<li>デバッグルームで、エニクラウドを常時パーティーに入れておく。</li>
+<li>敵パーティーにアンデッドがいる場合、エニクラウドがターンアンデッドで全て始末し終えるまで、他のキャラは「防御」を選択。</li>
+<li>エニクラウド以外のキャラが、勝手に技を出して抜け駆けするのはOK。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>エニクラウドのやる気が出るまで身動きが取れない。どの章にもそれなりにアンデッドが出るので、縛りプレイに絡む敵パーティーには事欠かない。</p>
+<p>最も辛いのがドドルの塔のゾンビ。ターンアンデッドの成功率が10%しかないので、もうフィデレのファイアーボールに頼るほうが早いかもしれない。</p></div>
+</div>
+</div>
+<p class="grp">最凶の縛り</p>
+
+<div class="rule" id="s5">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVDhPpdPBDcMgDAVQxuDICDkyho8dg2NH6JEROkJG6AjdiOq7+tR1oEVKJQuo4ydDQgghhJRSQ5RSdPwVItLnqNXiWmvb970jXN+3TQNz/IccgJzzByGABBGsUfgQ0cCcAPIHYIRgJMBuph1Q9QgBdnGLUWMKjDrxgH32APCEPbK8BSR5UB7B2j47BDDyNVqkry8LW7DfgUWeNTaJcW0LRHB4yLH4mt/jEPCIbZvFmBP5C/h7MUO+ACKEeBf4ei3SAXsbPTT68vQgbfHZ3wv1E60E1U1e6wAAAABJRU5ErkJggg==" width="32" height="32" alt=""><span class="tt">自由の翼</span><span class="lv">★★★★★</span></h3>
+<div class="bd">
+<h4>条件</h4>
+<ul>
+<li>いずれかの仲間が特技を出す、あるいは逃走するまで、「防御」以外は選択禁止。</li>
+</ul>
+<h4>ここが難しい</h4>
+<div class="hard"><p>普通にプレイしていると、勝手に逃げるわ勝手に技を出すわでさんざん振り回されるこのシステムを逆手に取り、縛りプレイに転用する。</p>
+<p>とにかく自由気ままに動いてくれるまで、こちらは手も足も出ないので運要素がエグい。逃げてもらいたいので低HPで放置している時に限って逃げない。そして倒される。逃げたら逃げたでこちらの戦力も減るし、なかなかに酷い縛りプレイである。</p>
+<p>主人公だけ生き残っても自由行動が出ないので、そうなると「詰み」。問答無用でリセットすること。</p></div>
+</div>
+</div>
+
+<div class="rule" id="s16">
+<h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVDhPpZPbCYAwDEUzRj87hqN0FMdwNDdSrphyG5M2oBBsHudQIoqISK31ysZ5lB5gXfho5VNTGD3Evr0SO8SDXl3PS4EnAaQ17U8FnoRhnEMBBiIJarjNVIC3SligeUrAEu4BbiUpsDlfPyXQ7x7lKcGs3wW8dV6ihVUwLNHCEWglXcCSDDwIoh9qFRA88N/nBgyHhTzp+0YQAAAAAElFTkSuQmCC" width="32" height="32" alt=""><span class="tt">運命の選択</span><span class="lv">★★★★★</span></h3>
+<div class="bd">
+<p class="note"><b>※この縛りプレイは、あらかじめ数字を書いたくじ引きを用意しておく必要があります。</b></p>
+<h4>条件</h4>
+<ul>
+<li>使える歌魔法は謎の歌(選び直し禁止)のみ。</li>
+<li>買い物時、くじを引いて出た番号のものしか買えない。</li>
+</ul>
+<p class="note">…例えばアデンの武器屋には2つの武器が売っているので、くじ箱には「1」「2」のくじを入れておく。「2つとも買いたい」ときはくじを2回引く。1が出たら左から1番目のもの(石製のナイフ)を買う。2が出たら左から2番目のもの(グラディウス)を買う。1が2回出たら石製のナイフを2つ買う。</p>
+<h4>ここが難しい</h4>
+<div class="hard"><p class="big">欲　し　い　も　の　が　買　え　な　い</p>
+<p>そして、いらないものを買わされる。究極の運試しにどうぞ。</p></div>
+</div>
+</div>
+</div>
+<script src="menu.js"></script>
+<!-- 完成版(2026-10-22 ユーザー確認済み・縛り21本)。生成スクリプトなし、html を直接直す -->
