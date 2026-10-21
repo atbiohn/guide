@@ -10,892 +10,914 @@
 .ode-kana th{background:#3d4b66;color:#fff;font-weight:normal;white-space:nowrap}
 .ode-kana tr.kh td{background:#e6eaf2;color:#3d4b66;font-weight:bold;font-size:15px;padding:2px 10px;scroll-margin-top:50px}
 .ode-kana td.nm{white-space:nowrap}
-.ode-kana td.nm a{color:#2a5a9a}
-.ode-kana td.ct{white-space:nowrap;font-size:12px;color:#444}
+.ode-kana td.ct{white-space:nowrap;font-size:12px;color:#444;line-height:1.7}
+.ode-kana td.ct a{color:#2a5a9a}
 .ode-kana td.rm{font-size:12px;color:#555;line-height:1.5}
 .ode-kana td.rm a{color:#2a5a9a}
+.ode-kana .bug{display:inline-block;font-size:11px;line-height:1.5;padding:0 6px;border-radius:3px;margin-right:6px;vertical-align:1px;color:#fff;background:#c0392b}
 @media (max-width:600px){
 .ode-kana{font-size:12px}
 .ode-kana th,.ode-kana td{padding:2px 4px}
-.ode-kana td.nm,.ode-kana td.ct{white-space:normal}
 .ode-kana td.ct,.ode-kana td.rm{font-size:11px}
+/* スマホ: 名前は折り返さない。名前|カテゴリーを1行に、備考はその下に全幅(2026-10-22 ユーザー: 備考の面積が大きすぎる) */
+.ode-kana table,.ode-kana tbody{display:block}
+.ode-kana tr:has(th){display:none}
+.ode-kana tr{display:grid;grid-template-columns:max-content 1fr;border:1px solid #c8c8c8;border-top:0;background:#fff}
+.ode-kana tr.kh{display:block;border-top:1px solid #c8c8c8}
+.ode-kana tr.kh td{display:block}
+.ode-kana td{border:0}
+.ode-kana td.nm{white-space:nowrap;padding-right:10px}
+.ode-kana td.ct{white-space:normal;text-align:right}
+.ode-kana td.rm{grid-column:1/-1;padding:0 4px 3px 12px}
+.ode-kana td.rm:empty{display:none}
 }
 </style>
 <div class="ode-kana">
 <h2>50音索引</h2>
-<p class="lead">プレイ中に気になった言葉を、すぐに調べられる50音索引。名前を押すと、その言葉が載っているページへ飛ぶ。いくつかのページに載っている言葉は、備考からそれぞれのページへ飛べる。このリストに没の要素は含まれていない。<br>
+<p class="lead">プレイ中に気になった言葉を、すぐに調べられる50音索引。カテゴリーを押すと、その言葉が載っているページへ飛ぶ。いくつかのページに載っている言葉は、カテゴリーを並べて書いてあり、それぞれのページへ飛べる。このリストに没の要素は含まれていない。<br>
 本作は特殊な漢字の読み方がどこにも出ていないため、推測による読み方で判定して並べている。読みが分かりにくい言葉は、どう読んだかを備考に書いた。</p>
-<div class="jump"><a href="#k-あ">あ</a><a href="#k-か">か</a><a href="#k-さ">さ</a><a href="#k-た">た</a><a href="#k-な">な</a><a href="#k-は">は</a><a href="#k-ま">ま</a><a href="#k-や">や</a><a href="#k-ら">ら</a><a href="#k-わ">わ</a></div>
+<div class="jump"><a href="#k-あ">あ</a><a href="#k-か">か</a><a href="#k-さ">さ</a><a href="#k-た">た</a><a href="#k-な">な</a><a href="#k-は">は</a><a href="#k-ま">ま</a><a href="#k-や">や</a><a href="#k-ら">ら</a><a href="#k-わ">わ</a><a href="#k-en">英数</a></div>
 <table><tr><th>名前</th><th>カテゴリー</th><th>備考</th></tr>
 <tr class="kh" id="k-あ"><td colspan="3">あ</td></tr>
-<tr><td class="nm"><a href="skills.html">アースクイック</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アーノスタル</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">アイアンゲートル</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">アイアンすねあて</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｉ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｉの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara1.html">アイリス</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">青い宝石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">青色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">赤い宝石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">赤色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m82">赤ポルポス</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アガルック</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アギーレ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m64">アクスウィング</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara3.html">アクスウェイク</a></td><td class="ct">仲間の特技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">アクセル</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m9">アグリーパー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">麻の弦</a></td><td class="ct">リュート部品（弦）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンのアギーレ院長の私室</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンのアンナおばさんの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの酒倉</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの酒倉の地下</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンのディックの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンのボビンの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">アデンの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アトビオン</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アラバステル</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F7.html">アラバステルの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F3.html">アルカナの洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F3.html">アルカナの洞窟B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F3.html">アルカナの洞窟B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F2.html">アルカナの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アレイ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara23.html">アロン</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F55.html">アンガル・リルラ・ホウラワ</a></td><td class="ct">呪文（イベント）</td><td class="rm">フィデレがドドルを封じる呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
-<tr><td class="nm"><a href="F51.html">アングワ・リルカ・ホラウガ</a></td><td class="ct">呪文（イベント）</td><td class="rm">フィデレが言い間違えた封じの呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
-<tr><td class="nm"><a href="weapons.html">暗殺短剣</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">アンナおばさん</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">アースクイック</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アーノスタル</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アイアンゲートル</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アイアンすねあて</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アイリス</td><td class="ct"><a href="chara1.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">青い宝石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">青色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">赤い宝石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">赤色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">赤ポルポス</td><td class="ct"><a href="monsters.html#m82">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アガルック</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アギーレ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アクスウィング</td><td class="ct"><a href="monsters.html#m64">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アクスウェイク</td><td class="ct"><a href="chara3.html">仲間の特技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アクセル</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アグリーパー</td><td class="ct"><a href="monsters.html#m9">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">麻の弦</td><td class="ct"><a href="lute_parts.html#string">リュート部品（弦）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンのアギーレ院長の私室</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンのアンナおばさんの家</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの音楽院</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンのギルド</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの酒倉</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの酒倉の地下</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの酒場</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの雑貨屋</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの町民の家</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンのディックの家</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの武器屋</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの防具屋</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンのボビンの家</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アデンの宿屋</td><td class="ct"><a href="F1.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アトビオン</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アラバステル</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アラバステルの家</td><td class="ct"><a href="F7.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アルカナの洞窟</td><td class="ct"><a href="F3.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アルカナの洞窟Ｂ１</td><td class="ct"><a href="F3.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アルカナの洞窟Ｂ２</td><td class="ct"><a href="F3.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アルカナの山道</td><td class="ct"><a href="F2.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アレイ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アロン</td><td class="ct"><a href="chara23.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アンガル・リルラ・ホウラワ</td><td class="ct"><a href="F55.html">呪文（イベント）</a></td><td class="rm">フィデレがドドルを封じる呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
+<tr><td class="nm">アングワ・リルカ・ホラウガ</td><td class="ct"><a href="F51.html">呪文（イベント）</a></td><td class="rm">フィデレが言い間違えた封じの呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
+<tr><td class="nm">暗殺短剣</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">アンナおばさん</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-い"><td colspan="3">い</td></tr>
-<tr><td class="nm"><a href="F56.html">怒れる岩屋</a></td><td class="ct">場所（俗称）</td><td class="rm">読み: いかれるいわや</td></tr>
-<tr><td class="nm"><a href="weapons.html">石斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: いしおの</td></tr>
-<tr><td class="nm"><a href="weapons.html">石製のナイフ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">石の壁の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">石の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">イズミ</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">１Ｍ指板</a></td><td class="ct">リュート部品（指板）</td><td class="rm">読み: いちめーとるしばん</td></tr>
-<tr><td class="nm"><a href="key_items.html">一般房の丸鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara11.html">稲妻突き</a></td><td class="ct">仲間の特技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">古の歌</a></td><td class="ct">歌魔法の種類</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">イブヘルム</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">癒しの歌</a></td><td class="ct">歌魔法の種類</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F87.html">岩の島</a></td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F87.html">岩の島洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">イントラダの町長</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダのマーリィの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F48.html">イントラダの森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">イントラダのリリィの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
+<tr><td class="nm">怒れる岩屋</td><td class="ct"><a href="F56.html">場所（俗称）</a><br><a href="world.html#w-ikareru">世界と地理</a></td><td class="rm">読み: いかれるいわや</td></tr>
+<tr><td class="nm">石斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: いしおの</td></tr>
+<tr><td class="nm">石製のナイフ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">石の壁の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">石の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">一般房の丸鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: いっぱんぼうのまるかぎ</td></tr>
+<tr><td class="nm">稲妻突き</td><td class="ct"><a href="chara11.html">仲間の特技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">古の歌</td><td class="ct"><a href="songs.html">歌魔法の種類</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イブヘルム</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">癒しの歌</td><td class="ct"><a href="songs.html">歌魔法の種類</a></td><td class="rm"></td></tr>
+<tr><td class="nm">岩の島</td><td class="ct"><a href="world.html#w-iwa">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">岩の島洞窟</td><td class="ct"><a href="F87.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの音楽院</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダのギルド</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの酒場</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの町長</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの町長の家</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの武器屋</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"><span class="bug">バグ</span>この地名が出るのは防具屋の中(武器屋と防具屋の地名が逆)。<a href="bugs.html#b28">バグまとめ</a></td></tr>
+<tr><td class="nm">イントラダの防具屋</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"><span class="bug">バグ</span>この地名が出るのは武器屋の中(武器屋と防具屋の地名が逆)。<a href="bugs.html#b28">バグまとめ</a></td></tr>
+<tr><td class="nm">イントラダのマーリィの家</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの森</td><td class="ct"><a href="F48.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダの宿屋</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">イントラダのリリィの家</td><td class="ct"><a href="F46.html">場所</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-う"><td colspan="3">う</td></tr>
-<tr><td class="nm"><a href="monsters.html#m65">ウィスパー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ウイング</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m16">ウイングドポリプ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara9.html">ヴェラ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ウォーターナイフ</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">薄汚れた楽譜</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-utadama">歌魂</a></td><td class="ct">用語</td><td class="rm">読み: うただま(プロローグより)</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-utamahou">歌魔法</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m104">海ヘビ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ウルフ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">ウィスパー</td><td class="ct"><a href="monsters.html#m65">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ウイングドポリプ</td><td class="ct"><a href="monsters.html#m16">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヴェラ</td><td class="ct"><a href="chara9.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ウォーターナイフ</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">薄汚れた楽譜</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">歌魂</td><td class="ct"><a href="glossary.html#g-utadama">用語</a></td><td class="rm">読み: うただま(プロローグより)</td></tr>
+<tr><td class="nm">歌魔法</td><td class="ct"><a href="glossary.html#g-utamahou">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">海ヘビ</td><td class="ct"><a href="monsters.html#m104">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ウルフ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-え"><td colspan="3">え</td></tr>
-<tr><td class="nm">エアニードル</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara21.html">サザシイ</a>・<a href="chara22.html">マキバ</a></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｈ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｈの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m19">衛兵</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-aon">Ａ音</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ａ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ａの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F65.html">エスタルト・フリア・エグイ</a></td><td class="ct">呪文（イベント）</td><td class="rm">ファーナが帰るときの呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
-<tr><td class="nm"><a href="F21.html">エスタンシア城</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F33.html">エスタンシア城室内</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F38.html">エスタンシア城地下</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F34.html">エスタンシア城地下洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F25.html">エスタンシアの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F24.html">エスタンシアの下水道B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F24.html">エスタンシアの下水道B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの高級防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのスマイスの店</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのタリスの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのドラゴの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのペインの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアのポンドの店</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの町</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F20.html">エスタンシアの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F26.html">エスタンシアの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F55.html">エステ・エルラ・ネール</a></td><td class="ct">呪文（イベント）</td><td class="rm">フィデレがフエダへ帰る呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
-<tr><td class="nm">エド</td><td class="ct">モンスター（ボス）・仲間</td><td class="rm"><a href="monsters.html#m134">モンスター一覧</a>・<a href="chara24.html">エド</a></td></tr>
-<tr><td class="nm"><a href="skills.html">エナジードレイン</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara7.html">エニクラウド</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｎ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｎの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">エメラルド</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">エメラルドの槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
+<tr><td class="nm">エアニードル</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara21.html">仲間の特技（サザシイ）</a><br><a href="chara22.html">仲間の特技（マキバ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">衛兵</td><td class="ct"><a href="monsters.html#m19">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタルト・フリア・エグイ</td><td class="ct"><a href="F65.html">呪文（イベント）</a></td><td class="rm">ファーナが帰るときの呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
+<tr><td class="nm">エスタンシア城</td><td class="ct"><a href="F21.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシア城室内</td><td class="ct"><a href="F33.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシア城地下</td><td class="ct"><a href="F38.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシア城地下洞窟</td><td class="ct"><a href="F34.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの音楽院</td><td class="ct"><a href="F25.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのギルド</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの下水道Ｂ１</td><td class="ct"><a href="F24.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの下水道Ｂ２</td><td class="ct"><a href="F24.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの高級防具屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの酒場</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの雑貨屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの寺院</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのスマイスの店</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのタリスの家</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの町民の家</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのドラゴの酒場</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの武器屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの船屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのペインの家</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの防具屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアのポンドの店</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの町</td><td class="ct"><a href="F20.html">場所</a><br><a href="world.html#w-estancia">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの宿屋</td><td class="ct"><a href="F20.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エスタンシアの山道</td><td class="ct"><a href="F26.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エステ・エルラ・ネール</td><td class="ct"><a href="F55.html">呪文（イベント）</a></td><td class="rm">フィデレがフエダへ帰る呪文。詳しくは<a href="serif.html">セリフ一覧</a></td></tr>
+<tr><td class="nm">エド</td><td class="ct"><a href="monsters.html#m134">モンスター（ボス）</a><br><a href="chara24.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エナジードレイン</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エニクラウド</td><td class="ct"><a href="chara7.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エメラルド</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">エメラルドの槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-お"><td colspan="3">お</td></tr>
-<tr><td class="nm"><a href="F82.html">王宮内部</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">黄金の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">大斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: おおおの</td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｏ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">オード：終奏</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">オード：主題</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">オード：序奏</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">オード全曲</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｏの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">大バサミ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの村民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F80.html">オーパスの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F81.html">オーパスの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">大風車手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">大弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">オールの破片</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m106">オクトセンガー</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m107">オクトバンパイヤ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m79">音返し</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F28.html">音の森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-onkai">音階</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">音楽院の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-onshouheki">音障壁</a></td><td class="ct">用語</td><td class="rm">読み: おんしょうへき</td></tr>
-<tr><td class="nm"><a href="key_items.html">音符ペンダント</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
+<tr><td class="nm">王宮内部</td><td class="ct"><a href="F82.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">黄金の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">大斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: おおおの</td></tr>
+<tr><td class="nm">オード：終奏</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オード：主題</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オード：序奏</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オード全曲</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">大バサミ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの雑貨屋</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの村民の家</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの武器屋</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの船屋</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの防具屋</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの村</td><td class="ct"><a href="F80.html">場所</a><br><a href="world.html#w-opus">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの宿屋</td><td class="ct"><a href="F80.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オーパスの山道</td><td class="ct"><a href="F81.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">大風車手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">大弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オールの破片</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オクトセンガー</td><td class="ct"><a href="monsters.html#m106">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">オクトバンパイヤ</td><td class="ct"><a href="monsters.html#m107">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">音返し</td><td class="ct"><a href="monsters.html#m79">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">音の森</td><td class="ct"><a href="F28.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">音階</td><td class="ct"><a href="glossary.html#g-onkai">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">音楽院の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">音障壁</td><td class="ct"><a href="glossary.html#g-onshouheki">用語</a></td><td class="rm">読み: おんしょうへき</td></tr>
+<tr><td class="nm">音符ペンダント</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-か"><td colspan="3">か</td></tr>
-<tr><td class="nm"><a href="monsters.html#m112">ガーゴイル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">解呪の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">カイトシールド</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">火炎薬</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内ギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内高級防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内の教会内部</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内の教師の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内の校舎</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内のチクタク館1F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内のチクタク館2F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内の納屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">学園内宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">影のムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F70.html">火口湖</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm">火山島</td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">風の壁の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">風の盾</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">風のペンダント</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">固い弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">カッパースケール</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">カッパーチェーン</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">カッパーブレスト</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">神風の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: かみかぜのうた(はじめの歌詞「かみのかぜ」から)</td></tr>
-<tr><td class="nm"><a href="monsters.html#m125">からくり男爵</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m128">からくり男爵の魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm">ガリハアク</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m124">モンスター一覧(第1形態)</a>・<a href="monsters.html#m135">モンスター一覧(第2形態)</a>・<a href="monsters.html#m141">モンスター一覧(第3形態)</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="F6.html">ガリハアクの洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">カリヨン</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの村民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F52.html">カリンダの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうそ寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-kawauso">かわうそ族</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">かわうその歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">かわうその長</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその長の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその懐</a></td><td class="ct">場所（俗称）</td><td class="rm">読み: かわうそのふところ</td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">かわうその宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">皮ヒモ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m39">監視人</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m47">看守</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m81">ガンド</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m59">ガンバン</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
+<tr><td class="nm">ガーゴイル</td><td class="ct"><a href="monsters.html#m112">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">解呪の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: かいじゅのうた</td></tr>
+<tr><td class="nm">カイトシールド</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">火炎薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内ギルド</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内高級武器屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内雑貨屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内の教会内部</td><td class="ct"><a href="F72.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内の教師の家</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内の高級武器屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内の校舎</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内のチクタク館１Ｆ</td><td class="ct"><a href="F67.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内のチクタク館２Ｆ</td><td class="ct"><a href="F67.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内の納屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内武器屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内防具屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">学園内宿屋</td><td class="ct"><a href="F63.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">影のムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">火口湖</td><td class="ct"><a href="F70.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">火山島</td><td class="ct"><a href="world.html#w-kazan">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風の壁の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風の盾</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風のペンダント</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">固い弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カッパースケール</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カッパーチェーン</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カッパーブレスト</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">神風の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: かみかぜのうた(はじめの歌詞「かみのかぜ」から)</td></tr>
+<tr><td class="nm">神の山</td><td class="ct"><a href="world.html#w-kaminoyama">地名</a></td><td class="rm"></td></tr>
+<tr><td class="nm">からくり男爵</td><td class="ct"><a href="monsters.html#m125">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">からくり男爵の魂</td><td class="ct"><a href="monsters.html#m128">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ガリハアク</td><td class="ct"><a href="monsters.html#m124">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ガリハアクの洞窟</td><td class="ct"><a href="F6.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリヨン</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの音楽院</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの酒場</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの雑貨屋</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの寺院</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの村民の家</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの武器屋</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの防具屋</td><td class="ct"><a href="F52.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">カリンダの村</td><td class="ct"><a href="F52.html">場所</a><br><a href="world.html#w-karinda">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうそ寺院</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうそ族</td><td class="ct"><a href="glossary.html#g-kawauso">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその長</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその長の家</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその雑貨屋</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその武器屋</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその懐</td><td class="ct"><a href="F88.html">場所（俗称）</a><br><a href="world.html#w-kawauso">世界と地理</a></td><td class="rm">読み: かわうそのふところ</td></tr>
+<tr><td class="nm">かわうその防具屋</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">かわうその宿屋</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">皮ヒモ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">監視人</td><td class="ct"><a href="monsters.html#m39">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">看守</td><td class="ct"><a href="monsters.html#m47">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ガンド</td><td class="ct"><a href="monsters.html#m81">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ガンバン</td><td class="ct"><a href="monsters.html#m59">モンスター</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-き"><td colspan="3">き</td></tr>
-<tr><td class="nm"><a href="items.html">黄色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara5.html">ギガヒーリング</a></td><td class="ct">仲間の特技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">絹の弦</a></td><td class="ct">リュート部品（弦）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">木の珠装飾</a></td><td class="ct">リュート部品（装飾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">木の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">黄の宝石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">木の槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">キャップ</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">キャティ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m94">吸音ゴケ</a></td><td class="ct">モンスター</td><td class="rm">読み: きゅうおんごけ</td></tr>
-<tr><td class="nm">休火山島</td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara18.html">強者の弓</a></td><td class="ct">仲間の特技</td><td class="rm">読み: きょうしゃのゆみ</td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所：一般房</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所：管理棟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所：工場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所：独房</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F23.html">強制収容所の塔の中</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm">巨大手裏剣</td><td class="ct">武器（手裏剣）・仲間の特技</td><td class="rm"><a href="weapons.html">武器一覧</a>・<a href="chara4.html">スリム</a></td></tr>
-<tr><td class="nm"><a href="weapons.html">巨大弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">霧のタクト</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ギルドの鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">キルドレザー</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">銀色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">金の斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">銀の斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">銀の音叉</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">金の弦</a></td><td class="ct">リュート部品（弦）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">銀の弦</a></td><td class="ct">リュート部品（弦）</td><td class="rm"></td></tr>
+<tr><td class="nm">黄色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ギガヒーリング</td><td class="ct"><a href="chara5.html">仲間の特技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">絹の弦</td><td class="ct"><a href="lute_parts.html#string">リュート部品（弦）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">木の珠装飾</td><td class="ct"><a href="lute_parts.html#deco">リュート部品（装飾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">木の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">黄の宝石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">木の槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">キャップ</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">キャティ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">吸音ゴケ</td><td class="ct"><a href="monsters.html#m94">モンスター</a></td><td class="rm">読み: きゅうおんごけ</td></tr>
+<tr><td class="nm">休火山島</td><td class="ct"><a href="world.html#w-kyuukazan">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強者の弓</td><td class="ct"><a href="chara18.html">仲間の特技</a></td><td class="rm">読み: きょうしゃのゆみ</td></tr>
+<tr><td class="nm">強制収容所</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強制収容所：一般房</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強制収容所：管理棟</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強制収容所：工場</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強制収容所：独房</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">強制収容所の塔の中</td><td class="ct"><a href="F23.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">巨大手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a><br><a href="chara4.html">仲間の特技（スリム）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">巨大弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">霧のタクト</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ギルドの鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">キルドレザー</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">銀色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">禁断の山脈</td><td class="ct"><a href="world.html#w-kindan">地名</a></td><td class="rm"></td></tr>
+<tr><td class="nm">金の斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">銀の斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">銀の音叉</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: ぎんのおんさ</td></tr>
+<tr><td class="nm">金の弦</td><td class="ct"><a href="lute_parts.html#string">リュート部品（弦）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">銀の弦</td><td class="ct"><a href="lute_parts.html#string">リュート部品（弦）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-く"><td colspan="3">く</td></tr>
-<tr><td class="nm"><a href="chara6.html">クイクイ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの村民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F8.html">クーテの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F15.html">クーテの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m90">腐れたる者</a></td><td class="ct">モンスター</td><td class="rm">読み: くされたるもの</td></tr>
-<tr><td class="nm"><a href="key_items.html">曇ったオーブ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">クモ取りの薬</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">雲の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F12.html">クモの洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F12.html">クモの洞窟B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F12.html">クモの洞窟B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m14">クラウドキャット</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">クラッカー</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">グラディウス</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m58">グラティス</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm">グラデュアール</td><td class="ct">場所（俗称）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara11.html">グラム</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m99">クリーピィ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">グレイス</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">クレイモア</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">グレートソード</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの神殿</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの神殿雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F29.html">グレゴリアの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">クロースアーマー</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m34">黒騎士</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">クロスボウ</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m50">グロック</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">黒の胴</a></td><td class="ct">リュート部品（胴）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m49">黒妖蛾</a></td><td class="ct">モンスター</td><td class="rm">読み: くろようが</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-guntou">群島</a></td><td class="ct">用語</td><td class="rm"></td></tr>
+<tr><td class="nm">クイクイ</td><td class="ct"><a href="chara6.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの音楽院</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテのギルド</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの酒場</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの雑貨屋</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの村民の家</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの武器屋</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの防具屋</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの村</td><td class="ct"><a href="F8.html">場所</a><br><a href="world.html#w-kute">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの宿屋</td><td class="ct"><a href="F8.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クーテの山道</td><td class="ct"><a href="F15.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">腐れたる者</td><td class="ct"><a href="monsters.html#m90">モンスター</a></td><td class="rm">読み: くされたるもの</td></tr>
+<tr><td class="nm">曇ったオーブ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クモ取りの薬</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">雲の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クモの洞窟</td><td class="ct"><a href="F12.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クモの洞窟Ｂ１</td><td class="ct"><a href="F12.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クモの洞窟Ｂ２</td><td class="ct"><a href="F12.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クラウドキャット</td><td class="ct"><a href="monsters.html#m14">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グラディウス</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グラティス</td><td class="ct"><a href="monsters.html#m58">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グラデュアール</td><td class="ct"><a href="world.html#w-kazan">場所（俗称）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グラム</td><td class="ct"><a href="chara11.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クリーピィ</td><td class="ct"><a href="monsters.html#m99">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレイス</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クレイモア</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレートソード</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリア神殿</td><td class="ct"><a href="F29.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリアの雑貨屋</td><td class="ct"><a href="F29.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリアの武器屋</td><td class="ct"><a href="F29.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリアの防具屋</td><td class="ct"><a href="F29.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリアの村</td><td class="ct"><a href="F29.html">場所</a><br><a href="world.html#w-gregoria">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グレゴリアの宿屋</td><td class="ct"><a href="F29.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クロースアーマー</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">黒騎士</td><td class="ct"><a href="monsters.html#m34">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">クロスボウ</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">グロック</td><td class="ct"><a href="monsters.html#m50">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">黒の胴</td><td class="ct"><a href="lute_parts.html#body">リュート部品（胴）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">黒妖蛾</td><td class="ct"><a href="monsters.html#m49">モンスター</a></td><td class="rm">読み: くろようが</td></tr>
+<tr><td class="nm">群島</td><td class="ct"><a href="glossary.html#g-guntou">用語</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-け"><td colspan="3">け</td></tr>
-<tr><td class="nm"><a href="monsters.html#m51">警備兵</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m97">ケイブベアー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m108">ゲッポグリフ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">煙薬</a></td><td class="ct">道具</td><td class="rm">読み: けむりやく</td></tr>
-<tr><td class="nm"><a href="monsters.html#m46">ケロック</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">減速薬</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F30.html">鍵盤階段</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">幻惑の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
+<tr><td class="nm">警備兵</td><td class="ct"><a href="monsters.html#m51">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ケイブベアー</td><td class="ct"><a href="monsters.html#m97">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゲッポグリフ</td><td class="ct"><a href="monsters.html#m108">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">煙薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm">読み: けむりやく</td></tr>
+<tr><td class="nm">ケロック</td><td class="ct"><a href="monsters.html#m46">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">減速薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鍵盤階段</td><td class="ct"><a href="F30.html">場所</a><br><a href="world.html#w-kenban">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">幻惑の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-こ"><td colspan="3">こ</td></tr>
-<tr><td class="nm"><a href="key_items.html">工場の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">坑道の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">坑道の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m66">坑夫の亡霊</a></td><td class="ct">モンスター</td><td class="rm">読み: こうふのぼうれい</td></tr>
-<tr><td class="nm"><a href="items.html">興奮剤</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m37">ゴースト</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">氷の矢の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">氷の鎧の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-call">コール団</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ゴールドチェーン</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ゴールドブレスト</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m31">コール鷲</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F18.html">ゴーレムの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F18.html">ゴーレムの寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F18.html">ゴーレムの船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F18.html">ゴーレムの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F18.html">ゴーレムの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m13">木霊グモ</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m33">木霊グモの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m12">コブララット</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">子守り歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">小弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">紺碧の原石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">紺碧の宝珠</a></td><td class="ct">大事な物</td><td class="rm">読み: こんぺきのほうじゅ</td></tr>
-<tr><td class="nm"><a href="weapons.html">棍棒</a></td><td class="ct">武器（杖）</td><td class="rm">実機では「棍」の字が出ない(「　棒」)</td></tr>
+<tr><td class="nm">工場の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">坑道の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">坑道の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">坑夫の亡霊</td><td class="ct"><a href="monsters.html#m66">モンスター</a></td><td class="rm">読み: こうふのぼうれい</td></tr>
+<tr><td class="nm">興奮剤</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴースト</td><td class="ct"><a href="monsters.html#m37">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">氷の矢の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">氷の鎧の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">コール団</td><td class="ct"><a href="glossary.html#g-call">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴールドチェーン</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴールドブレスト</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">コール鷲</td><td class="ct"><a href="monsters.html#m31">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴーレムの雑貨屋</td><td class="ct"><a href="F18.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴーレムの寺院</td><td class="ct"><a href="F18.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴーレムの船屋</td><td class="ct"><a href="F18.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴーレムの村</td><td class="ct"><a href="F18.html">場所</a><br><a href="world.html#w-golem">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴーレムの宿屋</td><td class="ct"><a href="F18.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">木霊グモ</td><td class="ct"><a href="monsters.html#m13">モンスター（ボス）</a></td><td class="rm">読み: こだまぐも</td></tr>
+<tr><td class="nm">木霊グモの魂</td><td class="ct"><a href="monsters.html#m33">モンスター（ボス）</a></td><td class="rm">読み: こだまぐものたましい</td></tr>
+<tr><td class="nm">コブララット</td><td class="ct"><a href="monsters.html#m12">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゴム岩</td><td class="ct"><a href="glossary.html#g-gomu">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">子守り歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">小弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">紺碧の原石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: こんぺきのげんせき</td></tr>
+<tr><td class="nm">紺碧の宝珠</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: こんぺきのほうじゅ</td></tr>
+<tr><td class="nm">棍棒</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm">ゲーム中は「棍」の字が出ず「　棒」と表示される</td></tr>
 <tr class="kh" id="k-さ"><td colspan="3">さ</td></tr>
-<tr><td class="nm"><a href="items.html">財宝</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">サイリュウ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">酒場の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara21.html">サザシイ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m21">さざめく炎</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m62">雑音草</a></td><td class="ct">モンスター</td><td class="rm">読み: ざつおんそう</td></tr>
-<tr><td class="nm"><a href="weapons.html">サバイバルナイフ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">錆びた鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">サファイア</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m18">さまよう炎</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm">サンクトス島</td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F31.html">サンクトスの洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">サンジャック</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F69.html">サンジャックの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">サンダーボルト</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">サンダル</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F70.html">山頂の洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">斬鉄剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">サンドストーム</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">斬馬手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm">読み: ざんばしゅりけん</td></tr>
+<tr><td class="nm">財宝</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サイリュウ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">酒場の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サザシイ</td><td class="ct"><a href="chara21.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">さざめく炎</td><td class="ct"><a href="monsters.html#m21">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">雑音草</td><td class="ct"><a href="monsters.html#m62">モンスター</a></td><td class="rm">読み: ざつおんそう</td></tr>
+<tr><td class="nm">サバイバルナイフ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">錆びた鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サファイア</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">さまよう炎</td><td class="ct"><a href="monsters.html#m18">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンクトス島</td><td class="ct"><a href="world.html#w-sanctos">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンクトスの洞窟</td><td class="ct"><a href="F31.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンジャック</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンジャックの家</td><td class="ct"><a href="F69.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンダーボルト</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンダル</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">山頂の洞窟</td><td class="ct"><a href="F70.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">斬鉄剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">サンドストーム</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">斬馬手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm">読み: ざんばしゅりけん</td></tr>
 <tr class="kh" id="k-し"><td colspan="3">し</td></tr>
-<tr><td class="nm"><a href="monsters.html#m30">シーウィング</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ジゴヒーリング</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">仕込杖</a></td><td class="ct">武器（杖）</td><td class="rm">読み: しこみづえ</td></tr>
-<tr><td class="nm"><a href="songs.html">地震の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m89">死人狼</a></td><td class="ct">モンスター</td><td class="rm">読み: しじんろう</td></tr>
-<tr><td class="nm"><a href="items.html">しびれ薬</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm">シベリン</td><td class="ct">NPC・仲間</td><td class="rm"><a href="sub_chara.html">NPC一覧</a>・<a href="chara8.html">シベリン</a></td></tr>
-<tr><td class="nm"><a href="weapons.html">四方手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">シミター</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m91">シャドウ</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ジャベリン</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">シャベル</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">朱色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">十字手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F84.html">囚人島</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F84.html">囚人島B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F84.html">囚人島B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F84.html">囚人島地下洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F84.html">囚人島内部</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">シューズ</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">１２弦指板</a></td><td class="ct">リュート部品（指板）</td><td class="rm">読み: じゅうにげんしばん</td></tr>
-<tr><td class="nm"><a href="F22.html">収容所への道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ジュエルダガー</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m67">術師</a></td><td class="ct">モンスター</td><td class="rm">読み: じゅつし</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-doumei">首都解放同盟</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m103">死妖蛾</a></td><td class="ct">モンスター</td><td class="rm">読み: しようが</td></tr>
-<tr><td class="nm"><a href="skills.html">召喚</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara15.html">ショウコ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m44">城兵</a></td><td class="ct">モンスター</td><td class="rm">読み: じょうへい</td></tr>
-<tr><td class="nm"><a href="chara5.html">ジョーイ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ショートスピア</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ショートソード</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ショートブーツ</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">書庫の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm">ジョリスの像</td><td class="ct">その他</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F50.html">ジョリスの洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F49.html">ジョリスの森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ジル</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">シルバースケール</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">シルバーチェーン</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">シルバーブレスト</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">死戻強の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: しれいきょうのうた</td></tr>
-<tr><td class="nm"><a href="songs.html">死戻の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: しれいのうた</td></tr>
-<tr><td class="nm"><a href="items.html">白色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">白／金の線</a></td><td class="ct">リュート部品（表面板）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">城のカギ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">白の胴</a></td><td class="ct">リュート部品（胴）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">真空の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F9.html">神聖な森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm">震動石</td><td class="ct">その他</td><td class="rm">読み: しんどうせき</td></tr>
-<tr><td class="nm"><a href="key_items.html">神秘の蝶</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m84">人狼</a></td><td class="ct">モンスター</td><td class="rm">読み: じんろう</td></tr>
+<tr><td class="nm">シーウィング</td><td class="ct"><a href="monsters.html#m30">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">仕込杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm">読み: しこみづえ</td></tr>
+<tr><td class="nm">地震の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">死人狼</td><td class="ct"><a href="monsters.html#m89">モンスター</a></td><td class="rm">読み: しじんろう</td></tr>
+<tr><td class="nm">しびれ薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シベリン</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">四方手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シミター</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シャドウ</td><td class="ct"><a href="monsters.html#m91">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジャベリン</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シャベル</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">朱色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">十字手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島</td><td class="ct"><a href="F84.html">場所</a><br><a href="world.html#w-shuujin">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島１Ｆ</td><td class="ct"><a href="F84.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島Ｂ１</td><td class="ct"><a href="F84.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島Ｂ２</td><td class="ct"><a href="F84.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島地下洞窟</td><td class="ct"><a href="F84.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">囚人島内部</td><td class="ct"><a href="F84.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シューズ</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">収容所への道</td><td class="ct"><a href="F22.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジュエルダガー</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">術師</td><td class="ct"><a href="monsters.html#m67">モンスター</a></td><td class="rm">読み: じゅつし</td></tr>
+<tr><td class="nm">首都解放同盟</td><td class="ct"><a href="glossary.html#g-doumei">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">死妖蛾</td><td class="ct"><a href="monsters.html#m103">モンスター</a></td><td class="rm">読み: しようが</td></tr>
+<tr><td class="nm">召喚</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ショウコ</td><td class="ct"><a href="chara15.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">城兵</td><td class="ct"><a href="monsters.html#m44">モンスター</a></td><td class="rm">読み: じょうへい</td></tr>
+<tr><td class="nm">ジョーイ</td><td class="ct"><a href="chara5.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ショートスピア</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ショートソード</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ショートブーツ</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">書庫の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジョリス</td><td class="ct"><a href="glossary.html#g-joris">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジョリスの像</td><td class="ct"><a href="glossary.html#g-jorisz">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジョリスの洞窟</td><td class="ct"><a href="F50.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジョリスの森</td><td class="ct"><a href="F49.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ジル</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シルバースケール</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シルバーチェーン</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">シルバーブレスト</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">死戻強の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: しれいきょうのうた</td></tr>
+<tr><td class="nm">死戻の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: しれいのうた</td></tr>
+<tr><td class="nm">白色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">白／金の線</td><td class="ct"><a href="lute_parts.html#top">リュート部品（表面板）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">城のカギ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">白の胴</td><td class="ct"><a href="lute_parts.html#body">リュート部品（胴）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">真空の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">神聖な森</td><td class="ct"><a href="F9.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">震動石</td><td class="ct"><a href="glossary.html#g-shindou">用語</a></td><td class="rm">読み: しんどうせき</td></tr>
+<tr><td class="nm">神秘の蝶</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">人狼</td><td class="ct"><a href="monsters.html#m84">モンスター</a></td><td class="rm">読み: じんろう</td></tr>
 <tr class="kh" id="k-す"><td colspan="3">す</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-kyuu">水晶球</a></td><td class="ct">用語</td><td class="rm">読み: すいしょうきゅう</td></tr>
-<tr><td class="nm"><a href="monsters.html#m32">水晶コウモリ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m129">水晶生命</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">水晶玉</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-chuu">水晶柱</a></td><td class="ct">用語</td><td class="rm">読み: すいしょうちゅう</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-shindai">水晶の寝台</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">水晶の装飾</a></td><td class="ct">リュート部品（装飾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F32.html">水晶の洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">スーパーアメ</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">スーパーのどあめ</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm">スカイシロアゲハ</td><td class="ct">生き物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-skyhead">スカイヘッド</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">スカイヘッドの長</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m35">スカルフェイス</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m48">スカルボ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm">スカルマスター</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m133">モンスター一覧</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="monsters.html#m138">スカルマスターの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">スカンク</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm">スクリーン</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara2.html">ホイヒュー</a></td></tr>
-<tr><td class="nm"><a href="monsters.html#m17">スケルトン</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">スティレット</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F43.html">捨てられた坑道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F43.html">捨てられた坑道B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F43.html">捨てられた坑道B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m5">スネークラット</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">スノーフォール</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">素晴らしい羽根</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m75">スペクター</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">スマイス</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m24">スメル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">スモーク</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m61">スリーホーン</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara4.html">スリム</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">スリング</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">スローダウン</a></td><td class="ct">技</td><td class="rm"></td></tr>
+<tr><td class="nm">水晶球</td><td class="ct"><a href="glossary.html#g-kyuu">用語</a></td><td class="rm">読み: すいしょうきゅう</td></tr>
+<tr><td class="nm">水晶コウモリ</td><td class="ct"><a href="monsters.html#m32">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水晶生命</td><td class="ct"><a href="monsters.html#m129">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水晶玉</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水晶柱</td><td class="ct"><a href="glossary.html#g-chuu">用語</a></td><td class="rm">読み: すいしょうちゅう</td></tr>
+<tr><td class="nm">水晶の寝台</td><td class="ct"><a href="glossary.html#g-shindai">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水晶の装飾</td><td class="ct"><a href="lute_parts.html#deco">リュート部品（装飾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水晶の洞窟</td><td class="ct"><a href="F32.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スーパーのどあめ</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカイシロアゲハ</td><td class="ct"><a href="glossary.html#g-seirei">生き物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカイヘッド</td><td class="ct"><a href="glossary.html#g-skyhead">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカイヘッドの長</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカルフェイス</td><td class="ct"><a href="monsters.html#m35">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカルボ</td><td class="ct"><a href="monsters.html#m48">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカルマスター</td><td class="ct"><a href="monsters.html#m133">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカルマスターの魂</td><td class="ct"><a href="monsters.html#m138">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スカンク</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スクリーン</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara2.html">仲間の特技（ホイヒュー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スケルトン</td><td class="ct"><a href="monsters.html#m17">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スティレット</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">捨てられた坑道</td><td class="ct"><a href="F43.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">捨てられた坑道Ｂ１</td><td class="ct"><a href="F43.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">捨てられた坑道Ｂ２</td><td class="ct"><a href="F43.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スネークラット</td><td class="ct"><a href="monsters.html#m5">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スノーフォール</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">素晴らしい羽根</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スペクター</td><td class="ct"><a href="monsters.html#m75">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スマイス</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スメル</td><td class="ct"><a href="monsters.html#m24">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スリーホーン</td><td class="ct"><a href="monsters.html#m61">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スリム</td><td class="ct"><a href="chara4.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">スリング</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-せ"><td colspan="3">せ</td></tr>
-<tr><td class="nm"><a href="items.html">聖水</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">青銅のナイフ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">精霊の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">石化薬</a></td><td class="ct">道具</td><td class="rm">読み: せっかやく</td></tr>
-<tr><td class="nm"><a href="monsters.html#m26">セミ法師</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">セレーネ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">全快の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F4.html">船室</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F4.html">船長室</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">全手当の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: ぜんてあてのうた</td></tr>
-<tr><td class="nm"><a href="songs.html">全治しの歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">戦斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: せんぷ</td></tr>
+<tr><td class="nm">聖者ジョリス</td><td class="ct"><a href="glossary.html#g-joris">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">聖水</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">青銅のナイフ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">精霊</td><td class="ct"><a href="glossary.html#g-seirei">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">精霊の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">石化薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm">読み: せっかやく</td></tr>
+<tr><td class="nm">セミ法師</td><td class="ct"><a href="monsters.html#m26">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">セレーネ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">全快の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">船室</td><td class="ct"><a href="F4.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">船長室</td><td class="ct"><a href="F4.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">全手当の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: ぜんてあてのうた</td></tr>
+<tr><td class="nm">全治しの歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">戦斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: せんぷ</td></tr>
 <tr class="kh" id="k-そ"><td colspan="3">そ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m87">ソウルイーター</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m101">ソウルスワロー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">空飛び薬</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-scholars">ソングスカラーズ</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ソングストーン</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ソングダガー</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m85">ゾンビ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
+<tr><td class="nm">ソウルイーター</td><td class="ct"><a href="monsters.html#m87">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ソウルスワロー</td><td class="ct"><a href="monsters.html#m101">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">空飛び薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ソングスカラーズ</td><td class="ct"><a href="glossary.html#g-scholars">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ソングストーン</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ソングダガー</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ソングポイント</td><td class="ct"><a href="glossary.html#g-sp">用語</a></td><td class="rm">SP のこと</td></tr>
+<tr><td class="nm">ゾンビ</td><td class="ct"><a href="monsters.html#m85">モンスター</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-た"><td colspan="3">た</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-darkode">ダークオード</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ダークソード</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ダーツ</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ターバン</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara7.html">ターンアンデッド</a></td><td class="ct">仲間の特技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ターントゥストン</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">台風の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">ダイヤの装飾</a></td><td class="ct">リュート部品（装飾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ダイヤの槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-tairiku">大陸</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ダガー</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m121">ダストデビル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m8">ダタラ</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m68">ダフニ</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m41">ダマシ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">魂のビン</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">タリス</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">ダークオード</td><td class="ct"><a href="glossary.html#g-darkode">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダークソード</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダーツ</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ターバン</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ターンアンデッド</td><td class="ct"><a href="chara7.html">仲間の特技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ターントゥストン</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">台風の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダイヤの装飾</td><td class="ct"><a href="lute_parts.html#deco">リュート部品（装飾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダイヤの槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">大陸</td><td class="ct"><a href="glossary.html#g-tairiku">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダガー</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダストデビル</td><td class="ct"><a href="monsters.html#m121">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダタラ</td><td class="ct"><a href="monsters.html#m8">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダフニ</td><td class="ct"><a href="monsters.html#m68">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ダマシ</td><td class="ct"><a href="monsters.html#m41">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">魂のビン</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">タリス</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ち"><td colspan="3">ち</td></tr>
-<tr><td class="nm"><a href="weapons.html">チェーン</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F65.html">地下回廊</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F88.html">地下湖底</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-chikara">力の歌</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-utaite">力の歌い手</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">力の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">チクタク館の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">地の盾</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">地のペンダント</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">茶色／白の線</a></td><td class="ct">リュート部品（表面板）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">茶色の胴</a></td><td class="ct">リュート部品（胴）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m76">チャター</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">中斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: ちゅうおの</td></tr>
-<tr><td class="nm"><a href="lute_parts.html">蝶ネック</a></td><td class="ct">リュート部品（ネック）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">蝶の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F13.html">蝶の森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F13.html">蝶の森のサイリュウの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F98.html">調律の洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F98.html">調律の洞窟B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
+<tr><td class="nm">チェーン</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">地下回廊</td><td class="ct"><a href="F65.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">地下湖底</td><td class="ct"><a href="F88.html">場所</a></td><td class="rm">読み: ちかこてい</td></tr>
+<tr><td class="nm">力の歌</td><td class="ct"><a href="glossary.html#g-chikara">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">力の歌い手</td><td class="ct"><a href="glossary.html#g-utaite">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">力の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">チクタク館の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">地の盾</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">地のペンダント</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">茶色／白の線</td><td class="ct"><a href="lute_parts.html#top">リュート部品（表面板）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">茶色の胴</td><td class="ct"><a href="lute_parts.html#body">リュート部品（胴）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">チャター</td><td class="ct"><a href="monsters.html#m76">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">中央の島</td><td class="ct"><a href="world.html#w-sanctos">島</a></td><td class="rm">サンクトス島のこと</td></tr>
+<tr><td class="nm">中斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: ちゅうおの</td></tr>
+<tr><td class="nm">蝶ネック</td><td class="ct"><a href="lute_parts.html#neck">リュート部品（ネック）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">蝶の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">蝶の森</td><td class="ct"><a href="F13.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">蝶の森のサイリュウの家</td><td class="ct"><a href="F13.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">調律の洞窟</td><td class="ct"><a href="F98.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">調律の洞窟Ｂ１</td><td class="ct"><a href="F98.html">場所</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-つ"><td colspan="3">つ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m77">ツク法師</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">土人形の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: つちにんぎょうのうた</td></tr>
-<tr><td class="nm"><a href="songs.html">土の手の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m3">ツリーパー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
+<tr><td class="nm">ツク法師</td><td class="ct"><a href="monsters.html#m77">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">土人形の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: つちにんぎょうのうた</td></tr>
+<tr><td class="nm">土の手の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ツリーパー</td><td class="ct"><a href="monsters.html#m3">モンスター</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-て"><td colspan="3">て</td></tr>
-<tr><td class="nm"><a href="songs.html">手当ての歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ディーエックス</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｔ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｔの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ディック</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">手斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m22">敵兵</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">鉄の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">鉄の槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara1.html">テラヒーリング</a></td><td class="ct">仲間の特技</td><td class="rm"></td></tr>
+<tr><td class="nm">手当ての歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ディック</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">手斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">敵兵</td><td class="ct"><a href="monsters.html#m22">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鉄の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鉄の槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">テラヒーリング</td><td class="ct"><a href="chara1.html">仲間の特技</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-と"><td colspan="3">と</td></tr>
-<tr><td class="nm"><a href="items.html">銅色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m109">洞窟コウモリ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">凍結の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">塔の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm">時の止まった湖</td><td class="ct">場所（俗称）</td><td class="rm">読み: ときのとまったみずうみ</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">時の老人</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m10">毒ヅタ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">毒の雨の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">独房の角鍵</a></td><td class="ct">大事な物</td><td class="rm">読み: どくぼうのかくかぎ</td></tr>
-<tr><td class="nm"><a href="F67.html">時計の館チクタク館</a></td><td class="ct">場所（俗称）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">時計ピン</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">トゲトゲムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm">ドドル</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m60">モンスター一覧</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="monsters.html#m116">ドドルの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F51.html">ドドルの塔</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F51.html">ドドルの塔１F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F51.html">ドドルの塔２F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F51.html">ドドルの塔３F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm">ドミナント・デ・ホワイト</td><td class="ct">生き物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントのアレイの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの長の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F11.html">ドミナントの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F19.html">ドミナントの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara3.html">ドムカ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ドラ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">トライデント</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">ドラゴンネック</a></td><td class="ct">リュート部品（ネック）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara18.html">トラビス</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">鳥の王</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F68.html">鳥の島</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F68.html">鳥の島の船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara10.html">トリリア</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">トルコ石の装飾</a></td><td class="ct">リュート部品（装飾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m126">泥アリ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara17.html">ドロシー</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-doro">泥族</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m55">ドロダマシ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m88">どろどろ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">どろどろの玉</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F53.html">どろどろの沼地</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m54">ドロヌマアルキ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">泥の町ホタ</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m53">ドロモドキ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara20.html">ドンキー</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
+<tr><td class="nm">銅色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">洞窟コウモリ</td><td class="ct"><a href="monsters.html#m109">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">凍結の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">塔の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">時の止まった湖</td><td class="ct"><a href="F70.html">場所（俗称）</a><br><a href="world.html#w-tokinotomatta">世界と地理</a></td><td class="rm">読み: ときのとまったみずうみ</td></tr>
+<tr><td class="nm">時の老人</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">毒ヅタ</td><td class="ct"><a href="monsters.html#m10">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">毒の雨の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">独房の角鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: どくぼうのかくかぎ</td></tr>
+<tr><td class="nm">時計の館チクタク館</td><td class="ct"><a href="F67.html">場所（俗称）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">時計ピン</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">トゲトゲムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドル</td><td class="ct"><a href="monsters.html#m60">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドルの魂</td><td class="ct"><a href="monsters.html#m116">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドルの塔</td><td class="ct"><a href="F51.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドルの塔１Ｆ</td><td class="ct"><a href="F51.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドルの塔２Ｆ</td><td class="ct"><a href="F51.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドドルの塔３Ｆ</td><td class="ct"><a href="F51.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナント・デ・ホワイト</td><td class="ct"><a href="glossary.html#g-seirei">生き物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントのアレイの家</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの長の家</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントのギルド</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの酒場</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの武器屋</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの防具屋</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの村</td><td class="ct"><a href="F11.html">場所</a><br><a href="world.html#w-dominant">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの宿屋</td><td class="ct"><a href="F11.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドミナントの山道</td><td class="ct"><a href="F19.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドムカ</td><td class="ct"><a href="chara3.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドラ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">トライデント</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドラゴンネック</td><td class="ct"><a href="lute_parts.html#neck">リュート部品（ネック）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">トラビス</td><td class="ct"><a href="chara18.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鳥の王</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鳥の島</td><td class="ct"><a href="F68.html">場所</a><br><a href="world.html#w-tori">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">鳥の島の船屋</td><td class="ct"><a href="F68.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">トリリア</td><td class="ct"><a href="chara10.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">トルコ石の装飾</td><td class="ct"><a href="lute_parts.html#deco">リュート部品（装飾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">泥アリ</td><td class="ct"><a href="monsters.html#m126">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドロシー</td><td class="ct"><a href="chara17.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">泥族</td><td class="ct"><a href="glossary.html#g-doro">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドロダマシ</td><td class="ct"><a href="monsters.html#m55">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">どろどろ</td><td class="ct"><a href="monsters.html#m88">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">どろどろの玉</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">どろどろの沼</td><td class="ct"><a href="F53.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドロヌマアルキ</td><td class="ct"><a href="monsters.html#m54">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">泥の町ホタ</td><td class="ct"><a href="F47.html">場所</a><br><a href="world.html#w-hota">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドロモドキ</td><td class="ct"><a href="monsters.html#m53">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ドンキー</td><td class="ct"><a href="chara20.html">仲間</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-な"><td colspan="3">な</td></tr>
-<tr><td class="nm"><a href="F17.html">内臓洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ナイトヘルム</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">治しの歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">長斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: ながおの</td></tr>
-<tr><td class="nm"><a href="weapons.html">投げ釘</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">投げナイフ</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">投げバリ</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">謎の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm">名もない防具屋</td><td class="ct">場所</td><td class="rm"></td></tr>
+<tr><td class="nm">内臓洞窟</td><td class="ct"><a href="F17.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ナイトヘルム</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">治しの歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">長斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: ながおの</td></tr>
+<tr><td class="nm">投げ釘</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">投げナイフ</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">投げバリ</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">謎の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">名もない防具屋</td><td class="ct"><a href="F15.html">場所</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-に"><td colspan="3">に</td></tr>
-<tr><td class="nm"><a href="monsters.html#m117">虹トカゲ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">虹の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">２Ｍ指板</a></td><td class="ct">リュート部品（指板）</td><td class="rm">読み: にめーとるしばん</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-ningen">人間族</a></td><td class="ct">用語</td><td class="rm"></td></tr>
+<tr><td class="nm">虹トカゲ</td><td class="ct"><a href="monsters.html#m117">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">虹の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">人間族</td><td class="ct"><a href="glossary.html#g-ningen">用語</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ぬ"><td colspan="3">ぬ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m130">ヌエ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m52">ヌマアルキ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F45.html">沼地</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F46.html">沼の町イントラダ</a></td><td class="ct">場所</td><td class="rm"></td></tr>
+<tr><td class="nm">ヌエ</td><td class="ct"><a href="monsters.html#m130">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヌマアルキ</td><td class="ct"><a href="monsters.html#m52">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">沼地</td><td class="ct"><a href="F45.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">沼の町イントラダ</td><td class="ct"><a href="F46.html">場所</a><br><a href="world.html#w-intrada">世界と地理</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ね"><td colspan="3">ね</td></tr>
-<tr><td class="nm"><a href="songs.html">熱地獄の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: ねつじごくのうた</td></tr>
-<tr><td class="nm"><a href="songs.html">熱風の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
+<tr><td class="nm">熱地獄の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: ねつじごくのうた</td></tr>
+<tr><td class="nm">熱風の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-の"><td colspan="3">の</td></tr>
-<tr><td class="nm"><a href="skills.html">ノイズ</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m95">ノイズ植物</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">ノーマルネック</a></td><td class="ct">リュート部品（ネック）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ノドアメ</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">のどあめ</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">のどあめＤＸ</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ノドグスリ</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">のどぐすり</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F63.html">ノルティナ学園都市</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F69.html">ノルティナの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ノルマンシールド</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F42.html">呪われた洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
+<tr><td class="nm">ノイズ</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ノイズ植物</td><td class="ct"><a href="monsters.html#m95">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ノーマルネック</td><td class="ct"><a href="lute_parts.html#neck">リュート部品（ネック）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">のどあめ</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">のどあめＤＸ</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">のどぐすり</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ノルティナ学園都市</td><td class="ct"><a href="F63.html">場所</a><br><a href="world.html#w-nortina">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ノルティナの山道</td><td class="ct"><a href="F69.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ノルマンシールド</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">呪われた洞窟</td><td class="ct"><a href="F42.html">場所</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-は"><td colspan="3">は</td></tr>
-<tr><td class="nm"><a href="monsters.html#m28">ハープ蟻</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ハイネックレス</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F72.html">パイプ洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m74">ハウラー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m78">バウンダー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">爆発薬</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">爆烈大弓</a></td><td class="ct">武器（弓）</td><td class="rm">読み: ばくれつおおゆみ</td></tr>
-<tr><td class="nm"><a href="weapons.html">爆烈弓</a></td><td class="ct">武器（弓）</td><td class="rm">読み: ばくれつきゅう</td></tr>
-<tr><td class="nm"><a href="weapons.html">刃こぼれ斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">橋の絵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm">始まりの島</td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">バスタードソート</a></td><td class="ct">武器（両手剣）</td><td class="rm">原作の表記のまま(バスタードソードの誤植)</td></tr>
-<tr><td class="nm"><a href="chara16.html">パストラン</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">肌色／茶の線</a></td><td class="ct">リュート部品（表面板）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">肌色の胴</a></td><td class="ct">リュート部品（胴）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">肌色の表面板</a></td><td class="ct">リュート部品（表面板）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">８コース指板</a></td><td class="ct">リュート部品（指板）</td><td class="rm">読み: はちこーすしばん</td></tr>
-<tr><td class="nm"><a href="monsters.html#m40">バットスメル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">八方手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">バトルナイフ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">羽根付き帽子</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">母グモの細糸</a></td><td class="ct">大事な物</td><td class="rm">読み: ははぐものほそいと</td></tr>
-<tr><td class="nm">パラライズ</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara10.html">トリリア</a>・<a href="chara16.html">パストラン</a></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコのアーノスタルの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコのアガルックの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコの長の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコの村の龍族の会議所</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F95.html">バルエコの森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコのモルガンの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F7.html">バルエコの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">バルエコの龍族の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m71">バルメイラス</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m127">バルメイラスの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-harmonia">ハルモニア</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m23">ハンガン</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m102">反響ゴケ</a></td><td class="ct">モンスター</td><td class="rm">読み: はんきょうごけ</td></tr>
-<tr><td class="nm">バング草</td><td class="ct">植物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ハンドナイフ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-hanran">反乱軍</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm">反乱分子</td><td class="ct">組織</td><td class="rm"></td></tr>
+<tr><td class="nm">ハープ蟻</td><td class="ct"><a href="monsters.html#m28">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ハイネックレス</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">パイプ洞窟</td><td class="ct"><a href="F72.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ハウラー</td><td class="ct"><a href="monsters.html#m74">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バウンダー</td><td class="ct"><a href="monsters.html#m78">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">爆発薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">爆烈大弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm">読み: ばくれつおおゆみ</td></tr>
+<tr><td class="nm">爆烈弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm">読み: ばくれつきゅう</td></tr>
+<tr><td class="nm">刃こぼれ斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">橋の絵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">始まりの島</td><td class="ct"><a href="world.html#w-hajimari">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バスタードソート</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm">原作の表記のまま(バスタードソードの誤植)</td></tr>
+<tr><td class="nm">パストラン</td><td class="ct"><a href="chara16.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">肌色／茶の線</td><td class="ct"><a href="lute_parts.html#top">リュート部品（表面板）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">肌色の胴</td><td class="ct"><a href="lute_parts.html#body">リュート部品（胴）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">肌色の表面板</td><td class="ct"><a href="lute_parts.html#top">リュート部品（表面板）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バットスメル</td><td class="ct"><a href="monsters.html#m40">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">八方手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バトルナイフ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">羽根付き帽子</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">母グモの細糸</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: ははぐものほそいと</td></tr>
+<tr><td class="nm">パラライズ</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara10.html">仲間の特技（トリリア）</a><br><a href="chara16.html">仲間の特技（パストラン）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコのアーノスタルの家</td><td class="ct"><a href="F5.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコのアガルックの家</td><td class="ct"><a href="F5.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコの長の家</td><td class="ct"><a href="F5.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコの森</td><td class="ct"><a href="F95.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコのモルガンの家</td><td class="ct"><a href="F5.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコの山道</td><td class="ct"><a href="F7.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコの龍族の家</td><td class="ct"><a href="F5.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルエコ村の龍族の会議所</td><td class="ct"><a href="F5-b.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルメイラス</td><td class="ct"><a href="monsters.html#m71">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">バルメイラスの魂</td><td class="ct"><a href="monsters.html#m127">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ハルモニア</td><td class="ct"><a href="glossary.html#g-harmonia">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ハンガン</td><td class="ct"><a href="monsters.html#m23">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">反響ゴケ</td><td class="ct"><a href="monsters.html#m102">モンスター</a></td><td class="rm">読み: はんきょうごけ</td></tr>
+<tr><td class="nm">バング草</td><td class="ct"><a href="glossary.html#g-bang">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ハンドナイフ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">反乱軍</td><td class="ct"><a href="glossary.html#g-hanran">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">反乱軍分子</td><td class="ct"><a href="glossary.html#g-bunshi">用語</a></td><td class="rm">「反乱分子」とも呼ばれる</td></tr>
 <tr class="kh" id="k-ひ"><td colspan="3">ひ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m25">ビーウィング</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｂ＃の剣</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m98">ビーストロード</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ヒーターシールド</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ビート杉の粉</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">Ｂの剣</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ヒーリング</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ヒーリング２</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm">ヒーリング３</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara15.html">ショウコ</a></td></tr>
-<tr><td class="nm"><a href="skills.html">ヒール</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ヒール２</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">ヒール３</a></td><td class="ct">技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ピック</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m132">ビッグアイ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara14.html">ピックマン</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">火の盾</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">火のペンダント</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">氷河の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
+<tr><td class="nm">ビーウィング</td><td class="ct"><a href="monsters.html#m25">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ビーストロード</td><td class="ct"><a href="monsters.html#m98">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒーターシールド</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ビート杉の粉</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒーリング</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒーリング２</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒーリング３</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara15.html">仲間の特技（ショウコ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒール</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヒール２</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ピック</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ビッグアイ</td><td class="ct"><a href="monsters.html#m132">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ピックマン</td><td class="ct"><a href="chara14.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">火の盾</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">火のペンダント</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">氷河の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ふ"><td colspan="3">ふ</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ファーナ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm">ファイア－ボール</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara19.html">フィデレ</a><br>原作の表記のまま(「ー」ではなく「－」)</td></tr>
-<tr><td class="nm"><a href="monsters.html#m56">ファイヤーモンキー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m38">ファントム</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara19.html">フィデレ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">フィデレの護符</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">フィドル</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m96">風悪魔</a></td><td class="ct">モンスター</td><td class="rm">読み: ふうあくま</td></tr>
-<tr><td class="nm"><a href="chara20.html">風鬼大車輪</a></td><td class="ct">仲間の特技</td><td class="rm">読み: ふうきだいしゃりん</td></tr>
-<tr><td class="nm">フーコー</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m70">モンスター一覧</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="F37.html">フーコーの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m92">フーコーの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">風針薬</a></td><td class="ct">道具</td><td class="rm">読み: ふうしんやく</td></tr>
-<tr><td class="nm"><a href="armors.html">フード</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m73">風妖魔</a></td><td class="ct">モンスター</td><td class="rm">読み: ふうようま</td></tr>
-<tr><td class="nm"><a href="F40.html">フエダのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの町長の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダのフィデレの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F40.html">フエダの町</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F41.html">フエダの森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">フォープキン</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F15.html">フォープキンの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">フォーリー</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアの村民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F27.html">フォリアの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">袋に入った黒砂</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">不思議な太鼓</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m42">フッター</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">太い鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">太いロープ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">太ムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">浮遊の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m131">フライアイ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">フルフェイス</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">フレイム</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">フレイル</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m123">フレームモンキー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ブロードソード</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ブロンズスケール</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ブロンズチェーン</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ブロンズブレスト</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
+<tr><td class="nm">ファーナ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ファイア－ボール</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara19.html">仲間の特技（フィデレ）</a></td><td class="rm">原作の表記のまま(「ー」ではなく「－」)</td></tr>
+<tr><td class="nm">ファイヤーモンキー</td><td class="ct"><a href="monsters.html#m56">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ファントム</td><td class="ct"><a href="monsters.html#m38">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フィデレ</td><td class="ct"><a href="chara19.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フィデレの護符</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm">読み: ふぃでれのごふ</td></tr>
+<tr><td class="nm">フィドル</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風悪魔</td><td class="ct"><a href="monsters.html#m96">モンスター</a></td><td class="rm">読み: ふうあくま</td></tr>
+<tr><td class="nm">風鬼大車輪</td><td class="ct"><a href="chara20.html">仲間の特技</a></td><td class="rm">読み: ふうきだいしゃりん</td></tr>
+<tr><td class="nm">フーコー</td><td class="ct"><a href="monsters.html#m70">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フーコーの家</td><td class="ct"><a href="F37.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フーコーの魂</td><td class="ct"><a href="monsters.html#m92">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風針薬</td><td class="ct"><a href="items.html">道具</a></td><td class="rm">読み: ふうしんやく</td></tr>
+<tr><td class="nm">フード</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">風妖魔</td><td class="ct"><a href="monsters.html#m73">モンスター</a></td><td class="rm">読み: ふうようま</td></tr>
+<tr><td class="nm">フエダのギルド</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの酒場</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの雑貨屋</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの町長の家</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの町民の家</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダのフィデレの家</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの武器屋</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの船屋</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの防具屋</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの町</td><td class="ct"><a href="F40.html">場所</a><br><a href="world.html#w-fueda">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの森</td><td class="ct"><a href="F41.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フエダの宿屋</td><td class="ct"><a href="F40.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォープキン</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォープキンの家</td><td class="ct"><a href="F15.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォーリー</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアのギルド</td><td class="ct"><a href="F27.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアの酒場</td><td class="ct"><a href="F27.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアの村民の家</td><td class="ct"><a href="F27.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアの武器屋</td><td class="ct"><a href="F27.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアの村</td><td class="ct"><a href="F27.html">場所</a><br><a href="world.html#w-folia">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フォリアの宿屋</td><td class="ct"><a href="F27.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">袋に入った黒砂</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">不思議な太鼓</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フッター</td><td class="ct"><a href="monsters.html#m42">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">太い鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">太いロープ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">太ムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">浮遊の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フライアイ</td><td class="ct"><a href="monsters.html#m131">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フルフェイス</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フレイム</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フレイル</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">フレームモンキー</td><td class="ct"><a href="monsters.html#m123">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ブロードソード</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ブロンズスケール</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ブロンズチェーン</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ブロンズブレスト</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-へ"><td colspan="3">へ</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ペイン</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ペグ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">べたべた薬</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ヘルメット</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ベレー</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara12.html">ヘンケン</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
+<tr><td class="nm">ペイン</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ペグ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">べたべた薬</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヘルメット</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ベレー</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ヘンケン</td><td class="ct"><a href="chara12.html">仲間</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ほ"><td colspan="3">ほ</td></tr>
-<tr><td class="nm"><a href="chara2.html">ホイヒュー</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-whistle">ホイル団</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F62.html">牧場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ボグダ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">細ムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">ホタの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">ホタの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">ホタの寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">ホタの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F47.html">ホタの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">捕虫用ネット</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-hone">骨の笛</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">炎の心の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">炎の玉の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">炎の杖</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">炎の柱の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm">炎の矢</td><td class="ct">仲間の特技</td><td class="rm"><a href="chara6.html">クイクイ</a>・<a href="chara8.html">シベリン</a></td></tr>
-<tr><td class="nm"><a href="songs.html">炎の槍の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">炎の輪の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">炎爆発の歌</a></td><td class="ct">歌魔法</td><td class="rm">読み: ほのおばくはつのうた</td></tr>
-<tr><td class="nm"><a href="chara25.html">ボビン</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F4.html">ボビンの船</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ボルベルキン＝タールニップ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m63">ポルポス</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ポングー</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ポンド</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">ホイヒュー</td><td class="ct"><a href="chara2.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホイル団</td><td class="ct"><a href="glossary.html#g-whistle">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">　棒</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm">ゲーム中の表示。「棍」の字が出ず、頭が空白になる。正しくは棍棒(こんぼう)</td></tr>
+<tr><td class="nm">牧場</td><td class="ct"><a href="F62.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ボグダ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">細ムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホタの酒場</td><td class="ct"><a href="F47.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホタの雑貨屋</td><td class="ct"><a href="F47.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホタの寺院</td><td class="ct"><a href="F47.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホタの町民の家</td><td class="ct"><a href="F47.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ホタの防具屋</td><td class="ct"><a href="F47.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">捕虫用ネット</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">骨の笛</td><td class="ct"><a href="glossary.html#g-hone">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の心の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の玉の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の杖</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の柱の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の矢</td><td class="ct"><a href="chara6.html">仲間の特技（クイクイ）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の槍の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎の輪の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">炎爆発の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm">読み: ほのおばくはつのうた</td></tr>
+<tr><td class="nm">ボビン</td><td class="ct"><a href="chara25.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ボビンの船</td><td class="ct"><a href="F4.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ボルベルキン＝タールニップ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ポルポス</td><td class="ct"><a href="monsters.html#m63">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ポングー</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ポンド</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ま"><td colspan="3">ま</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">マーリィ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara22.html">マキバ</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F62.html">マキバの家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">マジックソード</a></td><td class="ct">武器（両手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">マジックヘルム</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">マジックボウ</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの音楽院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレのギルド</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの酒場</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの雑貨屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの町民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの船屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">マジョーレの魔法防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F61.html">マジョーレの森</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="skills.html">マッドサンド</a></td><td class="ct">敵の技</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">マットヘルム</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">魔の斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">守りの歌</a></td><td class="ct">歌魔法の種類</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">守りのペンダント</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">守りの水</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">マンゴーシュ</a></td><td class="ct">武器（短剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">まんじ手裏剣</a></td><td class="ct">武器（手裏剣）</td><td class="rm"></td></tr>
+<tr><td class="nm">マーリィ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マキバ</td><td class="ct"><a href="chara22.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マキバの家</td><td class="ct"><a href="F62.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジックソード</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジックヘルム</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジックボウ</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの音楽院</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレのギルド</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの酒場</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの雑貨屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの町民の家</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの武器屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの船屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの防具屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの魔法防具屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの森</td><td class="ct"><a href="F61.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マジョーレの宿屋</td><td class="ct"><a href="F60.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マッドサンド</td><td class="ct"><a href="skills.html">敵の技</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マットヘルム</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">魔の斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">守りの歌</td><td class="ct"><a href="songs.html">歌魔法の種類</a></td><td class="rm"></td></tr>
+<tr><td class="nm">守りのペンダント</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">守りの水</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">マンゴーシュ</td><td class="ct"><a href="weapons.html#dagger">武器（短剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">まんじ手裏剣</td><td class="ct"><a href="weapons.html#shuriken">武器（手裏剣）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-み"><td colspan="3">み</td></tr>
-<tr><td class="nm"><a href="key_items.html">磨き石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F86.html">磨き石の洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">三日月斧</a></td><td class="ct">武器（斧）</td><td class="rm"></td></tr>
-<tr><td class="nm">三日月島</td><td class="ct">島</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">短い槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">水の盾</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">水のペンダント</a></td><td class="ct">防具（アクセサリー）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">三又ムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm">読み: みつまたむち</td></tr>
-<tr><td class="nm"><a href="items.html">緑色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">緑の宝石</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">ミドルブーツ</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F1.html">港町アデン</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F60.html">港町マジョーレ</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m115">ミラーズ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
+<tr><td class="nm">磨き石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">磨き石の洞窟</td><td class="ct"><a href="F86.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">三日月斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">三日月島</td><td class="ct"><a href="world.html#w-mikaduki">島</a></td><td class="rm"></td></tr>
+<tr><td class="nm">短い槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水の盾</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">水のペンダント</td><td class="ct"><a href="armors.html#accessory">防具（アクセサリー）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">三又ムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm">読み: みつまたむち</td></tr>
+<tr><td class="nm">緑色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">緑の宝石</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ミドルブーツ</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">港町アデン</td><td class="ct"><a href="F1.html">場所</a><br><a href="world.html#w-aden">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">港町マジョーレ</td><td class="ct"><a href="F60.html">場所</a><br><a href="world.html#w-majore">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ミラーズ</td><td class="ct"><a href="monsters.html#m115">モンスター</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-む"><td colspan="3">む</td></tr>
-<tr><td class="nm"><a href="monsters.html#m83">無音草</a></td><td class="ct">モンスター</td><td class="rm">読み: むおんそう</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-muzak">ムザーク</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ムシトリ草</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ムチ</a></td><td class="ct">武器（ムチ）</td><td class="rm"></td></tr>
+<tr><td class="nm">無音草</td><td class="ct"><a href="monsters.html#m83">モンスター</a></td><td class="rm">読み: むおんそう</td></tr>
+<tr><td class="nm">ムザーク</td><td class="ct"><a href="glossary.html#g-muzak">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ムシトリ草</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ムチ</td><td class="ct"><a href="weapons.html#whip">武器（ムチ）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-め"><td colspan="3">め</td></tr>
-<tr><td class="nm"><a href="weapons.html">メイス</a></td><td class="ct">武器（杖）</td><td class="rm"></td></tr>
-<tr><td class="nm">メガヒーリング</td><td class="ct">敵の技・仲間の特技</td><td class="rm"><a href="skills.html">敵の技一覧</a>・<a href="chara12.html">ヘンケン</a></td></tr>
-<tr><td class="nm"><a href="lute_parts.html">女神のネック</a></td><td class="ct">リュート部品（ネック）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">メタルフェイス</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="glossary.html#g-taikamaki">メルソンゲールの大歌巻</a></td><td class="ct">用語</td><td class="rm">読み: めるそんげーるのたいかまき</td></tr>
-<tr><td class="nm"><a href="monsters.html#m57">メルトリザード</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
+<tr><td class="nm">メイス</td><td class="ct"><a href="weapons.html#staff">武器（杖）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">メガヒーリング</td><td class="ct"><a href="skills.html">敵の技</a><br><a href="chara12.html">仲間の特技（ヘンケン）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">女神のネック</td><td class="ct"><a href="lute_parts.html#neck">リュート部品（ネック）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">メタルフェイス</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">メルソンゲールの大歌巻</td><td class="ct"><a href="glossary.html#g-taikamaki">用語</a></td><td class="rm">読み: めるそんげーるのたいかまき</td></tr>
+<tr><td class="nm">メルトリザード</td><td class="ct"><a href="monsters.html#m57">モンスター</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-も"><td colspan="3">も</td></tr>
-<tr><td class="nm">モーロック</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m86">モンスター一覧</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="monsters.html#m119">モーロックの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">モーンヘルム</a></td><td class="ct">防具（頭）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m6">モノアイ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="items.html">桃色の小ビン</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m27">モリアルキ</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm">モルガン</td><td class="ct">モンスター（ボス）・NPC</td><td class="rm"><a href="monsters.html#m114">モンスター一覧</a>・<a href="sub_chara.html">NPC一覧</a></td></tr>
-<tr><td class="nm"><a href="monsters.html#m139">モルガンの魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
+<tr><td class="nm">燃える村</td><td class="ct"><a href="F90.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モーロック</td><td class="ct"><a href="monsters.html#m86">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モーロックの魂</td><td class="ct"><a href="monsters.html#m119">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モーンヘルム</td><td class="ct"><a href="armors.html#head">防具（頭）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モノアイ</td><td class="ct"><a href="monsters.html#m6">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">桃色の小ビン</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モリアルキ</td><td class="ct"><a href="monsters.html#m27">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モルガン</td><td class="ct"><a href="monsters.html#m114">モンスター（ボス）</a><br><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">モルガンの魂</td><td class="ct"><a href="monsters.html#m139">モンスター（ボス）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-や"><td colspan="3">や</td></tr>
-<tr><td class="nm"><a href="key_items.html">破られた楽譜</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m93">闇グレード</a></td><td class="ct">モンスター</td><td class="rm">読み: やみぐれーど</td></tr>
-<tr><td class="nm"><a href="monsters.html#m69">闇ビック</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m43">闇ミドル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m7">闇リトル</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">柔らかい弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
+<tr><td class="nm">破られた楽譜</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">闇グレード</td><td class="ct"><a href="monsters.html#m93">モンスター</a></td><td class="rm">読み: やみぐれーど</td></tr>
+<tr><td class="nm">闇ビック</td><td class="ct"><a href="monsters.html#m69">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">闇ミドル</td><td class="ct"><a href="monsters.html#m43">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">闇リトル</td><td class="ct"><a href="monsters.html#m7">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">柔らかい弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ゆ"><td colspan="3">ゆ</td></tr>
-<tr><td class="nm"><a href="weapons.html">弓</a></td><td class="ct">武器（弓）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F92.html">夢の城</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F92.html">夢の城１F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F92.html">夢の城２F</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F92.html">夢の城B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m36">ゆらぐ炎</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ユルナル</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">弓</td><td class="ct"><a href="weapons.html#bow">武器（弓）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">夢の城</td><td class="ct"><a href="F92.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">夢の城１Ｆ</td><td class="ct"><a href="F92.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">夢の城２Ｆ</td><td class="ct"><a href="F92.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">夢の城Ｂ１</td><td class="ct"><a href="F92.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ゆらぐ炎</td><td class="ct"><a href="monsters.html#m36">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ユルナル</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-よ"><td colspan="3">よ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m45">妖蛾</a></td><td class="ct">モンスター</td><td class="rm">読み: ようが</td></tr>
-<tr><td class="nm"><a href="F56.html">溶岩洞窟</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F56.html">溶岩洞窟B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F56.html">溶岩洞窟B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">溶岩の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">要塞の鍵</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F82.html">要塞迷路B1</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F82.html">要塞迷路B2</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F82.html">要塞迷路B3</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m100">汚れたる者</a></td><td class="ct">モンスター</td><td class="rm">読み: よごれたるもの</td></tr>
+<tr><td class="nm">妖蛾</td><td class="ct"><a href="monsters.html#m45">モンスター</a></td><td class="rm">読み: ようが</td></tr>
+<tr><td class="nm">溶岩洞窟</td><td class="ct"><a href="F56.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">溶岩洞窟Ｂ１</td><td class="ct"><a href="F56.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">溶岩洞窟Ｂ２</td><td class="ct"><a href="F56.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">溶岩の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">要塞の鍵</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">要塞迷路Ｂ１</td><td class="ct"><a href="F82.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">要塞迷路Ｂ２</td><td class="ct"><a href="F82.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">要塞迷路Ｂ３</td><td class="ct"><a href="F82.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">汚れたる者</td><td class="ct"><a href="monsters.html#m100">モンスター</a></td><td class="rm">読み: よごれたるもの</td></tr>
 <tr class="kh" id="k-ら"><td colspan="3">ら</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ライアン</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara13.html">ライオネル</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara13.html">雷鳴剣</a></td><td class="ct">仲間の特技</td><td class="rm">読み: らいめいけん</td></tr>
-<tr><td class="nm"><a href="armors.html">ラウンドシールド</a></td><td class="ct">防具（盾）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">落石の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ラブレのナイフ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ランパル</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
+<tr><td class="nm">ライアン</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ライオネル</td><td class="ct"><a href="chara13.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">雷鳴剣</td><td class="ct"><a href="chara13.html">仲間の特技</a></td><td class="rm">読み: らいめいけん</td></tr>
+<tr><td class="nm">ラウンドシールド</td><td class="ct"><a href="armors.html#shield">防具（盾）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">落石の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ラブレのナイフ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ランパル</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-り"><td colspan="3">り</td></tr>
-<tr><td class="nm"><a href="glossary.html#g-ryuu">龍族</a></td><td class="ct">用語</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m140">龍族の魂</a></td><td class="ct">モンスター（ボス）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F5.html">龍族の村バルエコ</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="chara0.html">リュッケルト</a></td><td class="ct">仲間</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">両槍斧</a></td><td class="ct">武器（斧）</td><td class="rm">読み: りょうそうふ</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">リリィ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F35.html">リンリン草の草原</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F35.html">リンリン草の草原の宿</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm">リンリン草</td><td class="ct">植物</td><td class="rm"></td></tr>
+<tr><td class="nm">龍族</td><td class="ct"><a href="glossary.html#g-ryuu">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">龍族の魂</td><td class="ct"><a href="monsters.html#m140">モンスター（ボス）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">龍族の村バルエコ</td><td class="ct"><a href="F5.html">場所</a><br><a href="world.html#w-barueco">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">リュッケルト</td><td class="ct"><a href="chara0.html">仲間</a></td><td class="rm"></td></tr>
+<tr><td class="nm">両槍斧</td><td class="ct"><a href="weapons.html#axe">武器（斧）</a></td><td class="rm">読み: りょうそうふ</td></tr>
+<tr><td class="nm">リリィ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">リンリン草</td><td class="ct"><a href="glossary.html#g-rinrin">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">リンリン草の草原</td><td class="ct"><a href="F35.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">リンリン草の草原の宿</td><td class="ct"><a href="F35.html">場所</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-る"><td colspan="3">る</td></tr>
-<tr><td class="nm"><a href="items.html">ルビー</a></td><td class="ct">道具</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ルビーの槍</a></td><td class="ct">武器（槍）</td><td class="rm"></td></tr>
+<tr><td class="nm">ルーンソング</td><td class="ct"><a href="glossary.html#g-runesong">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ルーンソングシステム</td><td class="ct"><a href="glossary.html#g-rss">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ルビー</td><td class="ct"><a href="items.html">道具</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ルビーの槍</td><td class="ct"><a href="weapons.html#spear">武器（槍）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-れ"><td colspan="3">れ</td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの寺院</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">レイエンダの村長</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの村長の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの村民の家</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの武器屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの防具屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの村</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F54.html">レイエンダの宿屋</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="F55.html">レイエンダの山道</a></td><td class="ct">場所</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">レイピア</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="songs.html">冷風の歌</a></td><td class="ct">歌魔法</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m11">レインキャット</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">レザーアーマー</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">レザーゲートル</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">レザーすねあて</a></td><td class="ct">防具（足）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="armors.html">レザーブレスト</a></td><td class="ct">防具（体）</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m29">レッドベアー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">レンチ</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの寺院</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの村長</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの村長の家</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの村民の家</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの武器屋</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの防具屋</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの村</td><td class="ct"><a href="F54.html">場所</a><br><a href="world.html#w-leyenda">世界と地理</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの宿屋</td><td class="ct"><a href="F54.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイエンダの山道</td><td class="ct"><a href="F55.html">場所</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レイピア</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">冷風の歌</td><td class="ct"><a href="songs.html">歌魔法</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レインキャット</td><td class="ct"><a href="monsters.html#m11">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レザーアーマー</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レザーゲートル</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レザーすねあて</td><td class="ct"><a href="armors.html#feet">防具（足）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レザーブレスト</td><td class="ct"><a href="armors.html#body">防具（体）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レッドベアー</td><td class="ct"><a href="monsters.html#m29">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">レンチ</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-ろ"><td colspan="3">ろ</td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ロウ</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m15">ロックシューター</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m2">ロックスローワー</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="key_items.html">ロックピック</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="sub_chara.html">ロミー</a></td><td class="ct">NPC</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="weapons.html">ロングソード</a></td><td class="ct">武器（片手剣）</td><td class="rm"></td></tr>
+<tr><td class="nm">ロウ</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ロックシューター</td><td class="ct"><a href="monsters.html#m15">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ロックスローワー</td><td class="ct"><a href="monsters.html#m2">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ロックピック</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ロミー</td><td class="ct"><a href="sub_chara.html">NPC</a></td><td class="rm"></td></tr>
+<tr><td class="nm">ロングソード</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
 <tr class="kh" id="k-わ"><td colspan="3">わ</td></tr>
-<tr><td class="nm"><a href="monsters.html#m20">悪い囚人</a></td><td class="ct">モンスター</td><td class="rm"></td></tr>
-<tr><td class="nm"><a href="monsters.html#m122">悪かわうそ</a></td><td class="ct">モンスター</td><td class="rm">読み: わるかわうそ</td></tr>
-<tr><td class="nm"><a href="key_items.html">割れたピック</a></td><td class="ct">大事な物</td><td class="rm"></td></tr>
+<tr><td class="nm">悪い囚人</td><td class="ct"><a href="monsters.html#m20">モンスター</a></td><td class="rm"></td></tr>
+<tr><td class="nm">悪かわうそ</td><td class="ct"><a href="monsters.html#m122">モンスター</a></td><td class="rm">読み: わるかわうそ</td></tr>
+<tr><td class="nm">割れたピック</td><td class="ct"><a href="key_items.html">大事な物</a></td><td class="rm"></td></tr>
+<tr class="kh" id="k-en"><td colspan="3">英字・数字</td></tr>
+<tr><td class="nm">Ａの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ａ音</td><td class="ct"><a href="glossary.html#g-aon">用語</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ａ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｂの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｂ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｈの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｈ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｉの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｉ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｎの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｎ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｏの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｏ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｔの剣</td><td class="ct"><a href="weapons.html#sword">武器（片手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">Ｔ＃の剣</td><td class="ct"><a href="weapons.html#greatsword">武器（両手剣）</a></td><td class="rm"></td></tr>
+<tr><td class="nm">１Ｍ指板</td><td class="ct"><a href="lute_parts.html#fingerboard">リュート部品（指板）</a></td><td class="rm">読み: いちめーとるしばん</td></tr>
+<tr><td class="nm">２Ｍ指板</td><td class="ct"><a href="lute_parts.html#fingerboard">リュート部品（指板）</a></td><td class="rm">読み: にめーとるしばん</td></tr>
+<tr><td class="nm">８コース指板</td><td class="ct"><a href="lute_parts.html#fingerboard">リュート部品（指板）</a></td><td class="rm">読み: はちこーすしばん</td></tr>
+<tr><td class="nm">１２弦指板</td><td class="ct"><a href="lute_parts.html#fingerboard">リュート部品（指板）</a></td><td class="rm">読み: じゅうにげんしばん</td></tr>
 </table>
 </div>
 <script src="menu.js"></script>
+<!-- 完成版(2026-10-22 ユーザー確認済み)。スクリプトで上書きしない。tools/kana_index.ps1 は印で止まるので、以後は html を直接直す -->
