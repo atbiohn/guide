@@ -22,7 +22,7 @@
 .ode-uw li{margin:2px 0}
 .ode-uw .wrap{overflow-x:auto}
 .ode-uw .small{max-width:420px}
-.ode-uw table.fit{width:auto}
+.ode-uw table.fit{width:auto}.ode-uw table.auto{width:auto}
 .ode-uw .seq{font-weight:bold;font-size:13px;letter-spacing:.03em;background:#fff;border:1px solid #d8cbe6;padding:4px 8px;display:inline-block}
 .ode-uw .tag{display:inline-block;font-size:11px;padding:0 6px;border-radius:3px;margin-left:6px;vertical-align:2px;font-weight:normal;color:#fff;background:#c0392b;letter-spacing:0}
 .ode-uw .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:8px 0}
@@ -90,6 +90,30 @@
 <div class="warn"><b>使えないとき</b><ul>
 <li>出したい歌を覚えていないとき(選び直せないので)</li>
 <li>主人公が4人目に配置されているとき(後ろに「次のキャラ」がいないので、×で戻る手順が踏めない)</li>
+</ul></div>
+
+<h3>状態異常を回復する驚きの方法<span class="tag">バグ</span></h3>
+<p>パラライズ、ターントゥストン、スカンク…仲間を行動不能にする技はいくつもある。そのうち<b>ターントゥストン</b>の被害は、動けないターンを2ターンから1ターンに減らせる。</p>
+<p>やり方は、固められた仲間に次のどれかを使うだけ。</p>
+<ul>
+<li>守りの水</li>
+<li>煙薬</li>
+<li>空飛び薬</li>
+<li>守りの歌(どれでもよい)</li>
+</ul>
+<div class="wrap"><table class="auto">
+<tr><th>ターン</th><th>通常</th><th>この裏ワザ</th></tr>
+<tr><td class="nm">1</td><td>固められる(そのターンから動けない)</td><td>固められる(そのターンから動けない)</td></tr>
+<tr><td class="nm">2</td><td>動けない</td><td>動けない(<b>ほかの仲間が使う</b>)</td></tr>
+<tr><td class="nm">3</td><td>動けない</td><td class="gain">復帰!</td></tr>
+<tr><td class="nm">4</td><td>復帰</td><td></td></tr>
+</table></div>
+<p>仲間の「状態」を覚えておく欄は、1人に1つしかない。行動不能も、守りの水や守りの歌の効果も同じ欄に書くので、あとから書いた方が前の状態を消してしまう。石化のターンが残っていても、守りの効果で上書きすれば石化は消える。守りの水なら石の壁と同じ効果(通常攻撃のダメージ 0)、空飛び薬なら浮遊がそのまま付いてくるので、ちょっとしたおまけもある。</p>
+<div class="point"><b>1ターン目に間に合えば、さらに1ターン早い</b><br>
+固められた後に、別の仲間がたまたま上の道具・歌を同じ仲間に使う予定だったなら、そのまま上書きされて2ターン目から動ける。この場合はパラライズにも効く。ただし、誰が固められるかを先読みして備えるのは戦略として無理があるので、実際の使いどころはターントゥストンだけだ。</div>
+<div class="warn"><b>注意</b><ul>
+<li>スカンクは全員まとめて固められるので、動ける仲間が残らず対策できない</li>
+<li>煙薬は味方全員の状態を書き換える。石化は治るが、ほかの仲間にかかっている守りの効果も全部消える</li>
 </ul></div>
 
 <h3>ボスにもよく効くハメ技のハナシ</h3>
@@ -223,4 +247,4 @@
 <p>そのままゲームを始め(ロードでもよい)、<b>フィールドでセレクトボタンを押す</b>とデバッグルームに入れる。何ができるかは<a href="debug.html">こちら</a>。</p>
 </div>
 <script src="menu.js"></script>
-<!-- 完成版(2026-10-12 ユーザー確認済み・2026-10-21 クリティカル率 100% の節を追加)。スクリプトで上書きしない。tools/urawaza.ps1 は古いので、直すときは html を直接直す -->
+<!-- 完成版(2026-10-12 ユーザー確認済み・2026-10-21 クリティカル率 100% の節を追加・2026-10-22 状態異常を回復する驚きの方法の節を追加)。スクリプトで上書きしない。tools/urawaza.ps1 は古いので、直すときは html を直接直す -->
