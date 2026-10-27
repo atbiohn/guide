@@ -132,9 +132,20 @@
 .ode-bg button{white-space:nowrap;font:inherit;font-size:12px;padding:3px 9px;border-radius:4px;border:1px solid #c3cbd9;background:#fff;cursor:pointer}
 .ode-bg button.on{background:#232c40;color:#fff;border-color:#232c40}
 .ode-bg ul.whyl{margin:4px 0;padding-left:1.3em;font-size:12.5px}
+/* メンバー紹介: 仲間と敵を1つの枠に並べる(枠を左右に分けない) */
+.ode-bg .mem{display:flex;flex-wrap:wrap;gap:8px 22px}
+.ode-bg .mem .ar{display:flex;flex-wrap:wrap;gap:5px}
+.ode-bg .mem .cell{width:84px;border:1px solid #d9a874;background:#fcf3e8;border-radius:4px;padding:5px 4px;text-align:center;font-size:12px;display:flex;flex-direction:column;align-items:center}
+.ode-bg .mem .ar.al .cell{border-color:#7fa3dd;background:#eef3fc}
+.ode-bg .mem .cell .cn,.ode-bg .seat .nm{word-break:keep-all}
+/* 戦場の外に出た仲間(逃走・HP 0)も席には座る */
+.ode-bg .seat.out{border-style:dashed}.ode-bg .seat.out .ic{opacity:.45}.ode-bg .seat .rk.ot{color:#c0392b;font-weight:bold}
+/* 仲間が先に座ったときの、敵が座る見込みの席 */
+.ode-bg .seat.gap .ic{opacity:.3;filter:grayscale(.6)}
+.ode-bg .seat.gap .rk{color:#8a94a8;text-align:center}
 @media (max-width:600px){
 .ode-bg h3{font-size:15px;padding:5px 10px}
-.ode-bg .seat{width:70px}
+.ode-bg .seat{width:72px;padding:4px 2px 3px}.ode-bg .seat .nm{font-size:11.5px}.ode-bg .mem .cell{width:72px;padding:5px 2px}.ode-bg .mem .cell .cn{font-size:11.5px}
 .ode-bg .ic{width:32px;height:50px}
 .ode-bg .ic.icw{width:60px}
 .ode-bg .frow{grid-template-columns:52px 1fr 52px}
@@ -157,7 +168,8 @@
 
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">まず仲間から座れ!<br>敵の席は空けておけ!</div></div></div>
 <div class="box" id="nz-1"></div>
-<p>→ 仲間の席は、神の声が素早さで決める。自分より速い人(仲間も敵も)の分だけ前の席を空けて座る。パストランとフィデレは同じ 44 なのでどちらも5番の席になるが、並びの左のパストランが先に座り、フィデレは後ろの6番へ。</p>
+<p>→ 仲間は並びの左から1人ずつ、素早さで座る席を指定される。席の番号は<b>自分より速い人(仲間も敵も)の数+1</b>。リュッケルト(48)より速いのはアイリスだけなので2番、アイリス(52)は一番速いので1番。パストランとフィデレ(44)は、アイリス・リュッケルト・グラティス2体の4人より遅いので、どちらも5番の席になるが、並びの左のパストランが先に座り、フィデレは後ろの6番へ。こうして、自分より速い人の分の席は自然と空いたままになる。空いている3番と4番は、グラティス(48)が座る見込みの席だ。</p>
+<p>しかし、見込みはあくまでも見込みである。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">敵は指定席券を取りに行け!<br>席の番号は、自分より速い者の数+1だ!</div></div></div>
 <div class="box"><div class="queue" id="nz-2b"></div><div id="nz-2"></div></div>
 <p>→ 敵は座っている仲間に「自分より速いか」を聞いて指定席券をもらう。グラティス(48)より速いのはアイリス(52)だけ。リュッケルトは同じ 48 で「速い」とは言えないので、手を挙げない。なので2体とも指定席は2番。</p>
@@ -230,7 +242,7 @@
 <hr class="sep">
 <p>2ターン目。左のグラティスは減速して 24 になった。前列左の敵が減速しているので、並び1番目のリュッケルトが<b>鍵の仲間</b>になる。</p>
 <div class="box" id="bx-p1"></div>
-<p>→ 仲間の席は、神の声が本当の素早さで決める。敵の分の席は空けておく。ここまでは減速薬のとおりで、まだ速い右のグラティス(48)の分として1番、減速した左のグラティス(24)の分として6番が空いている。</p>
+<p>→ 仲間は、本当の素早さで座る席を指定される。ここまでは減速薬のとおりで、1番はまだ速い右のグラティス(48)、6番は減速した左のグラティス(24)が座る見込みの席だ。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">敵は指定席券を取りに行け!<br>席の番号は、自分より速い者の数+1だ!</div></div></div>
 <div class="box"><div class="queue" id="bx-2b"></div><div id="bx-2"></div></div>
 <p>→ 敵は座っている仲間に「自分より速いか」を聞いて指定席券をもらう。右のグラティスは本当は 48 で一番速いので、手を挙げる人はいないはず。ところが鍵の仲間のリュッケルトには 24 に見えているので、手を挙げてしまう。指定席は2番(本当は1番)。</p>
@@ -246,10 +258,10 @@
 <p>では、鍵の仲間の素早さが違っていたらどうなるのか?</p>
 <h4>リュッケルトが 20 のとき</h4>
 <div class="box" id="vx-1"></div>
-<p>→ <b>手が挙がらない</b>。24 に見えても、右のグラティスはリュッケルト(20)より速いので、リュッケルトは手を挙げない。指定席は本来どおり1番。いつもどおり。</p>
+<p>→ <b>手が挙がらない</b>。24 に見えても、右のグラティスはリュッケルト(20)より速いので、リュッケルトは手を挙げない。指定席は1番のまま。バグは起きない。</p>
 <h4>リュッケルトが 48 以上のとき</h4>
 <div class="box" id="vx-2"></div>
-<p>→ <b>1番はもう埋まっている</b>。リュッケルトがグラティスと同じか速ければ、1番にはリュッケルト自身が先に座っている。手を挙げても挙げなくても、グラティスが2番以降になるのは本来どおり。いつもどおり(図は 48 のとき。50 などでも同じ)。</p>
+<p>→ <b>1番はもう埋まっている</b>。リュッケルトがグラティスと同じか速ければ、1番にはリュッケルト自身が先に座っている。手を挙げても挙げなくても、グラティスが2番以降になるのは変わらない。バグは起きない(図は 48 のとき。50 などでも同じ)。</p>
 <h4>パストランが 50 のとき</h4>
 <p>空席ができるのは1番とは限らない。もしもパストランの素早さが 50 あったらどうなるのか。</p>
 <div class="box" id="vx-4"></div>
@@ -286,7 +298,7 @@
 <p>2ターン目。闇グレードは前列中央なので、鍵の仲間は並び2番目のアイリス。アイリスには闇グレードがちゃんと 33 に見えている。ところがほかの3人には、闇グレードが元の 66 のまま見えている。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">まず仲間から座れ!<br>敵の席は空けておけ!</div></div></div>
 <div class="box" id="kn-s"></div>
-<p>→ 仲間の席は、神の声が本当の素早さで決めるので、3人とも闇グレード(33)より前に座れている。敵の分の席は空けておく。</p>
+<p>→ 仲間は本当の素早さで座る席を指定されるので、3人とも闇グレード(33)より前に座れている。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">敵は指定席券を取りに行け!<br>席の番号は、自分より速い者の数+1だ!</div></div></div>
 <div class="box"><div class="queue" id="kn-tb"></div><div id="kn-t"></div></div>
 <p>→ 減速の知らせは鍵の仲間のアイリスにしか届いていないので、ほかの3人は闇グレードがまだ 66 のままだと思って手を挙げない。闇グレードより速いのはアイリスとビッグアイ2体だけ、ということになり、指定席は4番(本当は7番)。ビッグアイ2体は、アイリス・アロン・パストランの3人が速いので、2体とも4番。</p>
@@ -313,6 +325,30 @@
 <div class="box" id="mx-f"></div>
 <p>→ 前列左から入るので、どろどろ(左)は7番へ、どろどろ(右)は4番から7番まで埋まっているので8番へ。最後にドロヌマアルキが、空いている3番に座る。2番の指定席券は誰も持っていないので、2番が空席になる。空くのは、ずれた敵のうち一番速いドロヌマアルキの本来の席。その前に座ったパストランだけが動いて、ターンが終わる。</p>
 
+<!-- ===================== 戦場の外 ===================== -->
+<h3 id="out">仲間が戦場の外に出ていたら</h3>
+<p>ここまでの例を見ると、うまく空席を作れば、仲間だけが動いて敵は何もできない「完封」ができそうに思える。しかし、<b>戦場に残っている仲間が全員動いて、敵だけが止まる形は作れない</b>。</p>
+<p>空席ができるのは、敵より遅い仲間が、その敵の分の席を前に空けて座るからだ。その仲間は空いた席より後ろに座るので、空席でターンが終われば、その仲間も動けない。反対に仲間が全員敵より速いと、敵の指定席はどう見間違えても「仲間の数+1」番までにしかならないので、仲間のすぐ後ろの席は必ず埋まり、空席ができない。</p>
+<p>では、空席の後ろに回る仲間が、もう戦場にいなかったら?</p>
+<h4>鍵の仲間が逃げたとき</h4>
+<p>グラティス2体の戦闘で、並び1番目のフィデレが鍵の仲間になる。フィデレは HP が減っていて、今にも逃げ出しそうだ。ほかの3人はグラティスより速い。</p>
+<div class="map" id="ot-mem"></div>
+<div class="box" id="ot-1"></div>
+<p>→ 1ターン目。アイリスが左のグラティスに減速薬を使い、フィデレは一人で逃げていった。</p>
+<hr class="sep">
+<p>2ターン目。戦線離脱したくせに、フィデレは実はちゃっかり席に座っている。神の声は、戦場にいるかどうかを確かめない。</p>
+<div class="box" id="ot-s"></div>
+<p>→ フィデレ(47)より速いのは、仲間3人と右のグラティス(48)。なので4番を空けて5番に座る。4番は右のグラティス(48)、6番は減速した左のグラティス(24)が座る見込みの席だ。</p>
+<div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">敵は指定席券を取りに行け!<br>席の番号は、自分より速い者の数+1だ!</div></div></div>
+<div class="box"><div class="queue" id="ot-q"></div><div id="ot-t"></div></div>
+<p>→ 戦場の外にいても、鍵の仲間の見間違いはそのまま。フィデレには右のグラティスが 24 に見えるので、手を挙げてしまう。右のグラティスの指定席は5番(本当は4番)。</p>
+<div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">前列の者から入れ!<br>指定席が埋まっていたら、後ろの空いている席だ!</div></div></div>
+<div class="box" id="ot-f"></div>
+<p>→ 5番はフィデレが座っているので、右のグラティスは6番へ、左のグラティスは7番へ。4番が空席になり、1〜3番の3人が動いてターンが終わる。5番のフィデレはもう戦場にいないので、<b>戦場に残った仲間は全員動き、敵は誰も動かない</b>。減速が続く2ターン目と3ターン目は、結果的に完封になる。</p>
+<h4>鍵の仲間が戦闘不能になったとき</h4>
+<p>1ターン目にフィデレが倒された場合も、同じ結果になる。HP が 0 になった仲間も、戦場の外に出されたまま席に座り、手も挙げる。</p>
+<div class="box" id="ot-f2"></div>
+<p>逃げたか倒れたか、減速薬を使う前か後かは関係ない。行動順を決めるときに見ているのは、並びのその枠に誰かいるかと、その人の素早さだけだ。</p>
 <!-- ===================== 起きないとき ===================== -->
 <h3 id="safe">減速薬が正しく効くとき</h3>
 <p>おかしな挙動が起きず、減速薬の本来の効果が得られるのは次のとき。</p>
@@ -416,6 +452,7 @@ function orderKey(o) { return o.map(function (x) { return (x.a ? "a" : "e") + x.
 var POS = ["前列左", "前列中央", "前列右", "後列左", "後列中央", "後列右"];
 var ICON = { "主人公": "rk", "リュッケルト": "rk", "アイリス": "ir", "パストラン": "ps", "フィデレ": "fd" };
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function nmHtml(s) { return esc(s).replace("(", "<wbr>("); }
 function nameOf(st, x) { return x.a ? st.an[x.i] : st.en[x.i]; }
 // 「グラティス(左)」「どろどろA」などから元の名前を取り出す
 function baseName(name) { return String(name).replace(/[(（].*$/, "").replace(/[A-FＡ-Ｆ]$/, "").trim(); }
@@ -438,7 +475,7 @@ function seatsHtml(st, res, opt) {
   for (i = 0; i <= last; i++) {
     var x = res.table[i], after = !opt.nofade && firstHole >= 0 && i > firstHole;
     if (x && x.ghost) { h += '<div class="seat hole"><span class="no">立見</span><span class="nm">空席</span><span class="rk">(リュッケルト?)</span></div>'; continue; }
-    if (x && x.gap) { h += '<div class="seat gap"><span class="no">' + (i + 1) + '番</span><span class="nm">空き</span></div>'; continue; }
+    if (x && x.gap) { h += '<div class="seat gap"><span class="no">' + (i + 1) + '番</span>' + (x.who ? iconOf(x.who) + '<span class="rk">' + nmHtml(x.who) + '<br>が座る見込み</span>' : '<span class="nm">空き</span>') + '</div>'; continue; }
     if (x == null) {
       h += '<div class="seat hole' + (after ? " after" : "") + '"><span class="no">' + (i + 1) + '番</span><span class="nm">空席</span>' + (i == firstHole ? '<span class="rk">ここで終わり</span>' : "") + '</div>';
       continue;
@@ -450,10 +487,10 @@ function seatsHtml(st, res, opt) {
     var isKey = opt.key && x.a && x.i < 4 && st.sl[x.i] && st.e[x.i] != null;
     var agi = x.a ? String(st.a[x.i]) : (st.sl[x.i] ? "<s>" + st.e[x.i] + "</s>→" + half(st.e[x.i]) : String(st.e[x.i]));
     var nm = nameOf(st, x), sing = x.a && opt.singer === x.i;
-    h += '<div class="seat ' + (x.a ? "a" : "e") + (after ? " after" : "") + (shifted ? " shift" : "") + (isKey ? " key" : "") + (x.mv ? " mv" : "") + '">' + (isKey ? '<span class="kb">鍵</span>' : "") +
+    h += '<div class="seat ' + (x.a ? "a" : "e") + (after ? " after" : "") + (shifted ? " shift" : "") + (isKey ? " key" : "") + (x.mv ? " mv" : "") + (opt.out && opt.out[nm] ? " out" : "") + '">' + (isKey ? '<span class="kb">鍵</span>' : "") +
       (opt.say && opt.say[nm] ? '<span class="say"><span>' + opt.say[nm].split("|").join("</span><span>") + '</span></span>' : "") +
-      '<span class="no">' + (x.mv ? (opt.mvLabel || "立見") : (i + 1) + '番') + '</span>' + iconOf(nm, sing) + '<span class="nm">' + esc(nm) + (sing ? "(歌)" : "") + '</span><span class="ag">素早さ ' + agi + '</span>' +
-      (opt.ticket && opt.ticket[nm] ? '<span class="rk tk">指定席 ' + opt.ticket[nm] + '番</span>' : "") +
+      '<span class="no">' + (x.mv ? (opt.mvLabel || "立見") : (i + 1) + '番') + '</span>' + iconOf(nm, sing) + '<span class="nm">' + nmHtml(nm) + (sing ? "(歌)" : "") + '</span><span class="ag">素早さ ' + agi + '</span>' +
+      (opt.ticket && opt.ticket[nm] ? '<span class="rk tk">指定席 ' + opt.ticket[nm] + '番</span>' : "") + (opt.out && opt.out[nm] ? '<span class="rk ot">' + opt.out[nm] + '</span>' : "") +
       (shifted ? '<span class="rk">本来は' + (okSeat + 1) + '番</span>' : "") + '</div>';
   }
   // opt.tail: 最後の人の後ろの空席(ふだんのターンもここで終わる)を1つ見せる
@@ -476,11 +513,18 @@ function mapHtml(st) {
 }
 // その戦闘のメンバー一覧(仲間は並びの順、敵は位置)。鍵の仲間の話はまだしない
 function memberHtml(st) {
-  var h = '<div class="box"><div class="cap">仲間(並びの左から)</div><div class="party">', i, k;
-  for (i = 0; i < 4; i++) if (st.a[i] != null) h += '<div class="cell"><span class="sm">並び' + (i + 1) + '</span>' + iconOf(st.an[i]) + esc(st.an[i]) + '<span>素早さ ' + st.a[i] + '</span></div>';
-  h += '</div></div><div class="box"><div class="cap">敵</div><div class="party">';
-  for (k = 0; k < 6; k++) if (st.e[k] != null) h += '<div class="cell"><span class="sm">' + POS[k] + '</span>' + iconOf(st.en[k]) + esc(st.en[k]) + '<span>素早さ ' + st.e[k] + '</span></div>';
-  return h + '</div></div>';
+  var h = '<div class="box"><div class="mem"><div><div class="cap">仲間(並びの左から)</div><div class="ar al">', i, k;
+  for (i = 0; i < 4; i++) if (st.a[i] != null) h += '<div class="cell"><span class="sm">並び' + (i + 1) + '</span>' + iconOf(st.an[i]) + '<span class="cn">' + nmHtml(st.an[i]) + '</span><span>素早さ ' + st.a[i] + '</span></div>';
+  h += '</div></div><div><div class="cap">敵</div><div class="ar">';
+  for (k = 0; k < 6; k++) if (st.e[k] != null) h += '<div class="cell"><span class="sm">' + POS[k] + '</span>' + iconOf(st.en[k]) + '<span class="cn">' + nmHtml(st.en[k]) + '</span><span>素早さ ' + st.e[k] + '</span></div>';
+  return h + '</div></div></div></div>';
+}
+// 仲間だけ座った図: 敵の席は空けて「○○が座る見込み」(バグのない計算 res の席)
+function prep(st, res) {
+  var last = 0, q, t = [], y;
+  for (q = 0; q < 11; q++) if (res.table[q]) last = q;
+  for (q = 0; q <= last; q++) { y = res.table[q]; t.push(y && y.a ? y : (y ? { gap: true, who: baseName(st.en[y.i]) + "(" + eff(st.e, st.sl, y.i) + ")" } : { gap: true })); }
+  return t;
 }
 function cap(t, s) { return '<div class="cap">' + t + (s ? ' <span>' + s + '</span>' : "") + "</div>"; }
 function verdict(st, b, c) {
@@ -507,7 +551,7 @@ function exampleBlocks() {
   // 普通ゾーンの座り方: ①仲間だけ座る ②敵が指定席券をもらう ③前列から入る
   var lastN = 0, tN = [], qN = [], tkN = {};
   for (var q0 = 0; q0 < 11; q0++) if (r0.table[q0]) lastN = q0;
-  for (q0 = 0; q0 <= lastN; q0++) tN.push(r0.table[q0] && r0.table[q0].a ? r0.table[q0] : { gap: true });
+  tN = prep(n0, r0);
   for (q0 = 0; q0 < 6; q0++) if (n0.e[q0] != null) { qN.push({ a: false, i: q0, mv: true }); tkN[n0.en[q0]] = r0.re[q0] + 1; }
   document.getElementById("nz-1").innerHTML = seatsHtml(n0, { table: tN }, {});
   document.getElementById("nz-2b").innerHTML = seatsHtml(n0, { table: qN }, { mvLabel: "順番待ち", ticket: tkN, say: { "グラティス(左)": "わたくしより|速い方、|いらっしゃる?" } });
@@ -539,13 +583,13 @@ function exampleBlocks() {
   var tB = [], stand = [], tkB = {}, k, x;
   // 1番が空席だと b.order は空になるので、表の最後の人まで見る
   var lastB = 0; for (k = 0; k < 11; k++) if (c.table[k]) lastB = k;
-  for (k = 0; k <= lastB; k++) tB.push(b.table[k] && b.table[k].a ? b.table[k] : { gap: true });
+  tB = prep(s1, c);
   for (k = 0; k < 6; k++) if (s1.e[k] != null) { stand.push({ a: false, i: k, mv: true }); tkB[s1.en[k]] = b.re[k] + 1; }
   document.getElementById("bx-mem").innerHTML = memberHtml(s0);
   document.getElementById("bx-p1").innerHTML = seatsHtml(s1, { table: tB }, { key: true });
   document.getElementById("bx-2").innerHTML = seatsHtml(s1, { table: tB }, { key: true, say: { "リュッケルト": "はい!✋|(私34、|お前24|だもんな)" } });
   document.getElementById("bx-2b").innerHTML = seatsHtml(s1, { table: stand }, { mvLabel: "順番待ち", ticket: tkB, say: { "グラティス(右)": "わたくしより|速い方、|いらっしゃる?" } });
-  document.getElementById("ex-bug").innerHTML = cap("2ターン目") + seatsHtml(s1, b, { key: true });
+  document.getElementById("ex-bug").innerHTML = cap("2ターン目") + seatsHtml(s1, b, { key: true, nofade: true });
   // 鍵の仲間の素早さを変えた例: 1ターン目の列 → 2ターン目の列(scene があれば、座る途中の立見の図を挟む)
   function variant(el, a, o) {
     var v0 = stateFrom({ an: NEWP.an, a: a, f: GR, sl: [0, 0, 0, 0, 0, 0] }), v1 = stateFrom({ an: NEWP.an, a: a, f: GR, sl: o.sl || [1, 0, 0, 0, 0, 0] });
@@ -578,7 +622,7 @@ function exampleBlocks() {
   document.getElementById("kn-2").innerHTML = cap("2ターン目") + seatsHtml(kn1, simulate(kn1.a, kn1.e, kn1.sl, true, -1), { key: true, tail: 1, say: { "リュッケルト": "やっぱり|私より前か", "闇グレード": "(減速|したんだ|けど…)", "ビッグアイ(右)": "あれ、|なんで俺が|最後?" } });
   // 仲間だけ座った途中の図: 敵の席は空きにして、敵3体は順番待ちに並べる
   var kb = simulate(kn1.a, kn1.e, kn1.sl, true, -1), ks = [], kw = [];
-  for (k = 0; k < kb.order.length; k++) ks.push(kb.table[k].a ? kb.table[k] : { gap: true });
+  ks = prep(kn1, simulate(kn1.a, kn1.e, kn1.sl, false, -1));
   for (k = 0; k < 6; k++) if (kn1.e[k] != null) kw.push({ a: false, i: k, mv: true });
   document.getElementById("kn-s").innerHTML = seatsHtml(kn1, { table: ks }, { key: true });
   // 指定席 = 手を挙げた人(自分より速いと数えた人)の数+1。ゲームの中の数え方そのまま(kb.re)
@@ -590,7 +634,7 @@ function exampleBlocks() {
   var mx = stateFrom({ an: NEWP.an, a: NEWP.a, f: { en: ["どろどろ(左)", "", "どろどろ(右)", "", "ドロヌマアルキ", ""], e: [37, null, 37, null, 43, null] }, sl: [1, 0, 0, 0, 0, 0] });
   var mb = simulate(mx.a, mx.e, mx.sl, true, -1), mc = simulate(mx.a, mx.e, mx.sl, false, -1), mT = [], mQ = [], mTk = {}, lastM = 0;
   for (k = 0; k < 11; k++) if (mc.table[k]) lastM = k;
-  for (k = 0; k <= lastM; k++) mT.push(mc.table[k] && mc.table[k].a ? mc.table[k] : { gap: true });
+  mT = prep(mx, mc);
   for (k = 0; k < 6; k++) if (mx.e[k] != null) { mQ.push({ a: false, i: k, mv: true }); mTk[mx.en[k]] = mb.re[k] + 1; }
   // 指定席券は敵ごとに別々に決まる。前列左から(どろどろ(左) → どろどろ(右) → ドロヌマアルキ)1体ずつ見せる
   var tk0 = {}, tk1 = {}; tk0["どろどろ(左)"] = tk1["どろどろ(左)"] = mTk["どろどろ(左)"]; tk1["どろどろ(右)"] = mTk["どろどろ(右)"];
@@ -602,11 +646,23 @@ function exampleBlocks() {
   document.getElementById("mx-s3").innerHTML = seatsHtml(mx, { table: mT }, { key: true, say: { "リュッケルト": "はい!✋|(18だし)", "パストラン": "はい!✋|(37でも|吾輩が上)", "アイリス": "(37なら|私より速い)", "フィデレ": "(37には|かなわない)" } });
   document.getElementById("mx-s2").innerHTML = seatsHtml(mx, { table: mT }, { key: true, say: { "パストラン": "はい!✋", "リュッケルト": "はい!✋|(21だし)" } });
   document.getElementById("mx-f").innerHTML = seatsHtml(mx, mb, { key: true, say: { "パストラン": "ん?|吾輩だけか?" } });
+  // 仲間が戦場の外に出ていたら: 並び1のフィデレ(鍵)が1ターン目に逃げる/倒れる。グラティス×2、左に減速薬
+  var OT = { an: ["フィデレ", "リュッケルト", "アイリス", "パストラン"], a: [47, 49, 51, 50] };
+  var oh0 = stateFrom({ an: OT.an, a: OT.a, f: GR, sl: [0, 0, 0, 0, 0, 0] }), oh1 = stateFrom({ an: OT.an, a: OT.a, f: GR, sl: [1, 0, 0, 0, 0, 0] });
+  var ohb = simulate(oh1.a, oh1.e, oh1.sl, true, -1), ohc = simulate(oh1.a, oh1.e, oh1.sl, false, -1), ohT = prep(oh1, ohc), ohQ = [], ohTk = {};
+  for (k = 0; k < 6; k++) if (oh1.e[k] != null) { ohQ.push({ a: false, i: k, mv: true }); ohTk[oh1.en[k]] = ohb.re[k] + 1; }
+  document.getElementById("ot-mem").innerHTML = memberHtml(oh0);
+  document.getElementById("ot-1").innerHTML = cap("1ターン目") + seatsHtml(oh0, simulate(oh0.a, oh0.e, oh0.sl, false, -1), { tail: 1, say: { "アイリス": "減速薬を|左のグラティスに", "フィデレ": "いやーん★|こわーい!" } });
+  document.getElementById("ot-s").innerHTML = seatsHtml(oh1, { table: ohT }, { key: true, out: { "フィデレ": "逃走" } });
+  document.getElementById("ot-q").innerHTML = seatsHtml(oh1, { table: ohQ }, { mvLabel: "順番待ち", ticket: ohTk, say: { "グラティス(右)": "わたくしより|速い方、|いらっしゃる?" } });
+  document.getElementById("ot-t").innerHTML = seatsHtml(oh1, { table: ohT }, { key: true, out: { "フィデレ": "逃走" }, say: { "アイリス": "はい!✋", "リュッケルト": "はい!✋", "パストラン": "はい!✋", "フィデレ": "(外から)|はい!✋|(24よね?)" } });
+  document.getElementById("ot-f").innerHTML = cap("2ターン目") + seatsHtml(oh1, ohb, { key: true, nofade: true, out: { "フィデレ": "逃走" }, say: { "グラティス(右)": "4番が|空いて|おりますのに…" } });
+  document.getElementById("ot-f2").innerHTML = cap("2ターン目", "フィデレが倒れていたとき") + seatsHtml(oh1, ohb, { key: true, nofade: true, out: { "フィデレ": "HP 0" } });
   // 後列右の敵に使ったとき: 闇グレード+ビッグアイ×2、ビッグアイ(右)を減速。鍵の仲間なし
   var br = stateFrom({ an: KP.an, a: [59, 66, 62, 64], f: KN, sl: [0, 0, 0, 0, 0, 1] });
   var bb = simulate(br.a, br.e, br.sl, true, -1), bc = simulate(br.a, br.e, br.sl, false, -1), bT = [], bQ = [], bTk = {}, lastBr = 0;
   for (k = 0; k < 11; k++) if (bc.table[k]) lastBr = k;
-  for (k = 0; k <= lastBr; k++) bT.push(bc.table[k] && bc.table[k].a ? bc.table[k] : { gap: true });
+  bT = prep(br, bc);
   for (k = 0; k < 6; k++) if (br.e[k] != null) { bQ.push({ a: false, i: k, mv: true }); }
   bTk["闇グレード"] = bb.re[1] + 1; bTk["ビッグアイ(左)"] = bb.re[3] + 1; bTk["ビッグアイ(右)"] = bb.re[5] + 1;
   document.getElementById("br-map").innerHTML = mapHtml(br);
@@ -617,7 +673,7 @@ function exampleBlocks() {
   var o1 = stateFrom({ an: NEWP.an, a: NEWP.a, f: { en: ["", "グラティス", "", "", "", ""], e: [null, 48, null, null, null, null] }, sl: [0, 1, 0, 0, 0, 0] });
   var ob = simulate(o1.a, o1.e, o1.sl, true, -1), oc = simulate(o1.a, o1.e, o1.sl, false, -1), oT = [], lastO = 0;
   for (k = 0; k < 11; k++) if (oc.table[k]) lastO = k;
-  for (k = 0; k <= lastO; k++) oT.push(oc.table[k] && oc.table[k].a ? oc.table[k] : { gap: true });
+  oT = prep(o1, oc);
   document.getElementById("one-q").innerHTML = seatsHtml(o1, { table: [{ a: false, i: 1, mv: true }] }, { mvLabel: "順番待ち", ticket: { "グラティス": ob.re[1] + 1 }, say: { "グラティス": "わたくしより|速い方、|いらっしゃる?" } });
   document.getElementById("one-s").innerHTML = seatsHtml(o1, { table: oT }, { key: true, say: { "アイリス": "はい!✋", "パストラン": "(吾輩より|速かろう)" } });
   document.getElementById("one-f").innerHTML = seatsHtml(o1, ob, { key: true, tail: 1, say: { "グラティス": "結局ここに|なりますのね" } });
