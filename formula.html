@@ -52,7 +52,8 @@
 <tr><td class="nm">謎の歌</td><td class="ds"><div>33曲(古の歌・解呪・謎の歌を除く歌)から1曲を <b>約3%</b> ずつで選ぶ。覚えていない歌も出る</div></td></tr>
 <tr class="sec"><td colspan="2">道具・特技</td></tr>
 <tr><td class="nm">攻撃アイテムのダメージ</td><td class="ds"><div class="st">まず、使った人のレベルを 2 で割る(端数は切り上げ)</div><div class="st">その値に <b>威力</b> を掛ける(火炎薬・風針薬 18、爆発薬 25)</div><div class="st">その値に属性の数字(火炎薬 = 敵の火、風針薬 = 敵の風、爆発薬 = 100)を掛けて 100 で割る → <b>ダメージ</b></div><div class="nt">※爆発薬はボスには 0</div><div class="ex">例: Lv21 で火炎薬をレインキャット(火 150)に → 21 &#247; 2 = 10.5 → 11 → 11 &#215; 18 = 198 → 198 &#215; 150 &#247; 100 = <b>297</b></div></td></tr>
-<tr><td class="nm">攻撃アイテムの成功率</td><td class="ds"><div>敵の <b>属性の数字</b>(火炎薬 = 火、風針薬 = 風)がそのまま成功率(%)。100 以上なら必ず当たる。爆発薬は必ず当たる</div></td></tr>
+<tr><td class="nm">火炎薬・風針薬の成功率</td><td class="ds"><div>敵の <b>属性の数字</b>(火炎薬 = 火、風針薬 = 風)がそのまま成功率(%)。100 以上なら必ず当たる</div></td></tr>
+<tr><td class="nm">爆発薬・減速薬の成功率</td><td class="ds"><div><b>必ず当たる</b>。ボスには効かない</div></td></tr>
 <tr><td class="nm">特殊攻撃の道具と特殊技の成功率</td><td class="ds"><div>聖水・しびれ薬・石化薬・ターンアンデッド(エニクラウド)・パラライズ(トリリア・パストラン)は、敵の <b>特殊技の数字</b> がそのまま成功率(%)</div><div class="nt">※レベル・LUTE は関係しない。ボスには必ず失敗</div><div class="ex">例: ゾンビ(特殊技 10)に聖水 → <b>10%</b></div></td></tr>
 <tr><td class="nm">興奮剤のターゲッティング</td><td class="ds"><div><b>完全ランダム</b>(生きている敵から同じ確率で1体。前列・後列・HP は関係しない)</div><div class="nt">※3回とも同じ敵を攻撃する。命中率・クリティカル・ダメージは通常攻撃と同じ</div></td></tr>
 <tr class="sec"><td colspan="2">敵の攻撃</td></tr>
@@ -67,7 +68,7 @@
 <tr><td class="nm">敵が仲間の敵に使う技の相手</td><td class="ds"><div>回復・スクリーンなど、敵が自分たちの側の1体に使う技は、生きている敵(自分も含む)から <b>完全ランダム</b> に1体。HP が減っているかどうかは関係しない</div></td></tr>
 <tr><td class="nm">かばう</td><td class="ds"><div>敵の通常攻撃の狙いが次のキャラなら、相方が <b>必ず</b> かばう(相方が戦える状態のとき。技はかばわない)</div><div class="li">ショウコ ← ライオネル</div><div class="li">リュッケルト ← フィデレ</div><div class="li">アイリス ← ドンキー</div><div class="li bt"><span class="tg">没</span>シベリン ← クイクイ</div><div class="li bt"><span class="tg">没</span>アイリス ← ボビン</div><div class="bug"><span class="bgi">バグ</span>ドンキーとボビンが両方いると、攻撃1回ごとに 1/2 ずつでどちらかがかばう</div></td></tr>
 <tr class="sec"><td colspan="2">戦闘その他</td></tr>
-<tr id="encount"><td class="nm">エンカウント率</td><td class="ds"><div class="st">1歩(歩くモーション1回。デバッグルームの X・Y の表示が1つ変わる)ごとに、その場所の <b>エンカウント率</b> で戦闘になるかを抽選する</div><div class="st">戦闘に決まったら、出てくる敵の組を抽選する(組ごとの確率は場所ごとに決まっている)</div><div class="nt">※エンカウント率・組の確率は場所(フィールドの階・部屋)ごとに違う。フィールド攻略の各ページに載っている(<a href="field_index.html">くわしくはコチラ</a>)。町・建物の中などエンカウント率 0% の場所では出ない</div><div class="nt">※立ち止まっている間は抽選しない。デバッグルームの高速移動中も抽選しない</div><div class="nt">※イベントの間は抽選しない。イベントで主人公が動かされたときは、イベントが終わった瞬間に1回だけ抽選する(何歩動いても1回。始まった所と同じ位置に戻って終わったら抽選しない)。階段・出入口で場所を移った直後も同じで、着いた瞬間に移った先の確率で1回抽選する。<a href="trivia.html#zero-step">くわしくはコチラ</a></div><div class="ex">例: エンカウント率 1.17% の場所 → 平均 <b>85.3歩</b> に1回。どろどろの沼(3.91%)なら平均 25.6歩に1回</div></td></tr>
+<tr id="encount"><td class="nm">エンカウント率</td><td class="ds"><div class="st">1歩ごとに、その場所の <b>エンカウント率</b> で抽選を行う</div><div class="st">エンカウントが決まったら、続いてどの敵パーティーが出るかの抽選を行う</div><div class="nt">※エンカウント率と敵パーティーの確率は場所ごとに違う。<a href="field_index.html">くわしくはコチラ</a></div><div class="nt">※1歩 = デバッグルームで表示される X・Y の数字1つぶん。移動モーションで言うと1回ぶん</div><div class="nt">※イベントの移動中は抽選が行われないが、イベントの開始時と終了時の X・Y が違えば抽選が1回行われる</div><div class="nt">※階段・場所移動のときも X・Y が変わるので抽選が行われる(<a href="trivia.html#zero-step">くわしくはコチラ</a>)</div><div class="ex">例: クーテの山道は1歩動くと <b>1.17%</b> の確率で戦闘になる。そのとき 44.4% の確率でロックシューター×3、55.6% の確率でロックシューター×2</div></td></tr>
 <tr><td class="nm">逃走</td><td class="ds"><div><b>75%</b> で成功。レベル・素早さ・隊列などに関係なく一律。ボスがいる戦闘では選べない</div><div class="nt">※判定は、逃走を選んだキャラの番ごとに1回。何人かで選ぶと、誰か1人が成功した時点で全員逃げられるので、パーティー全体では上がる: 2人 約94%、3人 約98%、4人 約99.6%</div><div class="nt">※逃走を選んだキャラの番より先に動いた敵の攻撃は受ける</div></td></tr>
 <tr><td class="nm">行動の順番</td><td class="ds"><div class="st">素早さ(AGI)の大きい順(敵の素早さは減速薬がかかっていると半分)</div><div class="st">同じ素早さなら、味方が敵より先。味方どうしは並びの左から、敵どうしは前列の左から</div><div class="st">主人公が歌うターンは、主人公が一番最後(敵の後)</div><div class="nt">※順番はターンの初めに決まる</div><div class="bug"><span class="bgi">バグ</span>敵が2体以上いるときに減速薬を使うと、順番が狂ったり、そのターンに動けない人が出たりする</div></td></tr>
 <tr><td class="nm">もらえる経験値</td><td class="ds"><div>仲間1人ずつ、倒した敵1体ずつ計算して合計する(仲間で分け合わない。HP 0・逃げた仲間はもらえない)</div><div class="li">仲間のレベルが敵のレベル以下: 敵の EXP の 100%</div><div class="li">敵より1つ上: 70%</div><div class="li">2つ上: 50%</div><div class="li">3つ上: 20%</div><div class="li">4つ以上上: 1(減らした結果が 0 になるときも 1)</div><div class="ex">例: レインキャット(Lv7・EXP5)→ Lv7 以下 5、Lv8 3、Lv9 2、Lv10 以上 1</div></td></tr>
@@ -99,10 +100,11 @@
 <tr><td class="nm">ボビン</td><td class="ds"><div class="st">技なし</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる(ラスボス戦では逃げない)</div></td></tr>
 <tr><td class="nm">シベリン</td><td class="ds"><div class="st"><b>30%</b> で炎の矢。対象は完全ランダム</div><div class="st">HP が 1/5 未満なら <b>25%</b> で逃げる</div></td></tr>
 <tr class="sec"><td colspan="2">戦闘の外</td></tr>
+<tr><td class="nm">レベルアップによる能力上昇値</td><td class="ds"><div>すべて固定。確率による変化はない</div></td></tr>
 <tr><td class="nm">酒場の歌の報酬</td><td class="ds"><div>酒場ごとに次のお金がもらえる(各酒場1回だけ)</div><div class="li">アデン: 主人公のレベル &#215; 5 + 0〜20 のランダム</div><div class="li">クーテ: 主人公のレベル &#215; 10 + 0〜50 のランダム</div><div class="li">ドミナント: 主人公のレベル &#215; 10 + 0〜15 のランダム</div><div class="ex">例: Lv10 → アデン 50〜70、クーテ 100〜150、ドミナント 100〜115</div></td></tr>
 <tr><td class="nm">売値</td><td class="ds"><div>買値の <b>80%</b>(道具・武器・防具)。リュート部品・大事な物は売却不可</div></td></tr>
 <tr><td class="nm">呪いの宝箱で呪われる人</td><td class="ds"><div>主人公が <b>2/5</b>、ほかの仲間が1人ずつ <b>1/5</b></div><div class="nt">※4人なら必ず誰かが呪われる。3人なら 80%、2人なら 60%</div><div class="bug"><span class="bgi">バグかも</span>5回に1回、並びの表の外を読んでしまい、そこは常に主人公なので、主人公だけほかの仲間の2倍呪われやすい</div></td></tr>
 </table></div>
 </div>
 <script src="menu.js"></script>
-<!-- 完成版(2026-10-11 ユーザー確認済み)。スクリプトで上書きしない。追記するときは tools/formula_page.ps1 を直し、この印を外して流し直す -->
+<!-- 完成版(2026-10-11 ユーザー確認済み。2026-10-27 エンカウント率の書き直し・レベルアップの行を html で直接追加。同日 火炎薬・風針薬/爆発薬・減速薬の成功率の行を分けた)。スクリプトで上書きしない。追記するときは tools/formula_page.ps1 を直し、この印を外して流し直す -->
