@@ -298,6 +298,8 @@
 <p>→ つまみ出されたのは空席。本物のリュッケルトは3番に座ったまま。</p>
 <div class="box" id="ex-song3"></div>
 <p>→ 空席が詰められ、全員動く。空席は一番後ろへ回って、いつもどおり「ここで終わり」になる。リュッケルトは立見に行かないので、最後ではなく2番目で歌う。</p>
+<p>ちなみに、このメンバーでリュッケルトの素早さが 45〜47 なら、<b>ターンの頭に歌うことだってできる</b>。リュッケルトが空席のすぐ後ろの2番に座るので、空席がつまみ出されて詰めると、リュッケルトが先頭に来る。</p>
+<div class="box" id="ex-song4"></div>
 
 <!-- ===================== 鍵の仲間以外 ===================== -->
 <h3 id="other">鍵の仲間以外の見え方</h3>
@@ -698,6 +700,9 @@ function exampleBlocks() {
   document.getElementById("ex-song2").innerHTML = seatsHtml(s1, { table: tS }, { key: true, say: { "リュッケルト": "私は|ここ|なんだけど…" } });
   document.getElementById("ex-song2b").innerHTML = seatsHtml(s1, { table: [{ ghost: true }] }, {});
   document.getElementById("ex-song3").innerHTML = seatsHtml(s1, bs, { singer: 0, tail: 1, say: { "リュッケルト": "あれ?|最後じゃ|ない…", "パストラン": "ふむ、では|詰めると|しよう" } });
+  // リュッケルトが 45〜47 なら空席のすぐ後ろ(2番)に座るので、詰めると先頭で歌う
+  var s45 = stateFrom({ an: NEWP.an, a: [45, 29, 44, 29], f: GR, sl: [1, 0, 0, 0, 0, 0] });
+  document.getElementById("ex-song4").innerHTML = cap("2ターン目", "リュッケルトが 45 のとき") + seatsHtml(s45, simulate(s45.a, s45.e, s45.sl, true, 0), { singer: 0, tail: 1, key: true, say: { "リュッケルト": "一番手で|歌うぞ!" } });
 }
 // ===== 実機の記録(パーティーの並びは試したときのまま)・シミュレーター =====
 var PRESETS = [
