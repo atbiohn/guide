@@ -138,8 +138,19 @@
 .ode-bg .mem .cell{width:84px;border:1px solid #d9a874;background:#fcf3e8;border-radius:4px;padding:5px 4px;text-align:center;font-size:12px;display:flex;flex-direction:column;align-items:center}
 .ode-bg .mem .ar.al .cell{border-color:#7fa3dd;background:#eef3fc}
 .ode-bg .mem .cell .cn,.ode-bg .seat .nm{word-break:keep-all}
-/* 戦場の外に出た仲間(逃走・HP 0)も席には座る */
-.ode-bg .seat.out{border-style:dashed}.ode-bg .seat.out .ic{opacity:.45}.ode-bg .seat .rk.ot{color:#c0392b;font-weight:bold}
+/* 戦場の外に出た仲間(逃走・HP 0)は本人がいないが、席は確保されている(空席ではない) */
+.ode-bg .seat.out{border:2px dashed #7fa3dd;justify-content:center}.ode-bg .seat .rk.ot{color:#c0392b;font-weight:bold}
+/* 枠の外の仲間: 灰色の枠の右横に小さいチップ(基本情報の戦闘の流れと同じ形) */
+.ode-bg .turn{display:flex;align-items:flex-end;gap:8px}
+.ode-bg .turn>.box{flex:1 1 0;min-width:0}
+.ode-bg .outs{flex:none;margin:8px 0;display:flex;flex-direction:column;align-items:center;gap:2px}
+.ode-bg .chip{width:28px;height:44px;opacity:.8}
+.ode-bg .outs .lab{font-size:10.5px;color:#c0392b;font-weight:bold;white-space:nowrap}
+.ode-bg .outs .osay{position:relative;background:#fff;border:2px solid #3d4b66;border-radius:8px;padding:2px 5px;font-size:10.5px;line-height:1.35;font-weight:bold;text-align:center;white-space:nowrap;margin-bottom:8px}
+.ode-bg .outs .osay:after{content:"";position:absolute;left:50%;margin-left:-6px;top:100%;border:6px solid transparent;border-top-color:#3d4b66;border-bottom:0}
+.ode-bg .mem .cell .nt{color:#c0392b;font-weight:bold;font-size:11.5px}
+/* 左の欄は折り返さない */
+.ode-bg table.nw td:first-child{white-space:nowrap}
 /* 仲間が先に座ったときの、敵が座る見込みの席 */
 .ode-bg .seat.gap .ic{opacity:.3;filter:grayscale(.6)}
 .ode-bg .seat.gap .rk{color:#8a94a8;text-align:center}
@@ -180,6 +191,7 @@
 <p>席は敵が6体いても足りるだけ用意されていて、余った席は<b class="red">空席</b>になる。<b>左から順番に行動し、空席が登場したタイミングでターンが終了</b>する。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">何をするか自己申告しろ!</div></div></div>
 <div class="box" id="ex-line0"></div>
+<p>→ 順番が決まったので、行動を決める。本来ならプレイヤーが指示するが、ここでは「自己申告」と表記する。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">それでは点呼する! <span class="sm">(ターンを開始する)</span></div></div></div>
 <hr class="sep">
 
@@ -205,7 +217,7 @@
 <div class="zone">ここからがバグの話</div>
 <!-- ===================== 鍵の仲間 ===================== -->
 <h3 id="key">鍵の仲間のしくみ</h3>
-<p>順位を数えるとき、ゲームは仲間と敵を1組ずつ比べて「どちらが速いか」を数える。本来は「その敵が減速しているか」を見て、減速していればその敵の素早さを半分にして比べる。ところがゲームは、<b>「仲間と同じ番号の位置にいる敵」が減速しているか</b>を見ている。</p>
+<p>座る席を決めるとき、ゲームは仲間と敵を1組ずつ比べて「どちらが速いか」を数える。本来は「その敵が減速しているか」を見て、減速していればその敵の素早さを半分にして比べる。ところがゲームは、<b>「仲間と同じ番号の位置にいる敵」が減速しているか</b>を見ている。</p>
 <div class="map">
 <div class="box">
 <div class="cap">敵の位置(数字 = 対応する並びの番号)</div>
@@ -258,14 +270,14 @@
 <p>では、鍵の仲間の素早さが違っていたらどうなるのか?</p>
 <h4>リュッケルトが 20 のとき</h4>
 <div class="box" id="vx-1"></div>
-<p>→ <b>手が挙がらない</b>。24 に見えても、右のグラティスはリュッケルト(20)より速いので、リュッケルトは手を挙げない。指定席は1番のまま。バグは起きない。</p>
+<p>→ <b>右のグラティスは、座る見込みの席にやってくる</b>。24 に見えても、右のグラティスはリュッケルト(20)より速いので、リュッケルトは手を挙げない。指定席は1番のまま。バグは起きない。</p>
 <h4>リュッケルトが 48 以上のとき</h4>
 <div class="box" id="vx-2"></div>
 <p>→ <b>1番はもう埋まっている</b>。リュッケルトがグラティスと同じか速ければ、1番にはリュッケルト自身が先に座っている。手を挙げても挙げなくても、グラティスが2番以降になるのは変わらない。バグは起きない(図は 48 のとき。50 などでも同じ)。</p>
 <h4>パストランが 50 のとき</h4>
 <p>空席ができるのは1番とは限らない。もしもパストランの素早さが 50 あったらどうなるのか。</p>
 <div class="box" id="vx-4"></div>
-<p>→ 1番のパストランだけ動き、2番の空席でターン終了。</p>
+<p>→ 右のグラティスは指定席の3番から後ろにたどって7番へ。座る見込みだった2番には誰も来ないまま空席に変わり、1番のパストランだけ動いてターン終了。</p>
 <h4>アイリスが右のグラティスに使ったとき</h4>
 <p>減速した敵が前列右なので、鍵の仲間は並び3番目のパストランになる(上の「鍵の仲間のしくみ」)。</p>
 <div class="box" id="vx-5"></div>
@@ -305,10 +317,8 @@
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">前列の者から入れ!<br>指定席が埋まっていたら、後ろの空いている席だ!</div></div></div>
 <div class="box" id="kn-2"></div>
 <p>→ 指定席券は3体とも4番(ダブルブッキング)。入るのは前列左からなので、まず前列の闇グレードが4番に座る(本当ならビッグアイ(左)の席)。ビッグアイ(左)は4番が埋まっているので、後ろの空いている5番へ。ビッグアイ(右)は4番も5番も、6番のリュッケルトの席も埋まっているので7番へ。闇グレードは 33 まで遅くなったのに、リュッケルト(59)より先に動く。減速薬が効いていないように見える。空席はできないので、誰も動かなくなることはない。</p>
-<div class="box" id="kn-3"></div>
-<p>→ 本来なら、闇グレードは一番最後に回るはずだった。</p>
 <h4>手を挙げ間違えられた敵が何体もいるとき</h4>
-<p>最後に、鍵の仲間の見間違いと、鍵の仲間以外の見間違いが同時に起きる例。</p>
+<p>今度は、鍵の仲間の見間違いと、鍵の仲間以外の見間違いが同時に起きる例。</p>
 <p>どろどろの沼の、どろどろ2体(前列左・右・素早さ37)とドロヌマアルキ(後列中央・素早さ43)の組で、アイリスが左のどろどろに減速薬を使う。メンバーはバグの帯の最初の例と同じ。</p>
 <div class="map" id="mx-mem"></div>
 <p>前列左なので、鍵の仲間はリュッケルト。</p>
@@ -327,26 +337,25 @@
 
 <!-- ===================== 戦場の外 ===================== -->
 <h3 id="out">仲間が戦場の外に出ていたら</h3>
-<p>ここまでの例を見ると、うまく空席を作れば、仲間だけが動いて敵は何もできない「完封」ができそうに思える。しかし、<b>戦場に残っている仲間が全員動いて、敵だけが止まる形は作れない</b>。</p>
-<p>空席ができるのは、敵より遅い仲間が、その敵の分の席を前に空けて座るからだ。その仲間は空いた席より後ろに座るので、空席でターンが終われば、その仲間も動けない。反対に仲間が全員敵より速いと、敵の指定席はどう見間違えても「仲間の数+1」番までにしかならないので、仲間のすぐ後ろの席は必ず埋まり、空席ができない。</p>
-<p>では、空席の後ろに回る仲間が、もう戦場にいなかったら?</p>
+<p>鍵の仲間が戦線離脱してしまったら、どうなるのか。</p>
 <h4>鍵の仲間が逃げたとき</h4>
-<p>グラティス2体の戦闘で、並び1番目のフィデレが鍵の仲間になる。フィデレは HP が減っていて、今にも逃げ出しそうだ。ほかの3人はグラティスより速い。</p>
+<p>今回はこのような面々だ。並び1番目のフィデレは素早さが低く、HP が減っている。</p>
 <div class="map" id="ot-mem"></div>
 <div class="box" id="ot-1"></div>
-<p>→ 1ターン目。アイリスが左のグラティスに減速薬を使い、フィデレは一人で逃げていった。</p>
+<p>→ アイリスが左のグラティスに減速薬を使用。左のグラティスに対応する鍵の仲間は並び1番目のフィデレだが、そのフィデレは一人そそくさと逃げていった。</p>
 <hr class="sep">
-<p>2ターン目。戦線離脱したくせに、フィデレは実はちゃっかり席に座っている。神の声は、戦場にいるかどうかを確かめない。</p>
+<p>2ターン目。まずは仲間が席に座るところから始まるが、逃げた人の席は空席にならない。本人はいないが、席はちゃんと確保されている。神の声は、戦場にいるかどうかを確かめない。</p>
 <div class="box" id="ot-s"></div>
-<p>→ フィデレ(47)より速いのは、仲間3人と右のグラティス(48)。なので4番を空けて5番に座る。4番は右のグラティス(48)、6番は減速した左のグラティス(24)が座る見込みの席だ。</p>
+<p>→ フィデレ(47)より速いのは、仲間3人と右のグラティス(48)。なので4番を空けて、5番がフィデレの席になる。4番は右のグラティス(48)、6番は減速した左のグラティス(24)が座る見込みの席だ。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">敵は指定席券を取りに行け!<br>席の番号は、自分より速い者の数+1だ!</div></div></div>
-<div class="box"><div class="queue" id="ot-q"></div><div id="ot-t"></div></div>
-<p>→ 戦場の外にいても、鍵の仲間の見間違いはそのまま。フィデレには右のグラティスが 24 に見えるので、手を挙げてしまう。右のグラティスの指定席は5番(本当は4番)。</p>
+<div class="turn"><div class="box"><div class="queue" id="ot-q"></div><div id="ot-t"></div></div><div class="outs"><span class="osay">はい!✋<br><span class="sm">(24よね?)</span></span><i class="ic chip ic-fd" title="フィデレ"></i><span class="lab">戦場の外</span></div></div>
+<p>→ 戦場の外にいても、鍵の仲間の見間違いはそのまま。フィデレには右のグラティスが 24 に見えるので、枠の外から手を挙げてしまう。右のグラティスの指定席は5番(本当は4番)。</p>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">前列の者から入れ!<br>指定席が埋まっていたら、後ろの空いている席だ!</div></div></div>
 <div class="box" id="ot-f"></div>
-<p>→ 5番はフィデレが座っているので、右のグラティスは6番へ、左のグラティスは7番へ。4番が空席になり、1〜3番の3人が動いてターンが終わる。5番のフィデレはもう戦場にいないので、<b>戦場に残った仲間は全員動き、敵は誰も動かない</b>。減速が続く2ターン目と3ターン目は、結果的に完封になる。</p>
+<p>→ 5番はフィデレの席なので、右のグラティスは6番へ、左のグラティスは7番へ。4番が空席になり、1〜3番の3人が動いてターンが終わる。</p>
+<p>皮肉なことに、最も遅い仲間がいなくなると、このように仲間だけが動く<b>「完封」</b>が発生するのだ。減速が続く3ターン目も同じになる。</p>
 <h4>鍵の仲間が戦闘不能になったとき</h4>
-<p>1ターン目にフィデレが倒された場合も、同じ結果になる。HP が 0 になった仲間も、戦場の外に出されたまま席に座り、手も挙げる。</p>
+<p>1ターン目にフィデレが倒された場合も、同じ結果になる。HP が 0 になった仲間も、戦場の外に出されたまま席は確保され、手も挙げる。</p>
 <div class="box" id="ot-f2"></div>
 <p>逃げたか倒れたか、減速薬を使う前か後かは関係ない。行動順を決めるときに見ているのは、並びのその枠に誰かいるかと、その人の素早さだけだ。</p>
 <!-- ===================== 起きないとき ===================== -->
@@ -355,10 +364,11 @@
 <div class="tw"><table>
 <tr><th>場合</th><th>理由</th></tr>
 <tr><td><b>敵が1体だけ</b></td><td>どちらの見間違いも結果に響かない(このあと詳しく)。</td></tr>
-<tr><td><b>後列の中央・右の敵に使い、その敵より右に敵がいない</b></td><td>鍵の仲間がいないので空席はできず、席に入るのも一番最後なので割り込む相手もいない(このあと詳しく)。</td></tr>
+<tr><td><b>後列の中央・右の敵のうち、一番右の敵に使った</b></td><td>鍵の仲間がいないので空席はできない。席に入るのも最後なので、割り込む相手もいない(このあと詳しく)。</td></tr>
 </table></div>
+<hr class="sep">
 <p>次の場合は、誰も動かなくなる空席のバグは起きない。ただし「鍵の仲間以外の見え方」で見た、減速した敵の割り込み(減速薬が効いていないように見える方)は起きることがある。</p>
-<div class="tw"><table>
+<div class="tw"><table class="nw">
 <tr><th>場合</th><th>空席ができない理由</th></tr>
 <tr><td><b>後列の中央・右の敵に使った(上以外)</b></td><td>その位置に対応する仲間がいないので、鍵の仲間がいない。</td></tr>
 <tr><td><b>鍵の仲間の番号に誰もいない</b></td><td>例: 2人パーティーで前列右(3番目に対応)の敵に使った。</td></tr>
@@ -366,7 +376,7 @@
 <tr><td><b>敵が全員減速している</b></td><td>鍵の仲間に半分に見えるのは、本当に減速した敵ばかりなので、手の挙げ間違いがない。</td></tr>
 </table></div>
 <h4>敵が1体だけのとき</h4>
-<p>グラティス1体(前列中央)にアイリスが減速薬を使った場合。仲間の素早さはバグの帯と同じ。前列中央の敵なので、鍵の仲間は並び2番目のアイリスになる。</p>
+<p>前列中央に1体だけ出現するグラティスに、アイリスが減速薬を使った場合。前列中央の敵なので、鍵の仲間は並び2番目のアイリスになる。</p>
 <div class="box"><div class="queue" id="one-q"></div><div id="one-s"></div></div>
 <p>→ 本当はグラティス(24)より4人とも速いので、全員が手を挙げるはず。ところが減速の知らせが届いているのはアイリスだけで、ほかの3人は 48 のままだと思って手を挙げない。指定席は2番(本当は5番)。それでも、仲間が先に座った時点で空いている席は5番しかない。</p>
 <div class="box" id="one-f"></div>
@@ -378,12 +388,12 @@
 <div class="box"><div class="queue" id="br-q"></div><div id="br-s"></div></div>
 <p>→ 鍵の仲間がいないので、仲間は4人とも減速に気づかず、ビッグアイ(右)を 62 のまま見る。アイリスとアロンは、それでも自分の方が速いので手を挙げる。パストランは同じ 62 なので挙げず、リュッケルト(59)も挙げない。敵どうしは本当の素早さ(31)で比べるので、闇グレードとビッグアイ(左)は手を挙げる。指定席は5番(本当は7番)。仲間だけの席を見ると、5番は空いている。</p>
 <div class="box" id="br-f"></div>
-<p>→ 席に入るのは前列左から順。まず闇グレードが入るが、指定席の1番には同じ 66 のアイリスが座っているので2番へ。次にビッグアイ(左)。ビッグアイ(左)の指定席は4番(速いのはアイリス・アロン・闇グレードの3人)だが、同じ 62 のパストランが先に座っているので、後ろの空いている5番へ。ビッグアイ(右)は一番最後に入るので、空いて見えた5番はもう埋まっている。後ろにたどると、空いているのは本来の7番だけ。割り込む相手がいないので、本来どおりの順番になる。</p>
+<p>→ とはいえ、席に座るのは敵の並び順。まずは前列の闇グレードからだ。指定席の1番には同じ 66 のアイリスが座っているので2番へ。次にビッグアイ(左)。ビッグアイ(左)の指定席は4番(速いのはアイリス・アロン・闇グレードの3人)だが、同じ 62 のパストランが先に座っているので、後ろの空いている5番へ。ビッグアイ(右)は一番最後に入るので、空いて見えた5番はもう埋まっている。後ろにたどると、空いているのは本来の7番だけ。割り込む相手がいないので、本来どおりの順番になる。</p>
 
 <!-- ===================== シミュレーター ===================== -->
 <h3 id="sim-sec">シミュレーター</h3>
 <p>…なんてややこしい原理を文字で読むより、実例で見たほうが早い。仲間と敵と素早さを入れると、どんな順番になるかがすぐ分かるシミュレーターを用意した。</p>
-<p>仲間の素早さにはステータス画面の値(重量の超過分を引いた後)を、敵にはモンスターの素早さを入れる。空欄の枠には誰もいないものとして扱う。結果に出るのは、減速薬を使った次の2ターンの順番だ。</p>
+<p>仲間の素早さにはステータス画面の値(重量の超過分を引いた後)を、敵にはモンスターの素早さを入れる。空欄の枠は誰もいないものとして扱う。結果に出るのは、減速薬を使った次の2ターンの順番だ。</p>
 <div class="presets" id="presets"></div>
 <div class="box">
 <div class="cap">仲間(並びの左から)</div>
@@ -394,7 +404,7 @@
 <datalist id="pclist"></datalist><datalist id="monlist"></datalist>
 </div>
 <div class="box" id="sim-out"></div>
-<p class="sm">敵の名前を入れると、モンスターデータの素早さと絵が自動で出る。仲間は素早さがレベルで変わるので、絵だけ出る。<br>※仲間の欄に同じ仲間を2人入れても、そのまま表示される。<br>※ボスと没のモンスターは、名前を入れても絵と素早さが出ない。</p>
+<p class="sm">敵の名前を入れると、モンスターデータの素早さと絵が自動で出る。仲間は素早さがレベルで変わるので、絵だけ出る。<br>※実在しない敵パーティーの組み合わせにすることも可。<br>※リュッケルトをパーティーから外すことも可。仲間の欄に同じ名前を入力すると、同じ人物が2人パーティーに入る。<br>※ボスには減速薬が効かないので、画像も素早さも表示されない。<br>※没のモンスターも出ない。</p>
 
 </div>
 
@@ -487,6 +497,11 @@ function seatsHtml(st, res, opt) {
     var isKey = opt.key && x.a && x.i < 4 && st.sl[x.i] && st.e[x.i] != null;
     var agi = x.a ? String(st.a[x.i]) : (st.sl[x.i] ? "<s>" + st.e[x.i] + "</s>→" + half(st.e[x.i]) : String(st.e[x.i]));
     var nm = nameOf(st, x), sing = x.a && opt.singer === x.i;
+    // 戦場の外に出た仲間: 本人の絵は出さず、確保された席だけ見せる
+    if (opt.out && opt.out[nm]) {
+      h += '<div class="seat a out' + (isKey ? " key" : "") + '">' + (isKey ? '<span class="kb">鍵</span>' : "") + '<span class="no">' + (i + 1) + '番</span><span class="nm">' + nmHtml(nm) + '</span><span class="ag">素早さ ' + agi + '</span><span class="rk ot">' + opt.out[nm] + '</span><span class="rk">(席は確保)</span></div>';
+      continue;
+    }
     h += '<div class="seat ' + (x.a ? "a" : "e") + (after ? " after" : "") + (shifted ? " shift" : "") + (isKey ? " key" : "") + (x.mv ? " mv" : "") + (opt.out && opt.out[nm] ? " out" : "") + '">' + (isKey ? '<span class="kb">鍵</span>' : "") +
       (opt.say && opt.say[nm] ? '<span class="say"><span>' + opt.say[nm].split("|").join("</span><span>") + '</span></span>' : "") +
       '<span class="no">' + (x.mv ? (opt.mvLabel || "立見") : (i + 1) + '番') + '</span>' + iconOf(nm, sing) + '<span class="nm">' + nmHtml(nm) + (sing ? "(歌)" : "") + '</span><span class="ag">素早さ ' + agi + '</span>' +
@@ -512,9 +527,10 @@ function mapHtml(st) {
   return h + '</div></div>';
 }
 // その戦闘のメンバー一覧(仲間は並びの順、敵は位置)。鍵の仲間の話はまだしない
-function memberHtml(st) {
+// note: { 名前: 一言 } を素早さの下に添える(例: HP 1)
+function memberHtml(st, note) {
   var h = '<div class="box"><div class="mem"><div><div class="cap">仲間(並びの左から)</div><div class="ar al">', i, k;
-  for (i = 0; i < 4; i++) if (st.a[i] != null) h += '<div class="cell"><span class="sm">並び' + (i + 1) + '</span>' + iconOf(st.an[i]) + '<span class="cn">' + nmHtml(st.an[i]) + '</span><span>素早さ ' + st.a[i] + '</span></div>';
+  for (i = 0; i < 4; i++) if (st.a[i] != null) h += '<div class="cell"><span class="sm">並び' + (i + 1) + '</span>' + iconOf(st.an[i]) + '<span class="cn">' + nmHtml(st.an[i]) + '</span><span>素早さ ' + st.a[i] + '</span>' + (note && note[st.an[i]] ? '<span class="nt">' + note[st.an[i]] + '</span>' : "") + '</div>';
   h += '</div></div><div><div class="cap">敵</div><div class="ar">';
   for (k = 0; k < 6; k++) if (st.e[k] != null) h += '<div class="cell"><span class="sm">' + POS[k] + '</span>' + iconOf(st.en[k]) + '<span class="cn">' + nmHtml(st.en[k]) + '</span><span>素早さ ' + st.e[k] + '</span></div>';
   return h + '</div></div></div></div>';
@@ -547,7 +563,7 @@ var NORM = { an: NEWP.an, a: [48, 52, 44, 44] };
 function exampleBlocks() {
   var n0 = stateFrom({ an: NORM.an, a: NORM.a, f: GR, sl: [0, 0, 0, 0, 0, 0] });
   var r0 = simulate(n0.a, n0.e, n0.sl, false, -1);
-  var act = { "アイリス": "減速薬を|左のグラティスに", "リュッケルト": "通常攻撃", "パストラン": "通常攻撃…|はやめて|パラライズ", "フィデレ": "通常攻撃", "グラティス(左)": "通常攻撃", "グラティス(右)": "サンダー|ボルト" };
+  var act = { "アイリス": "減速薬を|左の|グラティスに", "リュッケルト": "通常攻撃", "パストラン": "通常攻撃", "フィデレ": "通常攻撃", "グラティス(左)": "通常攻撃", "グラティス(右)": "サンダー|ボルト" };
   // 普通ゾーンの座り方: ①仲間だけ座る ②敵が指定席券をもらう ③前列から入る
   var lastN = 0, tN = [], qN = [], tkN = {};
   for (var q0 = 0; q0 < 11; q0++) if (r0.table[q0]) lastN = q0;
@@ -559,7 +575,7 @@ function exampleBlocks() {
   document.getElementById("nz-mem").innerHTML = memberHtml(n0);
   document.getElementById("nz-3").innerHTML = seatsHtml(n0, r0, { tail: 1, say: { "リュッケルト": "先に|座らせて|もらったよ", "グラティス(左)": "2番は|ふさがって|おりますのね" } });
   document.getElementById("ex-line0").innerHTML = seatsHtml(n0, r0, { tail: 1, say: act });
-  document.getElementById("ex-line").innerHTML = cap("1ターン目") + seatsHtml(n0, r0, { tail: 1, say: { "アイリス": "薬飲んだんだから|あなたは|一番最後よ", "グラティス(左)": "もう順番は|決まって|おりますの💦" } });
+  document.getElementById("ex-line").innerHTML = cap("1ターン目") + seatsHtml(n0, r0, { tail: 1, say: { "アイリス": "薬飲んだ|んだから|あなたは|一番最後よ", "グラティス(左)": "もう順番は|決まって|おりますの💦" } });
   var n1 = stateFrom({ an: NORM.an, a: NORM.a, f: GR, sl: [1, 0, 0, 0, 0, 0] });
   document.getElementById("ex-next").innerHTML = cap("2ターン目", "左のグラティスが減速中") + seatsHtml(n1, simulate(n1.a, n1.e, n1.sl, false, -1), { tail: 1 }) +
     '<p class="sm">左のグラティスは 24 になり、全員より遅いので一番最後へ。</p>';
@@ -578,7 +594,7 @@ function exampleBlocks() {
   var c = simulate(s1.a, s1.e, s1.sl, false, -1), b = simulate(s1.a, s1.e, s1.sl, true, -1);
   // バグの帯: 1ターン目(まだ減速なし)→ 2ターン目は仲間が先に座り、グラティス2体が立見で席を探す
   var s0 = stateFrom({ an: NEWP.an, a: NEWP.a, f: GR, sl: [0, 0, 0, 0, 0, 0] });
-  document.getElementById("bx-1").innerHTML = cap("1ターン目") + seatsHtml(s0, simulate(s0.a, s0.e, s0.sl, false, -1), { tail: 1, say: { "アイリス": "減速薬を|左のグラティスに" } });
+  document.getElementById("bx-1").innerHTML = cap("1ターン目") + seatsHtml(s0, simulate(s0.a, s0.e, s0.sl, false, -1), { tail: 1, say: { "アイリス": "減速薬を|左の|グラティスに" } });
   // 仲間だけ座った図(敵の席は空き)と、指定席券を持って順番待ちの敵。指定席 = 速いと数えた人の数+1(b.re)
   var tB = [], stand = [], tkB = {}, k, x;
   // 1番が空席だと b.order は空になるので、表の最後の人まで見る
@@ -590,28 +606,26 @@ function exampleBlocks() {
   document.getElementById("bx-2").innerHTML = seatsHtml(s1, { table: tB }, { key: true, say: { "リュッケルト": "はい!✋|(私34、|お前24|だもんな)" } });
   document.getElementById("bx-2b").innerHTML = seatsHtml(s1, { table: stand }, { mvLabel: "順番待ち", ticket: tkB, say: { "グラティス(右)": "わたくしより|速い方、|いらっしゃる?" } });
   document.getElementById("ex-bug").innerHTML = cap("2ターン目") + seatsHtml(s1, b, { key: true, nofade: true });
-  // 鍵の仲間の素早さを変えた例: 1ターン目の列 → 2ターン目の列(scene があれば、座る途中の立見の図を挟む)
+  // 鍵の仲間の素早さを変えた例: 1ターン目の列 → 2ターン目の列(scene があれば、敵が座り終えた図を挟む)
   function variant(el, a, o) {
     var v0 = stateFrom({ an: NEWP.an, a: a, f: GR, sl: [0, 0, 0, 0, 0, 0] }), v1 = stateFrom({ an: NEWP.an, a: a, f: GR, sl: o.sl || [1, 0, 0, 0, 0, 0] });
     var vb = simulate(v1.a, v1.e, v1.sl, true, -1), hole = vb.order.length < 6;
     var h = cap("1ターン目") + seatsHtml(v0, simulate(v0.a, v0.e, v0.sl, false, -1), { tail: 1, say: o.say1 }) + '<div style="height:8px"></div>';
     if (o.scene) {
-      var t = [], st = [], ot = {}, q, y;
-      vb.wrong.forEach(function (w) { if (w.extra) ot[w.enemy] = 1; });
-      // 敵は位置の番号順に座るので、追い出された敵より後の敵もまだ席に着いていない(立見で待つ)
-      for (q = 0; q < 6; q++) if (ot[q]) { for (y = q + 1; y < 6; y++) if (v1.e[y] != null) ot[y] = 1; break; }
-      for (q = 0; q < 11; q++) { y = vb.table[q]; if (y && (y.a || !ot[y.i])) t[q] = y; }
+      // 敵は押し出された席に普通に座る。だれも来なかった席は「座る見込み」の薄い絵のまま残す
+      var pv = prep(v1, simulate(v1.a, v1.e, v1.sl, false, -1)), t = [], tk = {}, q;
+      for (q = 0; q < 11; q++) if (vb.table[q] || (pv[q] && q < pv.length)) t[q] = vb.table[q] || pv[q];
       for (q = 0; q < t.length; q++) if (!t[q]) t[q] = { gap: true };
-      for (q = 0; q < 6; q++) if (ot[q]) st.push({ a: false, i: q, rank: vb.re[q], mv: true });
-      h += cap("2ターン目", "席を探しているところ") + '<div class="row2"><div>' + seatsHtml(v1, { table: t }, { key: true, say: o.scene }) + '</div><div class="stand">' + seatsHtml(v1, { table: st }, { say: o.scene }) + '</div></div><div style="height:8px"></div>';
+      for (q = 0; q < 6; q++) if (v1.e[q] != null) tk[v1.en[q]] = vb.re[q] + 1;
+      h += cap("2ターン目", "敵が座り終えたところ") + seatsHtml(v1, { table: t }, { key: true, ticket: tk, say: o.scene }) + '<div style="height:8px"></div>';
     }
-    h += cap("2ターン目") + seatsHtml(v1, vb, { key: true, tail: !hole, say: o.say });
+    h += cap("2ターン目", hole ? "座る見込みだった" + (vb.order.length + 1) + "番は空席に" : "") + seatsHtml(v1, vb, { key: true, tail: !hole, say: o.say });
     document.getElementById(el).innerHTML = h;
   }
   variant("vx-1", [20, 29, 44, 29], { say: { "リュッケルト": "くっ…|それでも|私より速い", "グラティス(右)": "24に見えても|あなたより|速くてよ" } });
   variant("vx-2", [48, 29, 44, 29], { say: { "リュッケルト": "1番は|私の席だ", "グラティス(右)": "では|2番に|まいりますわ" } });
   variant("vx-4", [34, 29, 50, 29], { scene: { "リュッケルト": "はい!✋|(お前24|だもんな)", "グラティス(右)": "わたくし、|本当なら|2番ですのに…" }, say: { "パストラン": "ん?|吾輩だけか?" } });
-  variant("vx-5", [34, 29, 44, 29], { sl: [0, 0, 1, 0, 0, 0], say1: { "アイリス": "減速薬を|右のグラティスに" }, scene: { "パストラン": "はい!✋|(お主は24|であろう)", "グラティス(左)": "減速したのは|あちらの方|ですわよ!?" } });
+  variant("vx-5", [34, 29, 44, 29], { sl: [0, 0, 1, 0, 0, 0], say1: { "アイリス": "減速薬を|右の|グラティスに" }, scene: { "パストラン": "はい!✋|(お主は24|であろう)", "グラティス(左)": "減速したのは|あちらの方|ですわよ!?" } });
   // 歌
   // 鍵の仲間以外の見間違い: 闇グレード(前列中央)+ビッグアイ×2(後列左・右)、F98 調律の洞窟の並び。仲間は全員 Lv50 の AGI
   var KN = { en: ["", "闇グレード", "", "ビッグアイ(左)", "", "ビッグアイ(右)"], e: [null, 66, null, 62, null, 62] };
@@ -629,7 +643,6 @@ function exampleBlocks() {
   var tk = {}; for (k = 0; k < 6; k++) if (kn1.e[k] != null) tk[kn1.en[k]] = kb.re[k] + 1;
   document.getElementById("kn-t").innerHTML = seatsHtml(kn1, { table: ks }, { key: true, say: { "アイリス": "はい!✋", "アロン": "(66の相手には|かなわない)", "パストラン": "(吾輩より|速かろう)", "リュッケルト": "(私より|速いし…)" } });
   document.getElementById("kn-tb").innerHTML = seatsHtml(kn1, { table: kw }, { mvLabel: "順番待ち", ticket: tk, say: { "闇グレード": "私より速い人、|手を挙げて!" } });
-  document.getElementById("kn-3").innerHTML = cap("本来の2ターン目", "バグがなければ") + seatsHtml(kn1, simulate(kn1.a, kn1.e, kn1.sl, false, -1), { tail: 1 });
   // 手を挙げ間違えられた敵が何体も: F53 どろどろ×2(前列左・右)+ドロヌマアルキ(後列中央)、左に減速薬、鍵 = リュッケルト
   var mx = stateFrom({ an: NEWP.an, a: NEWP.a, f: { en: ["どろどろ(左)", "", "どろどろ(右)", "", "ドロヌマアルキ", ""], e: [37, null, 37, null, 43, null] }, sl: [1, 0, 0, 0, 0, 0] });
   var mb = simulate(mx.a, mx.e, mx.sl, true, -1), mc = simulate(mx.a, mx.e, mx.sl, false, -1), mT = [], mQ = [], mTk = {}, lastM = 0;
@@ -651,11 +664,11 @@ function exampleBlocks() {
   var oh0 = stateFrom({ an: OT.an, a: OT.a, f: GR, sl: [0, 0, 0, 0, 0, 0] }), oh1 = stateFrom({ an: OT.an, a: OT.a, f: GR, sl: [1, 0, 0, 0, 0, 0] });
   var ohb = simulate(oh1.a, oh1.e, oh1.sl, true, -1), ohc = simulate(oh1.a, oh1.e, oh1.sl, false, -1), ohT = prep(oh1, ohc), ohQ = [], ohTk = {};
   for (k = 0; k < 6; k++) if (oh1.e[k] != null) { ohQ.push({ a: false, i: k, mv: true }); ohTk[oh1.en[k]] = ohb.re[k] + 1; }
-  document.getElementById("ot-mem").innerHTML = memberHtml(oh0);
-  document.getElementById("ot-1").innerHTML = cap("1ターン目") + seatsHtml(oh0, simulate(oh0.a, oh0.e, oh0.sl, false, -1), { tail: 1, say: { "アイリス": "減速薬を|左のグラティスに", "フィデレ": "いやーん★|こわーい!" } });
+  document.getElementById("ot-mem").innerHTML = memberHtml(oh0, { "フィデレ": "HP 1" });
+  document.getElementById("ot-1").innerHTML = cap("1ターン目") + seatsHtml(oh0, simulate(oh0.a, oh0.e, oh0.sl, false, -1), { tail: 1, say: { "アイリス": "減速薬を|左の|グラティスに", "フィデレ": "いやーん★|こわーい!" } });
   document.getElementById("ot-s").innerHTML = seatsHtml(oh1, { table: ohT }, { key: true, out: { "フィデレ": "逃走" } });
   document.getElementById("ot-q").innerHTML = seatsHtml(oh1, { table: ohQ }, { mvLabel: "順番待ち", ticket: ohTk, say: { "グラティス(右)": "わたくしより|速い方、|いらっしゃる?" } });
-  document.getElementById("ot-t").innerHTML = seatsHtml(oh1, { table: ohT }, { key: true, out: { "フィデレ": "逃走" }, say: { "アイリス": "はい!✋", "リュッケルト": "はい!✋", "パストラン": "はい!✋", "フィデレ": "(外から)|はい!✋|(24よね?)" } });
+  document.getElementById("ot-t").innerHTML = seatsHtml(oh1, { table: ohT }, { key: true, out: { "フィデレ": "逃走" }, say: { "アイリス": "はい!✋", "リュッケルト": "はい!✋", "パストラン": "はい!✋" } });
   document.getElementById("ot-f").innerHTML = cap("2ターン目") + seatsHtml(oh1, ohb, { key: true, nofade: true, out: { "フィデレ": "逃走" }, say: { "グラティス(右)": "4番が|空いて|おりますのに…" } });
   document.getElementById("ot-f2").innerHTML = cap("2ターン目", "フィデレが倒れていたとき") + seatsHtml(oh1, ohb, { key: true, nofade: true, out: { "フィデレ": "HP 0" } });
   // 後列右の敵に使ったとき: 闇グレード+ビッグアイ×2、ビッグアイ(右)を減速。鍵の仲間なし
