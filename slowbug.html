@@ -46,9 +46,7 @@
 /* 歌魔法の例: 立った後の席・移動中の席 */
 .ode-bg .seat.gap{border:2px dashed #b8c2d4;background:transparent;color:#999;justify-content:center;min-height:96px}
 .ode-bg .seat.hole .no,.ode-bg .seat.gap .no{position:absolute;top:4px;left:5px}/* 座席と立見を同じ枠に入れ、点線で区切る(狭い幅では立見だけ次の行へ) */
-.ode-bg .row2{display:flex;flex-wrap:wrap;gap:8px}
-.ode-bg .row2 .stand{border-left:2px dashed #c3cbd9;padding-left:8px}
-.ode-bg .row2 .seats.say{column-gap:8px}
+.ode-bg .standx{display:flex;gap:5px;border-left:2px dashed #c3cbd9;padding-left:8px}
 /* 指定席券をもらう場面: 順番待ちの敵を上の段に置き、質問 → 答えの順に読めるようにする */
 .ode-bg .queue{border-bottom:2px dashed #c3cbd9;padding-bottom:8px;margin-bottom:4px}
 .ode-bg .seat.a.mv{border:2px dashed #2f6fd6;background:#eef3fc}
@@ -208,7 +206,7 @@
 <p>リュッケルトが歌魔法を申告すると、全員が座り終えた後でリュッケルトだけがいったん列からつまみ出され、ほかの人が空いた席を前に詰めてから、一番後ろの席に座る。歌魔法がいつもターンの最後になるのはこのためだ。</p>
 <div class="box" id="ex-sing"></div>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">何…歌魔法だと…?<br>いったん抜けろ!</div></div></div>
-<div class="box"><div class="row2"><div id="ex-sing2"></div><div class="stand" id="ex-sing2b"></div></div></div>
+<div class="box" id="ex-sing2"></div>
 <p>→ リュッケルトだけがつまみ出される。</p>
 <div class="box" id="ex-sing3"></div>
 <p>→ 空席が詰められ、このような順番になる。</p>
@@ -294,7 +292,7 @@
 <div class="box" id="ex-song"></div>
 <div class="talk god"><i class="ic ic-at"></i><div class="bw"><span class="tn">神の声</span><div class="bubble">何…歌魔法だと…?<br>リュッケルト、いったん抜けろ!</div></div></div>
 <p>神の声は、列の前から順にリュッケルトを探す。ところが最初に見つかった<b>1番の空席を、リュッケルトだと思い込んでしまう</b>。</p>
-<div class="box"><div class="row2"><div id="ex-song2"></div><div class="stand" id="ex-song2b"></div></div></div>
+<div class="box" id="ex-song2"></div>
 <p>→ つまみ出されたのは空席。本物のリュッケルトは3番に座ったまま。</p>
 <div class="box" id="ex-song3"></div>
 <p>→ 空席が詰められ、全員動く。空席は一番後ろへ回って、いつもどおり「ここで終わり」になる。リュッケルトは立見に行かないので、最後ではなく2番目で歌う。</p>
@@ -544,6 +542,11 @@ function prep(st, res) {
   for (q = 0; q <= last; q++) { y = res.table[q]; t.push(y && y.a ? y : (y ? { gap: true, who: baseName(st.en[y.i]) + "(" + eff(st.e, st.sl, y.i) + ")" } : { gap: true })); }
   return t;
 }
+// 席の列(seats)の最後に、立見の席を点線で区切って足す
+function withStand(main, stand) {
+  var inner = stand.replace(/^<div class="seats[^"]*">/, "").replace(/<\/div>$/, "");
+  return main.replace(/<\/div>$/, '<div class="standx">' + inner + "</div></div>");
+}
 function cap(t, s) { return '<div class="cap">' + t + (s ? ' <span>' + s + '</span>' : "") + "</div>"; }
 function verdict(st, b, c) {
   if (orderKey(b.order) == orderKey(c.order)) return '<span class="tag same">変化なし</span>';
@@ -588,9 +591,8 @@ function exampleBlocks() {
   t2[p] = { gap: true }; t2[r0.order.length] = me;
   r0.order.forEach(function (x) { if (x !== r0.table[p]) t3.push(x); }); t3.push({ a: true, i: 0, rank: me.rank });
   document.getElementById("ex-sing").innerHTML = seatsHtml(n0, r0, { tail: 1, say: sayS });
-  // 座席の枠と立見の枠は分ける(狭い幅で立見だけ次の行に回っても、席の続きに見えないように)
-  document.getElementById("ex-sing2").innerHTML = seatsHtml(n0, { table: t2.slice(0, r0.order.length) }, { tail: 1, say: { "グラティス(左)": "あら、|空いて|いますわ" } });
-  document.getElementById("ex-sing2b").innerHTML = seatsHtml(n0, { table: [me] }, { say: { "リュッケルト": "私は|イレギュラー|だし" } });
+  // 立見は席の列の最後に点線で区切って並べる(スマホで別の行に落ちてページが間延びしないように)
+  document.getElementById("ex-sing2").innerHTML = withStand(seatsHtml(n0, { table: t2.slice(0, r0.order.length) }, { tail: 1, say: { "グラティス(左)": "あら、|空いて|いますわ" } }), seatsHtml(n0, { table: [me] }, { say: { "リュッケルト": "私は|イレギュラー|だし" } }));
   document.getElementById("ex-sing3").innerHTML = seatsHtml(n0, { table: t3 }, { tail: 1, singer: 0, say: { "リュッケルト": "席余ってるから|座っちゃお" } });
   var s1 = stateFrom({ an: NEWP.an, a: NEWP.a, f: GR, sl: [1, 0, 0, 0, 0, 0] });
   var c = simulate(s1.a, s1.e, s1.sl, false, -1), b = simulate(s1.a, s1.e, s1.sl, true, -1);
@@ -697,8 +699,7 @@ function exampleBlocks() {
   document.getElementById("ex-song").innerHTML = cap("2ターン目") + seatsHtml(s1, b, { key: true, nofade: true, say: { "リュッケルト": "歌魔法" } });
   var tS = b.table.slice(0, b.table.length); tS[0] = { gap: true };
   for (k = tS.length - 1; k > 0 && tS[k] == null; k--) tS.pop();
-  document.getElementById("ex-song2").innerHTML = seatsHtml(s1, { table: tS }, { key: true, say: { "リュッケルト": "私は|ここ|なんだけど…" } });
-  document.getElementById("ex-song2b").innerHTML = seatsHtml(s1, { table: [{ ghost: true }] }, {});
+  document.getElementById("ex-song2").innerHTML = withStand(seatsHtml(s1, { table: tS }, { key: true, say: { "リュッケルト": "私は|ここ|なんだけど…" } }), seatsHtml(s1, { table: [{ ghost: true }] }, {}));
   document.getElementById("ex-song3").innerHTML = seatsHtml(s1, bs, { singer: 0, tail: 1, say: { "リュッケルト": "あれ?|最後じゃ|ない…", "パストラン": "ふむ、では|詰めると|しよう" } });
   // リュッケルトが 45〜47 なら空席のすぐ後ろ(2番)に座るので、詰めると先頭で歌う
   var s45 = stateFrom({ an: NEWP.an, a: [45, 29, 44, 29], f: GR, sl: [1, 0, 0, 0, 0, 0] });
