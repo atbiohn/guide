@@ -575,7 +575,7 @@ function exampleBlocks() {
   document.getElementById("nz-mem").innerHTML = memberHtml(n0);
   document.getElementById("nz-3").innerHTML = seatsHtml(n0, r0, { tail: 1, say: { "リュッケルト": "先に|座らせて|もらったよ", "グラティス(左)": "2番は|ふさがって|おりますのね" } });
   document.getElementById("ex-line0").innerHTML = seatsHtml(n0, r0, { tail: 1, say: act });
-  document.getElementById("ex-line").innerHTML = cap("1ターン目") + seatsHtml(n0, r0, { tail: 1, say: { "アイリス": "薬飲んだ|んだから|あなたは|一番最後よ", "グラティス(左)": "もう順番は|決まって|おりますの💦" } });
+  document.getElementById("ex-line").innerHTML = cap("1ターン目") + seatsHtml(n0, r0, { tail: 1, say: { "アイリス": "薬飲んだ|でしょ?|あなた、|一番後ろよ", "グラティス(左)": "もう順番は|決まって|おりますの💦" } });
   var n1 = stateFrom({ an: NORM.an, a: NORM.a, f: GR, sl: [1, 0, 0, 0, 0, 0] });
   document.getElementById("ex-next").innerHTML = cap("2ターン目", "左のグラティスが減速中") + seatsHtml(n1, simulate(n1.a, n1.e, n1.sl, false, -1), { tail: 1 }) +
     '<p class="sm">左のグラティスは 24 になり、全員より遅いので一番最後へ。</p>';
