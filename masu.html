@@ -1,0 +1,648 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>マスのイベント</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVHhe7da7jcNADEVRl6FQZWwpLsVluLTtaB3rKCAILvSB3wA3GXL4uYGgx4Ozruvfnfh9Ly3cd3dscHVcsMJ9d8cGV8cFK9x3d2xwdVywwn3/feH3c9lgfIoL2U9eP1t8HwE2mOIAxqe4gP0kAo4WYAMHMr+L9Y1LBERABJwrQKZCXKiqV/WPAB9MsaE4gO8rIuDuAsSBrNelWz8CvJjiABXVgF269SPAiynVAMbFfOtXWM+PpvkR4MUUB3Ah42K+9SusFwFnCzDuguYb971U7yMgAiLgWgLEgbvvzXfh57LF9xHgxRQHMi4R8O0CpPvefAWYLxHgxRQHMl7RfW9+BNxNgB9BMV/MF/MlAryYEgERMBNgvEu3fwR4MaU7QARcXYAD2qCiqmd8iv2rH6MI8EIc2AYVVT3jU+wfAV0BDmjBCt9b/2icz3gEeOECFqjwvfWPxvmMR4AX4kIWNO77s3Fe4xHghbigBY37/myc13gEeEy4Owpw392xwN2JgAhoCsjJyfmq8wFHRFQp9yI5gAAAAABJRU5ErkJggg==">
+<style>
+.ode-ms{font-family:'Meiryo UI','Hiragino Sans',sans-serif;font-size:13px;color:#222;line-height:1.6;max-width:1120px}
+.ode-ms h3{margin:26px 0 8px;font-size:16px;color:#fff;background:#3d4b66;padding:4px 10px;font-weight:normal;letter-spacing:.04em}
+.ode-ms h3 .pre{display:inline-block;font-size:11px;background:#fff;color:#3d4b66;border-radius:3px;padding:0 6px;margin-right:8px;vertical-align:2px;font-weight:bold}
+/* 地名の大きな帯(たためる。最初は閉じている) */
+.ode-ms details.area{margin:14px 0}
+.ode-ms details.area>summary{list-style:none;cursor:pointer;font-size:18px;color:#fff;background:#232c40;padding:7px 12px;font-weight:bold;letter-spacing:.06em;border-left:6px solid #c9a227}
+.ode-ms details.area>summary::-webkit-details-marker{display:none}
+.ode-ms details.area>summary::before{content:"▶";display:inline-block;font-size:12px;margin-right:8px;color:#c9a227;transition:transform .15s}
+.ode-ms details.area[open]>summary::before{transform:rotate(90deg)}
+.ode-ms details.area>summary small{font-size:12px;font-weight:normal;margin-left:10px;color:#d8dce6}
+.ode-ms details.area>.wrap{margin-top:8px}
+/* 欠番(マスも中身も無い)= 赤、普通は何も起きない = 灰色 */
+.ode-ms tr.kb td.no,.ode-ms tr.kb td.ds,.ode-ms tr.kb td.mv,.ode-ms tr.kb td.jk,.ode-ms tr.kb td.ct,.ode-ms tr.kb td.kz,.ode-ms tr.kb td.nt{background:#fbe4e1;color:#a8433b}
+.ode-ms h3.area{margin:34px 0 10px;font-size:18px;background:#232c40;padding:7px 12px;font-weight:bold;letter-spacing:.06em;border-left:6px solid #c9a227}
+.ode-ms h3.area small{font-size:12px;font-weight:normal;margin-left:10px;color:#d8dce6}
+.ode-ms p{margin:6px 0}
+.ode-ms .lead{margin:8px 0 14px}
+.ode-ms .note{font-size:11.5px;color:#666}
+.ode-ms .red{color:#c0392b;font-weight:bold}
+.ode-ms a{color:#2a5a9a}
+.ode-ms ul{margin:4px 0;padding-left:1.4em}
+.ode-ms li{margin:2px 0}
+.ode-ms .ph{border:2px dashed #b8c2d4;background:#f7f8fb;color:#8a94a8;font-size:12px;text-align:center;padding:36px 10px;margin:10px 0;max-width:480px;border-radius:4px}
+.ode-ms .botsu{display:inline-block;background:#b0413e;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-ms .lbug{display:inline-block;background:#c0392b;color:#fff;border-radius:3px;padding:0 5px;font-size:11px;margin-right:6px;vertical-align:1px}
+.ode-ms .stairs{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 2px}
+.ode-ms .stairs figure{margin:0}
+.ode-ms .stairs img{display:block;width:160px;height:160px;image-rendering:pixelated;border:1px solid #c8c8c8}
+.ode-ms .stairs figcaption{font-size:12px;color:#3d4b66;font-weight:bold;margin-top:2px}
+.ode-ms table{border-collapse:collapse;width:100%}
+.ode-ms th,.ode-ms td{border:1px solid #c8c8c8;padding:5px 8px;vertical-align:middle;background:#fff}
+.ode-ms th{background:#3d4b66;color:#fff;font-weight:normal;white-space:nowrap}
+.ode-ms td.rm{font-weight:bold;color:#3d4b66;background:#f4f6fa;width:4.6em;vertical-align:top}
+.ode-ms td.rm small{display:block;font-weight:normal;color:#555;font-size:10.5px;line-height:1.35}
+.ode-ms td.no{text-align:center;color:#3d4b66;font-weight:bold;width:2.6em}
+.ode-ms td.ct{text-align:center;width:3.2em;white-space:nowrap}
+.ode-ms td.kz{text-align:center;width:4.2em;white-space:nowrap;font-weight:bold;color:#3d4b66}
+.ode-ms td.nt{width:13em;font-size:12px;color:#444}
+.ode-ms td.mv{width:11em;font-size:12px;color:#333}
+.ode-ms td.mv small{font-size:10.5px;color:#666;margin-left:4px}
+.ode-ms td.mv small::after{content:"\A";white-space:pre}
+.ode-ms td.mv div{margin-top:3px}
+.ode-ms td.jk{width:11em;font-size:12px;color:#333}
+.jkf{display:inline-block;background:#e7ecf5;color:#3d4b66;border-radius:3px;padding:0 5px;font-size:11px;margin-right:4px}
+.ode-ms td.ds div{margin:1px 0}
+.ode-ms tr.nop td.no,.ode-ms tr.nop td.ds,.ode-ms tr.nop td.mv,.ode-ms tr.nop td.jk,.ode-ms tr.nop td.ct,.ode-ms tr.nop td.kz,.ode-ms tr.nop td.nt{background:#f0f0f0;color:#888}
+.ode-ms .q{color:#555}
+.ode-ms .wrap{overflow-x:auto}
+@media (max-width:600px){
+.ode-ms details.area>summary{font-size:16px}
+.ode-ms table.ms,.ode-ms table.ms tbody{display:block}
+.ode-ms table.ms tr:has(th){display:none}
+.ode-ms table.ms tr{display:grid;grid-template-columns:2.6em 1fr;border:1px solid #c8c8c8;border-bottom:0}
+.ode-ms table.ms tr:last-child{border-bottom:1px solid #c8c8c8}
+.ode-ms table.ms td{border:0;padding:4px 8px;width:auto}
+.ode-ms table.ms td.rm{grid-column:1/-1;background:#e4e8f0;margin-top:10px;border-top:1px solid #c8c8c8}
+.ode-ms table.ms tr:first-child td.rm{margin-top:0;border-top:0}
+.ode-ms table.ms td.rm small{display:inline;margin-left:8px}
+.ode-ms table.ms td.no{display:flex;align-items:center;justify-content:center;padding:4px 0}
+.ode-ms table.ms td.mv,.ode-ms table.ms td.jk,.ode-ms table.ms td.ct,.ode-ms table.ms td.kz,.ode-ms table.ms td.nt{grid-column:2;text-align:left;padding-top:0}
+.ode-ms table.ms td.mv::before{content:"移動先: ";color:#3d4b66;font-size:11px}
+.ode-ms table.ms td.mv small{display:inline;margin:0 6px}
+.ode-ms table.ms td.jk::before{content:"条件: ";color:#3d4b66;font-size:11px}
+.ode-ms table.ms td.ds:empty,.ode-ms table.ms td.mv:empty,.ode-ms table.ms td.jk:empty{display:none}
+.ode-ms table.ms td.ct::before{content:"個数: ";color:#3d4b66;font-size:11px}
+.ode-ms table.ms td.kz::before{content:"限定: ";color:#3d4b66;font-size:11px;font-weight:normal}
+.ode-ms table.ms td.kz:empty{display:none}
+.ode-ms table.ms td.nt:empty{display:none}
+.ode-ms table.ms td.nt::before{content:"備考: ";color:#3d4b66;font-size:11px}}
+.kzt{display:inline-block;border-radius:3px;padding:0 6px;font-size:11px;font-weight:bold;line-height:1.7;color:#fff;vertical-align:1px}.kzt.k1{background:#e8743b}.kzt.kp{background:#e9b931;color:#4a3500}.kzt.ky{background:#9b6bc4}.kzt.kj{background:#3aa776}
+</style>
+<div class="ode-ms">
+<h2>マスのイベント</h2>
+<p class="lead"><a href="debug.html">デバッグルーム</a>で「アトリビュート表示」を選択すると、マップのあちこちに数字の書かれたマスが出現する。このページでは、これらのマスにどのような意味があるのか、徹底的に紹介する。</p>
+<p class="note">※普通にプレイしていたら表示されない情報です。専門的な話題が語られます。</p>
+
+<h3><span class="pre">前提</span>プログラムって何？</h3>
+<div class="ph">画像予約席</div>
+<p>マップの端にたどり着くと、次のマップに移動する。落ちているものに接近するとアイテムを入手する。それら全てが、数字の書かれたマスで管理されている。</p>
+<p>アトリビュート表示をＯＮにした状態でマップの端を見に行ってほしい。このように、同じ数字の書かれたマスが一列に並んでいるはずだ。この数字を踏むと次のマップに移動するようプログラムが組まれている。</p>
+<p>右寄りを通る場合もあれば左寄りを通る時もある。どこを通っても必ず移動できるよう、幅いっぱいに置かれている。同じ数字のマスは同じ内容を秘めているのだ。</p>
+
+<h3>表の見方</h3>
+<ul>
+<li>地名の帯を押すと、その場所の表が開く</li>
+<li>マスのイベントは、どれも足元のマスを踏んだときに起きる。起きたあとに選択肢の出るもの、踏んでいる状態で道具や歌を使うものもある。開閉する扉は、マスに接触している状態で○か↑を押すと中に入る</li>
+<li>座標(X・Y)は、デバッグメッセージの「X:」「Y:」に対応</li>
+</ul>
+<p><b>列ごとの見方</b></p>
+<ul>
+<li><b>場所</b> … 部屋番号込みの F 番号。デバッグメッセージの1段目「FN:」と同じ(F100 なら F1 の部屋00)</li>
+<li><b>マス</b> … アトリビュート表示に出る数字</li>
+<li><b>内容</b> … 起きること。移動するだけのマスは「移動」と表記している。どんなときに起きるかは<b>条件</b>を参照</li>
+<li><b>移動先</b> … 行き先の場所と、着く座標</li>
+<li><b>条件</b> … マスを踏む以外の条件。空欄は接触だけで起きる。イベント内容が複数あり、それぞれの条件が異なっている場合は①②の数字で対応するものを記載している
+<ul>
+<li><span class="jkf">フラグ</span>ここに載っているものを見ている必要がある。見ていないことが条件になっている場合もある</li>
+<li><span class="jkf">メンバー</span>記載されているキャラがパーティーにいる必要がある。<b>この札が無いものは、パーティーの顔ぶれに関係なく起きる</b>(デバッグルームでメンバーを変更しても、いない人物のセリフがそのまま出る)。普通にプレイしていれば、その場面では必ずその仲間がパーティーにいるので、おかしなことは起きないように作られている</li>
+<li><span class="jkf">道具</span>記載されている道具を使ったときに発生</li>
+<li><span class="jkf">歌</span>記載されている歌を使ったときに発生</li>
+<li>札が2つ以上並んでいるときは、全部そろわないと起きない(どれか1つだけでは起きない)</li>
+</ul></li>
+<li><b>個数</b> … 同じ数字のマスがいくつあるか。「－」は、マップにマスが置かれていない(アトリビュート表示にも出ない)</li>
+<li><b>限定</b>
+<ul>
+<li><span class="kzt k1">1回</span> 一度しか発生しないもの</li>
+<li><span class="kzt kp">前ぶれ</span> 「扉が開かない」など繰り返しのメッセージがあった後で本イベントが発生し、その後何も起きなくなるもの</li>
+<li><span class="kzt ky">余韻</span> 起きたあとも、地味な一言(「箱はからっぽだ。」など)が出続ける。起きる前も後も一言が出るものもこれ</li>
+<li><span class="kzt kj">変化</span> 話の進み具合・仲間・持ち物などで中身が変わるが、最終的に何度でも起きるイベントに変わるもの</li>
+<li><b>－</b> 条件なしで、いつも同じことが起きる(マップの出入り・貼り紙など)</li>
+</ul></li>
+<li><b>備考</b> … セリフ変化の条件や発生状況の詳細など</li>
+</ul>
+<p><b>行の色と札</b></p>
+<ul>
+<li><span style="background:#fbe4e1;color:#a8433b;padding:0 6px">赤い行</span>は欠番。番号だけで、マスも中身も無い</li>
+<li><span style="background:#f0f0f0;color:#888;padding:0 6px">灰色の行</span>は、普通にプレイしていて何も起きないもの(中身はあるがマスが無い・マスはあるが何も起きない・普通は行けない所にある)</li>
+<li><span class="botsu">没</span>は、使われずに残った中身があるもの</li>
+<li><span class="lbug">バグ</span>は、作りの誤りで起きること</li>
+</ul>
+<h3>店のカウンターのマスについて</h3>
+<p>店や宿のカウンターには、中身が空っぽで何も起きないマスがよく置かれている。カウンター越しに店の人と話すためのマスに見えるが、実は<b>このマスが無くても話せる</b>。</p>
+<p>話しかけは、主人公が向いている方向の前1〜1.5マス・左右半マスの範囲にいる人に届く作りになっている。カウンターの幅は1マスなので、もともと向こうの店の人まで届くのだ。</p>
+<p>例えば F112(アデンの雑貨屋)では、デバッグ表示の X17〜19 で店員と話せて、X16・X20 では反応しない。マスに当たるかどうかは足元の1点で決まるので、X17 はマスに体が半分乗っていても、マスの上にはいない扱いになる。それでも話せる。</p>
+<p>何のために置いたのかは不明。下の表では「カウンターのマス」とだけ書く。</p>
+
+<h3>階段のマス</h3>
+<div class="stairs">
+<figure><img src="data:image/png;base64,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" width="128" height="128" alt="下り階段"><figcaption>下り階段(F300 マス2)</figcaption></figure>
+<figure><img src="data:image/png;base64,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" width="128" height="128" alt="上り階段"><figcaption>上り階段(F301 マス1)</figcaption></figure>
+</div>
+<p class="note">絵の範囲がそのまま4マス分(2×2)。</p>
+<p>この形の階段で、<b>個数が4になっているものは、階段の背面側からでも上り下りできる</b>。階段の絵の4マス全部にマスが置かれているからだ。</p>
+<p>一方、<b>個数が2になっているものは、階段の向きに従わないと反応しない</b>(段の低い側から踏む)。</p>
+<details class="area"><summary>F1　港町アデン<small>最終章のアデンもここ</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="30">F100<small>港町アデン</small></td><td class="no">0</td><td class="ds">ゲーム開始の場面(難破して浜辺に打ち上げられる)。北門が閉じられる</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">ニューゲーム開始で必ず踏まされる。最初の準備の印(フラグ)をまとめて立てる</td></tr>
+<tr><td class="no">1</td><td class="ds">オールの破片を拾う</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F101 のマス0 で酔漢に追い出されたあと(1回目のケンカ)</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">「《港町　アデン》」の地名表示</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">酒場の入口。3通り<div>① 客が「誰か、ケンカを止めてくれぇ」と叫ぶ</div><div>② 客に酒場へ連れ込まれる</div><div>③ 男が酒倉の鍵を開ける</div></td><td class="mv">②F101<small>アデンの酒場</small>X68 Y21</td><td class="jk"><div><span class="jkf">フラグ</span>②は F101 のマス0 の1回目のケンカのあと</div><div><span class="jkf">フラグ</span>③は F101 のマス0 で酔漢を投げ飛ばしたあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">錆びた鍵を拾う</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F103 でペグと話したあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">北門が開く(鍵はなくなる)。開ける前は「鍵がかかっている」</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>錆びた鍵</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">最終章で門が閉まるのはこのマスの処理ではなく、29が担っている</td></tr>
+<tr class="kb"><td class="no">6</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">移動</td><td class="mv">F101<small>アデンの酒場</small>X68 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">酒倉の扉<div>① 「この扉には鍵がかかっているようだ。」</div><div>② 移動</div></td><td class="mv">②F102<small>アデンの酒倉</small>X6 Y25</td><td class="jk"><div><span class="jkf">フラグ</span>②は F100 のマス3③ のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">鍵が開くのはこのマスではなく、マス3③の場面</td></tr>
+<tr><td class="no">9</td><td class="ds">移動</td><td class="mv">F104<small>アデンのディックの家</small>X20 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F105<small>アデンのボビンの家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">F100 のマス28① のあと、F105 でボビンと話してホイヒューが仲間に戻るまでは、家の中にホイヒューが出現する</td></tr>
+<tr><td class="no">11</td><td class="ds">移動</td><td class="mv">F106<small>アデンのアンナおばさんの家</small>X20 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">移動</td><td class="mv">F107<small>アデンの町民の家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">13</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">14</td><td class="ds">移動</td><td class="mv">F200<small>アルカナの山道</small>X25 Y132</td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">15</td><td class="ds">酒場から放り出される場面。南の小島の浜辺へ運ばれる</td><td class="mv">F100<small>港町アデン</small>X58 Y196</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">F101のマス0で強制的に踏まされる。周りが海なので、普通は一度しか起きない</td></tr>
+<tr><td class="no">16</td><td class="ds">移動</td><td class="mv">F108<small>アデンの音楽院</small>X68 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">17</td><td class="ds">移動</td><td class="mv">F109<small>アデンの宿屋</small>X18 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">18</td><td class="ds">移動</td><td class="mv">F112<small>アデンの雑貨屋</small>X18 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">19</td><td class="ds">移動</td><td class="mv">F110<small>アデンの武器屋</small>X18 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">20</td><td class="ds">移動</td><td class="mv">F113<small>アデンの防具屋</small>X18 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">21</td><td class="ds"><span class="botsu">没</span>開発用のメニュー「デバッグモード１」(ショウコを消す・ウルフ＝３・船で各地へ)</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"></td><td class="nt">デバッグルームとは別もの</td></tr>
+<tr><td class="no">22</td><td class="ds">移動</td><td class="mv">F116<small>アデンのギルド</small>X66 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">パーティーにドムカ・スリムがいるかを見て、いれば(雇っていれば)ギルドの中に本人を出さない</td></tr>
+<tr><td class="no">23</td><td class="ds">移動</td><td class="mv">F116<small>アデンのギルド</small>X10 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">パーティーにドムカ・スリムがいるかを見て、いれば(雇っていれば)ギルドの中に本人を出さない</td></tr>
+<tr class="nop"><td class="no">24</td><td class="ds">何も起きない</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">25</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X20 Y158〜161</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt">通った高さで着く位置が変わる</td></tr>
+<tr><td class="no">26</td><td class="ds">ボビンが追いかけてきて、ホイヒューが仲間になる。赤色の小ビン×10と100GOLDももらえる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F100 のマス4 で錆びた鍵を拾ったあと</div><div><span class="jkf">フラグ</span>F101 のマス0 で酔漢を投げ飛ばしたあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">27</td><td class="ds">① ボビンの船に乗る<div>② 船でグレゴリアの村へ</div></td><td class="mv">①F400<small>ボビンの船</small>X34 Y30<div>②F2900<small>グレゴリアの村</small>X80 Y100</div></td><td class="jk"><div><span class="jkf">フラグ</span>①は F105 でボビンに「船を出してくれ」と頼んだあと</div><div><span class="jkf">フラグ</span>②は F9500 のマス1(ボビンの「待て！」)のあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">28</td><td class="ds">① ホイヒューが「こりゃダメだ！」と先にボビンの家へ向かう<div>② アイリスの「帰って来たのね…始まりの島に…」</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>①は F400 で甲板のホイヒューの「ちょっと妙だぞ」のあと</div><div><span class="jkf">フラグ</span>②は F8807 でかわうその長と話したあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">29</td><td class="ds">北門が閉じる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F8807 でかわうその長と話したあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">表面上は何が起きたか気づかないイベント</td></tr>
+<tr><td class="rm" rowspan="4">F101<small>アデンの酒場</small></td><td class="no">0</td><td class="ds">ケンカの場面<div>① 酔漢に追い出される</div><div>② 酔漢を投げ飛ばし、青色の小ビン×3をもらって院長探しを頼まれる</div></td><td class="mv">①F100<small>港町アデン</small>X66 Y124</td><td class="jk"><div><span class="jkf">フラグ</span>②は①のあと</div></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">①で着く所は F100 のマス15 で、続けて浜辺へ運ばれる</td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X72 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">2</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">バーテンの正面。歌の報酬(5 × 主人公のレベル ＋ 0〜20 GOLD)</td><td class="mv"></td><td class="jk"><div><span class="jkf">歌</span>酒場の歌</div></td><td class="ct">1</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F102<small>アデンの酒倉</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X62 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F103<small>アデンの酒倉の地下</small>X33 Y4</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">長い階段を下りきった端に、左右1マスずつ別の番号で置かれている。行き先も1つずれる</td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F103<small>アデンの酒倉の地下</small>X34 Y4</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F103<small>アデンの酒倉の地下</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F102<small>アデンの酒倉</small>X33 Y23</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">酒倉と同じ形の階段。上りきった端にある</td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F102<small>アデンの酒倉</small>X34 Y23</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F104<small>アデンのディックの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X128 Y63</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">ディックが入ってきて、10GOLDで１２弦指板を付けてくれる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F100 でディックと話したあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">買うまでは、家に入るたびに起きる。「買う」を選んだあとは、お金が10GOLD以上あるかどうかで内容が変わる</td></tr>
+<tr><td class="rm" rowspan="2">F105<small>アデンのボビンの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X128 Y103</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">F105 でボビンに音叉を渡して音楽院の鍵をもらったあと、ここから出ると、船を出してもらえるようになる</td></tr>
+<tr><td class="no">1</td><td class="ds">ボビンが「おや、何か分かりましたかな？」</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F101 のマス0 で酔漢を投げ飛ばしたあと(2回目のケンカ)</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F106<small>アデンのアンナおばさんの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X60 Y73</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>0と同じ移動</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F107<small>アデンの町民の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X82 Y57</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>0と同じ移動</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F108<small>アデンの音楽院</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X58 Y59</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">院長の私室の扉<div>① 「この扉は鍵がかかっている。」</div><div>② 扉が開き(鍵はなくなる)、そのまま中へ</div><div>③ 開いたあとは移動</div></td><td class="mv">②③F115<small>アデンのアギーレ院長の私室</small>X20 Y26</td><td class="jk"><div><span class="jkf">道具</span>②は音楽院の鍵</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F109<small>アデンの宿屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X30 Y109</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">２階へ。泊まっていなければ主人に止められる</td><td class="mv">F114<small>アデンの宿屋の２階</small>X8 Y10</td><td class="jk"><div><span class="jkf">フラグ</span>宿屋の主人に「泊まる」と答えたあと(どの宿屋でも同じ印)</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F110<small>アデンの武器屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X70 Y97</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F112<small>アデンの雑貨屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X32 Y91</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F113<small>アデンの防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X104 Y57</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F114<small>アデンの宿屋の２階</small></td><td class="no">0</td><td class="ds">翌朝、1階へ</td><td class="mv">F109<small>アデンの宿屋</small>X34 Y13</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>0とよく似た、翌朝の演出がもう1つ</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="5">F115<small>アデンのアギーレ院長の私室</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F108<small>アデンの音楽院</small>X6 Y13</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">院長の日記を読む</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">炎の槍の歌・氷の矢の歌を覚える</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F115 のマス1か4 で日記を読んだあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">のどあめ×3が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">院長の日記を読む</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="4">F116<small>アデンのギルド</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X106 Y97</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X92 Y97</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">スリムの貼り紙</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">スリムがパーティーにいれば、文が「雇われ中」に変わる</td></tr>
+<tr><td class="no">3</td><td class="ds">ドムカの貼り紙</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">ドムカがパーティーにいれば、文が「雇われ中」に変わる</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F2　アルカナの山道</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="6">F200<small>アルカナの山道</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X28 Y23</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>山道の会話(獣の匂いに気づく・ホイヒューがアイリスの名前を思い出す)</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt">中身はできているが、マスが置かれていない</td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F300<small>アルカナの洞窟</small>X7 Y81</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">火炎薬が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">青色の小ビン×3が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">爆発薬が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F3　アルカナの洞窟</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr class="kb"><td class="rm" rowspan="3">F300<small>アルカナの洞窟(１Ｆ)</small></td><td class="no">0</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F200<small>アルカナの山道</small>X32 Y51</td><td class="jk"></td><td class="ct">8</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F301<small>アルカナの洞窟Ｂ１</small>X94 Y130</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt">降りる前に、Ｂ１の宝箱を開いた絵・閉じた絵のどちらで出すか決めている</td></tr>
+<tr class="kb"><td class="rm" rowspan="9">F301<small>アルカナの洞窟Ｂ１</small></td><td class="no">0</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F300<small>アルカナの洞窟</small>X28 Y32</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">ホイヒューが落石を警告する</td><td class="mv"></td><td class="jk"></td><td class="ct">15</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">6か所で、全部合わせて1回<div><span class="lbug">バグ</span>ホイヒューがパーティーにいなくても喋る</div></td></tr>
+<tr><td class="no">3</td><td class="ds">落石。全員の HP が、今の HP の3分の1減る(1より下がらない)</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">落石。全員の HP が、今の HP の3分の1減る(1より下がらない)</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">落石。全員の HP が、今の HP の3分の1減る(1より下がらない)</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">移動</td><td class="mv">F302<small>アルカナの洞窟Ｂ２</small>X60 Y10</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">青色の小ビン×3が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">赤色の小ビン×6が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr class="kb"><td class="rm" rowspan="4">F302<small>アルカナの洞窟Ｂ２</small></td><td class="no">0</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">ダタラ(1回目)との戦闘</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">アギーレ院長の場面。落石の歌と銀の音叉を受け取り、ダタラ(2回目)と戦闘</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">入る側で立ち位置が少し変わる<div><span class="botsu">没</span>内部の値に15が足されるが、どこにも使われない</div></td></tr>
+<tr><td class="no">3</td><td class="ds">移動</td><td class="mv">F301<small>アルカナの洞窟Ｂ１</small>X96 Y18</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt">奥が壁でふさがっているので、背面側からは踏めない</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F4　ボビンの船</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="4">F400<small>ボビンの船(甲板)</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F401<small>船室</small>X32 Y25</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F401<small>船室</small>X8 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">甲板にホイヒューが現れる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F402 でホイヒューと話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">甲板にホイヒューが現れる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F402 でホイヒューと話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F401<small>船室</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F400<small>ボビンの船</small>X44 Y22</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F402<small>船長室</small>X20 Y39</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F400<small>ボビンの船</small>X36 Y22</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F402<small>船長室</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F401<small>船室</small>X20 Y21</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">のどあめ×5が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">F402 でホイヒューと話す前なら、ホイヒューが一言</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F5　龍族の村バルエコ<small>最終章のバルエコもここ</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="14">F500<small>龍族の村バルエコ</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F700<small>バルエコの山道</small>X24 Y192</td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt">山道の宝箱の絵(開/閉)を決めている</td></tr>
+<tr><td class="no">1</td><td class="ds">南の門。番人に「ボビンの使いだ」と告げて門が開く。それまでは「門は開かない」</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F105 でボビンにモルガンを訪ねるよう頼まれたあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F501<small>バルエコのアーノスタルの家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">移動</td><td class="mv">F502<small>バルエコのアガルックの家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">移動</td><td class="mv">F503<small>バルエコの長の家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">移動</td><td class="mv">F504<small>バルエコの龍族の家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">移動</td><td class="mv">F505<small>バルエコの龍族の家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">移動</td><td class="mv">F506<small>バルエコのモルガンの家</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">北の門。アイリスが扉を開ける。そろっていないと「門は開かない」かアイリスの忠告</td><td class="mv"></td><td class="jk"><div><span class="jkf">メンバー</span>アイリスがいて、かつパーティーが4人</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">最終章で門が閉まるのはこのマスの処理ではなく、13が担っている</td></tr>
+<tr><td class="no">9</td><td class="ds">「門は固く閉ざされている。」</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F506 でモルガンと話す前</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F100<small>港町アデン</small>X136 Y78〜81</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt">通った高さで着く位置が変わる</td></tr>
+<tr><td class="no">11</td><td class="ds">移動</td><td class="mv">F9400<small>バルエコ村の龍族の会議所</small>X43 Y56</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">移動。それまではアイリスに押し戻される</td><td class="mv">F9000<small>燃える村</small>X172 Y102</td><td class="jk"><div><span class="jkf">フラグ</span>F9400 のマス3(会議所)のあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="no">13</td><td class="ds">北の門が閉じる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F8807 でかわうその長と話したあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">表面上は何が起きたか気づかないイベント</td></tr>
+<tr><td class="rm">F501<small>バルエコのアーノスタルの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X76 Y45</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F502<small>バルエコのアガルックの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X44 Y45</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="rm" rowspan="2">F503<small>バルエコの長の家</small></td><td class="no">0</td><td class="ds"><span class="botsu">没</span>1とほぼ同じ移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X74 Y84</td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X74 Y85</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F504<small>バルエコの龍族の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X36 Y81</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F505<small>バルエコの龍族の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X40 Y113</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="rm" rowspan="2">F506<small>バルエコのモルガンの家</small></td><td class="no">0</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X116 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F7　バルエコの山道</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr class="nop"><td class="rm" rowspan="17">F700<small>バルエコの山道</small></td><td class="no">0</td><td class="ds"><span class="botsu">没</span>1とほぼ同じ移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X59 Y17</td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F500<small>龍族の村バルエコ</small>X61 Y17</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">ロープを伝って、下まで下りる</td><td class="mv">F700<small>バルエコの山道</small>X22 Y48</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">ホイヒューが虫の羽音に気づく</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">ムシトリ草。虫に刺されて全員の HP が5減り、ムシトリ草×3を手に入れる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F701 でアラバステルと話して、家を出たあと</div></td><td class="ct">7</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">話の前は、アイリスが虫を不思議がるだけ<div><span class="botsu">没</span>除虫石を持っていれば、虫が逃げて HP が減らない</div></td></tr>
+<tr><td class="no">5</td><td class="ds">ロープを登る</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>べたべた薬</div></td><td class="ct">1</td><td class="kz">－</td><td class="nt">登るたびに1つ使う</td></tr>
+<tr><td class="no">6</td><td class="ds">ロープを登る</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>べたべた薬</div></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">ロープを登る</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>べたべた薬</div></td><td class="ct">1</td><td class="kz">－</td><td class="nt">登らなくても先へ進める</td></tr>
+<tr><td class="no">8</td><td class="ds">ロープを伝って、下まで下りる</td><td class="mv">F700<small>バルエコの山道</small>X54 Y108</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">9</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X120 Y102</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">9と10で行き先が1つずれる</td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X122 Y102</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">11</td><td class="ds">移動</td><td class="mv">F701<small>アラバステルの家</small>X18 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">ロープを伝って、下まで下りる</td><td class="mv">F700<small>バルエコの山道</small>X62 Y58</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">13</td><td class="ds">真空の歌が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">14</td><td class="ds">爆発薬が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">15</td><td class="ds">火炎薬×3が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">16</td><td class="ds">のどあめ×5が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F701<small>アラバステルの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F700<small>バルエコの山道</small>X36 Y161</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">入るとすぐ、アラバステルとの会話(ムシトリ草の話)</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F8　クーテの村</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr class="nop"><td class="rm" rowspan="14">F800<small>クーテの村</small></td><td class="no">0</td><td class="ds"><span class="botsu">没</span>1とほぼ同じ移動</td><td class="mv">F700<small>バルエコの山道</small>X80 Y16</td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F700<small>バルエコの山道</small>X82 Y16</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F900<small>神聖な森</small>X203 Y132</td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">「《クーテの村》」の地名表示と、アイリスの提案(フォープキン探し)</td><td class="mv"></td><td class="jk"></td><td class="ct">10</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">移動</td><td class="mv">F806<small>クーテのギルド</small>X20 Y47</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">パーティーにジョーイ・クイクイがいるかを見て、いれば(雇っていれば)ギルドの中に本人を出さない</td></tr>
+<tr><td class="no">5</td><td class="ds">移動</td><td class="mv">F808<small>クーテの村民の家</small>X22 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">移動</td><td class="mv">F807<small>クーテの村民の家</small>X22 Y24</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">移動</td><td class="mv">F803<small>クーテの宿屋</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">移動</td><td class="mv">F801<small>クーテの雑貨屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">9</td><td class="ds">移動</td><td class="mv">F802<small>クーテの武器屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F804<small>クーテの音楽院</small>X32 Y47</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">11</td><td class="ds">移動</td><td class="mv">F805<small>クーテの防具屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">移動</td><td class="mv">F1400<small>リンリン草の草原</small>X38 Y43</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">13</td><td class="ds">移動</td><td class="mv">F809<small>クーテの酒場</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F801<small>クーテの雑貨屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X64 Y51</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F802<small>クーテの武器屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X82 Y51</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F803<small>クーテの宿屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X104 Y47</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">番頭に「ご宿泊なら、こちらのカウンターでどうぞ」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">2</td><td class="ds">２階から下りたときに置かれるマス。裏の印を1つ戻すだけ</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F804<small>クーテの音楽院</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X134 Y49</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F805<small>クーテの防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X56 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="4">F806<small>クーテのギルド</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X114 Y73</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">ジョーイの貼り紙</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">ジョーイがパーティーにいれば、文が「雇われ中」に変わる</td></tr>
+<tr><td class="no">2</td><td class="ds">クイクイの貼り紙</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">クイクイがパーティーにいれば、文が「雇われ中」に変わる</td></tr>
+<tr><td class="no">3</td><td class="ds">白紙の貼り紙(「今は何も書かれていません」)</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F807<small>クーテの村民の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X150 Y77</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F808<small>クーテの村民の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X44 Y97</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F809<small>クーテの酒場</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X66 Y97</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">バーテンの正面。酒場の歌を使うと、歌の報酬(10 × 主人公のレベル ＋ 0〜50 GOLD)</td><td class="mv"></td><td class="jk"><div><span class="jkf">歌</span>酒場の歌</div></td><td class="ct">1</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="rm">F810<small>クーテの宿屋の２階</small></td><td class="no">0</td><td class="ds">① 翌朝、1階へ<div>② 夜中にクイクイに起こされ、リンリン草の草原へ</div></td><td class="mv">①F803<small>クーテの宿屋</small>X8 Y2<div>②F3500<small>リンリン草の草原</small>X37 Y222</div></td><td class="jk"><div><span class="jkf">フラグ</span>宿屋の主人に「泊まる」と答えたあと</div><div><span class="jkf">フラグ</span>②は F900 のマス2② のあと</div></td><td class="ct">1</td><td class="kz"><div>①－</div><div>②<span class="kzt k1">1回</span></div></td><td class="nt">夜の出発のあとは、これまでのマップに戻れない</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F9　神聖な森<small>F900 行き・F901 帰り道・F902 F10 から戻ったとき</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="11">F900<small>神聖な森(行き)</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X36 Y16</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>F901・F902 のマス1と同じ移動</td><td class="mv">F1000<small>神聖な森</small>X58 Y17</td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">① シベリンの笛の音が聞こえる(1回目)<div>② クイクイに「夜になるまで、宿屋にいようよ！」と言われる</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1100 のマス11 のあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">倒木が道をふさいでいる。みんなでどかして通れるようになる。フラグが無ければ「いったん町に戻るか」</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F806 でクイクイと話したあと</div></td><td class="ct">4</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">崖の上のシベリン。助けられて、森の奥へ。ロープを使う前は、クイクイが登れずロープ探しになる</td><td class="mv">F901<small>神聖な森</small>X38 Y19</td><td class="jk"><div><span class="jkf">道具</span>太いロープ</div></td><td class="ct">1</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">助けるまでは、シベリンに「早くおろしてねえ～」とせかされる。連れている仲間(ドムカ・スリム・ジョーイ)で一言が変わる</td></tr>
+<tr><td class="no">5</td><td class="ds">大きな木に巻かれたロープを取る(太いロープを手に入れる)。白い何かが飛び去る</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F900 のマス4(崖の上のシベリン)のあと</div></td><td class="ct">7</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">森に入るときに、倒木・大きな木のロープなどの見た目を、話の進み具合に合わせる</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt">見た目には何も起きない</td></tr>
+<tr><td class="no">7</td><td class="ds">クイクイが「あれっ！？　森が閉じちゃった…」</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F902 のマス2 で移されたあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">F902のマス2で、ここに移されて踏まされる</td></tr>
+<tr><td class="no">8</td><td class="ds">シベリンの笛の音が聞こえる(2回目)</td><td class="mv"></td><td class="jk"></td><td class="ct">8</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">9</td><td class="ds">シベリンの笛の音が聞こえる(3回目)</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">10</td><td class="ds">何も起きない</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="5">F901<small>神聖な森(帰り道)</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X36 Y16</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1000<small>神聖な森</small>X58 Y17</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">2</td><td class="ds">F902のマス2と同じ中身(F900へ移される)</td><td class="mv"></td><td class="jk"></td><td class="ct">8</td><td class="kz"></td><td class="nt">このマップに来るのはドミナント編の前だけなので、普通は何も起きない</td></tr>
+<tr><td class="no">3</td><td class="ds">クイクイが「あれっ？　なんか道が違うな…」</td><td class="mv"></td><td class="jk"></td><td class="ct">8</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"><span class="botsu">没</span>右下(入口の倒木の位置)の4マスは、帰り道のマップでは行けない所にある</td></tr>
+<tr class="nop"><td class="no">5</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">7</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="6">F902<small>神聖な森(F10 から戻ったとき)</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X36 Y16</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1000<small>神聖な森</small>X58 Y17</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移される(着いた先は F900 のマス7)</td><td class="mv">F900<small>神聖な森</small>X52 Y126</td><td class="jk"><div><span class="jkf">フラグ</span>F1104 でスカイヘッドの長と話したあと</div></td><td class="ct">8</td><td class="kz">－</td><td class="nt">F10 から戻るとすぐ踏まされる。このあと F10〜F13 には戻れない</td></tr>
+<tr class="nop"><td class="no">3</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"></td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">4</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">5</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">7</td><td class="kz"></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F10　神聖な森(奥)</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="6">F1000<small>神聖な森(奥)</small></td><td class="no">0</td><td class="ds">移動(行き先は2通り)</td><td class="mv">①F901<small>神聖な森</small>X51 Y132<div>②F902<small>神聖な森</small>X51 Y132</div></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1104 でスカイヘッドの長と話したあと</div></td><td class="ct">5</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">何者かに囲まれ、シベリンとともにさらわれる</td><td class="mv">F1100<small>ドミナントの村</small>X68 Y80</td><td class="jk"></td><td class="ct">5</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">連れている仲間(ドムカ・スリム・ジョーイ)で一言が変わる</td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X136 Y126</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">誰かにじっと見られているような気配がする</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">スリムがいれば続きの会話がある</td></tr>
+<tr><td class="no">4</td><td class="ds">不気味な鳥の声が聞こえる</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">連れている仲間(ドムカ・スリム・ジョーイ)で一言が変わる</td></tr>
+<tr class="nop"><td class="no">11</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz"></td><td class="nt">番号は11。中身の一覧は0〜4の5つで終わっていて、5〜10 は欠番ですらなく番号自体が無い。11 は一覧の外の番号なので中身も無い</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F11　ドミナントの村</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="13">F1100<small>ドミナントの村</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1000<small>神聖な森</small>X23 Y104</td><td class="jk"></td><td class="ct">7</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">① クイクイに止められ、村の中へ戻される<div>② 移動</div></td><td class="mv">①F1100<small>ドミナントの村</small>X49 Y133<div>②F1300<small>蝶の森</small>X41 Y17</div></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1104 でスカイヘッドの長と話したあと</div></td><td class="ct">4</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">捕虫用ネットを持っているかは見ていない<div><span class="lbug">バグ</span>道の端から近づいても、道のまん中へ一瞬で移される</div></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F1900<small>ドミナントの山道</small>X56 Y101</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">村に連れて来られたときの裁きの場面。銀の音叉に気づいた長に、母グモの糸を取ってくるよう命じられる</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">F1000のマス1で、ここに移されて踏まされる</td></tr>
+<tr><td class="no">4</td><td class="ds">移動</td><td class="mv">F1104<small>ドミナントの長の家</small>X18 Y32</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">移動</td><td class="mv">F1103<small>ドミナントの宿屋</small>X22 Y36</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">移動</td><td class="mv">F1108<small>ドミナントの酒場</small>X18 Y32</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">移動</td><td class="mv">F1105<small>ドミナントのギルド</small>X18 Y32</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">パーティーにエニクラウドがいるかを見て、いれば(雇っていれば)ギルドの中に本人を出さない</td></tr>
+<tr><td class="no">8</td><td class="ds">移動</td><td class="mv">F1106<small>ドミナントの防具屋</small>X22 Y36</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">9</td><td class="ds">移動</td><td class="mv">F1101<small>ドミナントのアレイの家</small>X18 Y32</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F1107<small>ドミナントの武器屋</small>X22 Y36</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">11</td><td class="ds">シベリンが戻ってくる。クイクイがフォープキンの所へ案内してくれることになる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F1104 でスカイヘッドの長と話したあと</div></td><td class="ct">5</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">減速薬×3が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="rm">F1101<small>ドミナントのアレイの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X114 Y95</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1102<small>ドミナントの宿屋の２階</small></td><td class="no">0</td><td class="ds">ここで眠る場面になる。全員回復して1階へ</td><td class="mv">F1103<small>ドミナントの宿屋</small>X24 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">泊まると移されて踏まされる</td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1103<small>ドミナントの宿屋</small>X24 Y27</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F1103<small>ドミナントの宿屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X36 Y59</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">主人に「ご宿泊なら、こちらのカウンターでどうぞ」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">2</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1104<small>ドミナントの長の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X48 Y83</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">マスだけで、中身が無い</td><td class="mv"></td><td class="jk"></td><td class="ct">6</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1105<small>ドミナントのギルド</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X98 Y35</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">エニクラウドの貼り紙</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt">エニクラウドがパーティーにいれば、文が「雇われ中」に変わる</td></tr>
+<tr><td class="rm">F1106<small>ドミナントの防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X120 Y79</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1107<small>ドミナントの武器屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X118 Y59</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス<div><span class="botsu">没</span>カスタムナイフの会話(店員と同じ中身)が残っているが、先頭で終わる作りなので動かない</div></td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"></td><td class="nt">ナイフの受け渡しは店員に話しかけて起きる</td></tr>
+<tr><td class="rm" rowspan="2">F1108<small>ドミナントの酒場</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X66 Y53</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">バーテンの正面。酒場の歌を使うと、歌の報酬(10 × 主人公のレベル ＋ 0〜15 GOLD)</td><td class="mv"></td><td class="jk"><div><span class="jkf">歌</span>酒場の歌</div></td><td class="ct">1</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F19　ドミナントの山道</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="3">F1900<small>ドミナントの山道</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X20 Y31</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1200<small>クモの洞窟</small>X52 Y146</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt">入る前に、アレイ・ボグダを出すかどうかを決めている</td></tr>
+<tr><td class="no">2</td><td class="ds">火の盾が落ちている</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F12　クモの洞窟</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="5">F1200<small>クモの洞窟(１Ｆ)</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1900<small>ドミナントの山道</small>X28 Y16</td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1201<small>クモの洞窟Ｂ１</small>X105 Y86</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">鳥モチのようなクモの糸</td><td class="mv"></td><td class="jk"></td><td class="ct">8</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">連れている仲間(ドムカ・スリム・ジョーイ・エニクラウド)で一言が変わる</td></tr>
+<tr><td class="no">3</td><td class="ds">ガイコツ。調べると『危険！』と書かれた紙切れ。はじめて調べたときは、財宝と火の盾を拾う</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">クモの糸にからまったアレイを助け、ビート杉の粉をもらう</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>大バサミ</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">大バサミはなくならない<div><span class="botsu">没</span>粉をすでに人数分持っているときのセリフ(アレイより前に4つそろわないので出ない)</div></td></tr>
+<tr><td class="rm" rowspan="11">F1201<small>クモの洞窟Ｂ１</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1200<small>クモの洞窟</small>X109 Y86</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1202<small>クモの洞窟Ｂ２</small>X12 Y120</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt">移る前に、Ｂ２の宝箱の絵(開/閉)を決めている</td></tr>
+<tr><td class="no">2</td><td class="ds">壁が崩れ、木霊グモと戦闘</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>クモ取りの薬</div></td><td class="ct">2</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">使う前は、壁の『∞』のしるしをいたずら書きかと思うだけ</td></tr>
+<tr><td class="no">3</td><td class="ds">母グモの細糸が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">ガイコツ。はじめて調べたときは、大バサミを拾う</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">ガイコツ。はじめて調べたときは、ビート杉の粉を拾う</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">ガイコツ。はじめて調べたときは、ビート杉の粉を拾う</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">ガイコツ。はじめて調べたときは、ビート杉の粉を拾う</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">ガイコツ。はじめて調べたときは、謎の歌(ルーンソング)を覚える</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz"><span class="kzt ky">余韻</span></td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">9</td><td class="ds"><span class="botsu">没</span>木霊グモとの戦闘(2の中身の一部と同じ)</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">Ｂ１に入るときに、母グモの細糸の宝箱の絵(開/閉)を決める</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt">見た目には何も起きない</td></tr>
+<tr><td class="rm" rowspan="4">F1202<small>クモの洞窟Ｂ２</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1201<small>クモの洞窟Ｂ１</small>X9 Y118</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">クモの橋が渡れるようになる(粉はすべて使い切る)。そろうまでは足がくっついて押し戻される</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>ビート杉の粉</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">状況でセリフが変わる。粉は人数分要るが、人数で数を変えるのは3人のときだけで、それ以外は4つ要る(2人で2つ持っていても足りないと言われる)<div><span class="botsu">没</span>3人なら3つで渡れる分かれ道(ここへは4人でしか来られないので通らない)</div><div><span class="botsu">没</span>足りないまま使ったときのセリフ(押し戻されて使えないので出ない)</div></td></tr>
+<tr><td class="no">2</td><td class="ds">クモの糸にからまったボグダを助け、クモ取りの薬をもらう</td><td class="mv"></td><td class="jk"><div><span class="jkf">道具</span>大バサミ</div></td><td class="ct">3</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt">大バサミは折れてなくなる</td></tr>
+<tr><td class="no">3</td><td class="ds">銀の弦が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F13　蝶の森</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="11">F1300<small>蝶の森</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1100<small>ドミナントの村</small>X49 Y133</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">蝶を見つけて「ここが蝶の森だな」。連れている仲間が一言</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>マス3・4 の蝶と、マス10 の神秘の蝶をまだ見ていない</div></td><td class="ct">8</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">連れている仲間(ドムカ・スリム・ジョーイ・エニクラウド)で一言が変わる</td></tr>
+<tr><td class="no">3</td><td class="ds">蝶を見かける</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>マス10 で神秘の蝶を捕まえる前</div></td><td class="ct">6</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">蝶を見かける</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>マス10 で神秘の蝶を捕まえる前</div></td><td class="ct">9</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">移動</td><td class="mv">F1301<small>蝶の森のサイリュウの家</small>X6 Y23</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">花畑<div>① 「きれいな花畑だ…」</div><div>② ここで歌えばいいのかと気づく</div><div>③ 蝶の歌を使っても何も起こらない</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1301 でサイリュウと話したあと</div><div><span class="jkf">歌</span>③は蝶の歌</div><div><span class="jkf">フラグ</span>③はマス10 で神秘の蝶を捕まえる前</div></td><td class="ct">9</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">7</td><td class="ds">花畑<div>① 「きれいな花畑だ…」</div><div>② ここで歌えばいいのかと気づく</div><div>③ 蝶の歌を使っても何も起こらない</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1301 でサイリュウと話したあと</div><div><span class="jkf">歌</span>③は蝶の歌</div><div><span class="jkf">フラグ</span>③はマス10 で神秘の蝶を捕まえる前</div></td><td class="ct">30</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">花畑<div>① 「きれいな花畑だ…」</div><div>② ここで歌えばいいのかと気づく</div><div>③ 蝶の歌を使っても何も起こらない</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1301 でサイリュウと話したあと</div><div><span class="jkf">歌</span>③は蝶の歌</div><div><span class="jkf">フラグ</span>③はマス10 で神秘の蝶を捕まえる前</div></td><td class="ct">16</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">9</td><td class="ds">花畑<div>① 「きれいな花畑だ…」</div><div>② ここで歌えばいいのかと気づく</div><div>③ 蝶の歌を使っても何も起こらない</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1301 でサイリュウと話したあと</div><div><span class="jkf">歌</span>③は蝶の歌</div><div><span class="jkf">フラグ</span>③はマス10 で神秘の蝶を捕まえる前</div></td><td class="ct">13</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">花畑<div>① 「きれいな花畑だ…」</div><div>② ここで歌えばいいのかと気づく</div><div>③ 神秘の蝶が現れ、捕虫用ネットで捕らえる(ネットはなくなる)</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>②は F1301 でサイリュウと話したあと</div><div><span class="jkf">歌</span>③は蝶の歌</div></td><td class="ct">12</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1301<small>蝶の森のサイリュウの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1300<small>蝶の森</small>X148 Y89</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">入るとすぐ、サイリュウの声「ヤア！　蝶の家にようこそ」</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F14　リンリン草の草原<small>昼の草原。夜の出発のあとは来られない</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr class="nop"><td class="rm" rowspan="4">F1400<small>リンリン草の草原</small></td><td class="no">0</td><td class="ds">何も起きない</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt">行けない所</td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F800<small>クーテの村</small>X164 Y16</td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">昼間はバング草が爆発して危ないので、クーテの宿屋で夜まで休もうと言われる</td><td class="mv"></td><td class="jk"><div><span class="jkf">メンバー</span>クイクイ</div></td><td class="ct">5</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"><span class="lbug">バグ</span>ドミナント編の前でも同じことを言うが、そのころは宿屋で休んでも夜の出発は起きない</td></tr>
+<tr><td class="no">3</td><td class="ds">足元のバング草が爆発し、全員の HP が2減る(1 未満にはならない)。クイクイかアイリスが一言言って、押し戻される</td><td class="mv"></td><td class="jk"></td><td class="ct">9</td><td class="kz">－</td><td class="nt">クイクイがいればクイクイ、いなければアイリスが一言</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F35　リンリン草の草原<small>夜の草原と宿</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="5">F3500<small>リンリン草の草原</small></td><td class="no">0</td><td class="ds">クイクイの提案で宿屋に泊まることになる</td><td class="mv">F3501<small>リンリン草の草原の宿</small>X14 Y49</td><td class="jk"></td><td class="ct">5</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">移動</td><td class="mv">F3501<small>リンリン草の草原の宿</small>X14 Y49</td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt">手前の0で宿に入ってしまうので、普通は踏まない</td></tr>
+<tr><td class="no">2</td><td class="ds">クイクイに引き止められて押し戻される</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">財宝が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">リンリン草の音が聞こえる。連れている仲間が一言</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt">連れている仲間(ドムカ・スリム・ジョーイ・エニクラウド)で一言が変わる</td></tr>
+<tr><td class="rm" rowspan="3">F3501<small>リンリン草の草原の宿</small></td><td class="no">0</td><td class="ds">「夜は明けていた」</td><td class="mv">F3600<small>リンリン草の草原</small>X26 Y21</td><td class="jk"><div><span class="jkf">フラグ</span>マス1(千人目のお客)のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"><span class="botsu">没</span>1の場面の前なら F3500 のX26 Y21に戻る分かれ道もあるが、入るとすぐ1の場面になるので通らない</td></tr>
+<tr><td class="no">1</td><td class="ds">千人目のお客として、無料で泊めてもらえる。ムシトリ草とべたべた薬を全部取り上げられる</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">宿に入ったときに踏まされる</td></tr>
+<tr><td class="no">2</td><td class="ds">主人に「ご宿泊ならカウンターでお願いしますよ」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F36　リンリン草の草原<small>翌朝の草原と宿</small></summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="4">F3600<small>リンリン草の草原</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1500<small>クーテの山道</small>X20 Y70</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds"><span class="botsu">没</span>2と同じクイクイの警告。頭で終わるので何も起きない</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">バング草。押し戻されるか、爆発して全員の HP が2減る(1 未満にはならない)</td><td class="mv"></td><td class="jk"></td><td class="ct">5</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">クイクイがいると「そこはあぶないって！」と止められ、押し戻される。いなければ足元のバング草が爆発する</td></tr>
+<tr><td class="no">3</td><td class="ds">移動</td><td class="mv">F3601<small>リンリン草の草原の宿</small>X14 Y49</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F3601<small>リンリン草の草原の宿</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F3600<small>リンリン草の草原</small>X26 Y21</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">主人に「ご宿泊ならカウンターでお願いしますよ」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F15　クーテの山道</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="5">F1500<small>クーテの山道</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F3600<small>リンリン草の草原</small>X56 Y20</td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F1800<small>ゴーレムの村</small>X47 Y17</td><td class="jk"></td><td class="ct">5</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F1501<small>名もない防具屋</small>X16 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">移動</td><td class="mv">F1502<small>フォープキンの家</small>X12 Y35</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"><span class="botsu">没</span>着く位置が1つ上(X12 Y34)の移動も残っている</td></tr>
+<tr><td class="no">4</td><td class="ds">リュートのパーツ(茶色の胴)が入っている宝箱</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1501<small>名もない防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1500<small>クーテの山道</small>X92 Y73</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">2</td><td class="kz"></td><td class="nt">もう1マスは行けない所にある</td></tr>
+<tr><td class="rm" rowspan="3">F1502<small>フォープキンの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1500<small>クーテの山道</small>X48 Y133</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">様子のおかしいフォープキンに飲みこまれる</td><td class="mv">F1700<small>内臓洞窟</small>X84 Y29</td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">家に入ったときに踏まされる</td></tr>
+<tr><td class="no">2</td><td class="ds">正気に戻ったフォープキンと話す。手当ての歌を覚える</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F1701 でフォーリーと(ソウルイーターのあとで)話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">内臓洞窟から吐き出されたときに踏まされる</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F17　内臓洞窟</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="3">F1700<small>内臓洞窟</small></td><td class="no">0</td><td class="ds">胃の中に出る。とりあえず先へ進むことになる</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">飲みこまれたときに踏まされる<div><span class="botsu">没</span>シベリンがいるときのやり取り(仲間にならないので出ない)</div></td></tr>
+<tr><td class="no">1</td><td class="ds">汚れた水晶玉が入っている宝箱。開けると水晶玉から声がして、胃壁の小さな穴のことを教えられる</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">胃壁の穴<div>① 「あ、ここかな？　ここに穴が…」と言って移動</div><div>② 移動</div></td><td class="mv">F1701<small>内臓洞窟</small>X99 Y58</td><td class="jk"><div><span class="jkf">フラグ</span>マス1 で水晶玉の箱を開けたあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">①は1回だけ</td></tr>
+<tr><td class="rm" rowspan="5">F1701<small>内臓洞窟</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1700<small>内臓洞窟</small>X61 Y99</td><td class="jk"></td><td class="ct">2</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">「おや、心臓の音が近いぞ。」</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">① 「このへんで歌えばいいのかな？」<div>② ソウルイーターと戦闘</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>①は F1701 でフォーリーと話したあと</div><div><span class="jkf">歌</span>②は子守り歌</div></td><td class="ct">12</td><td class="kz"><span class="kzt kp">前ぶれ</span></td><td class="nt"><span class="botsu">没</span>違う歌を使ったときのアイリスのセリフ(そこへ進まないので出ない)</td></tr>
+<tr><td class="no">3</td><td class="ds">心臓の鼓動の音が鳴る</td><td class="mv"></td><td class="jk"></td><td class="ct">48</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">青い霧の箱。宿屋と同じように休める</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F18　ゴーレムの村</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="8">F1800<small>ゴーレムの村</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1500<small>クーテの山道</small>X58 Y163</td><td class="jk"></td><td class="ct">4</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">移動</td><td class="mv">F1801<small>ゴーレムの宿屋</small>X44 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">移動</td><td class="mv">F1802<small>ゴーレムの雑貨屋</small>X18 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">移動</td><td class="mv">F1803<small>ゴーレムの船屋</small>X28 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">移動</td><td class="mv">F1804<small>ゴーレムの寺院</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">クイクイと別れる。ムシトリ草・べたべた薬・ビート杉の粉を全部取り上げられ、船でエスタンシアへ。それまでは何も起きない</td><td class="mv">F2000<small>エスタンシアの町</small>X30 Y91</td><td class="jk"><div><span class="jkf">フラグ</span>F1803 で船屋の土人形と話したあと</div><div><span class="jkf">フラグ</span>F1502 のマス2 のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">ムシトリ草・べたべた薬・ビート杉の粉は、どれもここより前になくなっているので、普通にプレイしているとアイテムの取り上げは起きない</td></tr>
+<tr><td class="no">7</td><td class="ds">6のマスまで歩かされる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F1803 で船屋の土人形と話したあと</div><div><span class="jkf">フラグ</span>F1502 のマス2 のあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F1801<small>ゴーレムの宿屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1800<small>ゴーレムの村</small>X60 Y79</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">土人形に「お泊まりはカウンターで」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F1802<small>ゴーレムの雑貨屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1800<small>ゴーレムの村</small>X36 Y89</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm">F1803<small>ゴーレムの船屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1800<small>ゴーレムの村</small>X60 Y113</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F1804<small>ゴーレムの寺院</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F1800<small>ゴーレムの村</small>X74 Y95</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">1</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">呪いが仕掛けてある箱。開けると黒い煙が出て、全員が呪われる</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F20　エスタンシアの町</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="27">F2000<small>エスタンシアの町</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2200<small>収容所への道</small>X23 Y113</td><td class="jk"></td><td class="ct">6</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">移動</td><td class="mv">F2600<small>エスタンシアの山道</small>X118 Y16</td><td class="jk"></td><td class="ct">7</td><td class="kz">－</td><td class="nt">8の場面までは南門が閉まっていて通れない</td></tr>
+<tr><td class="no">2</td><td class="ds">ギルドの扉<div>① 「入り口には鍵がかかっている。」</div><div>② 扉が開き(鍵はなくなる)、そのまま中へ</div><div>③ 開いたあとは移動</div></td><td class="mv">②③F2004<small>エスタンシアのギルド</small>X22 Y27</td><td class="jk"><div><span class="jkf">道具</span>②はギルドの鍵</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">パーティーにヴェラ・トリリアがいるかを見て、いれば(雇っていれば)ギルドの中に本人を出さない</td></tr>
+<tr><td class="no">3</td><td class="ds">① 「《エスタンシアの町》」。町が静まりかえっている。南門が閉じられる<div>② ショウコに王宮の入口へ行こうと言われる</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">メンバー</span>②はショウコ</div><div><span class="jkf">フラグ</span>②は F2901 でショウコが仲間になったあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">船で着いたときに踏まされる。①は連れている仲間(ドムカ・スリム・ジョーイ・エニクラウド)で一言が変わる</td></tr>
+<tr><td class="no">4</td><td class="ds">移動</td><td class="mv">F2100<small>エスタンシア城</small>X59 Y102</td><td class="jk"></td><td class="ct">7</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">5</td><td class="ds">見ていた男に「手助けが必要なら『ドラゴの店』においで」と言われる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F2100 のマス1(衛兵との戦闘)のあと</div></td><td class="ct">3</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">6</td><td class="ds">下水道の入口。ライオネルが錠を外して中へ</td><td class="mv">F2400<small>エスタンシアの下水道Ｂ１</small>X64 Y125</td><td class="jk"><div><span class="jkf">メンバー</span>ライオネル</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">毎回、先に「入り口には大きな鍵がかかっている」と出る。ライオネルがいなければそこで終わり</td></tr>
+<tr><td class="no">7</td><td class="ds">音楽院の扉<div>① 「この扉には不思議な力で鍵がかかっているようだ。魔法か？」</div><div>② 移動</div></td><td class="mv">②F2500<small>エスタンシアの音楽院</small>X39 Y86</td><td class="jk"><div><span class="jkf">フラグ</span>②は F2500 のマス2(院長が逃げ出す場面)のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="no">8</td><td class="ds">反乱軍の男に、フーコー院長が南の門へ飛び出していったと知らされる。南門が通れるようになる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F2500 のマス2(院長が逃げ出す場面)のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">音楽院から出てきたときに踏まされる</td></tr>
+<tr><td class="no">9</td><td class="ds">移動</td><td class="mv">F2007<small>エスタンシアの船屋</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">10</td><td class="ds">移動</td><td class="mv">F2008<small>エスタンシアの酒場</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">11</td><td class="ds">移動</td><td class="mv">F2001<small>エスタンシアの武器屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">12</td><td class="ds">移動</td><td class="mv">F2010<small>エスタンシアの防具屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">13</td><td class="ds">移動</td><td class="mv">F2009<small>エスタンシアの寺院</small>X22 Y54</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">14</td><td class="ds">移動</td><td class="mv">F2002<small>エスタンシアの町民の家</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">15</td><td class="ds">移動</td><td class="mv">F2011<small>エスタンシアの雑貨屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">16</td><td class="ds">移動</td><td class="mv">F2005<small>エスタンシアの宿屋</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">17</td><td class="ds">移動</td><td class="mv">F2012<small>エスタンシアのポンドの店</small>X20 Y26</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">18</td><td class="ds">移動</td><td class="mv">F2003<small>エスタンシアのドラゴの酒場</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">19</td><td class="ds">移動</td><td class="mv">F2013<small>エスタンシアのスマイスの店</small>X20 Y26</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">20</td><td class="ds">移動</td><td class="mv">F2014<small>エスタンシアのペインの家</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">21</td><td class="ds">移動</td><td class="mv">F2015<small>エスタンシアの町民の家</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">22</td><td class="ds">移動</td><td class="mv">F2016<small>エスタンシアの高級防具屋</small>X20 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">23</td><td class="ds">移動</td><td class="mv">F2017<small>エスタンシアのタリスの家</small>X22 Y25</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">24</td><td class="ds">すぐ北の家が下水道の入口だと教えられ、その前に雑貨屋の仲間に会おうと言われる</td><td class="mv"></td><td class="jk"><div><span class="jkf">メンバー</span>ライオネル</div></td><td class="ct">6</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">25</td><td class="ds">ボビンに「さあ、早く中へ！」と言われる</td><td class="mv">F2005<small>エスタンシアの宿屋</small>X22 Y25</td><td class="jk"><div><span class="jkf">フラグ</span>F2100 のマス4(ボビンの誘い)のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">F2100 のマス4 から移されて踏まされる。いつもの宿屋の入口は16</td></tr>
+<tr><td class="no">26</td><td class="ds">ショウコが島に残る(離脱)。塔の鍵・レンチを取り上げられ、船でフエダの町へ</td><td class="mv">F4000<small>フエダの町</small>X88 Y129</td><td class="jk"><div><span class="jkf">フラグ</span>F2007 で船屋に船を頼んだあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">レンチはここより前になくなっているので、レンチの取り上げは普通にプレイしていると起きない<div><span class="botsu">没</span>抜けた仲間が駆けつけて再び仲間になる場面(どこからも飛んでこないので起きない)</div></td></tr>
+<tr><td class="rm">F2001<small>エスタンシアの武器屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X128 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2002<small>エスタンシアの町民の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X96 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="3">F2003<small>エスタンシアのドラゴの酒場</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X38 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">① 「ドラゴの店にようこそ！」<div>② 店の男に奥の部屋へ案内される</div><div>③ ロウとライオネルの待つ奥の部屋へ案内される</div><div>④ 「もうフリーパスだ」</div></td><td class="mv">②③F2006<small>エスタンシアのドラゴの酒場</small>X22 Y24</td><td class="jk"><div><span class="jkf">フラグ</span>②は F2000 のマス5 のあと</div><div><span class="jkf">フラグ</span>③は F2306 の独房でライオネルと話したあと</div><div><span class="jkf">フラグ</span>④は F2006 のマス1② のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">店に入ったときに踏まされる</td></tr>
+<tr><td class="no">2</td><td class="ds">奥の部屋への扉<div>① 「扉には鍵がかかっている。」</div><div>② 移動</div></td><td class="mv">②F2006<small>エスタンシアのドラゴの酒場</small>X22 Y25</td><td class="jk"><div><span class="jkf">フラグ</span>②は F2003 のマス1④ のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="5">F2004<small>エスタンシアのギルド</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X158 Y101</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">何も起きない</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"></td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">2</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">3</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr class="kb"><td class="no">4</td><td class="ds">欠番</td><td class="mv"></td><td class="jk"></td><td class="ct">－</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="4">F2005<small>エスタンシアの宿屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X124 Y95</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">主人に「お泊まりならカウンターで手続きして下さい」と止められる</td><td class="mv"></td><td class="jk"></td><td class="ct">3</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">ボビンに「まずはゆっくりお休みなさい」と言われ、無料で泊まる</td><td class="mv">F2018<small>エスタンシアの宿屋の２階</small>X8 Y9</td><td class="jk"><div><span class="jkf">フラグ</span>F2100 のマス4(ボビンの誘い)のあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">宿屋に入ったときに踏まされる</td></tr>
+<tr><td class="no">3</td><td class="ds">翌朝、ボビンは出かけていて、書き置きを渡される。破られた楽譜を取り上げられる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>マス2(ボビンの宿)のあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">翌朝、２階から移されて踏まされる</td></tr>
+<tr><td class="rm" rowspan="2">F2006<small>エスタンシアのドラゴの酒場</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2003<small>エスタンシアのドラゴの酒場</small>X32 Y9</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">① 反乱軍の首領ロウの話。「手を貸す」を選ぶまで同じ選択肢に戻される<div>② ライオネルの話。仲間にするか選ぶ</div></td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>①は F2003 のマス1② のあと</div><div><span class="jkf">フラグ</span>②は F2306 の独房でライオネルと話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">部屋に入ったときに踏まされる。断っても、部屋のライオネルに話しかければ仲間にできる<div><span class="botsu">没</span>ライオネルが歩み寄って念を押すセリフ(飛ばされていて出ない)</div></td></tr>
+<tr><td class="rm" rowspan="2">F2007<small>エスタンシアの船屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X70 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm">F2008<small>エスタンシアの酒場</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X186 Y77</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2009<small>エスタンシアの寺院</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X184 Y53</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2010<small>エスタンシアの防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X156 Y75</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F2011<small>エスタンシアの雑貨屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X100 Y95</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr class="nop"><td class="no">1</td><td class="ds">カウンターのマス</td><td class="mv"></td><td class="jk"></td><td class="ct">1</td><td class="kz"></td><td class="nt"></td></tr>
+<tr><td class="rm" rowspan="2">F2012<small>エスタンシアのポンドの店</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X190 Y101</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">消えている店長代理をカウンターの奥へ動かす</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F2305 の一般房でポンドと話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">表面上は何が起きたか気づかないイベント。ポンドは最初からカウンターにいる</td></tr>
+<tr><td class="rm" rowspan="2">F2013<small>エスタンシアのスマイスの店</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X70 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">消えている店長代理をカウンターの奥へ動かす</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F2305 の一般房でスマイスと話したあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">表面上は何が起きたか気づかないイベント。スマイスは最初からカウンターにいる</td></tr>
+<tr><td class="rm">F2014<small>エスタンシアのペインの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X100 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2015<small>エスタンシアの町民の家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X128 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2016<small>エスタンシアの高級防具屋</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X156 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2017<small>エスタンシアのタリスの家</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X188 Y127</td><td class="jk"></td><td class="ct">1</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="rm">F2018<small>エスタンシアの宿屋の２階</small></td><td class="no">0</td><td class="ds">ここで眠る場面になり、翌朝1階へ</td><td class="mv">F2005<small>エスタンシアの宿屋</small>X8 Y6</td><td class="jk"><div><span class="jkf">フラグ</span>宿屋の主人に「泊まる」と答えたあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt kj">変化</span></td><td class="nt">泊まると移されて踏まされる。ヴェラを連れて3回泊まると、3回目の朝にヴェラが消えていて、お金が500GOLD減る</td></tr>
+</table></div>
+</details>
+
+<details class="area"><summary>F21　エスタンシア城</summary>
+<div class="wrap"><table class="ms">
+<tr><th>場所</th><th>マス</th><th>内容</th><th>移動先</th><th>条件</th><th>個数</th><th>限定</th><th>備考</th></tr>
+<tr><td class="rm" rowspan="5">F2100<small>エスタンシア城</small></td><td class="no">0</td><td class="ds">移動</td><td class="mv">F2000<small>エスタンシアの町</small>X112 Y18</td><td class="jk"></td><td class="ct">10</td><td class="kz">－</td><td class="nt"></td></tr>
+<tr><td class="no">1</td><td class="ds">衛兵に止められ、反乱分子と疑われて戦闘(衛兵×2)。王宮の扉は閉ざされたまま</td><td class="mv"></td><td class="jk"></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">2</td><td class="ds">ショウコの案内。「みなさん、こちらへ…」と、壁に沿って城の右手へ進むよう言われる</td><td class="mv"></td><td class="jk"><div><span class="jkf">フラグ</span>F2000 のマス3②(桟橋でのショウコの一言)のあと</div></td><td class="ct">4</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">3</td><td class="ds">ショウコが壁の秘密の扉を明かす</td><td class="mv">F3300<small>エスタンシア城室内</small>X112 Y14</td><td class="jk"><div><span class="jkf">フラグ</span>2のあと</div></td><td class="ct">2</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt"></td></tr>
+<tr><td class="no">4</td><td class="ds">ボビンに宿屋へ誘われる</td><td class="mv">F2000<small>エスタンシアの町</small>X124 Y96</td><td class="jk"><div><span class="jkf">フラグ</span>F3800 のマス10 で太い鍵を使ったあと</div></td><td class="ct">1</td><td class="kz"><span class="kzt k1">1回</span></td><td class="nt">F3300(エスタンシア城室内)の0から移されて踏まされる</td></tr>
+</table></div>
+</details>
+</div>
+<script src="menu.js"></script>
