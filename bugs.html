@@ -57,6 +57,45 @@
 .ode-bg .shot{margin:0}
 .ode-bg .shot img{width:100%;height:auto;display:block;border-radius:3px}
 .ode-bg .shot figcaption{font-size:12px;color:#444;margin-top:4px;line-height:1.5}
+/* 誤植のまとめ(セリフの表)。没セリフの行は赤 */
+.ode-bg h4 .n{font-size:11.5px;font-weight:normal;color:#888;margin-left:8px}
+.ode-bg .tn table.typo{width:100%}
+.ode-bg .tn table.typo th,.ode-bg .tn table.typo td{white-space:normal;text-align:left;vertical-align:top;padding:4px 8px}
+.ode-bg .tn table.typo td.pl{min-width:6.5em;font-size:12px;color:#444}
+.ode-bg .tn table.typo .fn{display:block;font-weight:bold;color:#3d4b66}
+.ode-bg .tn table.typo .fn i{font-style:normal;white-space:nowrap}
+.ode-bg .tn .kb{color:#c0392b;font-weight:bold;margin:0 1px}
+.ode-bg .tn table.typo td.sp{min-width:4.5em;white-space:nowrap}
+.ode-bg .tn table.typo td.sp small{display:block;font-size:10.5px;color:#888}
+.ode-bg .tn table.typo td.tx{min-width:16em}
+.ode-bg .tn table.typo td.nt{min-width:11em;font-size:12px;color:#555}
+.ode-bg .tn table.typo tr.bot td{background:#fde2dd}
+.ode-bg .botk{background:#fde2dd;padding:0 4px;border-radius:2px}
+.ode-bg h4[id^="typo-"]{margin:44px 0 10px;font-size:15px;color:#232c40;background:#e8ecf4;border-left:6px solid #c9a227;border-bottom:1px solid #c3cbdb;padding:7px 10px}
+.ode-bg .tn p.tsub{margin:16px 0 4px;font-weight:bold;color:#555;font-size:12.5px}
+.ode-bg .tn p.tsub::before{content:"";display:inline-block;width:7px;height:7px;background:#9aa5bb;margin-right:6px;vertical-align:1px}
+.ode-bg .tn p.tsub .n{font-weight:normal;color:#888;font-size:11px;margin-left:6px}
+.ode-bg .tn table.typo td.ch{font-weight:bold;color:#3d4b66;background:#f4f6fa}
+.ode-bg .tn table.typo .who{display:block;font-size:10.5px;color:#888}.ode-bg .tn table.typo tr.gtop td{border-top:2px solid #3d4b66}
+.ode-bg .tn table.typo.pty td.pl{width:9em}.ode-bg .tn table.typo.pty td.sp{width:6em}
+/* 誤植の表: スマホではカード型(指摘 → 場所・話者 → セリフ)。指摘のある行(=まとまりの頭)の上に太線 */
+@media (max-width:600px){
+.ode-bg .tw:has(table.typo){overflow:visible}
+.ode-bg .tn table.typo,.ode-bg .tn table.typo tbody{display:block;width:auto}
+.ode-bg .tn table.typo tr:first-child{display:none}
+.ode-bg .tn table.typo tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;padding:6px 4px;border-top:1px dashed #cdd3df}
+.ode-bg .tn table.typo tr:nth-child(2),.ode-bg .tn table.typo tr:has(td.nt),.ode-bg .tn table.typo tr.gtop,.ode-bg .tn table.typo tr:has(td.ch){border-top:2px solid #3d4b66}
+.ode-bg .tn table.typo tr:last-child{border-bottom:1px solid #cdd3df}
+.ode-bg .tn table.typo td{display:block;border:0!important;padding:0!important;min-width:0!important;width:auto!important;background:none!important}
+.ode-bg .tn table.typo tr.bot{background:#fde2dd}
+.ode-bg .tn table.typo td.sp.ch{order:0;flex:0 0 100%;font-size:13px;color:#3d4b66;margin-bottom:3px}
+.ode-bg .tn table.typo td.nt{order:1;flex:0 0 100%;box-sizing:border-box;font-size:11.5px;color:#3d4b66;background:#eef1f7!important;border-left:3px solid #c9a227!important;padding:3px 7px!important;margin-bottom:5px}
+.ode-bg .tn table.typo td.pl{order:2;font-size:11px;color:#666}
+.ode-bg .tn table.typo td.pl .fn{display:inline;margin-right:4px}
+.ode-bg .tn table.typo td.pl .who,.ode-bg .tn table.typo td.sp small{display:inline;margin-left:4px}
+.ode-bg .tn table.typo td.sp{order:2;font-size:11px;color:#3d4b66;font-weight:normal;white-space:normal}.ode-bg .tn table.typo td.sp b{color:#111;font-weight:bold;font-size:12px}.ode-bg .tn table.typo td.sp.nil{display:none}
+.ode-bg .tn table.typo td.tx{order:3;flex:0 0 100%;font-size:12.5px;line-height:1.6;margin-top:1px}
+}
 @media (max-width:600px){
 .ode-bg .shots{grid-template-columns:1fr}
 .ode-bg h3{font-size:15px;padding:5px 10px}
@@ -74,6 +113,7 @@
 <li><a href="#map">マップ・移動</a></li>
 <li><a href="#gfx">見た目</a></li>
 <li><a href="#sound">音</a></li>
+<li><a href="#typo">誤植</a></li>
 </ul>
 
 <!-- ===================== 戦闘 ===================== -->
@@ -695,6 +735,425 @@
 <li>フエダは、町の外(屋外)でお店の曲が流れる</li>
 </ul>
 <p>お店以外では、エスタンシアの下水道もＢ１(山道などの曲)とＢ２(地下回廊と同じ曲)で曲が揃っておらず、こちらもバグの疑いが強い。</p>
+</div>
+
+<!-- ===================== 誤植 ===================== -->
+<h3 id="typo">誤植</h3>
+<p class="clead">じつはこんなにあった誤植たち。表記ゆれから漢字間違い、スペースの不揃いなど、テキストにまつわる問題点。セリフの太字が該当する所。<span class="botk">赤い行</span>は没セリフ(ゲーム中には出ない)。</p>
+<ul class="cat tcat"><li><a href="#typo-name">名前の間違い・ゆれ</a></li><li><a href="#typo-person">一人称・呼び方</a></li><li><a href="#typo-place">村と町・地名</a></li><li><a href="#typo-miss">誤字・脱字</a></li><li><a href="#typo-kanji">漢字とかなの使い分け</a></li><li><a href="#typo-okuri">送り仮名</a></li><li><a href="#typo-daku">濁点</a></li><li><a href="#typo-party">パーティーとパーティ</a></li><li><a href="#typo-kigou">記号・括弧・句読点・改行</a></li><li><a href="#typo-space">「！」「？」の後の空白</a></li><li><a href="#typo-maybe">誤植かも</a></li></ul>
+
+<h4 id="typo-name">名前の間違い・ゆれ</h4>
+<div class="tn">
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">店員</td><td class="tx">「これが欲しいなら、<b>ボグタさん</b>と交渉してください」ボグダ…どこかで聞いたかな？</td><td class="nt" rowspan="3">「ボグタ」(ほかでは「ボグダ」)</td></tr>
+<tr><td class="pl"><span class="fn">F12</span>クモの洞窟</td><td class="sp"><b>ボグタ</b></td><td class="tx">「おい！　そこの君…俺をこの糸から自由にしてくれ！　ハサミとか何とか使って…」</td></tr>
+<tr><td class="pl"><span class="fn">F12</span>クモの洞窟</td><td class="sp"><b>ボグタ</b></td><td class="tx">「ああ助かった！　クモにやられちまったぜ…君達も母グモ退治に来たのか？」<br>「なら、教えてあげよう。母グモは自分の巣のそばにしるしをつけている。『∞』というしるしだ」<br>「そこでこのポーションをまくと、母グモはおびき出される。このポーションは君にあげるよ。俺はいったん、村に戻る」</td></tr>
+<tr><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="sp">サザシイ</td><td class="tx">「サザシイ、かわうそ。<b>ザサシイ</b>、分家のかわうそ。本家、どこか知らない」</td><td class="nt">2つ目が「ザサシイ」</td></tr>
+<tr><td class="pl">共通</td><td class="sp">サザシイ</td><td class="tx"><b>サザシィ</b>は呪文を唱えた。「エアニードル！」</td><td class="nt">このメッセージだけ「サザシィ」(ほかは「サザシイ」)</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="sp">リュッケルト</td><td class="tx">「戦いを知ってた…と、そういえば<b>魔導師</b>だったな、確か」</td><td class="nt">フォープキンは、ほかでは「魔術師」</td></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">フィデレ</td><td class="tx">「げげっ、また間違ってたのぉ！？　わわわっ、やだなぁ…じゃ、あそこかな？　<b>旧火山島</b>にある幻の…」</td><td class="nt">「旧火山島」→「休火山島」</td></tr>
+<tr><td class="pl"><span class="fn">F63</span>ノルティナ学園都市</td><td class="sp">主人</td><td class="tx">「ここは学園内の<b>武器屋です</b>」</td><td class="nt">高級武器屋なのに「武器屋です」(もう1つの高級武器屋は「学園の高級武器屋です」)</td></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">スカイヘッドの長</td><td class="tx">「お前は銀の音叉を持っている！　それは<b>スカラーズのしるし</b>！　なぜお前がそれを？」</td><td class="nt">「スカラーズのしるし」(アデンのボビンは「ソングスカラーズの印」)</td></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">スカイヘッド<small>村の北</small></td><td class="tx">「ええ～！　<b>母クモ</b>を倒したのぉ？ううん、すごいわ。早く長の所に行って網を作ってもらいなさいよ」</td><td class="nt">「母クモ」(ほかは「母グモ」)</td></tr>
+<tr><td class="pl"><span class="fn">F12</span>クモの洞窟</td><td class="sp nil">—</td><td class="tx">箱を開けると、中には<b>母グモの糸</b>が入っていた。</td><td class="nt">「母グモの糸」(道具の名前は「母グモの細糸」)</td></tr>
+<tr><td class="pl"><span class="fn">F23</span>強制収容所</td><td class="sp nil">—</td><td class="tx">箱を開けると、中には<b>四角い鍵</b>が入っていた。“<b>一般房鍵</b>”と掘り込んである。</td><td class="nt">道具名は「一般房の丸鍵」だが、ここでは「四角い鍵」「一般房鍵」と書かれている</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ペグ</td><td class="tx">「町を出たら、門の<b>カギ</b>を、ぽーんと放っちゃったよ。たぶん、その<b>カギ</b>は門のそばの海の中に落ちたんじゃないかな」</td><td class="nt">「カギ」(拾う道具の名前は漢字の「錆びた鍵」)</td></tr>
+<tr><td class="pl">大事な物の名前</td><td class="sp nil">—</td><td class="tx">城の<b>カギ</b></td><td class="nt">道具の名前で「カギ」はこれだけ(ほかは「工場の鍵」「塔の鍵」など)</td></tr>
+<tr><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="sp">男</td><td class="tx">「なんだ？　わしは忙しいのだ！　<b>羽ペン</b>が壊れてしまったのでな！　まったく、困ったもんだ！」</td><td class="nt" rowspan="2">「羽ペン」(ほかは「羽根ペン」)</td></tr>
+<tr><td class="pl"><span class="fn">F68</span>鳥の島</td><td class="sp">マキバ</td><td class="tx">「さっそくだが、極上の<b>羽ペン</b>が欲しくてね、その材料になるよい羽根をもらえないだろうか？」</td></tr>
+<tr><td class="pl">大事な物の名前</td><td class="sp nil">—</td><td class="tx"><b>素晴らしい</b>羽根</td><td class="nt">セリフでは「極上の羽根」</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">アラバステル</td><td class="tx">「もうフォープキンさんには会われましたか？　それとも、<b>ベタベタ薬</b>がまだ足りませんかね？」</td><td class="nt" rowspan="2">「ベタベタ薬」(ほかは「べたべた薬」)</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">選択肢</td><td class="tx"><span class="q">どうしますか？</span><span class="op">▶ 「<b>ベタベタ薬</b>が欲しい」</span><span class="op">▶ 「なんでもない」</span></td></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F31</span>サンクトスの洞窟</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートの表面板を肌色／<b>茶色</b>の線にとりかえた。</td><td class="nt">道具の名前は「肌色／茶の線」</td></tr>
+<tr><td class="pl">リュートの部品名</td><td class="sp nil">—</td><td class="tx">木の珠<b>装飾</b></td><td class="nt">ほかは「水晶の装飾」など「〜の装飾」</td></tr>
+<tr class="gtop"><td class="pl">歌の名前</td><td class="sp nil">—</td><td class="tx">全<b>手当</b>の歌</td><td class="nt">「全手当」(「手当ての歌」は送り仮名あり)</td></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">番頭</td><td class="tx">「いらっしゃいませ。ご宿泊でございましょうか？  お一人様<b>２ゴールド</b>でお泊まりになれます」</td><td class="nt">料金が「２ゴールド」(ほかの宿は「２ＧＯＬＤ」)</td></tr>
+<tr><td class="pl"><span class="fn">F30</span>鍵盤階段</td><td class="sp">ライオネル</td><td class="tx">「ランパル王は、そこで<b>角笛</b>を奉納したときに、おかしくなられたのさ…魔の<b>角笛</b>の音によって、な」</td><td class="nt" rowspan="2">「角笛」と「骨のフルート」</td></tr>
+<tr><td class="pl"><span class="fn">F89</span>囚人島地下洞窟</td><td class="sp">リュッケルト</td><td class="tx">「そうだったのか！　ランパル王が受け取った骨の<b>フルート</b>、それはここから送られたものか！」</td></tr>
+<tr><td class="pl"><span class="fn">F56</span>溶岩洞窟</td><td class="sp">フィデレ</td><td class="tx">「メルソンゲールの<b>大歌巻</b>…聞いたことがあるわ！」</td><td class="nt">「大歌巻」→「大歌巻き」(村長やこの後のフィデレは「大歌巻き」)</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="sp"><b>町人</b></td><td class="tx">「どうですか、引き取りませんか？　いらないリュートパーツを」</td><td class="nt">話者名が「町人」(ほかは「町民」)</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">リュッケルト</td><td class="tx">「おや、<b>ヘンケンじゃないか</b>？　また、仲間になってくれるのか？　おっ、船が来る！」</td><td class="nt">ピックマンなのに「ヘンケンじゃないか」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-person">表記ゆれ: 一人称・呼び方</h4>
+<div class="tn">
+<div class="tw"><table class="typo grp">
+<tr><th>キャラ</th><th>場所</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="sp ch" rowspan="3">ホイヒュー</td><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="tx">「ね、リュッケルトさん、そうしましょうよ。<b>あっし</b>は先にボビンさんの家にいってますぜ」</td><td class="nt" rowspan="3">「あっし」「ボク」「オレ」とバラバラ</td></tr>
+<tr><td class="pl"><span class="fn">F4</span>ボビンの船</td><td class="tx">「<b>ボク</b>もちょっくら、甲板に行ってみるかな…」</td></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="tx">「さぁて、んでは<b>オレ</b>は、このへんでパーティから抜けますぜぇ～」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="2">スリム</td><td class="pl"><span class="fn">F5</span>龍族の村バルエコ</td><td class="tx">「そういうことなら、<b>ワタシ</b>が抜けるわ。　頑張ってちょうだい」</td><td class="nt" rowspan="2">普段は「あたし」(ここでは「わたし」「ワタシ」)</td></tr>
+<tr><td class="pl"><span class="fn">F10</span>神聖な森(奥)</td><td class="tx">「おほほほ…　いやだわ。<b>わたし</b>を見つめるなんて…　カッコイイ殿方かしら…」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="4">ドムカ</td><td class="pl"><span class="fn">F1</span>港町アデン<span class="who">貼り紙</span></td><td class="tx">『<b>オレ</b>は必ず役にたつ。払ったお金は後悔させない』</td><td class="nt" rowspan="4">「俺」と「オレ」が混ざっている</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="tx">「<b>俺</b>になにか用か？」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="tx">「決して後悔はさせないぞ。<b>俺</b>の力は信じられる力だ」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F20</span>エスタンシアの町<span class="who">話者: ドムカの声</span></td><td class="tx">「待ってくれ。<b>オレ</b>も行くぞ！」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="15">アイリス</td><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="tx">「<b>私</b>たちの無知をお許し下さい！」</td><td class="nt" rowspan="11">「私」「あたし」(普段は「わたし」)</td></tr>
+<tr><td class="pl"><span class="fn">F15</span>クーテの山道</td><td class="tx">「それで<b>私</b>たちは、ガリハアクを倒すために“ダークオード”という、古の力の歌を探してるんです」</td></tr>
+<tr><td class="pl"><span class="fn">F23</span>強制収容所</td><td class="tx">「さあ、<b>私</b>たちも！」</td></tr>
+<tr><td class="pl"><span class="fn">F29</span>グレゴリアの村</td><td class="tx">「<b>私</b>はアイリスです」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="tx">「トラビスさん…て、<b>私</b>たちが、呪われた洞窟で助けた人？」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="tx">「<b>私</b>たち、怒れる岩屋というのを探しているんですが…」</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="tx">「…なにか、大変な事になってしまったみたい。<b>私</b>たちも、町に戻ったほうがいいかな…」</td></tr>
+<tr><td class="pl"><span class="fn">F81</span>オーパスの山道</td><td class="tx">「<b>私</b>たち、かわうそ族を探しているんですが…助けてもらえませんか」</td></tr>
+<tr><td class="pl"><span class="fn">F87</span>岩の島洞窟</td><td class="tx">「<b>私</b>たちは、古の歌、オードを探している者です」</td></tr>
+<tr><td class="pl"><span class="fn">F64</span>ノルティナ学園都市</td><td class="tx">「いえ…知らないけど？　<b>あたし</b>がいたときには、そんな話聞いてないけど…」</td></tr>
+<tr><td class="pl"><span class="fn">F72</span>学園内の教会内部</td><td class="tx">「あ、<b>あたし</b>たち、ここの卒業生です。昔なじみに会いに来ました」</td></tr>
+<tr><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="tx">「うん…ありがとう！　<b>マキバ</b>」</td><td class="nt" rowspan="3">「マキバ」と呼び捨て(ほかでは「マキバさん」)</td></tr>
+<tr><td class="pl"><span class="fn">F62</span>牧場</td><td class="tx">「いや、別に…ちょっと立ち寄っただけ。じゃね、<b>マキバ</b>」</td></tr>
+<tr><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="tx">「<b>マキバ</b>、知っているの？」</td></tr>
+<tr><td class="pl"><span class="fn">F88</span>地下湖底</td><td class="tx">「やったわ！　やったわ！　龍族の村に戻りましょう！　<b>父さま</b>に渡しましょう！」</td><td class="nt">「父さま」(普段は「おとうさま」)</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="6">クイクイ</td><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="tx">「実は<b>ボク</b>、フォープキンさん知ってるんだよね。でもね、交換さ！　シベリンちゃんを探すの手伝ってくれたら、場所を教えてあげる！」</td><td class="nt" rowspan="6">「オレ」「ボク」「ぼく」「おれ」とバラバラ</td></tr>
+<tr><td class="pl"><span class="fn">F9</span>神聖な森</td><td class="tx">「ホラ、聞こえるだろ？　あれがシベリンの笛の音だよ…<b>オレ</b>が教えたんだい！」</td></tr>
+<tr><td class="pl"><span class="fn">F9</span>神聖な森</td><td class="tx">「じゃっ、<b>オレ</b>たちも、クーテに戻ろう！」</td></tr>
+<tr><td class="pl"><span class="fn">F9</span>神聖な森</td><td class="tx">「待ってなシベリン！　<b>オレ</b>を信じろ！」</td></tr>
+<tr><td class="pl"><span class="fn">F18</span>ゴーレムの村</td><td class="tx">「じゃあみんな、<b>ぼく</b>はシベリンちゃんのとこに戻るから…またねっ！」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「へへっ、<b>おれ</b>も参加したかったけどなぁ！」</td></tr>
+<tr class="bot gtop"><td class="sp ch">ジョーイ</td><td class="pl"><span class="fn">F20</span>エスタンシアの町<span class="who">話者: ジョーイの声</span></td><td class="tx">「まって！　<b>あたし</b>も行くわ」</td><td class="nt">「あたし」(ほかのジョーイは「わたし」)</td></tr>
+<tr class="bot gtop"><td class="sp ch">エニクラウド</td><td class="pl"><span class="fn">F20</span>エスタンシアの町<span class="who">話者: エニクラウドの声</span></td><td class="tx">「<b>待ってくれ…</b>」</td><td class="nt">口調が「待ってくれ…」。ほかのエニクラウドは「〜っす」や「〜ですね」で話す</td></tr>
+<tr class="bot gtop"><td class="sp ch">トリリア</td><td class="pl"><span class="fn">F20</span>エスタンシアの町<span class="who">話者: トリリアの声</span></td><td class="tx">「みんな！　<b>私</b>も行くわ」</td><td class="nt">「私」(ほかのトリリアは「あたし」)</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="2">ライオネル</td><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="tx">「なんだ…残念だなぁ…ちっ。<b>おれ</b>はもう少し、一緒に旅をすることにするよ。面白いしな」</td><td class="nt" rowspan="2">普段は「俺」(ここでは「おれ」「オレ」)</td></tr>
+<tr><td class="pl"><span class="fn">F23</span>強制収容所</td><td class="tx">「ウム、恩に着る。この独房さえ出られれば、この収容所の正面扉ぐらいなら<b>オレ</b>がなんなく開けられる」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="4">ショウコ</td><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="tx">「…皆様、<b>私</b>は、この島にいます。ランパルはまだ、とりつかれたまま…なんとかしてあげたいので」</td><td class="nt" rowspan="4">「私」(初対面は「わたくし」)</td></tr>
+<tr><td class="pl"><span class="fn">F33</span>エスタンシア城室内</td><td class="tx">「ランパル…ランパル、思いだして下さい、この<b>私</b>を…そして、一緒に遊んだ昔の日々を…」</td></tr>
+<tr><td class="pl"><span class="fn">F33</span>エスタンシア城室内</td><td class="tx">「まだ目的を果たしておりません。<b>私</b>を残して、戻らないで下さい…」</td></tr>
+<tr><td class="pl"><span class="fn">F33</span>エスタンシア城室内</td><td class="tx">「…だめだと思います、ここから外には出られません…<b>私</b>たちが入ってきた場所から出ましょう」</td></tr>
+<tr class="bot gtop"><td class="sp ch">グラム</td><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="tx">「残念、<b>おれ</b>、あんたと、いかない…」</td><td class="nt">「おれ」(ほかのグラムは「オレ」)</td></tr>
+<tr class="gtop"><td class="sp ch">パストラン</td><td class="pl"><span class="fn">F40</span>フエダの町<span class="who">貼り紙</span></td><td class="tx">『そんなはかなき命の燃え上がりに魅せられるは人間もまた蝶に似たりか。死によって生を体験す。<b>わがはい</b>を死出の旅に誘え』</td><td class="nt">「わがはい」→「吾輩」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="3">トラビス</td><td class="pl"><span class="fn">F42</span>呪われた洞窟</td><td class="tx">「おお…お、長い眠りから覚めたようだ…君たちは誰？　<b>私</b>はトラビスという猟師だ…」</td><td class="nt" rowspan="3">「私」「おれ」「俺」とバラバラ</td></tr>
+<tr><td class="pl"><span class="fn">F42</span>呪われた洞窟</td><td class="tx">「<b>おれ</b>は先に町に戻るよ。あんたたちも早く戻ったほうがいい」</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="tx">「<b>俺</b>たちは旅人さ。遠くから来たんだ」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="6">フィデレ</td><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="tx">「じゃ、みんな…なごり惜しいけどこれでお別れね。あたしは、また、<b>ばあちゃん</b>の家に戻らないと」</td><td class="nt" rowspan="6">祖母の呼び方が「ばあちゃん」「婆ちゃん」「おばば」「ばあさん」とバラバラ</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="tx">「<b>婆ちゃん</b>がね、行くようにって…なんか、化け物のいましめが解けたから結んでこいってさ…」</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="tx">「この扉ねっ？？　へへ。<b>婆ちゃん</b>から教わった呪文で、ちょちょいのちょいだー！」</td></tr>
+<tr><td class="pl"><span class="fn">F51</span>ドドルの塔</td><td class="tx">「ドドルっ！　<b>おばば</b>から教わった封じの呪文、受けてみよ！…アングワ　リルカ　ホラウガ…」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="tx">「今度こそドドルっ！　<b>おばば</b>から教わった封じの呪文、受けてみよ！…アンガル　リルラ　ホウラワ…」</td></tr>
+<tr><td class="pl"><span class="fn">F56</span>溶岩洞窟</td><td class="tx">「<b>ばあさん</b>から聞いたんだけど…でも、どんなのだったかなぁ…きっとあとで思いだすわ！」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="4">マキバ</td><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="tx">「じゃ、みんな、<b>僕</b>はまた、牧場に戻るよ。鳥や豚たちが待っているからね…」</td><td class="nt" rowspan="2">「僕」(出会った時は「ぼく」)</td></tr>
+<tr><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="tx">「やあ、君たち、<b>僕</b>らを山頂に連れていってくれないかい？」</td></tr>
+<tr><td class="pl"><span class="fn">F68</span>鳥の島</td><td class="tx">「こんにちわ、<b>王様</b>。ごきげんいかが？」</td><td class="nt" rowspan="2">「王様」(ほかでは「王さま」)</td></tr>
+<tr><td class="pl"><span class="fn">F68</span>鳥の島</td><td class="tx">「<b>王様</b>は、悲しい気分だそうだ。仲間たちが囚われたままなので…さあ早くチクタク館に行こう！」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="2">アロン</td><td class="pl"><span class="fn">F91</span>ガリハアクの洞窟</td><td class="tx">「そうさ、命は貴重なものだ…<b>オレ</b>が、それを一番良く知っているさ。滅ぼされた村の仲間たち…」</td><td class="nt" rowspan="2">「俺」が多い(ここでは「オレ」「おれ」)</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「<b>おれ</b>の望みは、何もない。ただそっとしてくれるだけでいいさ」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="7">エド</td><td class="pl"><span class="fn">F95</span>バルエコの森</td><td class="tx">「<b>我</b>の罪を償うにはこの時をおいて無し！　ぜひとも<b>我</b>も仲間にいれてくれい！」</td><td class="nt" rowspan="7">「我」「わたし」(普段は「私」)</td></tr>
+<tr><td class="pl"><span class="fn">F95</span>バルエコの森</td><td class="tx">「感謝する。<b>我</b>に機会を与えてくれて…」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「…同じこと。<b>わたし</b>も、今更何を願う事があろうか？　こぼれた砂粒は、帰ってこないのだから…」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「…アロン…急な話だが、<b>わたし</b>のかわりに、岩の島の城主を勤める気はないか？」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「<b>わたし</b>もリュッケルトや、アロンのように自由になりたい気がしてきたのさ」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「そうか。そうかもな。だが、やってみたい。アロン、<b>わたし</b>は、お前と行ってもいいか？」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="tx">「望むところ！　では、リュッケルト、アイリスさん…<b>わたし</b>たちはこれで」</td></tr>
+<tr class="gtop"><td class="sp ch">アギーレ</td><td class="pl"><span class="fn">F3</span>アルカナの洞窟</td><td class="tx">「ヤツと戦ったが…<b>私</b>はもうダメだ…アイリス…君の看病も無駄だった…<b>わし</b>はもう…」</td><td class="nt">「私」と「わし」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="3">ドドル</td><td class="pl"><span class="fn">F51</span>ドドルの塔</td><td class="tx">「なんだ、お前たちは？　わざわざ<b>ワシ</b>が戦うまでもなさそうだな。ガンド、来い！」</td><td class="nt" rowspan="3">「ワシ」「わし」「俺」とバラバラ</td></tr>
+<tr><td class="pl"><span class="fn">F51</span>ドドルの塔</td><td class="tx">「ム…ガンドを倒したか…だが、今はまだ戦えんな…<b>わし</b>は去るとしよう！」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="tx">「お、お前、龍族の…だがなぜ、<b>俺</b>の邪魔をするのだ！？？」</td></tr>
+<tr class="gtop"><td class="sp ch">ボル</td><td class="pl"><span class="fn">F34</span>エスタンシア城地下洞窟</td><td class="tx">「<b>わがはい</b>はボルベルキン＝タールニップ。ボルと呼ぶがよい…」</td><td class="nt">普段は「我が輩」</td></tr>
+<tr class="gtop"><td class="sp ch" rowspan="2">土人形</td><td class="pl"><span class="fn">F18</span>ゴーレムの村</td><td class="tx">「お客さん、お金がたりませんよ」</td><td class="nt" rowspan="2">語尾の「ギイ」が付いていない(ほかのセリフは「ギイギイ…」)</td></tr>
+<tr><td class="pl"><span class="fn">F18</span>ゴーレムの村</td><td class="tx">「またおこしください」</td></tr>
+<tr class="gtop"><td class="sp ch">村人</td><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="tx">「<b>おれ</b>も昔は歌を歌いながら、いろんな町々を放浪したものさ…あんたを見てると、懐かしくなるなぁ」</td><td class="nt">同じ村人のほかのセリフは「俺」</td></tr>
+<tr class="gtop"><td class="sp ch">男</td><td class="pl"><span class="fn">F1</span>港町アデン（最終章）</td><td class="tx">「<b>私</b>の武器コレクションも、もうおしまいだ…」</td><td class="nt">最初に訪れた時の同じ男は「あっし」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-place">表記ゆれ: 村と町・地名</h4>
+<div class="tn">
+<p class="tsub">港町アデン</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ディック<small>南の浜辺</small></td><td class="tx">「実はですな、最近町の外に怪物どもがうろついていて、音楽院の院長のアギーレさんが安全のため<b>村</b>の門に鍵をかけてしまわれたんじゃ」</td><td class="nt" rowspan="3">「村」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">男<small>町の東</small></td><td class="tx">「あんた、ディックに会ったって？　あれはわしの茶飲み仲間だ。彼の家は<b>この村</b>の北東にあるよ」</td></tr>
+<tr><td class="pl"><span class="fn">F91</span>ガリハアクの洞窟</td><td class="sp">ボビン</td><td class="tx">「じゃあ、戻りますか！　<b>アデンの村</b>へ！」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">男</td><td class="tx">「<b>この村</b>の近くに、古き種族、<b>竜族</b>の住まう村がある。村には見知らぬ人は近づけない」</td><td class="nt" rowspan="2">「この村」。さらに「竜族」(ほかでは「龍族」)</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">男</td><td class="tx">「<b>この村</b>の顔役の、ボビンも<b>竜族</b>のひとりなのだ。純血の<b>竜族</b>ではないんだが」<br>「他にも、このあたりには人間の血が交じっている<b>竜族</b>の子孫がいる。ここは、古くから<b>竜族</b>との交渉があったからね」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F6</span>ガリハアクの洞窟</td><td class="sp">ボビン</td><td class="tx">「じゃあ、行きますか！　<b>アデンの村</b>へ！」</td><td class="nt">「村」と呼んでいる</td></tr>
+</table></div>
+<p class="tsub">龍族の村バルエコ</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F5</span>龍族の村バルエコ（最終章）</td><td class="sp">モルガン</td><td class="tx">「<b>会議場</b>にいる皆に告げてまいれ！　遂に目的の歌が手に入った、と。これで全てが終わるのだ…」</td><td class="nt" rowspan="3">「会議場」(地名は「龍族の会議所」)</td></tr>
+<tr><td class="pl"><span class="fn">F5</span>龍族の村バルエコ（最終章）</td><td class="sp">モルガン</td><td class="tx">「<b>会議場</b>は、この家を出てすぐ南東の門を抜けた、すぐそこにある。行ってこの吉報を告げてきなさい」</td></tr>
+<tr><td class="pl"><span class="fn">F5</span>龍族の村バルエコ（最終章）</td><td class="sp">男<small>会議所の門の前</small></td><td class="tx">「人間よ、早く<b>会議場</b>に入るのだ。みんな、待っている…」</td></tr>
+<tr><td class="pl"><span class="fn">F5</span>龍族の村バルエコ（最終章）</td><td class="sp">モルガン</td><td class="tx">「ちょうど今しがた、龍族の<b>会議場</b>で、ガリハアクの件で、会議をしていたところなのだよ…」<br>「<b>会議場</b>に<b>町長</b>もいる。行ってこの吉報を告げてきなさい」</td><td class="nt" rowspan="1">「町長」も「会議場」も</td></tr>
+<tr><td class="pl"><span class="fn">F94</span>龍族の村バルエコ（最終章）</td><td class="sp"><b>町長</b></td><td class="tx">「…ゴホ、ゴホ。話は聞きました！　素晴らしい！遂にオードを発見したのですな！」</td><td class="nt" rowspan="2">村なのに「町長」</td></tr>
+<tr><td class="pl"><span class="fn">F94</span>龍族の村バルエコ（最終章）</td><td class="sp">龍族<small>会議所の入口</small></td><td class="tx">「早く<b>町長</b>の所へまいられよ。<b>町長</b>は奥の会議室におられる」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F5</span>龍族の村バルエコ（最終章）</td><td class="sp">アイリス</td><td class="tx">「早く<b>会議場</b>に行きましょう。<b>町長</b>さんが待っているわよ」</td><td class="nt">「町長」も「会議場」も</td></tr>
+</table></div>
+<p class="tsub">クーテの村</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">女</td><td class="tx">「<b>この町</b>の北にはリンリン草とバング草の草原があるのよ。バング草は爆発するから気をつけないとね」</td><td class="nt" rowspan="5">「町」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F9</span>神聖な森</td><td class="sp">リュッケルト</td><td class="tx">「倒木が道をふさいでいるな…ちょっと動かすのは面倒そうだ。いったん<b>町</b>に戻るか」</td></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">クイクイ</td><td class="tx">「フォープキンさんは、<b>クーテの町</b>の北西の、山の中に住んでいるんだよ。まずはクーテに戻ろうよ」</td></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">クイクイ</td><td class="tx">「はやく、はやく、<b>クーテの町</b>はこっちだよ！」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">男</td><td class="tx">「フエダよりいい町はいっぱいあるぜ。首都エスタンシアの壮麗さ、<b>森の町</b>クーテの静けさ…」</td></tr>
+</table></div>
+<p class="tsub">ゴーレムの村</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F15</span>クーテの山道</td><td class="sp">フォープキン</td><td class="tx">「とりあえず、この家の南にある<b>町</b>を活性化させよう。<b>ゴーレムの町</b>なんだ。その港を使いたまえ」</td><td class="nt" rowspan="2">「町」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F15</span>クーテの山道</td><td class="sp">旅人</td><td class="tx">「この先には妙な<b>町</b>があってね。なンか、妙なんだよな…店に入ると人形しかいないしさ」</td></tr>
+</table></div>
+<p class="tsub">フォリアの村</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp">老人</td><td class="tx">「ほれ見ろ！　フーコーの手下どもめ、<b>この町</b>から出て失せろ！」</td><td class="nt" rowspan="2">「町」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp">老人</td><td class="tx">「<b>この町</b>には他にも、音の森について知っているのがいる。あとはそやつに聞いて、自分で解くがよい！」</td></tr>
+</table></div>
+<p class="tsub">グレゴリアの村</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F30</span>鍵盤階段</td><td class="sp">ライオネル</td><td class="tx">「で、南に<b>グレゴリアの町</b>がある。寄ってみるかい？」</td><td class="nt" rowspan="2">「町」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F95</span>バルエコの森</td><td class="sp">ボビン</td><td class="tx">「アデンの桟橋に行けば、<b>グレゴリアの町</b>に直行する船が来るよう手配しておいた！　行ってこい…あとは任せた！」</td></tr>
+</table></div>
+<p class="tsub">フエダの町</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">男</td><td class="tx">「フィデレさんの家は、<b>この村</b>の、南西の方角、岬のほうにあるよ」</td><td class="nt" rowspan="8">「村」と呼んでいる</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">女</td><td class="tx">「ユルナルさんかね…残念ながら、今、出かけていて、<b>この村</b>にはいないよ」</td></tr>
+<tr><td class="pl"><span class="fn">F41</span>フエダの森</td><td class="sp">アイリス</td><td class="tx">「魔法で封じてあるみたい…？　いったん<b>村</b>に戻って、もう少し情報を集めましょうか？」</td></tr>
+<tr><td class="pl"><span class="fn">F42</span>呪われた洞窟</td><td class="sp">ライオネル</td><td class="tx">「ちっ、ここじゃなかったのか…。なら、早いとこ<b>村</b>にもどろうぜ」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">マーリィ</td><td class="tx">「町長さん、<b>フエダ村</b>のトラビスを紹介します。あたしの、知り合いの猟師なんです」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="sp">フィデレ</td><td class="tx">「心がこもってない！　ま、でも、よしとするかぁ。じゃ、魔法で、<b>フエダの村</b>に帰ろう！」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="sp">アイリス</td><td class="tx">「<b>フエダの村</b>から、休火山島へ向かいましょう！」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="sp">フィデレ</td><td class="tx">「でさぁ、でさぁ…どおぉ？　<b>あたしの村</b>にこない？　これからさー。２人でゆっくりしよーよ！」</td></tr>
+</table></div>
+<p class="tsub">沼の町イントラダ</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">トラビス</td><td class="tx">「<b>村長</b>の娘がいなくなったらしいんだ…。何か知らないか？」</td><td class="nt">町なのに「村長」</td></tr>
+</table></div>
+<p class="tsub">レイエンダの村</p>
+<div class="tw"><table class="typo grp">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr class="gtop"><td class="pl"><span class="fn">F54</span>レイエンダの村</td><td class="sp">男</td><td class="tx">「わしら、食料足りない。腹、いつもへっている。<b>町長</b>に、話、聞いてきてくれ」</td><td class="nt" rowspan="2">村なのに「町長」</td></tr>
+<tr><td class="pl"><span class="fn">F54</span>レイエンダの村</td><td class="sp">男</td><td class="tx">「<b>町長</b>から、話、聞いたか？　わしら、食料足りない」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-miss">誤字・脱字</h4>
+<div class="tn">
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">男</td><td class="tx">「私の友人で、<b>強制収容に</b>放りこまれた男がいる…ただ１回、口をすべらしたばかりにね。ああ…」</td><td class="nt">「強制収容に」→「強制収容所に」</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">反乱軍の男</td><td class="tx">「実は最近、ランパル王が急に変わって、自分に意見する者をどんどん捕まえているんだ。<b>おかげて</b>町民の半分は収容所行きさ…」</td><td class="nt">「おかげて」→「おかげで」</td></tr>
+<tr><td class="pl"><span class="fn">F24</span>エスタンシアの下水道</td><td class="sp nil">—</td><td class="tx">ハンドルの下には＜<b>第ニバルブ</b>＞と書かれている。</td><td class="nt">「ニ」が片仮名(第一・第三は漢字)</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp nil">—</td><td class="tx">リュッケルトは１００<b>ＧＯＬＤ手</b>に入れた。</td><td class="nt">「を」が無い(後のボビンの家では「１００ＧＯＬＤを手に入れた」)</td></tr>
+<tr><td class="pl"><span class="fn">F80</span>オーパスの村</td><td class="sp">老婆</td><td class="tx">「アロンの坊やは、この村の惨状にショックを受けて、森に<b>隠れていらしい</b>が…探してみたらいいかも」</td><td class="nt">「隠れていらしい」→「隠れているらしい」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-kanji">漢字とかなの使い分け</h4>
+<div class="tn">
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F15</span>クーテの山道</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートの胴を、茶の胴に<b>変えた</b>。</td><td class="nt" rowspan="8">「変えた」→「替えた」(取り替える・塗り替える・付け替える)</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートのネックをドラゴンネックに<b>取り変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F64</span>ノルティナ学園都市</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートのネックを女神のネックに<b>取り変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F66</span>パイプ洞窟</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートの表面板を白／金の線のものに<b>取り変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F82</span>要塞迷路・王宮内部</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートの胴を白の胴に<b>取り変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F85</span>囚人島</td><td class="sp nil">—</td><td class="tx">リュッケルトはリュートの装飾を<b>取り変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F90</span>燃える村</td><td class="sp">モルガン</td><td class="tx">「勝利者の<b>塗り変えた</b>歴史なのだ！そしてアトビオン神は、ガリハアク様が戻れないよう音障壁を張った」</td></tr>
+<tr class="bot"><td class="pl">共通</td><td class="sp nil">—</td><td class="tx">〇〇に<b>付け変えた</b>。</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">ヴェラ</td><td class="tx">「ねえ、<b>見て見たい</b>でしょ？　ヴェラの短剣さばき…１００ＧＯＬＤで稲妻のヴェラと旅できるなんて、安いもんよぉ」</td><td class="nt" rowspan="5">「〜て見る」→「〜てみる」</td></tr>
+<tr><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="sp">アイリス</td><td class="tx">「気になるわ…さっきの人。町に<b>戻って見ましょう</b>よ」</td></tr>
+<tr><td class="pl"><span class="fn">F64</span>ノルティナ学園都市</td><td class="sp">セレーネ</td><td class="tx">「そだ！　マキバさんとこ行って、<b>聞いて見たら</b>？　マキバさんはこの町の近くの牧場で暮らしてるって聞いたわ…」</td></tr>
+<tr><td class="pl"><span class="fn">F67</span>学園内のチクタク館</td><td class="sp">リュッケルト</td><td class="tx">「ネジ、<b>巻いて見た</b>が、何も起こらないようだな？？」</td></tr>
+<tr><td class="pl"><span class="fn">F90</span>燃える村</td><td class="sp">リュッケルト</td><td class="tx">「ガリハアク神は、どうやらこの先にいるようだな…<b>進んで見よう</b>か！」</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp">ライオネル</td><td class="tx">「こいつぁ、爆薬だぜ？　<b>穴堀り</b>に使うやつだ…」</td><td class="nt">「穴堀り」→「穴掘り」</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">岩棚の中に、誰かのいたずら書きだろうか、<b>掘られた</b>言葉が…</td><td class="nt" rowspan="3">「掘られた」→「彫られた」</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">岩棚の中に<b>掘られた</b>言葉がある。</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">おや、岩棚の中に、誰かのいたずら書きだろうか、<b>掘られた</b>言葉が…</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">アイリス</td><td class="tx">「アラバステルおじさん、<b>こんにちわ</b>…」</td><td class="nt" rowspan="2">「こんにちわ」→「こんにちは」</td></tr>
+<tr><td class="pl"><span class="fn">F68</span>鳥の島</td><td class="sp">マキバ</td><td class="tx">「<b>こんにちわ</b>、王様。ごきげんいかが？」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ボビン</td><td class="tx">「あなたにやって欲しい事がある。隣の龍族の村、バルエコの、モルガンの家を<b>尋ねて</b>欲しい」</td><td class="nt">「尋ねて」→「訪ねて」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp nil">—</td><td class="tx">『…ジックリあたしの技を見てもらいましょうか。この<b>素速さ</b>をね…おほほほ…！』</td><td class="nt">「素速さ」→「素早さ」</td></tr>
+<tr><td class="pl"><span class="fn">F4</span>ボビンの船</td><td class="sp">リュッケルト</td><td class="tx">「同じだ…最初に難破した時と。まさか…この島の<b>回り</b>には、魔法の結界が張られているのか…？」</td><td class="nt">「回り」→「周り」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">旅人</td><td class="tx">「<b>小びん</b>の中の液体を飲むと、体力が回復するよ。効果は液体の色によって違うけど、旅には必需品だよ」</td><td class="nt">「小びん」(道具名は「小ビン」)</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">選択肢</td><td class="tx"><span class="q">どうする？</span><span class="op">▶ 草を<b>取る</b></span><span class="op">▶ <b>とらない</b></span></td><td class="nt">「取る」と「とらない」</td></tr>
+<tr><td class="pl"><span class="fn">F25</span>エスタンシアの音楽院</td><td class="sp">フーコー</td><td class="tx">「敵だ！　敵だ！　ものども！<b>出会え</b>ぃ！」</td><td class="nt">時代劇の決まり文句は「出合え」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">町長</td><td class="tx">「そんな事言ってるとマーリィが<b>焼く</b>ぞ。あの娘、お前に気があるようじゃからな」</td><td class="nt">「焼く」→「妬く」</td></tr>
+<tr><td class="pl"><span class="fn">F51</span>ドドルの塔</td><td class="sp nil">—</td><td class="tx">部屋に入った途端、<b>無気味</b>な息吹と共にうなり声が！</td><td class="nt">「無気味」→「不気味」</td></tr>
+<tr><td class="pl"><span class="fn">F64</span>ノルティナ学園都市</td><td class="sp">生徒</td><td class="tx">「教会のパイプオルガンの話でね…夜になると、誰も<b>引いていない</b>のに音がするんだ…」</td><td class="nt">「引いていない」→「弾いていない」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン（最終章）</td><td class="sp">バーテン</td><td class="tx">「酒でも飲んで、静かに<b>最後</b>を迎えましょう…」</td><td class="nt">「最後」→「最期」</td></tr>
+<tr><td class="pl"><span class="fn">F90</span>燃える村</td><td class="sp">モルガン</td><td class="tx">「その平和を打ち破ったのは、天空から来襲した破壊神アトビオン！　ガリハアク様は自分の領土を守るため戦われた…そして<b>破れた</b>」</td><td class="nt">「破れた」→「敗れた」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="sp">エド</td><td class="tx">「…アロン…急な話だが、わたしのかわりに、岩の島の城主を<b>勤める</b>気はないか？」</td><td class="nt">「勤める」→「務める」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="sp">ピックマン</td><td class="tx">「思い出した、サンジャックという<b>絵書き</b>…鳥や自然などの風景画を、得意にしている男だ」</td><td class="nt" rowspan="2">「絵書き」→「絵描き」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="sp">アイリス</td><td class="tx">「まあ！　あのひとが<b>絵書き</b>…」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-okuri">送り仮名</h4>
+<div class="tn">
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F13</span>蝶の森</td><td class="sp">リュッケルト</td><td class="tx">「実は、ある理由からある蝶を<b>捕え</b>なければならないんだが…その歌をもらえないだろうか？」</td><td class="nt" rowspan="4">「捕え」→「捕らえ」</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="sp">トラビス</td><td class="tx">“この場所はかつて聖者ジョリスの住まいし場所なり。またこの場所は、ジョリスが<b>捕えた</b>怪物を封じた場所なり”…本当かよ！」</td></tr>
+<tr><td class="pl"><span class="fn">F80</span>オーパスの村</td><td class="sp">老人</td><td class="tx">「この島の近くには<b>捕えた</b>海賊たちを放り込んだ、囚人島というのがあるんだ」</td></tr>
+<tr><td class="pl"><span class="fn">F82</span>要塞迷路・王宮内部</td><td class="sp">アロン</td><td class="tx">「エド城主！　貴様、俺の家族、友を<b>捕え</b>、殺した罪、今こそつぐなってもらうぞ！！」</td></tr>
+<tr><td class="pl"><span class="fn">F4</span>ボビンの船</td><td class="sp">ホイヒュー</td><td class="tx">「急に海が…風も<b>変った</b>？？？　海が荒れだしたぞ！？？」</td><td class="nt" rowspan="3">「変る」→「変わる」</td></tr>
+<tr><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp">女</td><td class="tx">「フーコーさん、<b>変って</b>しまって恐ろしい人になっちまった…」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F17</span>内臓洞窟</td><td class="sp">クイクイ</td><td class="tx">「昔は優しかったんだけどなぁ…<b>変り者</b>だったけどね」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ボビン</td><td class="tx">「…そうか…やはり、死んでいたか……で、<b>預り物</b>とは？」</td><td class="nt" rowspan="2">「預り」→「預かり」</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp nil">—</td><td class="tx">『破れた楽譜は<b>預り</b>ました。また他の島で出会えるでしょう。ボビン』</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">案内人</td><td class="tx">「ここはイントラダのギルドですが、見ての通り、<b>隣り町</b>との争いにかりだされて誰もいません」</td><td class="nt" rowspan="3">「隣り町」→「隣町」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">案内人</td><td class="tx">「ここはイントラダのギルドですが、<b>隣り町</b>との誤解がとけ、平和になって誰もいません」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">バーテン</td><td class="tx">「<b>隣り町</b>とのケンカに巻きこまれて誰も酒を飲みにこないよ…」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">アイリス</td><td class="tx">「あのぉ、洞窟の<b>入り口</b>に魔法がかかっている…その魔法をどうすればいいか、知っています？」</td><td class="nt" rowspan="2">「入り口」と「入口」が混ざっている</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">リュッケルト</td><td class="tx">「じゃあ、この近くの、<b>入口</b>に魔法がかかった洞窟、あれが“怒れる岩屋”なのか知ってますか？」</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">ここには、さらに地下への階段があったらしい。しかし今は<b>埋って</b>しまっている。</td><td class="nt">「埋って」→「埋まって」</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">体力はだいぶ減ったが、<b>埋れた</b>階段は元のように掘り起こされた。</td><td class="nt">「埋れた」→「埋もれた」</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ボビン</td><td class="tx">「ああ、あんた、頼むよ！　あいつを、<b>取り押えて</b>くれんか？お礼はするぞ」</td><td class="nt">「取り押えて」→「取り押さえて」</td></tr>
+<tr><td class="pl"><span class="fn">F5</span>龍族の村バルエコ</td><td class="sp">アーノスタル</td><td class="tx">「我が名はアーノスタル、血こそ薄いが、わたしも龍族の一員。旅人よ、我が館に<b>憩</b>あれ」</td><td class="nt">「憩」→「憩い」</td></tr>
+<tr><td class="pl"><span class="fn">F28</span>音の森</td><td class="sp">ライオネル</td><td class="tx">「おや…この曲、<b>聞覚え</b>があるぞ。ウーム、酒でも飲めば、思いだすかもしれないなぁ」</td><td class="nt">「聞覚え」→「聞き覚え」</td></tr>
+<tr><td class="pl"><span class="fn">F33</span>エスタンシア城室内</td><td class="sp nil">—</td><td class="tx">扉は固く<b>閉って</b>いる。</td><td class="nt">「閉って」→「閉まって」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="sp">アーノスタル</td><td class="tx">「２つめの歌のある場所、<b>時の止った湖</b>は、おそらく休火山島で発見されるだろう。いいか、忘れるな！“時の止まった湖”だ」</td><td class="nt">「時の止った湖」→「止まった」(同じセリフの後半は「止まった」)</td></tr>
+<tr><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="sp">マキバ</td><td class="tx">「鳥たちよ！　<b>来れ</b>！」</td><td class="nt">「来れ」→「来たれ」</td></tr>
+<tr><td class="pl"><span class="fn">F81</span>オーパスの山道</td><td class="sp">アロン</td><td class="tx">「ああ、いいとも。気持ちが<b>決った</b>ら、いつでもここへ来てくれ」</td><td class="nt">「決った」→「決まった」</td></tr>
+<tr><td class="pl"><span class="fn">F89</span>囚人島地下洞窟</td><td class="sp">囚人２</td><td class="tx">「非常ベルだ！　<b>立話</b>をしているヒマはない…スカルマスターはやっつけたが、ヤツの手下はまだいる！」</td><td class="nt">「立話」→「立ち話」</td></tr>
+<tr><td class="pl"><span class="fn">F96</span>港町アデン（エピローグ）</td><td class="sp">アロン</td><td class="tx">「えーと、おとりこみの最中、<b>申訳</b>ないが、お２人さん。俺は先に行くぜ」</td><td class="nt">「申訳」→「申し訳」</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-daku">濁点</h4>
+<div class="tn">
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">案内人</td><td class="tx">「エニクラウドは、ターン<b>アンデット</b>の魔法を使えるから、<b>アンデット</b>の多い洞窟では活躍するよ」</td><td class="nt">「アンデット」→「アンデッド」(技の名前は「ターンアンデッド」)</td></tr>
+<tr><td class="pl">武器の名前</td><td class="sp nil">—</td><td class="tx">バスタード<b>ソート</b></td><td class="nt">「ソート」→「ソード」(F1 の武器屋のセリフでは「バスタードソード」)</td></tr>
+<tr><td class="pl">モンスターの名前</td><td class="sp nil">—</td><td class="tx">闇<b>ビック</b></td><td class="nt">「ビック」→「ビッグ」</td></tr>
+<tr><td class="pl">モンスターの名前</td><td class="sp nil">—</td><td class="tx">闇<b>グレード</b></td><td class="nt">闇リトル・闇ミドル・闇ビッグの並びなら「グレート」(great)。「グレード」は等級の意味</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-party">表記ゆれ: パーティーとパーティ</h4>
+<div class="tn">
+<p>伸ばす「パーティー」と伸ばさない「パーティ」が、どちらもたくさん使われている。</p>
+<p class="tsub">「パーティー」のグループ</p>
+<div class="tw"><table class="typo pty">
+<tr><th>場所</th><th>話者</th><th>セリフ</th></tr>
+<tr><td class="pl"><span class="fn"><i>F1</i>・<i>F8</i>・<i>F20</i>・<i>F27</i>・<i>F40</i></span>各地のギルド</td><td class="sp nil">—</td><td class="tx">『現在リュッケルトの<b>パーティー</b>に雇われ中』</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">リュッケルト</td><td class="tx">「わわっ！？」<b>パーティー</b>全員が虫に刺されてしまった…</td></tr>
+<tr><td class="pl"><span class="fn">F14</span>リンリン草の草原</td><td class="sp nil">—</td><td class="tx">なにかが足元で爆発し、<b>パーティー</b>は皆、軽い傷を負った。</td></tr>
+<tr><td class="pl"><span class="fn">F17</span>内臓洞窟</td><td class="sp nil">—</td><td class="tx">箱からでた青い霧が<b>パーティー</b>を包んだ…。</td></tr>
+<tr><td class="pl"><span class="fn">F18</span>ゴーレムの村</td><td class="sp nil">—</td><td class="tx">うわ！　箱の中から黒い煙が飛び出し、<b>パーティー</b>を包んだ…。</td></tr>
+<tr><td class="pl"><span class="fn">F29</span>グレゴリアの村</td><td class="sp nil">—</td><td class="tx">そうか、この娘を<b>パーティー</b>のメンバーに加えればいいのだな。</td></tr>
+<tr><td class="pl"><span class="fn">F41</span>フエダの森</td><td class="sp nil">—</td><td class="tx"><b>パーティー</b>は無事洞窟に入った。</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx"><b>パーティー</b>全員のＨＰが減った。</td></tr>
+<tr><td class="pl"><span class="fn">F43</span>捨てられた坑道</td><td class="sp nil">—</td><td class="tx">強い光とともに、<b>パーティー</b>全員の肉体に力が満ちて来た…！</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx"><b>パーティー</b>全員のＨＰが回復した</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx"><b>パ－ティ－</b>は逃げだした！</td></tr>
+<tr><td class="pl">メニュー</td><td class="sp nil">—</td><td class="tx"><b>パ－ティ－</b>メンバ－</td></tr>
+</table></div>
+<p class="tsub">「パーティ」のグループ</p>
+<div class="tw"><table class="typo pty">
+<tr><th>場所</th><th>話者</th><th>セリフ</th></tr>
+<tr><td class="pl"><span class="fn"><i>F11</i>・<i>F27</i>・<i>F60</i>・<i>F63</i></span>各地のギルド</td><td class="sp nil">—</td><td class="tx">『現在リュッケルトの<b>パーティ</b>に雇われ中』</td></tr>
+<tr><td class="pl"><span class="fn"><i>F22</i>・<i>F26</i>・<i>F45</i>・<i>F48</i>・<i>F49</i>・<i>F51</i>・<i>F53</i></span>各地の宝箱</td><td class="sp nil">—</td><td class="tx">うわ！箱の中から真っ黒な煙が飛び出し、<b>パーティ</b>を包んだ！</td></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">ホイヒュー</td><td class="tx">「さぁて、んではオレは、このへんで<b>パーティ</b>から抜けますぜぇ～」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp nil">—</td><td class="tx"><b>パーティ</b>は５００ＧＯＬＤ手に入れた。</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="sp">アイリス</td><td class="tx">「じゃ、わたしのかわりに<b>パーティ</b>に入って…ちょっと、ここで調べたい事ができたの」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F36</span>リンリン草の草原</td><td class="sp nil">—</td><td class="tx">なにかが足元で爆発し、<b>パーティ</b>は皆、軽い傷を負った。</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-kigou">記号・括弧・句読点・改行</h4>
+<div class="tn">
+<p>セリフの<span class="kb">｜</span> は原文の改行の位置(ページの切れ目も含む)。</p>
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ディック<small>南の浜辺</small></td><td class="tx">「リュートの調子はどうですかな<span class="kb">｜</span><b>？</b>　歌い手にとって、伴奏楽器は友達より大切ですからな」</td><td class="nt" rowspan="6">太字の字が行の頭に来る</td></tr>
+<tr><td class="pl"><span class="fn">F14</span>リンリン草の草原</td><td class="sp nil">—</td><td class="tx">なにかが足元で爆発し、パーティ<span class="kb">｜</span><b>ー</b>は皆、軽い傷を負った。</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">ヴェラ</td><td class="tx">「あんたも、運がいいわぁ…このヴ<span class="kb">｜</span><b>ェ</b>ラをたった１００Ｇで仲間にできるンですもんねぇ…で、これからどこへ行くの？」</td></tr>
+<tr><td class="pl"><span class="fn">F55</span>レイエンダの山道</td><td class="sp">フィデレ</td><td class="tx">「あれー？　うまくいかないなー？<span class="kb">｜</span><b>？？</b>」</td></tr>
+<tr><td class="pl"><span class="fn">F45</span>沼地</td><td class="sp">トラビス</td><td class="tx">「よし、とりあえずイントラダの町に行って、沼地用の装備を整えないといけないな。イントラダは、ここ<span class="kb">｜</span><b>を</b>北に行ってすぐの場所だよ。右の道を通って回っていけばいい」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">ウルフ</td><td class="tx">「ありがとうよ。あんたたちには感謝してもしきれない…。あんたたちの旅の成功を祈ってい<span class="kb">｜</span><b>るぜ</b>」</td></tr>
+<tr><td class="pl"><span class="fn"><i>F82</i>・<i>F85</i></span>要塞迷路・囚人島</td><td class="sp nil">—</td><td class="tx">箱を開けると、中にはのどあめ<b>Ｄ</b><span class="kb">｜</span><b>Ｘ</b>が入っていた。</td><td class="nt" rowspan="2">英単語の途中で改行している</td></tr>
+<tr><td class="pl"><span class="fn">F88</span>地下湖底</td><td class="sp">かわうそ僧侶</td><td class="tx">「ここは寺院だぴょん。１５<b>ＧＯＬ</b><span class="kb">｜</span><b>Ｄ</b>で呪いを解くぴょん」</td></tr>
+<tr><td class="pl"><span class="fn">F63</span>ノルティナ学園都市</td><td class="sp">教師</td><td class="tx">「やはり、あのモーロックって男…ただ者じゃなかったか！　やつの作っていた妙な派閥、実は黒魔術の<b>仲</b><span class="kb">｜</span><b>間</b>だったらしいなあ…」</td><td class="nt">「仲」と「間」の間で2ページ目になる</td></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">案内人</td><td class="tx">「ここはドミナントのギルドです。ここで仲間の雇用などができます。</td><td class="nt" rowspan="4">閉じ括弧が無い</td></tr>
+<tr><td class="pl"><span class="fn">F63</span>ノルティナ学園都市</td><td class="sp">女<small>町の東</small></td><td class="tx">「ねえ…やな話、聞いたんだけど…このあたりで、神隠しがはやってるって…</td></tr>
+<tr><td class="pl"><span class="fn">F86</span>磨き石の洞窟</td><td class="sp">かわうその磨き手</td><td class="tx">「よしできた！　じゃ、持って来な！</td></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">ディック</td><td class="tx">「ほら、このパーツです…材料費がありますので、無料というわけにはいきませんがね。</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="sp">トラビス</td><td class="tx">　“この場所はかつて聖者ジョリスの住まいし場所なり。またこの場所は、ジョリスが捕えた怪物を封じた場所なり”…本当かよ！」</td><td class="nt" rowspan="2">2ページ目に開き括弧(「)が無い(閉じ括弧だけある)</td></tr>
+<tr><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp">男</td><td class="tx">　この間の奴らなんか、古い楽器やキャンプ用の古鍋を、隣の森に捨てていっちまうんだから！」</td></tr>
+<tr><td class="pl"><span class="fn">F24</span>エスタンシアの下水道</td><td class="sp nil">—</td><td class="tx">大きなハンドルがある。ハンドルはしっかりとボルトで固定されている</td><td class="nt" rowspan="4">文末に句点が無い</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx">〇〇は呪いが解けなかった</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx">〇〇は呪いが解けた</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx">パーティー全員のＨＰが回復した</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">ヴェラ</td><td class="tx">「ヴェラのすばやさをぜひとも見て欲しいわね。なんてったって、人呼んで<b>”</b>稲妻のヴェラ<b>”</b>ってくらいだから…」</td><td class="nt" rowspan="2">引用符が閉じ記号「”」2つ(ほかは“…”)</td></tr>
+<tr><td class="pl"><span class="fn">F52</span>カリンダの村</td><td class="sp">アーノスタル</td><td class="tx">「泥族なら、ひょっとして<b>”</b>怒れる岩屋<b>”</b>のことを知っているかも知れない。泥族を捜してみろ」</td></tr>
+<tr><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp nil">—</td><td class="tx">ピックマン<b>『</b>灰色の絶望の景色は至上の美味、高等な絵画には旅が肝要。このすばらしい芸術家の旅仲間求む！<b>』</b></td><td class="nt">括弧が『』(ほかのピックマンは「」)</td></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">クイクイ</td><td class="tx">「あっかんべー<b>－</b><b>－</b><b>－</b><b>－</b>」</td><td class="nt" rowspan="4">長音「ー」が全角マイナス「－」になっている</td></tr>
+<tr><td class="pl">共通</td><td class="sp nil">—</td><td class="tx">パ<b>－</b>ティ<b>－</b>は逃げだした！</td></tr>
+<tr><td class="pl">メニュー</td><td class="sp nil">—</td><td class="tx">パ<b>－</b>ティ<b>－</b>メンバ<b>－</b></td></tr>
+<tr><td class="pl">技の名前</td><td class="sp nil">—</td><td class="tx">ファイア<b>－</b>ボール</td></tr>
+<tr><td class="pl"><span class="fn">F13</span>蝶の森</td><td class="sp">リュッケルト</td><td class="tx">「おや？蝶が<b>．．．</b>。間違いない、ここが蝶の森だな…」</td><td class="nt" rowspan="3">三点リーダ「…」が全角ピリオド「．．．」になっている</td></tr>
+<tr><td class="pl"><span class="fn">F13</span>蝶の森</td><td class="sp">リュッケルト</td><td class="tx">「おや？蝶が<b>．．．</b>」</td></tr>
+<tr><td class="pl"><span class="fn">F71</span>山頂の洞窟</td><td class="sp nil">—</td><td class="tx">ＺＺＺ<b>．．．</b></td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F2</span>アルカナの山道</td><td class="sp">ホイヒュー</td><td class="tx">「あの娘…」</td><td class="nt">話者名の後の改行(／)が無く、「ホイヒュー「あの娘…」」と1行になっている</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-space">表記ゆれ: 「！」「？」の後の空白</h4>
+<div class="tn">
+<p>ほとんどのセリフは「！」「？」の後に全角の空白を1つ空けているが、空けていない所がある。</p>
+<p class="tsub">「！」の後に空白が無い</p>
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">クイクイ</td><td class="tx">「なんだよ<b>！</b>へーんだ！」</td></tr>
+<tr><td class="pl"><span class="fn">F11</span>ドミナントの村</td><td class="sp">クイクイ</td><td class="tx">「シベリンちゃんを助けなきゃ<b>！</b>木霊グモの網だって<b>！</b>北の洞窟、北の洞窟だよ！」</td></tr>
+<tr><td class="pl"><span class="fn">F12</span>クモの洞窟</td><td class="sp">アイリス</td><td class="tx">「見て<b>！</b>大グモが現れたわよ！？」</td></tr>
+<tr><td class="pl"><span class="fn">F35</span>リンリン草の草原</td><td class="sp">エニクラウド</td><td class="tx">「ううむ、これは…本で読んだ事があるぞ<b>！</b>リンリン草かぁ…メモメモ」</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">反乱軍の男</td><td class="tx">「すばらしい<b>！</b>あんたたちは英雄だ！」</td></tr>
+<tr><td class="pl"><span class="fn"><i>F22</i>・<i>F26</i>・<i>F45</i>・<i>F48</i>・<i>F49</i>・<i>F51</i>・<i>F53</i></span>各地の宝箱</td><td class="sp nil">—</td><td class="tx">うわ<b>！</b>箱の中から真っ黒な煙が飛び出し、パーティを包んだ！</td></tr>
+<tr><td class="pl"><span class="fn">F23</span>強制収容所</td><td class="sp">反乱軍の男</td><td class="tx">「しーっ<b>！</b>まだ早い。酒場のロウ様と打ち合わせをしてくれ…」</td></tr>
+<tr><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">男</td><td class="tx">「お！　お前たち、よそ者か！？　ホタの者だろう<b>！</b>お前が像を盗んだんだな！？　おーい、みんな！」</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="sp">団員</td><td class="tx">「皆<b>！</b>ここだ<b>！</b>怪しい奴らだぞ！」</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="sp">女</td><td class="tx">「聞いたわよ<b>！</b>すごい、すごいわ！　あんたたち、コール団よりカッコイイわ！」</td></tr>
+<tr><td class="pl"><span class="fn">F47</span>泥の町ホタ</td><td class="sp">団員</td><td class="tx">「素晴らしい<b>！</b>あんたたちは素晴らしい<b>！</b>ウルフさんばかりか、ロミーさんまで助けるとは…」</td></tr>
+<tr><td class="pl"><span class="fn">F54</span>レイエンダの村</td><td class="sp">男</td><td class="tx">「をを<b>！</b>こんなに、たくさん。ワシ、うれしい。お礼に、これ、やる」</td></tr>
+<tr><td class="pl"><span class="fn">F60</span>港町マジョーレ</td><td class="sp">マキバ</td><td class="tx">「頑張ってくれ<b>！</b>大願が成就されることを牧場から祈っているよ。君たちとの旅は、とても楽しかった…」</td></tr>
+<tr><td class="pl"><span class="fn">F95</span>バルエコの森</td><td class="sp">エド</td><td class="tx">「先刻承知<b>！</b>罪を償うには体をもって示すのみ！」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F46</span>沼の町イントラダ</td><td class="sp">マーリィ</td><td class="tx">「なによ<b>！</b>あんたがはっきりしないから…　実はね、わたしたち結婚することにしたの」</td></tr>
+<tr class="bot"><td class="pl"><span class="fn">F69</span>ノルティナの山道</td><td class="sp">サンジャック</td><td class="tx">「そんなことは、ほれ、そこに立っているマキバに聞け<b>！</b>わしよりよっぽど詳しいだろう」</td></tr>
+</table></div>
+<p class="tsub">「？」の後に空白が無い</p>
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th></tr>
+<tr><td class="pl"><span class="fn">F1</span>港町アデン</td><td class="sp">旅人<small>北門の近く</small></td><td class="tx">「悲しいことだね…。あんたも旅立つのかい<b>？</b>頑張って目的を達成しなよ。オレもこれから旅立つよ」</td></tr>
+<tr><td class="pl"><span class="fn"><i>F2</i>・<i>F7</i>・<i>F11</i>・<i>F19</i></span>各地</td><td class="sp nil">—</td><td class="tx">おや<b>？</b>何かが落ちている…</td></tr>
+<tr><td class="pl"><span class="fn">F7</span>バルエコの山道</td><td class="sp">アイリス</td><td class="tx">「何かしら<b>？</b>このあたりに虫がたくさん飛び回っているわ？」</td></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">クイクイ</td><td class="tx">「どもども！　やとって、やとってよ～。おじさんたち、フォープキンを捜しているんだって<b>？</b>ムフフ！」</td></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">老人</td><td class="tx">「なに<b>？</b>スカイヘッド達に捕まったと<b>？</b>それで無事に戻って来たとな<b>？</b>おぬしら一体何者だ…？」</td></tr>
+<tr><td class="pl"><span class="fn">F13</span>蝶の森</td><td class="sp">リュッケルト</td><td class="tx">「おや<b>？</b>蝶が．．．。間違いない、ここが蝶の森だな…」</td></tr>
+<tr><td class="pl"><span class="fn">F13</span>蝶の森</td><td class="sp">リュッケルト</td><td class="tx">「おや<b>？</b>蝶が．．．」</td></tr>
+<tr><td class="pl"><span class="fn">F20</span>エスタンシアの町</td><td class="sp">ヴェラ</td><td class="tx">「ハイ…なにか用<b>？</b>もしかしてヴェラを雇ってくれるの？　絶対に損はさせないわよ」<br>「ねえ、雇ってくれるわよね<b>？</b>ね…？　あなた、とってもやさしそうだから、きっとヴェラを雇ってくれるわね？」</td></tr>
+<tr><td class="pl"><span class="fn"><i>F20</i>・<i>F27</i>・<i>F29</i></span>各地</td><td class="sp">リュッケルト</td><td class="tx">「おや…<b>？</b>ポケットに何か入っている。どうやら書き置きのようだ」</td></tr>
+<tr><td class="pl"><span class="fn">F27</span>フォリアの村</td><td class="sp">行商人</td><td class="tx">「薬はいらんかね<b>？</b>安くしておくよ」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">男</td><td class="tx">「やあ、トラビスはどうしてる<b>？</b>元気でやってるかな？」</td></tr>
+<tr><td class="pl"><span class="fn">F40</span>フエダの町</td><td class="sp">男</td><td class="tx">「やあ、いいものを持っているんだが、買わないかい<b>？</b>１０ＧＯＬＤでどうだい？」</td></tr>
+<tr><td class="pl"><span class="fn">F51</span>ドドルの塔</td><td class="sp nil">—</td><td class="tx">おや<b>？</b>死体のふところに楽譜が…</td></tr>
+</table></div>
+<p class="tsub">そのほか</p>
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F8</span>クーテの村</td><td class="sp">番頭</td><td class="tx">「いらっしゃいませ。ご宿泊でございましょうか<b>？  </b>お一人様２ゴールドでお泊まりになれます」</td><td class="nt">「？」の後が半角の空白2つ</td></tr>
+</table></div>
+</div>
+
+<h4 id="typo-maybe">誤植かも</h4>
+<div class="tn">
+<p>解釈によっては正解とも取れるセリフ群。</p>
+<div class="tw"><table class="typo">
+<tr><th>場所</th><th>話者</th><th>セリフ</th><th>指摘</th></tr>
+<tr><td class="pl"><span class="fn">F15</span>クーテの山道</td><td class="sp">フォープキン</td><td class="tx">「お前等がおかしくてね…わざわざこんなところまで、災難に<b>会いにくる</b>なんてね…」</td><td class="nt">「災難に遭いにくる」の誤り。ただし、自らを災難と称した詩的な一文の可能性</td></tr>
+<tr><td class="pl"><span class="fn">F50</span>ジョリスの洞窟</td><td class="sp">ウルフ</td><td class="tx">「俺は…あやまって上の穴からここに落ちたんだ…その扉、鍵がかかっていて俺は<b>出れなく</b>なった…」</td><td class="nt">ら抜き言葉で、正しくは「出られなく」。ウルフの砕けた話し方なら違和感はない</td></tr>
+<tr><td class="pl"><span class="fn">F54</span>レイエンダの村</td><td class="sp">長・フィデレ・男</td><td class="tx">「<b>食料</b>足りない、足りない足りない<b>食料</b>足りない…フウ」<br>「怒れる岩屋？　……<b>食料</b>取ってきたら、教える」<br>ほか</td><td class="nt">本来は「食糧」と書きたい所だが、「食料」も広く使われる表記で、間違いとまでは言えない</td></tr>
+<tr><td class="pl"><span class="fn">F54</span>レイエンダの村</td><td class="sp">フィデレ</td><td class="tx">「えーい<b>うっとおしい</b>！　村長さん聞こえてる？　あたしたち、怒れる岩屋の場所、知りたいんだけど！」</td><td class="nt">辞書どおりなら「うっとうしい」。フィデレの勢いある口ぶりには、むしろ合っている</td></tr>
+<tr><td class="pl">武器の名前</td><td class="sp nil">—</td><td class="tx"><b>爆烈</b>弓<br><b>爆烈</b>大弓</td><td class="nt">辞書にあるのは「爆裂」。「烈」(激しい)を当てた造語か。技名や武器名ではおなじみの書き方だ</td></tr>
+<tr><td class="pl"><span class="fn">F91</span>ガリハアクの洞窟</td><td class="sp">リュッケルト</td><td class="tx">「…わかった！！　アイリスが頑張るなら、<b>俺</b>もやってやる！！　よし、行くぞ！」</td><td class="nt">普段の一人称は「私」。最後の最後で覚醒したらしい</td></tr>
+</table></div>
 </div>
 
 </div>
