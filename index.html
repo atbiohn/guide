@@ -398,15 +398,21 @@ var SITE='https://atbiohn.goatcounter.com',KEY='ode-counted',DAY=86400000;
 var cells=document.querySelectorAll('#ode-cnt .num i');
 function show(n){var s=String(n);while(s.length<cells.length)s='0'+s;s=s.slice(-cells.length);for(var i=0;i<cells.length;i++)cells[i].textContent=s.charAt(i);}
 if(location.protocol==='file:'){show(573);return;}
+// 数える名前: /guide/ と /guide/index.html を同じ「/guide」にそろえる
+var P=location.pathname.replace(/index\.html$/,'').replace(/\/$/,'')||'/';
 var last=0;try{last=+localStorage.getItem(KEY)||0}catch(e){}
 var fresh=Date.now()-last>DAY;
 if(fresh){
  try{localStorage.setItem(KEY,String(Date.now()))}catch(e){}
  var sc=document.createElement('script');sc.async=true;sc.src='https://gc.zgo.at/count.js';
- sc.setAttribute('data-goatcounter',SITE+'/count');document.body.appendChild(sc);
+ sc.setAttribute('data-goatcounter',SITE+'/count');
+ sc.setAttribute('data-goatcounter-settings',JSON.stringify({path:P}));document.body.appendChild(sc);
 }
-fetch(SITE+'/counter/TOTAL.json').then(function(r){return r.ok?r.json():Promise.reject(r.status)}).then(function(d){
- var n=parseInt(String(d.count).replace(/\D/g,''),10)||0;
+// 合計(TOTAL.json)は 0 のまま動かなかったので、トップのページの数を使う。
+// 前に /guide/index.html の名前で数えた分も足す(今は P の名前1つにそろえて数える)
+function get(p){return fetch(SITE+'/counter/'+encodeURIComponent(p)+'.json').then(function(r){return r.ok?r.json():{count:'0'}}).then(function(d){return parseInt(String(d.count).replace(/\D/g,''),10)||0}).catch(function(){return 0});}
+Promise.all([get(P),get(P==='/'?'/index.html':P+'/index.html')]).then(function(a){
+ var n=a[0]+a[1];
  if(fresh)n+=1;
  // GoatCounter の集計は少し遅れるので、前に見せた数より小さくならないようにする
  var mine=0;try{mine=+localStorage.getItem('ode-cnt-n')||0}catch(e){}
