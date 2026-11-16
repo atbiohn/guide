@@ -42,7 +42,7 @@
 </style>
 <div class="ode-skill">
 <h2>敵の技一覧</h2>
-<p>敵が使う技の一覧。使う敵の後ろの%は、その敵が1回の行動でその技を選ぶ確率。仲間の技・必殺技はキャラの一覧に載せている。<br>威力: 攻撃の技はダメージの計算に使う値(下の計算)、回復の技はそのまま回復量。「*」はバグで本来と違う値(効果の欄に本来の値)。<br>効果ターン: かかったターンの残りに加えて、その後に続くターン数(例: 1 なら、かかったターンと次のターンの間、効果が続く)。</p>
+<p>敵が使う技の一覧。使う敵の後ろの%は、その敵が1回の行動でその技を選ぶ確率。仲間の技・必殺技はキャラの一覧に載せている。<br>威力: 攻撃の技はダメージの計算に使う値(下の計算)、回復の技はそのまま回復量。「*」はバグで本来と違う値(効果の欄に本来の値)。<br>効果ターン: かかったターンの残りに加えて、その後に続くターン数(例: 1 なら、かかったターンと次のターンの間、効果が続く)。<br>成功率: 判定のある技は、効果の欄に<span class="nt2">緑の字</span>で書いた。書いていない技(属性の攻撃技・回復の技など)は必ず効く。耐性は受けるキャラの値(装備の中で一番小さい値)。</p>
 <details class="calc">
 <summary><b>敵の攻撃技のダメージ</b></summary>
 <p class="ex">割り算の端数は切り捨て</p>
@@ -80,7 +80,7 @@
 <tr class=""><td class="nm nm">スクリーン</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn">3</td><td class="ef ef">仲間の敵1体が受ける、通常攻撃のダメージを0にする</td><td class="who who"><span class="w">ミラーズ 30%</span></td></tr>
 <tr class=""><td class="nm nm">召喚</td><td class="c at">—</td><td class="c tg2">—</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">自分と同じモンスターを1体呼ぶ<div class="nt">呼ばれる枠は、前列の左から右、次いで後列の左から右の順に調べて、最初に見つかった「最初から空いている枠」か「同じ種類の敵が倒された枠」。ほかの種類の敵が倒された枠には呼ばない。当てはまる枠がないときは、召喚を選んだ分の確率が通常攻撃に置き換わる</div><div class="nt" style="margin-top:.7em">経験値は戦闘の終わりに6つの枠を数えるので、何体呼ばれても6体分まで</div></td><td class="who who"><span class="w">モノアイ 15%</span> <span class="w">ハンガン 20%</span> <span class="w">坑夫の亡霊 10%</span> <span class="w">フライアイ 15%</span> <span class="w">ビッグアイ 15%</span></td></tr>
 <tr class=""><td class="nm nm">アクセル</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">ランダムな相手に通常攻撃を3回(1回ずつ命中の判定があり、ミスもある)</td><td class="who who"><span class="w">ポルポス 20%</span> <span class="w">赤ポルポス 30%</span> <span class="w">からくり男爵 30%</span></td></tr>
-<tr class=""><td class="nm nm">エナジードレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPを吸い取る(量 = 使った敵のレベル)</td><td class="who who"><span class="w">ソウルイーター 80%</span> <span class="w">ダフニ 20%</span> <span class="w">ソウルスワロー 30%</span> <span class="w"><span class="tg tdm">没</span>ソウルイーターの魂 80%</span> <span class="w"><span class="tg tdm">没</span>ダフニの魂 20%</span></td></tr>
+<tr class=""><td class="nm nm">エナジードレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPを吸い取る(量 = 使った敵のレベル)<div class="nt2">成功率 = 特殊技耐性(例: 60 なら 60%)。失敗すると吸い取る量が0</div></td><td class="who who"><span class="w">ソウルイーター 80%</span> <span class="w">ダフニ 20%</span> <span class="w">ソウルスワロー 30%</span> <span class="w"><span class="tg tdm">没</span>ソウルイーターの魂 80%</span> <span class="w"><span class="tg tdm">没</span>ダフニの魂 20%</span></td></tr>
 <tr class=""><td class="nm nm">ノイズ</td><td class="c at">—</td><td class="c tg2">全体</td><td class="n pw"></td><td class="c tn">1</td><td class="ef ef">歌を使えなくする(必中)</td><td class="who who"><span class="w">セミ法師 30%</span> <span class="w">ツク法師 60%</span> <span class="w">雑音草 60%</span> <span class="w">音返し 20%</span> <span class="w">無音草 60%</span> <span class="w">モーロック 25%</span> <span class="w">吸音ゴケ 55%</span> <span class="w">反響ゴケ 40%</span> <span class="w">ノイズ植物 60%</span></td></tr>
 <tr class="sec sub"><td colspan="7">使う敵のいない技(仲間の技や道具使用時にこのデータが引用されている)</td></tr>
 <tr class="un"><td class="nm nm">ヒール３</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw">100</td><td class="c tn"></td><td class="ef ef">HPを回復</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
@@ -98,9 +98,9 @@
 <tr class="un"><td class="nm nm">クラッカー</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw">25</td><td class="c tn"></td><td class="ef ef">ダメージ</td><td class="who who"><span class="w"><span class="tg tdm">没</span>ダフニの魂 20%</span></td></tr>
 <tr class="un"><td class="nm nm">スローダウン</td><td class="c at">—</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">素早さを半分にする</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
 <tr class="sec sub"><td colspan="7">没の技(一切使われない)</td></tr>
-<tr class="dm"><td class="nm nm">ダブルドレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPを吸い取る(量 = 使った敵のレベル)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
-<tr class="dm"><td class="nm nm">スチール</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">吸い取る(量 = 使った敵のレベル。何を取るかは未解析)</td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="dm"><td class="nm nm">ダブルドレイン</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">HPとSPを吸い取る(量 = 使った敵のレベル)<div class="nt">SPが減るのはリュッケルトに当たったときだけ。HPとSPが同じ量ずつ減り、敵はHPの分だけ回復する。SPは0より下にならない</div><div class="nt2">成功率 = 特殊技耐性(例: 60 なら 60%)。失敗すると吸い取る量が0</div></td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
+<tr class="dm"><td class="nm nm">スチール</td><td class="c at">特殊</td><td class="c tg2">1体</td><td class="n pw"></td><td class="c tn"></td><td class="ef ef">お金を盗む(額 = 使った敵のレベル)。HPは減らない<div class="nt">パーティーにリュッケルトがいれば、必ずリュッケルトを狙う。盗んだお金は敵にも渡らず、ただ消える。所持金は0より下にならない</div><div class="nt2">成功率 = 特殊技耐性。失敗すると盗む額が0</div></td><td class="who who"><span class="dim">使う敵なし</span></td></tr>
 </table></div>
 </div>
-<!-- 完成版(2026-10-09 手で最終調整済み。2026-10-10 上部の枠を ▼ でたたむ形に。2026-10-11 召喚の枠の順を追記)。スクリプトで上書きしない -->
+<!-- 完成版(2026-10-09 手で最終調整済み。2026-11-16 成功率の緑の注・スチール(お金)・ダブルドレイン(HPとSP)を足して印を更新。2026-10-10 上部の枠を ▼ でたたむ形に。2026-10-11 召喚の枠の順を追記)。スクリプトで上書きしない -->
 <script src="menu.js"></script>
