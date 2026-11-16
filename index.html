@@ -407,7 +407,12 @@ if(fresh){
 }
 fetch(SITE+'/counter/TOTAL.json').then(function(r){return r.ok?r.json():Promise.reject(r.status)}).then(function(d){
  var n=parseInt(String(d.count).replace(/\D/g,''),10)||0;
- show(fresh?n+1:n);
+ if(fresh)n+=1;
+ // GoatCounter の集計は少し遅れるので、前に見せた数より小さくならないようにする
+ var mine=0;try{mine=+localStorage.getItem('ode-cnt-n')||0}catch(e){}
+ if(n<mine)n=mine;
+ try{localStorage.setItem('ode-cnt-n',String(n))}catch(e){}
+ show(n);
 }).catch(function(){});
 })();
 </script>
